@@ -1,0 +1,35 @@
+---
+type: Index
+title: Standards
+description: Index of cross-project canonical standards.
+resource: okf/standards/index.md
+tags: [index, standards]
+timestamp: 2026-06-19T10:30:00Z
+linear_issue: GRO-2039
+git_repo: mbgulden/growthwebdev-knowledge
+git_path: okf/standards/index.md
+last_verified: 2026-06-19
+verified_by: fred
+status: current
+---
+
+# Standards
+
+Cross-project canonical standards. Each standard lives in `okf/standards/` and
+is referenced by project-specific docs.
+
+| Standard | OKF location | Linear |
+|---|---|---|
+| Review-loop codification | [`./review-loop-canonical.md`](./review-loop-canonical.md) | GRO-2024 |
+| Linear rate-limit codification | [`./linear-rate-limit.md`](./linear-rate-limit.md) | GRO-2008/2010/2020/2034 |
+
+## What counts as a "standard"
+
+A standard is a cross-project invariant: if you don't follow it, you break
+something shared. Examples:
+
+- The review loop (Worker → AGY peer review → Fred verify → Done).
+- The LinearBudget gate (every Linear GraphQL call goes through `check_and_consume`).
+
+A standard is *not* a project-specific runbook or architecture decision.
+Those go in project `okf/` or `okf/decisions/` respectively.

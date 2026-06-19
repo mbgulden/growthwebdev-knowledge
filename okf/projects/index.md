@@ -34,3 +34,12 @@ Each project has a per-project OKF index doc plus a spoke repo with its own
 Each spoke contains an `index.md` plus subdirectories `reports/`, `audits/`,
 `research/` as those materials accumulate. Cross-project docs (standards,
 decisions, integrations, shared research) live in the hub.
+
+
+## Private bundles
+
+Some initiatives have sensitive competitive intelligence that shouldn't live in the public hub. These live in dedicated private repos:
+
+| Bundle | Description | Repo |
+|---|---|---|
+| [AOT SEO/GEO Initiative](../aot-seo-knowledge) | Private OKF bundle for the Active Oahu Tours SEO, GEO, and AI-search initiative. Contains baseline audits, 6-month strategy, competitive analysis, photo-library mapping, automation stack. | [`mbgulden/aot-seo-knowledge`](https://github.com/mbgulden/aot-seo-knowledge) |

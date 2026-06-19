@@ -21,7 +21,9 @@ in this order) rather than an invariant (follow these rules).
 
 ## Current playbooks
 
-*None yet — populated as recurring procedures stabilize.*
+| Playbook | Description |
+|---|---|
+| [`prismatic-engine-tasks.md`](./prismatic-engine-tasks.md) | Where everything is, how to do common tasks (deploy, debug, rotate secrets, re-enable AGY) |
 
 ## Candidates (when promoted)
 

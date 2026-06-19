@@ -10,7 +10,7 @@ git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/decisions/okf-adoption.md
 last_verified: 2026-06-19
 verified_by: fred
-status: accepted
+status: current
 ---
 
 # OKF Adoption (Hub-and-Spoke)

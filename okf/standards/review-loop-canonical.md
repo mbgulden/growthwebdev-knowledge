@@ -17,7 +17,7 @@ status: current
 
 **Status:** ENFORCED in `agent_dispatcher.py` as of Jun 18 2026.
 **Enforcement point:** `agent_dispatcher.py` lines around `next_label = config.get("next_label")`
-(see [agent_dispatcher.py](../../../../orchestrator/scripts/agent_dispatcher.py)).
+(see [agent_dispatcher.py](../../../../.hermes/profiles/orchestrator/scripts/agent_dispatcher.py)).
 
 This doc is also referenced from the prismatic-engine spoke bundle:
 [`prismatic-engine/okf/review-loop-canonical.md`](https://github.com/mbgulden/prismatic-engine/blob/main/okf/review-loop-canonical.md).

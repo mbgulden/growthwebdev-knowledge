@@ -4,12 +4,12 @@ title: growthwebdev-knowledge — Master Index
 description: Master listing of all OKF concepts in the growthwebdev knowledge hub.
 resource: https://github.com/mbgulden/growthwebdev-knowledge
 tags: [index, hub, okf]
-timestamp: 2026-06-19T10:30:00Z
+timestamp: 2026-06-19T11:15:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/index.md
 last_verified: 2026-06-19
-verified_by: fred
+verified_by: kai
 status: current
 ---
 
@@ -23,6 +23,7 @@ spoke repositories.
 - [Standards](./standards/index.md) — Cross-project canonical standards
 - [Projects](./projects/index.md) — Per-project index docs (pointing at spokes)
 - [Decisions](./decisions/index.md) — Architecture decision records
+- [Integrations](./integrations/index.md) — External tool integrations (MCP servers, SaaS APIs)
 
 ## What is OKF?
 

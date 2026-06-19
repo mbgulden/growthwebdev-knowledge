@@ -22,8 +22,10 @@ is referenced by project-specific docs.
 |---|---|---|
 | Review-loop codification | [`./review-loop-canonical.md`](./review-loop-canonical.md) | GRO-2024 |
 | Linear rate-limit codification | [`./linear-rate-limit.md`](./linear-rate-limit.md) | GRO-2008/2010/2020/2034 |
+| Webhook security model | [`./webhook-security.md`](./webhook-security.md) | GRO-2057..2062 |
+| AGY peer-review standard | [`./agy-peer-review.md`](./agy-peer-review.md) | GRO-2024 |
+| Production-grade dispatch | [`./dispatch-production-grade.md`](./dispatch-production-grade.md) | GRO-2057 |
 | Event-driven dispatch architecture | [`./dispatch-architecture.md`](./dispatch-architecture.md) | GRO-2047/2048/2050 |
-| AGY peer-review standard | [`./agy-peer-review.md`](./agy-peer-review.md) | GRO-2024/2034/2040 |
 | Prismatic harness coupling taxonomy | [`./prismatic-harness-coupling-taxonomy.md`](./prismatic-harness-coupling-taxonomy.md) | GRO-2039 |
 | Prismatic journal-setup independence map | [`./prismatic-independence-map-journal-setup.md`](./prismatic-independence-map-journal-setup.md) | GRO-2039 |
 

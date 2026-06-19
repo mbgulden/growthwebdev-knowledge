@@ -21,5 +21,15 @@ Each project has a per-project OKF index doc plus a spoke repo with its own
 | Project | Index | Spoke repo |
 |---|---|---|
 | prismatic-engine | [prismatic-engine.md](./prismatic-engine.md) | [`mbgulden/prismatic-engine/okf`](https://github.com/mbgulden/prismatic-engine/tree/main/okf) |
+| active-oahu-tours | _(see active-oahu-tours-mirror/okf/)_ | [`mbgulden/active-oahu-tours/okf`](https://github.com/mbgulden/active-oahu-tours/tree/main/okf) |
+| active-oahu-static | _(see active-oahu-static/okf/)_ | [`mbgulden/active-oahu-static/okf`](https://github.com/mbgulden/active-oahu-static/tree/main/okf) |
+| hd-platform | _(see hd-platform/okf/)_ | [`mbgulden/hd-platform/okf`](https://github.com/mbgulden/hd-platform/tree/main/okf) |
+| belief-deprogrammer | _(see belief-deprogrammer/okf/)_ | [`mbgulden/belief-deprogrammer/okf`](https://github.com/mbgulden/belief-deprogrammer/tree/main/okf) |
+| beyondsaas-site | _(see beyondsaas-site/okf/)_ | [`mbgulden/beyondsaas-site/okf`](https://github.com/mbgulden/beyondsaas-site/tree/main/okf) |
+| sentinel-it-asset-logistics | _(see sentinel-it-asset-logistics/okf/)_ | [`mbgulden/sentinel-it-asset-logistics/okf`](https://github.com/mbgulden/sentinel-it-asset-logistics/tree/main/okf) |
+| darius-star | _(see darius-star/okf/)_ | [`mbgulden/darius-star/okf`](https://github.com/mbgulden/darius-star/tree/main/okf) |
+| homelab | _(see homelab/okf/)_ | [`mbgulden/homelab/okf`](https://github.com/mbgulden/homelab/tree/main/okf) |
 
-(More projects will be added as their OKF bundles land.)
+Each spoke contains an `index.md` plus subdirectories `reports/`, `audits/`,
+`research/` as those materials accumulate. Cross-project docs (standards,
+decisions, integrations, shared research) live in the hub.

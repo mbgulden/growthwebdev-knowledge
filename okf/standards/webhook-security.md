@@ -40,7 +40,7 @@ Threats addressed:
 
 ## Defense layers
 
-### 1. HMAC validation (replay + forgery)
+### 1. HMAC validation (forgery)
 
 Every webhook request must carry a valid HMAC-SHA256 signature.
 
@@ -51,7 +51,27 @@ Every webhook request must carry a valid HMAC-SHA256 signature.
 
 Comparison is constant-time via `hmac.compare_digest`.
 
-**Failure mode:** If the secret env var is unset, HMAC is skipped. This is **dev-only**. Production must set the secret. The handler logs a warning in this case (TODO: add explicit warning).
+**Failure mode:** If the secret env var is unset, HMAC is skipped. This is **dev-only**. Production must set the secret.
+
+### 1b. Replay protection (timestamp freshness)
+
+Linear's HMAC signature alone doesn't include a timestamp — so a captured valid payload+signature could be replayed indefinitely. We use the event's `createdAt` field (set by Linear at event-generation time, ISO 8601 UTC) to enforce a freshness window.
+
+| Env var | Default | Purpose |
+|---|---|---|
+| `PRISMATIC_WEBHOOK_REPLAY_WINDOW` | `300` (5 min) | Max age of an event, in seconds |
+
+| Condition | Behavior |
+|---|---|
+| `createdAt` within window | 200, processed normally |
+| `createdAt > window seconds old` | 401, audited, no dispatch |
+| `createdAt > 60s in the future` | 401, audited, no dispatch (clock-skew attack) |
+| `createdAt` absent | 200 with warning log (backward compat for old Linear events) |
+| `createdAt` unparseable | 200 with warning log |
+
+The 60s future tolerance accommodates clock skew between Linear and the engine. Anything more than 60s in the future is rejected because legitimate events never have negative age.
+
+GitHub webhook does **not** apply replay protection because GitHub includes a timestamp in their HMAC scheme (we'd add it there if needed).
 
 ### 2. Body size limit (DoS)
 
@@ -160,6 +180,10 @@ Before deploying to production:
 | `test_audit_log_appended_for_successful_dispatch` | `tests/test_webhook_security.py` | Audit record on success |
 | `test_audit_log_appended_for_rejected_bad_signature` | `tests/test_webhook_security.py` | Audit record on HMAC fail |
 | `test_audit_log_appended_for_queued_event` | `tests/test_webhook_security.py` | Audit record on queue |
+| `test_replay_protection_rejects_old_event` | `tests/test_webhook_security.py` | 401 on stale event (10 min old) |
+| `test_replay_protection_rejects_future_event` | `tests/test_webhook_security.py` | 401 on future event (clock-skew attack) |
+| `test_replay_protection_accepts_recent_event` | `tests/test_webhook_security.py` | 200 on event within window |
+| `test_replay_protection_allows_missing_createdat` | `tests/test_webhook_security.py` | 200 when createdAt absent (backward compat) |
 | `test_dispatch_calls_single_issue_helper` | `tests/test_webhook_security.py` | Verifies single-issue path |
 | `test_sanitized_error_no_stack_trace` | `tests/test_webhook_security.py` | No internal info leak |
 | `test_github_webhook_rejects_missing_signature` | `tests/test_webhook_security.py` | 401 on missing GitHub sig |

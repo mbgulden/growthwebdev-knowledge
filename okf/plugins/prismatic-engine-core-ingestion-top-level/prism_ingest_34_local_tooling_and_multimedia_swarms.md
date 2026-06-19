@@ -22,7 +22,12 @@ Relying on interactive user interfaces to tweak individual 3D models, transcode 
 
 Phase 31 bridges your generative cloud engines with an optimized local pipeline. By leveraging your local 8x RTX 3090 cluster via the agy CLI, we orchestrate headless instances of Blender, FFmpeg, and SoX. This setup converts raw AI outputs into engine-compliant formats, bakes structural detailing patterns, strips noise profiles, and optimizes audio frequencies completely offline.
 
-+-------------------------------------------------------------------------------+|                       PHASE 31 LOCAL SWARM SYSTEM INTERFACE                   ||                                                                               ||                      ┌──> Headless Blender CLI ──> Mesh Simplification / UVs  ||  [Raw Asset Stream] ─┼──> FFmpeg NVENC Array   ──> Hardware-Accelerated Video ||                      └──> SoX Processing Chain ──> Mono Split / Wave EQ Hooks |+-------------------------------------------------------------------------------+
+| PHASE 31 LOCAL SWARM SYSTEM INTERFACE |
+|---|
+| ┌──> Headless Blender CLI ──> Mesh Simplification / UVs |
+| [Raw Asset Stream] ─┼──> FFmpeg NVENC Array   ──> Hardware-Accelerated Video |
+| └──> SoX Processing Chain ──> Mono Split / Wave EQ Hooks |
+
 
 ### Step 31.1: The Multi-GPU Headless Media Processing Orchestrator
 

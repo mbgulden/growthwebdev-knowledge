@@ -22,7 +22,13 @@ Relying on manual setups for vehicle collision meshes, component damage deformat
 
 Phase 60 introduces an automated Vehicle Mesh Virtualization and Physics Anchor Validation Pipeline inside your agy CLI workspace. By utilizing your local 8x RTX 3090 distributed cluster across your high-speed 40G network trunk, this layer processes raw mechanical geometries, extracts optimized deformation vertex vectors, aligns accessory attachment matrices, and outputs precise bounding-box physics collider assets with zero manual tweaking.
 
-+-------------------------------------------------------------------------------+|                       PHASE 60 VEHICLE DEF-MAP & PHYSICS MATRIX               ||                                                                               ||                      ┌──> Vertex Deformation Profiler ──> Damage Morph Targets||  [Raw Vehicle Hull] ─┼                                    (Seamless Dents)    ||                      └──> Inertia Tensor Calculator   ──> Physics Bounds Pack ||                                                           (Zero Component Slip)|+-------------------------------------------------------------------------------+
+| PHASE 60 VEHICLE DEF-MAP & PHYSICS MATRIX |
+|---|
+| ┌──> Vertex Deformation Profiler ──> Damage Morph Targets |
+| [Raw Vehicle Hull] ─┼                                    (Seamless Dents) |
+| └──> Inertia Tensor Calculator   ──> Physics Bounds Pack |
+| (Zero Component Slip) |
+
 
 ### Step 60.1: The Distributed Multi-GPU Vehicle Hull and Physics Anchor Processor
 

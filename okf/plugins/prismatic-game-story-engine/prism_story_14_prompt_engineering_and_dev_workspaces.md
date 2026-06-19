@@ -22,7 +22,13 @@ Linear text generation is too rigid for the messy, non-linear realities of game 
 
 Phase 12 implements a state-of-the-art Non-Linear Workspace Architecture inside the agy CLI environment. This setup introduces git-style branching logic for prompt files, deploys a real-time AI Body-Double Workspace Companion to mirror developer velocity and automate task execution, and utilizes a Prompt Vector Evolution Engine to programmatically mutate and optimize generation parameters based on historical QA performance ledgers.
 
-+--------------------------------------------------------------------------+|                       PHASE 12 WORKSPACE MULTIPLEXER                     ||                                                                          ||                     ┌──> /fork [main_line] ──> Style Variant A (Retro)   ||  [Core Workspace] ──┼                                                    ||                     └──> AI Body Double ────> Real-Time Task Slicing     ||                                │                                         ||  [Evolved Prompt Matrices] <───┴─────────────> Vector Mutation Loops     |+--------------------------------------------------------------------------+
+| PHASE 12 WORKSPACE MULTIPLEXER |
+|---|
+| ┌──> /fork [main_line] ──> Style Variant A (Retro) |
+| [Core Workspace] ──┼ |
+| └──> AI Body Double ────> Real-Time Task Slicing |
+| [Evolved Prompt Matrices] <───┴─────────────> Vector Mutation Loops |
+
 
 ### Step 12.1: The Dynamic Branching and Vector Evolution Framework
 

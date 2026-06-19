@@ -26,7 +26,13 @@ Phase 57 establishes an automated UI Asset Optimization and Content Subsetting S
 
 It handles headless rasterization of vector asset templates across targeted display profiles (from Steam Deck 800p up to pristine 4K matrices), packs elements into tightly bounded texture atlases, and crawls localization files to output memory-optimized, subsetted font sheets.
 
-+-------------------------------------------------------------------------------+|                       PHASE 57 UI VECTOR & GLYPH PIPELINE                     ||                                                                               ||                      ┌──> Vector Rasterization ──> Multi-Res UI Texture Sheet ||  [Raw UI Source] ───┼                                (Zero Subpixel Blur)    ||                      └──> Glyph Parser Engine  ──> Memory-Subsetted Fonts    ||                                                      (Zero Wasted RAM Blocks)  |+-------------------------------------------------------------------------------+
+| PHASE 57 UI VECTOR & GLYPH PIPELINE |
+|---|
+| ┌──> Vector Rasterization ──> Multi-Res UI Texture Sheet |
+| [Raw UI Source] ───┼                                (Zero Subpixel Blur) |
+| └──> Glyph Parser Engine  ──> Memory-Subsetted Fonts |
+| (Zero Wasted RAM Blocks) |
+
 
 ### Step 57.1: The Distributed Multi-GPU UI Packaging Script
 

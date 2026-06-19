@@ -22,7 +22,11 @@ The fatal flaw of linear video generation pipelines is compounded error degradat
 
 Phase 5 introduces a stateful Checkpoint and Rollback Recovery System inside the agy environment. Instead of blindly rendering a shot list forward, we execute a conditional loop: every rendered .mp4 clip is dynamically intercepted by a multimodal evaluation agent. If the clip fails the aesthetic parameters, the pipeline doesn't just stop—it executes an automated git-style rollback to the last verified video frame, modifies the prompt vector adjustments, and re-renders the cut under stricter generation constraints.
 
-                  +-----------------------------------+                  |      Generate Video Segment       |                  +-----------------------------------+                                    │                                    ▼                  +-----------------------------------+                  |     Multimodal Visual QA Run      |                  +-----------------------------------+                                    │                   Is Clip Passing? ├─────────────────┐                                    ▼                 ▼                                 [ YES ]           [ NO ]                                    │                 │     Save Checkpoint & Move to Next │                 ▼                                    │       Rollback to Last Checkpoint                                    │       & Tweak Prompt Weights/Seed                                    │                 │                                    ▼                 └─────────────────┘                  +-----------------------------------+                  |    Append to Production Line      |                  +-----------------------------------+
+| Generate Video Segment |
+|---|
+| Multimodal Visual QA Run |
+| Append to Production Line |
+
 
 ### Step 5.1: The Stateful Rollback Recovery Engine
 

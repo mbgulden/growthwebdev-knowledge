@@ -22,7 +22,13 @@ The final operational pitfall in long-term product lifecycles is asset obsolesce
 
 Phase 25 establishes an automated, hardware-accelerated Remastering and Super-Resolution Retrofit Loop inside your agy CLI workspace. This pipeline ingests aging low-fidelity assets, passes them through local super-resolution execution nodes to recover missing high-frequency details, structures them into modern material sets, and commits the original legacy files to a cold-storage vault secured with cryptographic validation checks.
 
-+--------------------------------------------------------------------------+|                     PHASE 25 REMASTER & VAULT PIPELINE                   ||                                                                          ||  [Legacy Low-Fi Asset] ──> Super-Resolution Node ──> Modern PBR Maps     ||                                     │                (Up-sampled High-Fi)||                                     ▼                                    ||  [Cold Storage Archive] <── Cryptographic Verification & Hash Check      |+--------------------------------------------------------------------------+
+| PHASE 25 REMASTER & VAULT PIPELINE |
+|---|
+| [Legacy Low-Fi Asset] ──> Super-Resolution Node ──> Modern PBR Maps |
+| (Up-sampled High-Fi) |
+| ▼ |
+| [Cold Storage Archive] <── Cryptographic Verification & Hash Check |
+
 
 ### Step 25.1: The Remastering and Super-Resolution Retrofit Script
 

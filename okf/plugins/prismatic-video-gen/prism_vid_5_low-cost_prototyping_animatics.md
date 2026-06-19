@@ -22,7 +22,11 @@ Burning premium credits on maximum-fidelity renders before validating camera blo
 
 Phase 4 establishes a low-overhead Animatics Pipeline inside your workspace. We use Veo 3.1 Lite—which balances speed and low credit usage at just 5 credits per generation for Ultra Premium subscribers—to draft all 10+ cutscenes in low resolution. By passing the static images from your Phase 3 anchor_manifest.json into the engine's image-to-video slots, we generate a frame-accurate, low-res blueprint of your entire show before touching high-fidelity cloud compute.
 
-+--------------------------------------------------------------------------+|                     PHASE 4 ANIMATICS COMPILER LOOP                      ||                                                                          || [JSON Shot List] + [Anchor Manifest] ---> Animatics Agent                ||                                                  │                       || [Low-Fi .mp4 Previews] <--- Veo 3.1 Lite Engine <┘                       |+--------------------------------------------------------------------------+
+| PHASE 4 ANIMATICS COMPILER LOOP |
+|---|
+| [JSON Shot List] + [Anchor Manifest] ---> Animatics Agent |
+| [Low-Fi .mp4 Previews] <--- Veo 3.1 Lite Engine <┘ |
+
 
 ### Step 4.1: The Low-Fi Animatics Compiler
 

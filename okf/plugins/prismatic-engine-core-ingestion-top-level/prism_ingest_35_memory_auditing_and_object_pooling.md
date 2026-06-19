@@ -22,7 +22,14 @@ Allowing an engine’s default memory manager to dynamically allocate and destro
 
 Phase 32 implements an automated Memory Profile Auditing and Object Pooling Optimization Layer inside your agy CLI workspace. This subsystem utilizes your local 8x RTX 3090 infrastructure to simulate intense asset instantiation stress tests, trace memory allocations down to specific asset handles, profile GC boundary triggers, and programmatically generate pre-allocated, fixed-size Runtime Object Pools that recycle memory blocks without CPU stalls.
 
-+--------------------------------------------------------------------------+|                     PHASE 32 MEMORY AUDITING SYSTEM                      ||                                                                          ||  [Raw Asset Heap] ──> Multi-GPU Stress Profiler ──> GC Trigger Points   ||                             │                         (Leak Detection)   ||                             ▼                                            ||  [Pre-Allocated Pools] <── Dynamic Sizing Engine ───> Allocation Maps    ||                           (Zero Mid-Level GC Stalls)                     |+--------------------------------------------------------------------------+
+| PHASE 32 MEMORY AUDITING SYSTEM |
+|---|
+| [Raw Asset Heap] ──> Multi-GPU Stress Profiler ──> GC Trigger Points |
+| (Leak Detection) |
+| ▼ |
+| [Pre-Allocated Pools] <── Dynamic Sizing Engine ───> Allocation Maps |
+| (Zero Mid-Level GC Stalls) |
+
 
 ### Step 32.1: The Multi-GPU Memory Profile Auditor Script
 

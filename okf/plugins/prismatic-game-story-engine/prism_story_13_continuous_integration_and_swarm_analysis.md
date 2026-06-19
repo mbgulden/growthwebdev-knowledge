@@ -22,7 +22,11 @@ Relying on a single local workstation for a production pipeline creates a fragil
 
 Phase 11 establishes a state-driven CI/CD Synchronization and Swarm Analytics Framework inside the agy CLI workspace. This layer automates file state replication across distributed developer nodes, ensures Git-LFS integrity checks are systematically executed on remote pushes, and deploys an autonomous panel of evaluator sub-agents to analyze production performance data. It outputs efficiency metrics, tracks credit burn rates, and adjusts prompt attention weights to optimize the next chapter's generation matrix.
 
-+--------------------------------------------------------------------------+|                        PHASE 11 AUTOMATION SYSTEM                        ||                                                                          || [Local Workspace] ──> Headless CI/CD Hook ──> Remote Workstation Sync   ||                                                      │                   || [Optimized Next-Act Matrix] <── Swarm Post-Mortem <──┘                   |+--------------------------------------------------------------------------+
+| PHASE 11 AUTOMATION SYSTEM |
+|---|
+| [Local Workspace] ──> Headless CI/CD Hook ──> Remote Workstation Sync |
+| [Optimized Next-Act Matrix] <── Swarm Post-Mortem <──┘ |
+
 
 ### Step 11.1: The CI Sync and Swarm Orchestrator
 

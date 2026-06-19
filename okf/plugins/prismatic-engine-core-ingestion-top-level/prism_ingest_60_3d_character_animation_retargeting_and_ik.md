@@ -26,7 +26,13 @@ Phase 56 implements an automated, headless 3D Animation Retargeting and Root-Mot
 
 It automatically builds an intermediate Full-Body IK (FABRIK) Rig Mapping, calculates bone-length proportion scalar matrices, strips out local pelvis translation jitter, and extracts clean, multi-axis root-motion vectors to drive your character physics capsule directly.
 
-+-------------------------------------------------------------------------------+|                       PHASE 56 KINEMATIC RETARGETING ENGINE                   ||                                                                               ||                      ┌──> FABRIK Solver Array  ──> Proportional Rotation Fit  ||  [Raw Motion Track] ─┼                                  (Zero Torso Clipping) ||                      └──> Pelvis Transform Split ──> True Multi-Axis Root Vector||                                                         (Zero Foot-Sliding)   |+-------------------------------------------------------------------------------+
+| PHASE 56 KINEMATIC RETARGETING ENGINE |
+|---|
+| ┌──> FABRIK Solver Array  ──> Proportional Rotation Fit |
+| [Raw Motion Track] ─┼                                  (Zero Torso Clipping) |
+| └──> Pelvis Transform Split ──> True Multi-Axis Root Vector |
+| (Zero Foot-Sliding) |
+
 
 ### Step 56.1: The Distributed Multi-GPU Retargeting & Root-Motion Extractor
 

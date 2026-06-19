@@ -24,7 +24,12 @@ Phase 19 implements an automated Acoustic Environment and Sound Cue Synthesis Pi
 
 The Acoustic Attenuation Analyst evaluates spatial parameters from your Phase 16 rigging manifests to calculate distance falloff paths, while the Stem Mixing Agent dynamically balances transient SFX layers, dialogue stems, and environmental audio tunnels into a single unified workspace.
 
-+--------------------------------------------------------------------------+|                     PHASE 19 AUDIO NATIVE SWARM FLOW                     ||                                                                          ||  [Dialogue Stems] ───> (Dynamic EQ Ducking)  ───┐                        ||  [Transient SFX]  ───> (Randomized Cue Seeds) ──┼─> Audio Cue Container  ||  [Spatial Metadata] ─> (Logarithmic Falloff) ───┘   (Engine-Ready Mix)   |+--------------------------------------------------------------------------+                                                       │                                                       ▼                                             Target Platform Master                                            (Enforce 44.1kHz 16-bit PCM)
+| PHASE 19 AUDIO NATIVE SWARM FLOW |
+|---|
+| [Dialogue Stems] ───> (Dynamic EQ Ducking)  ───┐ |
+| [Transient SFX]  ───> (Randomized Cue Seeds) ──┼─> Audio Cue Container |
+| [Spatial Metadata] ─> (Logarithmic Falloff) ───┘   (Engine-Ready Mix) |
+
 
 ### Step 19.1: The Spatial Sound Cue and Attenuation Wrapper Script
 

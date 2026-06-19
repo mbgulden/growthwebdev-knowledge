@@ -22,7 +22,13 @@ Manual terrain painting and unverified procedural foliage distribution loops rep
 
 Phase 39 establishes a hardware-accelerated Terrain Virtualization and Spatial Foliage Auditing Pipeline inside your agy CLI workspace. By utilizing your local 8x RTX 3090 compute cluster, this phase distributes terrain grid sectors across independent GPU threads. It automates the generation of crisp weight masks based on slope-angle thresholds, executes a non-linear height-blend texture virtualization pass to ensure rocks cleanly clip through sand layers without muddy transitions, and runs hundreds of thousands of parallel ray-casts to verify that every single asset item fits safely within environment limits.
 
-+-------------------------------------------------------------------------------+|                       PHASE 39 TERRAIN & FOLIAGE SWARM                        ||                                                                               ||                      ┌──> Height-Blended Muxer  ──> Virtualized Splatmaps      ||  [Landscape Sectors] ┼                               (Seamless Transitions)  ||                      └──> Raycast Bounds Swarm  ──> Verified Foliage Matrices||                                                      (Zero Clip/Float Bugs)   |+-------------------------------------------------------------------------------+
+| PHASE 39 TERRAIN & FOLIAGE SWARM |
+|---|
+| ┌──> Height-Blended Muxer  ──> Virtualized Splatmaps |
+| [Landscape Sectors] ┼                               (Seamless Transitions) |
+| └──> Raycast Bounds Swarm  ──> Verified Foliage Matrices |
+| (Zero Clip/Float Bugs) |
+
 
 ### Step 39.1: The Multi-GPU Terrain Compositor and Foliage Validator
 

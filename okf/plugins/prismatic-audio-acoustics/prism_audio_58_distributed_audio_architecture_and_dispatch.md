@@ -22,7 +22,13 @@ Relying on web user interfaces like flowmusic.app to craft an atmospheric score,
 
 Phase 54 establishes the Golden Path for Automated Acoustic Fabrication via the agy CLI and agy SDK. This architecture coordinates cloud engines (Google Lyria and Flow Music APIs) alongside a local distributed multi-node 8x RTX 3090 array over your 40G network trunk. This framework bypasses web UI limitations by automating seed-space grid sampling, exporting multi-channel raw audio stems, and executing local, sample-locked post-processing pipelines.
 
-+---------------------------------------------------------------------------------+|                       PHASE 54 AUDIO MODEL DISPATCH MATRIX                      ||                                                                                 ||                      ┌──> Google Lyria/Flow APIs ──> Multi-Stem Composition     ||  [Acoustic Prompts] ─┼                               (High-Fidelity Cloud)      ||                      └──> Distributed Local Swarm ─> Sound FX / Bark Dialogue   ||                                                      (Zero-Cost Local Compute)  |+---------------------------------------------------------------------------------+
+| PHASE 54 AUDIO MODEL DISPATCH MATRIX |
+|---|
+| ┌──> Google Lyria/Flow APIs ──> Multi-Stem Composition |
+| [Acoustic Prompts] ─┼                               (High-Fidelity Cloud) |
+| └──> Distributed Local Swarm ─> Sound FX / Bark Dialogue |
+| (Zero-Cost Local Compute) |
+
 
 ### Step 54.1: The Map of Possibilities (Audio Model Taxonomy Matrix)
 
@@ -33,44 +39,39 @@ To maximize your 94GB+ distributed VRAM pool across your server nodes (Server 1:
  | Required VRAM
  | Core Strength / Output Target
  | Bypassed UI Limitation
- |
-|---|---|---|---|---|
-| Google Lyria
- | Cloud (AGY SDK Hook)
- | 0GB Local
- | Orchestrated Orchestral Scores & Transforming Motifs
- | Bypasses UI generation caps; unlocks raw multi-stem multi-track outputs.
- |
-| Flow Music Core
- | Cloud (AGY SDK Hook)
- | 0GB Local
- | Infinite-Horizon Ambient Tracks & Background Pads
- | Unlocks direct seed-grid array looping and custom timeline length metrics.
- |
-| AudioLDM2 / Stable Audio
- | Local (Nodes 0–3)
- | ~16GB/Node
- | Physics-Aligned Layered Sound FX & Impact Audio
- | Eliminates per-generation credit fees; enables microsecond batch iterations.
- |
-| Suno Bark (Optimized)
- | Local (Nodes 4–5)
- | ~12GB/Node
- | Expressive Voice Acting Stems with Dynamic Breathing
- | Bypasses standard flat Text-to-Speech voices; generates authentic emotional range.
- |
-| OpenAI Whisper Large v3
- | Local (Node 6)
- | ~10GB
- | Micro-Phoneme Alignment & Voice Timing Ingestion
- | Translates wave frequencies to text markers for your Phase 47 viseme loops.
- |
-| Demucs v4 (HT)
- | Local (Node 7)
- | ~8GB
- | Neural Audio Isolation & 4-Stem Acoustic Separation
- | Splits composite waveforms cleanly into Drums, Bass, Vocals, and Melody channels.
- |
+| Google Lyria |
+|---|
+| Cloud (AGY SDK Hook) |
+| 0GB Local |
+| Orchestrated Orchestral Scores & Transforming Motifs |
+| Bypasses UI generation caps; unlocks raw multi-stem multi-track outputs. |
+| Flow Music Core |
+| Cloud (AGY SDK Hook) |
+| 0GB Local |
+| Infinite-Horizon Ambient Tracks & Background Pads |
+| Unlocks direct seed-grid array looping and custom timeline length metrics. |
+| AudioLDM2 / Stable Audio |
+| Local (Nodes 0–3) |
+| ~16GB/Node |
+| Physics-Aligned Layered Sound FX & Impact Audio |
+| Eliminates per-generation credit fees; enables microsecond batch iterations. |
+| Suno Bark (Optimized) |
+| Local (Nodes 4–5) |
+| ~12GB/Node |
+| Expressive Voice Acting Stems with Dynamic Breathing |
+| Bypasses standard flat Text-to-Speech voices; generates authentic emotional range. |
+| OpenAI Whisper Large v3 |
+| Local (Node 6) |
+| ~10GB |
+| Micro-Phoneme Alignment & Voice Timing Ingestion |
+| Translates wave frequencies to text markers for your Phase 47 viseme loops. |
+| Demucs v4 (HT) |
+| Local (Node 7) |
+| ~8GB |
+| Neural Audio Isolation & 4-Stem Acoustic Separation |
+| Splits composite waveforms cleanly into Drums, Bass, Vocals, and Melody channels. |
+
+
 
 ### Step 54.2: The Mathematical Latent Space Alignment Model
 

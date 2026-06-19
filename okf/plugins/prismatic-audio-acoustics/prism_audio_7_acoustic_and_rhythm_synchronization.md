@@ -24,7 +24,13 @@ Phase 6 implements an automated Acoustic Alignment Pipeline using the native mul
 
 The model parses the acoustic waveforms, extracts transients, tempo shifts, and frequency spikes, and outputs an exact frame-accurate Acoustic Cue Matrix (acoustic_cue_sheet.json). This data layer dictates when specific visual cuts, camera pacing shifts, or VFX explosions must fire to match the musical arrangement.
 
-+--------------------------------------------------------------------------+|                       PHASE 6 MULTIMODAL SYNCHRONIZATION                 ||                                                                          ||  [Audio Tunnel Track (.wav)]                                             ||             +                                                            ||  [JSON Shot List Map] ------> Gemini Omni Flash ----> Acoustic Cue Sheet ||                                   Engine                 (JSON Matrix)   |+--------------------------------------------------------------------------+                                                                 │                                                                 ▼                                                      Fed to Veo Video Loop
+| PHASE 6 MULTIMODAL SYNCHRONIZATION |
+|---|
+| [Audio Tunnel Track (.wav)] |
+| + |
+| [JSON Shot List Map] ------> Gemini Omni Flash ----> Acoustic Cue Sheet |
+| Engine                 (JSON Matrix) |
+
 
 ### Step 6.1: The Acoustic Cue Ingestion Engine
 

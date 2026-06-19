@@ -26,7 +26,12 @@ Phase 36 implements an automated Cinematic Mastering and Reconstruction Loop ins
 
 It upgrades resolution to pristine 4K using neural super-resolution models, uses optical flow frame interpolation to scale frame rates up to a fluid 60fps or 120fps, and remaps the color data into a deep 10-bit High-Dynamic-Range (HDR) Rec.2020 color space profile.
 
-+---------------------------------------------------------------------------------------+|                         PHASE 36 CINEMATIC MASTERING PIPELINE                         ||                                                                                       ||  [Flat 1080p 30fps AI Video] ──> Neural Super-Resolution ──> 4K Scale                 ||                                            │                                          ||                                            ▼                                          ||  [Pristine 4K HDR 60fps Clip] <── Optical Flow Frame Interpolation & HDR Color Remap |+---------------------------------------------------------------------------------------+
+| PHASE 36 CINEMATIC MASTERING PIPELINE |
+|---|
+| [Flat 1080p 30fps AI Video] ──> Neural Super-Resolution ──> 4K Scale |
+| ▼ |
+| [Pristine 4K HDR 60fps Clip] <── Optical Flow Frame Interpolation & HDR Color Remap |
+
 
 ### Step 36.1: The Multi-GPU Cinematic Master and Remap Script
 

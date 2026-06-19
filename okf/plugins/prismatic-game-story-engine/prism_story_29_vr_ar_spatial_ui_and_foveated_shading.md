@@ -24,7 +24,14 @@ If your spatial UI lacks dynamic lens distortion pre-calibration, precise stereo
 
 Phase 27 establishes an automated Spatial XR Calibration and Foveated Profiling Engine inside your agy CLI workspace. Instead of manually adjusting coordinates inside a headset head-mounted display (HMD), we deploy a dual-agent Spatial Vision Swarm: the Lens Distortion Analyst maps barrel/pincushion projection matrix counter-warps using specialized compositor quad layers, while the Foveated Tier Optimizer tracks eye-movement look-at vectors to dynamically drop shading rates outside the user's focal center.
 
-+--------------------------------------------------------------------------+|                        PHASE 27 XR STEREOSCOPIC FLOW                     ||                                                                          ||  [Raw Canvas Layout] ──> Lens Distortion Analyst ──> Quad Layer Warp     ||                                     │                (Anti-Distortion)   ||                                     ▼                                    ||  [Optimized XR Frame] <── Foveated Tier Optimizer ──> Foveal Masking     ||                                                      (Inner/Outer Tiers) |+--------------------------------------------------------------------------+
+| PHASE 27 XR STEREOSCOPIC FLOW |
+|---|
+| [Raw Canvas Layout] ──> Lens Distortion Analyst ──> Quad Layer Warp |
+| (Anti-Distortion) |
+| ▼ |
+| [Optimized XR Frame] <── Foveated Tier Optimizer ──> Foveal Masking |
+| (Inner/Outer Tiers) |
+
 
 ### Step 27.1: The Spatial UI and Foveated Rendering Orchestration Script
 

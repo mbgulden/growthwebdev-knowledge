@@ -24,7 +24,13 @@ Phase 47 establishes an automated Acoustic Phoneme Extraction and Multi-Agent Fa
 
 It passes audio data through local neural audio feature extraction layers, maps phonetic boundaries to standard facial targets (e.g., Apple ARKit blendshapes), and leverages a multi-agent performance blender to automatically layer secondary emotional expressions (like brow furrows and squinting) over the underlying speech tracks.
 
-+---------------------------------------------------------------------------------+|                       PHASE 47 PERFORMANCE INGESTION ENGINE                     ||                                                                                 ||                      ┌──> Neural Wav2Vec Node ──> Phoneme/Viseme Timelines      ||  [Raw Audio Stream] ─┼                              (Perfect Lip-Sync)          ||                      └──> Multi-Agent Blender ──> Secondary Expressions         ||                                                     (Brows / Blinks / Gaze)     |+---------------------------------------------------------------------------------+
+| PHASE 47 PERFORMANCE INGESTION ENGINE |
+|---|
+| ┌──> Neural Wav2Vec Node ──> Phoneme/Viseme Timelines |
+| [Raw Audio Stream] ─┼                              (Perfect Lip-Sync) |
+| └──> Multi-Agent Blender ──> Secondary Expressions |
+| (Brows / Blinks / Gaze) |
+
 
 ### Step 47.1: The Multi-GPU Distributed Voice and Viseme Compiler Script
 

@@ -22,7 +22,14 @@ Relying on cloud nodes to process every single high-resolution texture map, dens
 
 Phase 13 establishes a hardware-accelerated Local Optimization Layer inside your agy workspace. This setup maximizes local compute arrays (such as multi-GPU topologies with 24GB VRAM envelopes) to handle local validation, execute Automated VRAM Asset Tiling to prevent Out-Of-Memory (OOM) allocation crashes during visual analysis, and optimize local NVMe caching tiers to pipe data seamlessly over high-speed 40G/100G networking trunks to cloud execution layers.
 
-+--------------------------------------------------------------------------+|                       LOCAL CLUSTER OPTIMIZATION LAYER                   ||                                                                          ||  [Raw 4K Assets] ──> VRAM Tiling Engine ──> Multi-GPU Parallel Swarm     ||                             │                  (Local 24GB Pools)        ||                             ▼                          │                 ||  [Optimized 100G Staging Cache] <──────────────────────┘                 ||             │                                                            ||             └──> agy CLI Stream ──> Cloud Video Generation Layers        |+--------------------------------------------------------------------------+
+| LOCAL CLUSTER OPTIMIZATION LAYER |
+|---|
+| [Raw 4K Assets] ──> VRAM Tiling Engine ──> Multi-GPU Parallel Swarm |
+| (Local 24GB Pools) |
+| ▼ |
+| [Optimized 100G Staging Cache] <──────────────────────┘ |
+| └──> agy CLI Stream ──> Cloud Video Generation Layers |
+
 
 ### Step 13.1: The Multi-GPU VRAM Tiling and Local Infrastructure Orchestrator
 

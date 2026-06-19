@@ -24,7 +24,13 @@ Gaps between adjacent collision hulls create minute geometry snags that break ch
 
 Phase 43 implements an automated 2D Environment Decomposition and Physics Hull Generation Pipeline within your agy CLI workspace. By utilizing your local distributed multi-GPU network infrastructure, this engine processes full-scale backdrop paintings, separates visual planes based on atmospheric depth values, packages tiles cleanly along exact pixel matrices, and runs optimized contour-detection algorithms to output perfect, watertight physics collision vector maps.
 
-+-------------------------------------------------------------------------------+|                       PHASE 43 ENVIRONMENT DECONSTRUCTOR                      ||                                                                               ||                      ┌──> Alpha Boundary Slicer ──> Parallax Layer Strips     ||  [Composite Backdrop] ┼                                  (Depth Vectors Set)  ||                      └──> Marching Squares Node ──> Watertight 2D Colliders  ||                                                          (Zero Physics Snags) |+-------------------------------------------------------------------------------+
+| PHASE 43 ENVIRONMENT DECONSTRUCTOR |
+|---|
+| ┌──> Alpha Boundary Slicer ──> Parallax Layer Strips |
+| [Composite Backdrop] ┼                                  (Depth Vectors Set) |
+| └──> Marching Squares Node ──> Watertight 2D Colliders |
+| (Zero Physics Snags) |
+
 
 ### Step 43.1: The Multi-GPU Environment Parsing & Collision Vector Script
 

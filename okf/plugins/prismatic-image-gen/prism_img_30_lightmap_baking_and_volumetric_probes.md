@@ -26,7 +26,14 @@ Phase 28 establishes an automated Lighting Bake and Shadow Cascading Optimizatio
 
 It manages processing grids for offline GPU lightmap baking, maps out spatial 3D volumetric light probe clusters, and builds optimized, non-overlapping Cascaded Shadow Map (CSM) split bounds to guarantee stable shadow resolution as camera distances scale.
 
-+--------------------------------------------------------------------------+|                         PHASE 28 LIGHTING SWARM CORE                     ||                                                                          ||  [Static Level Mesh] ──> Ray-Traced Lightmap Baker ──> Baked Texel Maps  ||                                     │                  (Pristine Bounce) ||                                     ▼                                    ||  [Optimized Shading] <── Volumetric Probe Clustered ──> 3D Ambient Fields ||                                                        (Dynamic Objects) |+--------------------------------------------------------------------------+
+| PHASE 28 LIGHTING SWARM CORE |
+|---|
+| [Static Level Mesh] ──> Ray-Traced Lightmap Baker ──> Baked Texel Maps |
+| (Pristine Bounce) |
+| ▼ |
+| [Optimized Shading] <── Volumetric Probe Clustered ──> 3D Ambient Fields |
+| (Dynamic Objects) |
+
 
 ### Step 28.1: The Swarm Lighting Baker and Probe Clustering Script
 

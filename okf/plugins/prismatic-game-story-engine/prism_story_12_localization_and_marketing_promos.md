@@ -24,7 +24,14 @@ Phase 10 establishes an automated Asset Forking and Transcoding Engine within yo
 
 Simultaneously, the pipeline forks the master visual assets, shifting spatial bounding frames to output optimized marketing formats (like 9:16 vertical cuts for TikTok/Shorts or high-impact 15-second teaser blocks) using your Ultra Premium credit pool with minimal overhead.
 
-+--------------------------------------------------------------------------+|                        PHASE 10 FORKING ARCHITECTURE                     ||                                                                          ||                           ┌──> Subtitle Injection ──> Localized Masters  ||                           │    (.srt / Hardsubs)      (DE / JP / ES)     ||  [4K Master Cinematic] ───┼                                              ||                           └──> Spatial Re-Framing ──> Marketing Promos   ||                                (9:16 / 1:1 Engine)    (Shorts / Teasers) |+--------------------------------------------------------------------------+
+| PHASE 10 FORKING ARCHITECTURE |
+|---|
+| ┌──> Subtitle Injection ──> Localized Masters |
+| (.srt / Hardsubs)      (DE / JP / ES) |
+| [4K Master Cinematic] ───┼ |
+| └──> Spatial Re-Framing ──> Marketing Promos |
+| (9:16 / 1:1 Engine)    (Shorts / Teasers) |
+
 
 ### Step 10.1: The Localization & Promo Forking Engine
 

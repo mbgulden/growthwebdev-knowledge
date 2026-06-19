@@ -32,7 +32,14 @@ Local Multi-GPU Cluster Exploitation: You have 8x RTX 3090s sitting on a high-sp
 
 This phase establishes an integrated, automated topology. We map out the orchestrator configuration to drive the Flow Music endpoint headlessly via the AGI SDK, download high-fidelity stems, and build a local task parallel array across your multi-GPU node to handle open-source asset processing (FFmpeg, Sox, and headless Blender) with $0 overhead.
 
-+---------------------------------------------------------------------------------------+|                               LOCAL HARDWARE INFRASTRUCTURE                           ||                                                                                       ||   [8x RTX 3090 Node] ──> Headless Open-Source Cluster (Blender / FFmpeg / SoX)         ||         ▲                                                                             ||         │ (Local Preprocessing & Verification Passed)                                 ||         ▼                                                                             ||   [AGI SDK Browser Agent] ──> Headless Flow Music Ingestion (Lyria 3 Pro) ──> Stems   |+---------------------------------------------------------------------------------------+                                           │                                           ▼                                 [ Antigravity / agy CLI ]                                           │                                           ▼                                 [ Cloud Veo Rendering ]
+| LOCAL HARDWARE INFRASTRUCTURE |
+|---|
+| [8x RTX 3090 Node] ──> Headless Open-Source Cluster (Blender / FFmpeg / SoX) |
+| ▲ |
+| (Local Preprocessing & Verification Passed) |
+| ▼ |
+| [AGI SDK Browser Agent] ──> Headless Flow Music Ingestion (Lyria 3 Pro) ──> Stems |
+
 
 ### Step 30.1: The Headless Flow Music Automation Script
 

@@ -22,7 +22,14 @@ There is no faster way to ruin a premium player experience than micro-stutters c
 
 Phase 34 implements an autonomous Pre-Compiled Shader and Pipeline State Object (PSO) Caching Framework inside your agy CLI workspace. By leveraging your local 8x RTX 3090 compute cluster, this pipeline extracts every conceivable material permutation flag, packs particle effects channel structures via programmatic material multiplexing (Muxing), and executes headless compilation runs to output cross-platform shader cache binaries. These binaries are injected straight into your client boot sequence, entirely eliminating runtime compilation hitches.
 
-+-------------------------------------------------------------------------------+|                       PHASE 34 SHADER COMPILATION FLOW                        ||                                                                               ||  [Master Materials] ──> Permutation Combinatorics ──> Multi-GPU Compile Swarm ||                                   │                     (8x RTX 3090 Array)   ||                                   ▼                                           ||  [Pristine Runtime Boot] <── Driver Cache Injection ───> Pipeline State Packs  ||                             (Zero Runtime Hitches)      (*.pso / *.bin)       |+-------------------------------------------------------------------------------+
+| PHASE 34 SHADER COMPILATION FLOW |
+|---|
+| [Master Materials] ──> Permutation Combinatorics ──> Multi-GPU Compile Swarm |
+| (8x RTX 3090 Array) |
+| ▼ |
+| [Pristine Runtime Boot] <── Driver Cache Injection ───> Pipeline State Packs |
+| (Zero Runtime Hitches)      (*.pso / *.bin) |
+
 
 ### Step 34.1: The Multi-GPU Parallel Shader Compiler Engine
 

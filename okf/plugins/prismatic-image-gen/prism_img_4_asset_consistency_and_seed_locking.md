@@ -22,7 +22,11 @@ If you pass generic text prompts to Veo from shot to shot, your flagship dreadno
 
 Phase 3 implements an opinionated asset-locking architecture inside the agy workspace. We use the Gemini Omni Image / Imagen 3 generation layer to synthesize static master assets (Ships, Characters, and Biomes) with a strict architectural seed, extract their visual fingerprints, and commit them to an immutable anchor_manifest.json. These reference images act as the structural "Ingredients" that bind all subsequent video generations.
 
-+--------------------------------------------------------------------------+|                      PHASE 3 SEED-LOCKING ARCHITECTURE                   ||                                                                          ||  [Shot List Config] ---> Anchor Synthesis Agent ---> [Master PNG Seeds]  ||                                                            │             ||  [Immutable Reference Matrix] <--- Anchor Manifest <───────┘             |+--------------------------------------------------------------------------+
+| PHASE 3 SEED-LOCKING ARCHITECTURE |
+|---|
+| [Shot List Config] ---> Anchor Synthesis Agent ---> [Master PNG Seeds] |
+| [Immutable Reference Matrix] <--- Anchor Manifest <───────┘ |
+
 
 ### Step 3.1: Anchor Asset Synthesis
 

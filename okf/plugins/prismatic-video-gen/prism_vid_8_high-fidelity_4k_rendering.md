@@ -22,7 +22,13 @@ This is the finish line. You have extracted your lore (Phase 1), serialized your
 
 Phase 7 brings everything together into a High-Fidelity Compilation Engine managed by the agy CLI workspace harness. The workflow pulls your verified frame assets, scales them up via your subscription's 4K Ultra-HD Upscaling layer (50 credits per high-end pull), and runs a local automation script to compile the video segments and inject your audio tunnels cleanly into a production-grade container.
 
-+--------------------------------------------------------------------------+|                       PHASE 7 FINAL COMPILATION FLOW                     ||                                                                          ||  [Verified Low-Fi Drafts] ──> Cloud 4K Upscaler Node ──> [High-Fi Chunks]||                                                                 │        ||  [Master Cinematic .mp4]  <── Local FFmpeg Concat Loop <────────┘        ||             ▲                                                            ||             └── [Acoustic Audio Track (.wav)]                            |+--------------------------------------------------------------------------+
+| PHASE 7 FINAL COMPILATION FLOW |
+|---|
+| [Verified Low-Fi Drafts] ──> Cloud 4K Upscaler Node ──> [High-Fi Chunks] |
+| [Master Cinematic .mp4]  <── Local FFmpeg Concat Loop <────────┘ |
+| ▲ |
+| └── [Acoustic Audio Track (.wav)] |
+
 
 ### Step 7.1: The High-Fi Master Orchestrator
 

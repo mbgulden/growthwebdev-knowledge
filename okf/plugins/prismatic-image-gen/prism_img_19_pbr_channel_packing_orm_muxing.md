@@ -24,7 +24,12 @@ Phase 17 implements an automated PBR Material Channel-Packing (Muxing) Engine in
 
 Simultaneously, the pipeline evaluates target hardware profiles to enforce strict resolution optimization, resizing images to strict Power-of-Two boundaries to maximize texture compression efficiency on disk and in memory.
 
-+--------------------------------------------------------------------------+|                     PHASE 17 CHANNEL-PACKING MUXER                       ||                                                                          ||  [Grayscale AO Map] --------> (Red Channel)   ───┐                       ||  [Grayscale Roughness] ───> (Green Channel) ───┼─> Combined ORM Map     ||  [Grayscale Metallic] ──────> (Blue Channel)  ───┘   (1 Texture Sampler) |+--------------------------------------------------------------------------+                                                       │                                                       ▼                                            Target Platform Scaling                                            (Enforce 4K, 2K, 1K Power-of-Two)
+| PHASE 17 CHANNEL-PACKING MUXER |
+|---|
+| [Grayscale AO Map] --------> (Red Channel)   ───┐ |
+| [Grayscale Roughness] ───> (Green Channel) ───┼─> Combined ORM Map |
+| [Grayscale Metallic] ──────> (Blue Channel)  ───┘   (1 Texture Sampler) |
+
 
 ### Step 17.1: The High-Performance Material Muxing Script
 

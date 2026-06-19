@@ -26,7 +26,13 @@ Phase 51 closes the loop by turning your production pipeline into a self-healing
 
 It leverages your local 8x RTX 3090 cluster to isolate anomalous assets, runs background validation tests, and headlessly builds optimized binary micro-patches. This setup deploys critical fixes to your distribution networks without requiring a full repository re-cook.
 
-+-------------------------------------------------------------------------------+|                       PHASE 51 LIVE-OPS TELEMETRY FEEDBACK LOOP               ||                                                                               ||  [Live Client Logs] ──> Anomaly Scoring Engine ──> Local Cluster Re-Bake      ||                              │                        (8x RTX 3090 Cluster)   ||                              ▼                                                ||  [Production Stream] <── Micro-Delta Patch Engine <── Validated Core Fix      |+-------------------------------------------------------------------------------+
+| PHASE 51 LIVE-OPS TELEMETRY FEEDBACK LOOP |
+|---|
+| [Live Client Logs] ──> Anomaly Scoring Engine ──> Local Cluster Re-Bake |
+| (8x RTX 3090 Cluster) |
+| ▼ |
+| [Production Stream] <── Micro-Delta Patch Engine <── Validated Core Fix |
+
 
 ### Step 51.1: The Multi-GPU Telemetry Parsing & Auto-Patch Script
 

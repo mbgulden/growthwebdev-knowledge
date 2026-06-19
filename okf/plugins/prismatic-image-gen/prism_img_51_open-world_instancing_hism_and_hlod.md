@@ -26,7 +26,13 @@ Phase 48 establishes an automated World Space Virtualization and Cluster Assembl
 
 It automatically collapses individual matching models into efficient Hierarchical Instanced Static Meshes (HISM), merges distinct localized mesh geometries into single low-poly HLOD proxy structures, and compiles a grid-based Streaming Cell Priority Ledger to organize asynchronous memory loading zones.
 
-+-------------------------------------------------------------------------------+|                        PHASE 48 WORLD INSTANCING INFRASTRUCTURE               ||                                                                               ||                      ┌──> HISM Combiner     ──> Draw Call Consolidation      ||  [Raw Sector Data]  ─┼                                (Zero CPU Thread Stalls) ||                      └──> Spatial Octree Merger ──> Proxied HLOD Clusters     ||                                                          (Seamless Far Streams) |+-------------------------------------------------------------------------------+
+| PHASE 48 WORLD INSTANCING INFRASTRUCTURE |
+|---|
+| ┌──> HISM Combiner     ──> Draw Call Consolidation |
+| [Raw Sector Data]  ─┼                                (Zero CPU Thread Stalls) |
+| └──> Spatial Octree Merger ──> Proxied HLOD Clusters |
+| (Seamless Far Streams) |
+
 
 ### Step 48.1: The Multi-GPU Distributed World Streaming & HLOD Compiler Script
 

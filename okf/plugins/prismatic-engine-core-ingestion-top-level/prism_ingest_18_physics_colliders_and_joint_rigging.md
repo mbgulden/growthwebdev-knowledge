@@ -22,7 +22,13 @@ An asset that only looks good but lacks physical structure is useless inside a r
 
 Phase 16 introduces an automated Spatial Structure and Skeletal Rigging Pipeline inside the agy CLI workspace. Instead of relying on manual placing of physics bounds or animation joints, we deploy a specialized dual-agent Spatial Vision Swarm: the Hull Topology Analyst traces pixel alphas to isolate outer boundaries and simplify them into low-overhead convex polygons, while the Skeletal Kinematics Agent analyzes structural silhouettes to calculate exact coordinate bone systems (X, Y positions for joints and roots) for rigging.
 
-+--------------------------------------------------------------------------+|                        PHASE 16 SPATIAL RIGGING SWARM                    ||                                                                          ||                           ┌──> Hull Topology Analyst ──> Convex Hull Map ||                           │                              (Low-Poly Bounds)|  [Processed Core Sprite] ─┼                                              ||                           └──> Skeletal Kinematics ────> Joint Bone Tree ||                                                          (X, Y Nodes)    |+--------------------------------------------------------------------------+
+| PHASE 16 SPATIAL RIGGING SWARM |
+|---|
+| ┌──> Hull Topology Analyst ──> Convex Hull Map |
+| [Processed Core Sprite] ─┼ |
+| └──> Skeletal Kinematics ────> Joint Bone Tree |
+| (X, Y Nodes) |
+
 
 ### Step 16.1: The Spatial Physics and Rigging Orchestrator
 

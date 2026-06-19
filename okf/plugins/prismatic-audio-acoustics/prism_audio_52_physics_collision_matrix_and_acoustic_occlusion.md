@@ -26,7 +26,13 @@ Phase 49 introduces an automated Physics Matrix Pruning and Acoustic Propagation
 
 Simultaneously, it processes structural level geometries to build Spatial Acoustic Occlusion Fields and compiles compressed runtime audio banks linked directly to your Phase 48 streaming priority cells.
 
-+-------------------------------------------------------------------------------+|                       PHASE 49 INTERACTION & ACOUSTIC SWARM                   ||                                                                               ||                      ┌──> Permutation Pruner  ──> Layer Collision Matrix      ||  [Scene Assets Base] ┼                                   (Zero Redundant Checks) ||                      └──> Ray-Traced Voxels   ──> Acoustic Occlusion Fields   ||                                                          (Realistic Wave Damp)  |+-------------------------------------------------------------------------------+
+| PHASE 49 INTERACTION & ACOUSTIC SWARM |
+|---|
+| ┌──> Permutation Pruner  ──> Layer Collision Matrix |
+| [Scene Assets Base] ┼                                   (Zero Redundant Checks) |
+| └──> Ray-Traced Voxels   ──> Acoustic Occlusion Fields |
+| (Realistic Wave Damp) |
+
 
 ### Step 49.1: The Distributed Multi-GPU Collision and Acoustic Wave Compiler Script
 

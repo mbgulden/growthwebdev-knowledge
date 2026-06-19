@@ -26,7 +26,13 @@ Phase 61 establishes an automated Global VFX Synthesis and VRAM Optimization Pip
 
 It executes parallel mathematical Curl Noise calculations across your GPU nodes, bakes uniform 3D vector fields, and programmatically applies memory-budget clamps to ensure absolute rendering performance stability across all deployment targets.
 
-+-------------------------------------------------------------------------------+|                        PHASE 61 GLOBAL VFX PROCESSING PIPELINE                ||                                                                               ||                      ┌──> Curl Noise Solver  ──> 3D Volumetric Vector Fields  ||  [Simulation Prompts]┼                                   (Fluid Dynamics Lock)||                      └──> Memory Budget Capper ──> Capped GPU Instance Pools  ||                                                          (Zero Driver Crashing) |+-------------------------------------------------------------------------------+
+| PHASE 61 GLOBAL VFX PROCESSING PIPELINE |
+|---|
+| ┌──> Curl Noise Solver  ──> 3D Volumetric Vector Fields |
+| [Simulation Prompts]┼                                   (Fluid Dynamics Lock) |
+| └──> Memory Budget Capper ──> Capped GPU Instance Pools |
+| (Zero Driver Crashing) |
+
 
 ### Step 61.1: The Distributed Multi-GPU Vector Field and VFX Compiler Script
 

@@ -40,7 +40,10 @@ Trying to dump a raw 60,000-word lore bible directly into a cloud agent's contex
 
 Phase 1 establishes a Hybrid Architecture: we offload massive text parsing to local hardware models to chunk and structure the data into high-density JSON states, which are then fed into the agy workspace environment using clean context commands.
 
-+--------------------------------------------------------------------------+|                            LOCAL WORKSPACE                               ||                                                                          ||  [60k Lore/Banter Data] ---> Local LLM Ingestion ---> [Dense JSON Map]   ||                                                              (0 Credits) |+--------------------------------------------------------------------------+                                                                  |                                                                  v+--------------------------------------------------------------------------+|                         ANTIGRAVITY CLI (agy)                            ||                                                                          ||  /context add lore_map.json <--------------------------------------------+|  Executes Skill: game-asset-factory (Uses 25k Ultra Pool)                |+--------------------------------------------------------------------------+
+| LOCAL WORKSPACE |
+|---|
+| ANTIGRAVITY CLI (agy) |
+
 
 ### Step 1.1: Local Semantic Chunking and Entity Mapping
 

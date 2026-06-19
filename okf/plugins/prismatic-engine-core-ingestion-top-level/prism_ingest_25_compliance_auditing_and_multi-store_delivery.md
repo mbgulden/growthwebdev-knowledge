@@ -22,7 +22,14 @@ The absolute worst place to discover a compliance issue, a missing third-party c
 
 Phase 23 introduces an automated Compliance Auditing and Multi-Store Delivery Engine into the agy CLI workspace. Instead of manually packing separate store builds or copy-pasting legal disclosures, we run an automated verification loop. This pipeline checks your complete asset dependency matrix for open-source license compliance, scrubs internal tracking text from production binaries, and deploys your builds to Steam, Epic Games Store, and GOG sandboxes simultaneously using headless platform delivery CLI pipelines.
 
-+--------------------------------------------------------------------------+|                     PHASE 23 COMPLIANCE & STORE DELIVERY                 ||                                                                          ||  [Gold Master Build] ──> License Compliance Scan ──> Meta Disclosures    ||                                 │                    (Legal Scrubbing)   ||                                 ▼                                        ||  [Multi-Store Release] <── Storefront Splits <─── Headless Upload Core   ||                            (Steam / Epic / GOG)   (SteamCMD / BPG CLI)   |+--------------------------------------------------------------------------+
+| PHASE 23 COMPLIANCE & STORE DELIVERY |
+|---|
+| [Gold Master Build] ──> License Compliance Scan ──> Meta Disclosures |
+| (Legal Scrubbing) |
+| ▼ |
+| [Multi-Store Release] <── Storefront Splits <─── Headless Upload Core |
+| (Steam / Epic / GOG)   (SteamCMD / BPG CLI) |
+
 
 ### Step 23.1: The Compliance Auditor and Storefront Deployment Script
 

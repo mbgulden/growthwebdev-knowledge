@@ -22,7 +22,11 @@ Dumping a raw story outline into a video generation engine will yield chaotic, u
 
 Phase 2 establishes an opinionated, multi-agent pipeline inside the agy workspace. We take your 60,000-word canon core (structured into the structured_lore_matrix.json from Phase 1) and run it through a dual-agent compilation loop: the Screenplay Writer Agent transforms narrative concepts into strict screenplays, and the Cinematographer Agent strips those scripts down into a frame-accurate, multi-axis JSON Shot List.
 
-+--------------------------------------------------------------------------+|                     PHASE 2 DUAL-AGENT PIPELINE OVERVIEW                 ||                                                                          || [Lore Matrix + Raw Notes] ---> Screenplay Writer Agent ---> [Markdown]   ||                                                                   │      || [Deterministic JSON]     <---  Cinematographer Agent  <───────────┘      |+--------------------------------------------------------------------------+
+| PHASE 2 DUAL-AGENT PIPELINE OVERVIEW |
+|---|
+| [Lore Matrix + Raw Notes] ---> Screenplay Writer Agent ---> [Markdown] |
+| [Deterministic JSON]     <---  Cinematographer Agent  <───────────┘ |
+
 
 ### Step 2.1: Screenplay Serialization
 

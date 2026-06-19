@@ -24,7 +24,13 @@ Phase 18 introduces an automated LOD Generation and Impostor Packing Framework i
 
 This engine executes a progressive polygon reduction strategy (LOD_0 \rightarrow LOD_1 \rightarrow LOD_2), automatically bakes high-poly surface detail onto decimated low-poly hulls using normal map transfer targets, and packs distant objects into flat 2D Impostor Billboards that dynamically rotate to mimic 3D depth at a distance.
 
-+--------------------------------------------------------------------------+|                     PHASE 18 PROGRESSIVE LOD ENGINE                      ||                                                                          ||  [LOD0: 100% Poly Master] ──> Decimation Engine ──> [LOD1: 50% Mesh]     ||                                         │           [LOD2: 25% Mesh]     ||                                         ▼                                ||  [Final Optimized Asset Bundle] <── Impostor Baker ──> [LOD3: 2D Billboard]|                                                     (Multi-Angle Capture)|+--------------------------------------------------------------------------+
+| PHASE 18 PROGRESSIVE LOD ENGINE |
+|---|
+| [LOD0: 100% Poly Master] ──> Decimation Engine ──> [LOD1: 50% Mesh] |
+| [LOD2: 25% Mesh] |
+| ▼ |
+| (Multi-Angle Capture) |
+
 
 ### Step 18.1: The Automated LOD Decimator and Impostor Packing Script
 

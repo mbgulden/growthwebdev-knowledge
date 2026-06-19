@@ -24,7 +24,13 @@ Furthermore, running identical asset footprints on both your game client and you
 
 Phase 33 implements an automated Network Replication Optimization and Dedicated Server Ingestion Subsystem inside the agy CLI workspace. This layer leverages your local 8x RTX 3090 cluster to analyze actor state structures, programmatically generate highly compressed bitmask serialization maps using precise delta-compression algorithms, and output stripped, headless-compliant asset bundles that retain only the essential collision hulls, physics constraints, and replication vectors required for server execution loops.
 
-+-------------------------------------------------------------------------------+|                      PHASE 33 NETWORK SERVERS MULTIPLEXER                    ||                                                                               ||                      ┌──> Delta-Serialization Mapping ──> Bit-Packed Stream   ||  [Master Build Path] ┼                                   (Low-Overhead WAN)   ||                      └──> Headless Cook Stripper ────────> Server Asset Pack  ||                                                          (Zero Texture RAM)   |+-------------------------------------------------------------------------------+
+| PHASE 33 NETWORK SERVERS MULTIPLEXER |
+|---|
+| ┌──> Delta-Serialization Mapping ──> Bit-Packed Stream |
+| [Master Build Path] ┼                                   (Low-Overhead WAN) |
+| └──> Headless Cook Stripper ────────> Server Asset Pack |
+| (Zero Texture RAM) |
+
 
 ### Step 33.1: The Multi-GPU Network Packet Optimization Script
 

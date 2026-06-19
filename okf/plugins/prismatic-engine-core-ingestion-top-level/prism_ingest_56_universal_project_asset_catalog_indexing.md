@@ -24,7 +24,13 @@ Phase 52 implements an automated Universal Asset Indexing and Cross-Dependency R
 
 It parallelizes filesystem tokenization, computes deep structural dependency closure maps inside high-speed VRAM, and programmatically exports a unified, self-healing metadata catalog. This automation allows a single developer to maintain complete visibility over repository-wide asset linkages with zero manual verification overhead.
 
-+-------------------------------------------------------------------------------+|                       PHASE 52 UNIVERSAL CATALOG ENGINE                       ||                                                                               ||                      ┌──> Tokenizer Swarm   ──> Unified Asset Graph (DAG)     ||  [Loose Project VFS] ┼                                  (Zero Orphan Files)   ||                      └──> Dependency Solver ──> Impact Boundary Mapping       ||                                                          (Safe Global Changes) |+-------------------------------------------------------------------------------+
+| PHASE 52 UNIVERSAL CATALOG ENGINE |
+|---|
+| ┌──> Tokenizer Swarm   ──> Unified Asset Graph (DAG) |
+| [Loose Project VFS] ┼                                  (Zero Orphan Files) |
+| └──> Dependency Solver ──> Impact Boundary Mapping |
+| (Safe Global Changes) |
+
 
 ### Step 52.1: The Distributed Multi-GPU Asset Indexer and Graph Resolver Script
 

@@ -24,7 +24,11 @@ Furthermore, loose texture arrays force the game engine to sample five distinct 
 
 Phase 45 introduces an automated PBR Material Composing and Channel-Packing Engine within your agy CLI workspace. By leveraging your local 8x RTX 3090 cluster (utilizing the combined 94GB+ VRAM architecture across your high-speed 40G network nodes), this system distributes separate texture rendering passes across available GPU cores. It extracts ray-traced Ambient Occlusion attenuation, isolates geometric details, and packs channels into a single, high-performance ORM (Ambient Occlusion, Roughness, Metalness) texture package.
 
-+-------------------------------------------------------------------------------+|                       PHASE 45 PBR CHANNEL PACKING MATRICES                   ||                                                                               ||  [Raw AO Channel]        ──┐                                                  ||  [Raw Roughness Channel] ──┼─> Multi-GPU ORM Compiler ──> Unified ORM Texture ||  [Raw Metalness Channel] ──┘      (8x RTX 3090 Core)      (R=AO, G=Rough, B=Metal)+-------------------------------------------------------------------------------+
+| PHASE 45 PBR CHANNEL PACKING MATRICES |
+|---|
+| [Raw AO Channel]        ──┐ |
+| [Raw Roughness Channel] ──┼─> Multi-GPU ORM Compiler ──> Unified ORM Texture |
+
 
 ### Step 45.1: The Distributed Multi-GPU PBR Texture Packing Script
 

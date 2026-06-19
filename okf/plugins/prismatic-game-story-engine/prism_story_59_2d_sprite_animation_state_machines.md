@@ -26,7 +26,13 @@ Phase 55 establishes an automated Stereoscopic 2D State Machine Compiler and Fra
 
 It tracks spatial change metrics between sequential frames, aligns timeline durations to physics velocity vectors, and headlessly exports optimized animation controllers. This guarantees fluid transitions with zero visual foot-sliding or manual node wiring.
 
-+-------------------------------------------------------------------------------+|                       PHASE 55 ANIMATION MATRIX OVERRIDE                      ||                                                                               ||                      ┌──> 8-Directional Frame Mapper ──> Uniform UV Offsets   ||  [Raw Sheet Sheets] ─┼                                  (Zero Mesh Bleeding)  ||                      └──> Velocity Pacing Scaler ──────> Dynamic Frame Times  ||                                                         (Zero Foot-Sliding)   |+-------------------------------------------------------------------------------+
+| PHASE 55 ANIMATION MATRIX OVERRIDE |
+|---|
+| ┌──> 8-Directional Frame Mapper ──> Uniform UV Offsets |
+| [Raw Sheet Sheets] ─┼                                  (Zero Mesh Bleeding) |
+| └──> Velocity Pacing Scaler ──────> Dynamic Frame Times |
+| (Zero Foot-Sliding) |
+
 
 ### Step 55.1: The Distributed Multi-GPU Animation Controller and Pacing Script
 

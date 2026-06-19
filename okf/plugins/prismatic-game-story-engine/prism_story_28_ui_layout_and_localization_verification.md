@@ -24,7 +24,13 @@ If your interface system relies on manual visual checks across 14+ languages, la
 
 Phase 26 establishes an automated, layout-aware UI Localization Verification Framework inside the agy CLI workspace. Instead of forcing UI designers to manually click through localization combinations, we deploy a dual-agent Interface Vision Swarm: the Layout Constraint Analyst evaluates screen space snapshots to detect text clipping and container overflows, while the Kerning Boundary Auditor verifies that multi-language font baselines land on exact integer pixel steps to prevent rendering blur.
 
-+--------------------------------------------------------------------------+|                     PHASE 26 UI LOCALIZATION SWARM                       ||                                                                          ||  [Dynamic UI Layout] ──> Layout Constraint Analyst ──> Bounding Box Audit||  (Multi-Lang Text)                   │                 (Overflow Check)  ||                                      ▼                                   ||  [Verified UI Elements] <── Kerning Boundary Auditor ──> Subpixel Lock   |+--------------------------------------------------------------------------+
+| PHASE 26 UI LOCALIZATION SWARM |  |
+|---|---|
+| [Dynamic UI Layout] ──> Layout Constraint Analyst ──> Bounding Box Audit |  |
+| (Multi-Lang Text) | (Overflow Check) |
+| ▼ |  |
+| [Verified UI Elements] <── Kerning Boundary Auditor ──> Subpixel Lock |  |
+
 
 ### Step 26.1: The Autonomous UI Layout and Kerning Verification Script
 

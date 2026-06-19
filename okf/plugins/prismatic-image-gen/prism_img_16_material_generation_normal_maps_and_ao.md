@@ -24,7 +24,14 @@ Phase 14 introduces a Multimodal PBR (Physically Based Rendering) Generation Swa
 
 The Vector Normal Analyst maps surface slopes to derive accurate XYZ vectors, while the Occlusion Baker calculates geometric depth variations to bake an Ambient Occlusion (AO) map. This updates your structural asset matrices to handle fully dynamic lighting.
 
-+--------------------------------------------------------------------------+|                         PHASE 14 PBR BAKER SWARM                         ||                                                                          ||                           ┌──> Vector Normal Analyst ──> Normal Map      ||                           │                              (Tangent Space) ||  [2D Master Sprite/Plate] ┼                                              ||                           └──> Occlusion Baker ────────> AO Map          ||                                                          (Micro-Shadows) |+--------------------------------------------------------------------------+
+| PHASE 14 PBR BAKER SWARM |
+|---|
+| ┌──> Vector Normal Analyst ──> Normal Map |
+| (Tangent Space) |
+| [2D Master Sprite/Plate] ┼ |
+| └──> Occlusion Baker ────────> AO Map |
+| (Micro-Shadows) |
+
 
 ### Step 14.1: The Multimodal PBR Swarm Baker
 
@@ -65,16 +72,15 @@ A notorious pitfall when working across different game engines is Green Channel 
 | Graphics API Standard
  | Engine Target
  | Green Channel Orientation Vector
- |
-|---|---|---|
-| DirectX (Y-)
- | Unreal Engine 5
- | Inverted (Y- down means the slope points down)
- |
-| OpenGL (Y+)
- | Unity / Godot
- | Standard (Y+ up means the slope points up)
- |
+| DirectX (Y-) |  |
+|---|---|
+| Unreal Engine 5 |  |
+| Inverted (Y- down means the slope points down) |  |
+| OpenGL (Y | ) |
+| Unity / Godot |  |
+| Standard (Y | up means the slope points up) |
+
+
 
 If your pipeline generates an OpenGL-formatted normal map and you import it into Unreal Engine 5 without adjusting the settings, your lighting will be inverted—causing craters to pop outward like bumps and crevices to catch light highlights instead of casting shadows.
 

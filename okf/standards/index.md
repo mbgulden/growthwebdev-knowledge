@@ -22,6 +22,8 @@ is referenced by project-specific docs.
 |---|---|---|
 | Review-loop codification | [`./review-loop-canonical.md`](./review-loop-canonical.md) | GRO-2024 |
 | Linear rate-limit codification | [`./linear-rate-limit.md`](./linear-rate-limit.md) | GRO-2008/2010/2020/2034 |
+| Prismatic harness coupling taxonomy | [`./prismatic-harness-coupling-taxonomy.md`](./prismatic-harness-coupling-taxonomy.md) | GRO-2039 |
+| Prismatic journal-setup independence map | [`./prismatic-independence-map-journal-setup.md`](./prismatic-independence-map-journal-setup.md) | GRO-2039 |
 
 ## What counts as a "standard"
 

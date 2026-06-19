@@ -24,6 +24,10 @@ spoke repositories.
 - [Projects](./projects/index.md) — Per-project index docs (pointing at spokes)
 - [Decisions](./decisions/index.md) — Architecture decision records
 - [Integrations](./integrations/index.md) — External tool integrations (MCP servers, SaaS APIs)
+- [Research](./research/index.md) — Cross-project reference research
+- [Reports](./reports/index.md) — Time-stamped reports (audits, post-mortems, snapshots)
+- [Audits](./audits/index.md) — Cross-project audits with findings + recommendations
+- [Playbooks](./playbooks/index.md) — Step-by-step operational procedures
 
 ## What is OKF?
 

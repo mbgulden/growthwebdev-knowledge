@@ -38,6 +38,7 @@ when first encountering the integration.
 | Integration | OKF location | Owner | Status |
 |---|---|---|---|
 | Ubersuggest MCP | [`./ubersuggest-mcp.md`](./ubersuggest-mcp.md) | kai | ✅ Active |
+| Jules CLI | [`./jules-cli-capability-report.md`](./jules-cli-capability-report.md) | kai | ✅ Active |
 
 ## Format
 

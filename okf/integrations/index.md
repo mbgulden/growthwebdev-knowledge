@@ -37,6 +37,7 @@ when first encountering the integration.
 
 | Integration | OKF location | Owner | Status |
 |---|---|---|---|
+| Linear webhook handler | [`./webhook-handler-test-pattern.md`](./webhook-handler-test-pattern.md) | fred | ✅ Active |
 | Ubersuggest MCP | [`./ubersuggest-mcp.md`](./ubersuggest-mcp.md) | kai | ✅ Active |
 | Jules CLI | [`./jules-cli-capability-report.md`](./jules-cli-capability-report.md) | kai | ✅ Active |
 

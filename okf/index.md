@@ -28,6 +28,7 @@ spoke repositories.
 - [Reports](./reports/index.md) — Time-stamped reports (audits, post-mortems, snapshots)
 - [Audits](./audits/index.md) — Cross-project audits with findings + recommendations
 - [Playbooks](./playbooks/index.md) — Step-by-step operational procedures
+- [Plugins](./plugins/index.md) — Prismatic Engine plugin reports (81 docs across 6 plugin domains)
 
 ## What is OKF?
 

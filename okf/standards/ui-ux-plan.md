@@ -527,3 +527,84 @@ Allow user/agent to override per project (Astro supports font loading).
 
 ## Change log
 - 2026-06-23 07:50 UTC: Initial plan. 10 surfaces, design principles, mobile-first, accessibility checklist, 6 open questions for Michael.
+---
+
+## Surface 11: Version Control UI (history + rollback + sync)
+
+**Per Michael's spec (2026-06-23):**
+> "version control baked in to this whole process in a seamless way"
+> "people that will be using this prismatic web plugin will not know how GitHub works"
+> "interface where they can easily roll back changes to a specific 'save' point"
+> "for staging and production"
+> "have a button to sync up staging to production and production to staging"
+> "clear and simple, but very capable and useful"
+
+### Wireframe
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│ 🔮 Prismatic Web Plugin         michael@growthwebdev.com · Sign out │
+├──────────────────────────────────────────────────────────────────────┤
+│ Valkyrie Arms Training                                             │
+│ 🔗 github.com/mbgulden/valkyrie-arms-training · Last sync: 2 hours │
+│                                                                      │
+│ [📤 Publish] [⚙️ Settings]                                         │
+├──────────────────────────────────────────────────────────────────────┤
+│ [📝 Content] [🎨 Design] [📦 Deployments] [🕒 Version History*] │
+├──────────────────────────────────────────────────────────────────────┤
+│ Quick Sync                                                           │
+│ ┌────────────────────────┐ ┌────────────────────────┐               │
+│ │ 🧪 → 🚀 Push to Prod   │ │ 🚀 → 🧪 Pull to Staging │               │
+│ │ Push staging v8 → prod │ │ Pull prod v7 → staging │               │
+│ │ Requires approval      │ │ Safe, no approval      │               │
+│ └────────────────────────┘ └────────────────────────┘               │
+├──────────────────────────────────────────────────────────────────────┤
+│ 🚀 Production (valkyriearmstraining.com)        [📤 Open] [📋 Copy]│
+│ Version  What changed                When        Who       Actions  │
+│ v7 ●     Added "About" section       2h ago      @michael  [View]   │
+│ v6       Synced from staging         Yesterday   @michael  [Rollback][View]
+│ v5       Updated contact form        3d ago      @michael  [Rollback][View]
+│ v4       Added testimonials          1w ago      @ella     [Rollback][View]
+│ v3       Initial Drive ingest        2w ago      @fred     [Rollback][View]
+│ ...     (12 versions total)                                       │
+├──────────────────────────────────────────────────────────────────────┤
+│ 🧪 Staging (valkyrie-staging.pages.dev)                            │
+│ Version  What changed                When        Who       Actions  │
+│ v8 ●     New pricing page (draft)    12m ago     @michael  [View]    │
+│                                                         [Push to Prod]
+│ v7       Added "About" section       2h ago      @michael  [Rollback][View]
+│ ...                                                                │
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+### Design decisions
+
+| Decision | Rationale |
+|---|---|
+| **Version labels (v1, v2, ...) not Git SHAs** | Users don't know what SHAs are |
+| **"Save points" terminology in tooltips** | Bridges the gap from non-technical users |
+| **Separate staging + production lists** | Per Michael: "sync up staging to production and production to staging" |
+| **Rollback button next to each version** | One-click, the user shouldn't have to find it |
+| **"Push to Production" prominent button** | The main action — show it |
+| **Production deployments require approval gate** | Already implemented in CLI; UI shows the same gate |
+| **GitHub connection mentioned but not central** | It's the underlying storage, not the user interface |
+
+### Acceptance criteria
+
+- [ ] User can see all versions (staging + production) at a glance
+- [ ] User can roll back any version with one click (in the same env)
+- [ ] User can promote staging → production with one click + approval
+- [ ] User can pull production → staging with one click (no approval)
+- [ ] User never sees SHA hashes, branch names, or git commands
+- [ ] User never has to know what GitHub is
+- [ ] All actions are reversible (rollback always works)
+- [ ] Activity log shows who did what (when multiple users exist)
+
+### Implementation status
+
+- ✅ Backend: `pwp/pwp_version_control.py` (state tracking + snapshots + archives)
+- ✅ Backend: `pwp/pwp_vc_cli.py` (CLI for history / rollback / sync / diff)
+- ✅ Wired into `deploy_cf_pages.py` (every deploy creates a snapshot)
+- ✅ Tests: 7 new tests covering snapshot recording, env filtering, rollback safety
+- ✅ UI mockup: `pwp/static/version-control-ui.html` (functional HTML/CSS)
+- ⏳ Real UI: needs to be built as a web app (next: AGY research + Linear task)

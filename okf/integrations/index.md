@@ -8,8 +8,8 @@ timestamp: 2026-06-19T11:15:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/integrations/index.md
-last_verified: 2026-06-19
-verified_by: kai
+last_verified: 2026-06-23
+verified_by: fred
 status: current
 ---
 
@@ -44,6 +44,7 @@ when first encountering the integration.
 | Jules CLI | [`./jules-cli-capability-report.md`](./jules-cli-capability-report.md) | kai | ✅ Active |
 | API keys & tokens registry | [`./api-key-locations.md`](./api-key-locations.md) | fred | ✅ Active |
 | Cloudflare AOT account (activeoahutours.com) | [`./cloudflare-account-activeoahu.md`](./cloudflare-account-activeoahu.md) | ned | ✅ Active |
+| **Agent profile inventory (2026-06-23)** | [`./agent-profile-inventory.md`](./agent-profile-inventory.md) | The 22 agent profiles + dormant decisions |
 
 ## Format
 

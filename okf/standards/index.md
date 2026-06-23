@@ -8,7 +8,7 @@ timestamp: 2026-06-19T10:30:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/index.md
-last_verified: 2026-06-19
+last_verified: 2026-06-23
 verified_by: fred
 status: current
 ---
@@ -28,6 +28,14 @@ is referenced by project-specific docs.
 | Event-driven dispatch architecture | [`./dispatch-architecture.md`](./dispatch-architecture.md) | GRO-2047/2048/2050 |
 | Prismatic harness coupling taxonomy | [`./prismatic-harness-coupling-taxonomy.md`](./prismatic-harness-coupling-taxonomy.md) | GRO-2039 |
 | Prismatic journal-setup independence map | [`./prismatic-independence-map-journal-setup.md`](./prismatic-independence-map-journal-setup.md) | GRO-2039 |
+| Agent dispatch architecture (canonical) | [`./agent-dispatch-architecture.md`](./agent-dispatch-architecture.md) | GRO-2047/2048/2050 + the orchestrator process |
+| AOT architecture template (the proven reference) | [`./active-oahu-tours-architecture-template.md`](./active-oahu-tours-architecture-template.md) | the reference implementation for any new client site |
+| **Prismatic Engine process overhaul** (NEW 2026-06-23) | [`./prismatic-engine-process-overhaul.md`](./prismatic-engine-process-overhaul.md) | 12 bugs + 9 anti-pattern rules from the /yolo session |
+| **Cloudflare Access — OKF publisher lockdown** (NEW 2026-06-23) | [`./cloudflare-access-okf-publisher.md`](./cloudflare-access-okf-publisher.md) | 8 hostnames locked + health-check cron + IP update script |
+| **PWP ingest spec** | [`./pwp-ingest-spec.md`](./pwp-ingest-spec.md) | GRO-2138 |
+| **PWP distill spec** | [`./pwp-distill-spec.md`](./pwp-distill-spec.md) | GRO-2140 |
+| **Mega-task workflow** (the orchestration process) | [`./mega-task-workflow.md`](./mega-task-workflow.md) | the workflow for "big project" intakes |
+| **UI/UX plan for the PWP** (10 surfaces) | [`./ui-ux-plan.md`](./ui-ux-plan.md) | GRO-2185 |
 
 ## What counts as a "standard"
 

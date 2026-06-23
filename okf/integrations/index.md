@@ -45,6 +45,7 @@ when first encountering the integration.
 | API keys & tokens registry | [`./api-key-locations.md`](./api-key-locations.md) | fred | ✅ Active |
 | Cloudflare AOT account (activeoahutours.com) | [`./cloudflare-account-activeoahu.md`](./cloudflare-account-activeoahu.md) | ned | ✅ Active |
 | **Agent profile inventory (2026-06-23)** | [`./agent-profile-inventory.md`](./agent-profile-inventory.md) | The 22 agent profiles + dormant decisions |
+| **Prismatic webhook chain recovery (2026-06-23)** | [`./prismatic-webhook-chain-recovery-2026-06-23.md`](./prismatic-webhook-chain-recovery-2026-06-23.md) | ned | ✅ Active |
 
 ## Format
 

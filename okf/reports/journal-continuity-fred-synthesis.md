@@ -2,7 +2,7 @@
 type: Report
 title: Fred Synthesis — Journal-Continuity Crack Audit
 description: Fred's synthesis and recommendations from the AGY crack audit.
-resource: /home/ubuntu/work/Hermes-Research/reports/journal-continuity-audit/initial/fred-synthesis.md
+resource: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/fred-synthesis.md
 tags: [report, fred, continuity, synthesis]
 timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
@@ -11,7 +11,7 @@ git_path: okf/reports/journal-continuity-fred-synthesis.md
 last_verified: 2026-06-19
 verified_by: kai
 status: current
-migrated_from: /home/ubuntu/work/Hermes-Research/reports/journal-continuity-audit/initial/fred-synthesis.md
+migrated_from: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/fred-synthesis.md
 ---
 
 # Fred Synthesis — Journal Continuity Audit Initial Pass
@@ -38,7 +38,7 @@ Blocked/incomplete:
 
 AGY produced the expected file:
 
-- `/home/ubuntu/work/Hermes-Research/reports/journal-continuity-audit/initial/agy-crack-audit.md`
+- `https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md`
 - `/tmp/agy-dispatch-GRO-1937-result.md`
 
 Dispatcher validation later escalated `GRO-1937` because AGY did not post a Linear Walkthrough comment and the validator saw no comment file paths. That is a **book-end protocol failure**, not an artifact failure. The report exists and is usable.
@@ -55,19 +55,19 @@ Dispatcher validation later escalated `GRO-1937` because AGY did not post a Line
 
 2. **Credit policy engine missing**
    - Status: create.
-   - Verification: no `credit_policy_engine` file found under `/home/ubuntu/work` during synthesis check.
+   - Verification: no `credit_policy_engine` file found under `https://hermes.growthwebdev.com/artifacts/raw/published/work` during synthesis check.
    - Route: `agent:ned-code` or `agent:ned-infra` depending on implementation location.
    - Priority: P1.
 
 3. **Restore Prismatic stale lock watcher path alignment**
    - Status: create/update.
-   - Verification: `stale_lock_watcher.py` was not found in `/home/ubuntu/work/prismatic-engine`; cron references `stale-lock-watcher.py` while AGY report cited missing `prismatic/stale_lock_watcher.py`.
+   - Verification: `stale_lock_watcher.py` was not found in `https://hermes.growthwebdev.com/artifacts/raw/prismatic-engine`; cron references `stale-lock-watcher.py` while AGY report cited missing `prismatic/stale_lock_watcher.py`.
    - Route: `agent:ned-code` or Fred if lane rules require orchestrator.
    - Priority: P1.
 
 4. **Fix or verify AGY watchdog**
    - Status: update/verify.
-   - Verification: `/home/ubuntu/work/agentic-swarm-ops/ops/agy_watchdog.py` exists, so AGY's “missing/non-executable” wording is stale. Need run-level verification, not create-from-scratch.
+   - Verification: `https://hermes.growthwebdev.com/artifacts/raw/agentic-swarm-ops/ops/agy_watchdog.py` exists, so AGY's “missing/non-executable” wording is stale. Need run-level verification, not create-from-scratch.
    - Route: `agent:ned-infra`.
    - Priority: P1.
 

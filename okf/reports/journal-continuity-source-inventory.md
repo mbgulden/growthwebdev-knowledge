@@ -2,7 +2,7 @@
 type: Report
 title: Journal-Continuity Source Inventory (Phase 1 Shim-Smoke)
 description: Canonical source inventory for journal-continuity work (phase 1 shim-smoke run). Supersedes initial and phase1-smoke versions.
-resource: /home/ubuntu/work/Hermes-Research/reports/journal-continuity-audit/phase1-shim-smoke/source-inventory.md
+resource: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/phase1-shim-smoke/source-inventory.md
 tags: [report, continuity, inventory, phase1]
 timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
@@ -11,7 +11,7 @@ git_path: okf/reports/journal-continuity-source-inventory.md
 last_verified: 2026-06-19
 verified_by: kai
 status: current
-migrated_from: /home/ubuntu/work/Hermes-Research/reports/journal-continuity-audit/phase1-shim-smoke/source-inventory.md
+migrated_from: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/phase1-shim-smoke/source-inventory.md
 ---
 
 # Journal Continuity Audit Source Inventory — phase1-shim-smoke
@@ -19,10 +19,10 @@ migrated_from: /home/ubuntu/work/Hermes-Research/reports/journal-continuity-audi
 Generated: 2026-06-18T06:31:00.097301+00:00
 
 ## Coverage
-- Dated journals: 13 — /home/ubuntu/work/Hermes-Research/journals/2026/06/03.md → /home/ubuntu/work/Hermes-Research/journals/2026/06/18.md
-- Inbox journals: 14 — /home/ubuntu/work/Hermes-Research/journals/inbox/2026-06-03.md → /home/ubuntu/work/Hermes-Research/journals/inbox/2026-06-16.md
-- Weekly rollups: 2 — /home/ubuntu/work/Hermes-Research/journals/weekly/2026-W23.md → /home/ubuntu/work/Hermes-Research/journals/weekly/2026-W24.md
-- Event indexes: 14 — /home/ubuntu/work/Hermes-Research/journals/.index/events-2026-06-03.json → /home/ubuntu/work/Hermes-Research/journals/.index/events-2026-06-16.json
+- Dated journals: 13 — https://hermes.growthwebdev.com/artifacts/raw/published/Hermes-Research/journals/2026/06/03.md → https://hermes.growthwebdev.com/artifacts/raw/published/Hermes-Research/journals/2026/06/18.md
+- Inbox journals: 14 — https://hermes.growthwebdev.com/artifacts/raw/published/Hermes-Research/journals/inbox/2026-06-03.md → https://hermes.growthwebdev.com/artifacts/raw/published/Hermes-Research/journals/inbox/2026-06-16.md
+- Weekly rollups: 2 — https://hermes.growthwebdev.com/artifacts/raw/published/Hermes-Research/journals/weekly/2026-W23.md → https://hermes.growthwebdev.com/artifacts/raw/published/Hermes-Research/journals/weekly/2026-W24.md
+- Event indexes: 14 — https://hermes.growthwebdev.com/artifacts/raw/published/Hermes-Research/journals/.index/events-2026-06-03.json → https://hermes.growthwebdev.com/artifacts/raw/published/Hermes-Research/journals/.index/events-2026-06-16.json
 - Session files: 11141 — oldest 2026-05-23T07:14:41.756992+00:00 → newest 2026-06-18T06:27:32.030531+00:00
 
 ## Relevant cron jobs
@@ -53,4 +53,4 @@ Generated: 2026-06-18T06:31:00.097301+00:00
 Read this inventory and the plan/sequence docs. Then inspect the listed journals/event indexes only. If a finding requires raw session proof, identify the exact date/session candidate instead of opening all sessions.
 
 Write the crack-audit report to:
-- `/home/ubuntu/work/Hermes-Research/reports/journal-continuity-audit/phase1-shim-smoke/agy-crack-audit.md`
+- `https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/phase1-shim-smoke/agy-crack-audit.md`

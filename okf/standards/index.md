@@ -35,6 +35,9 @@ is referenced by project-specific docs.
 | **PWP ingest spec** | [`./pwp-ingest-spec.md`](./pwp-ingest-spec.md) | GRO-2138 |
 | **PWP distill spec** | [`./pwp-distill-spec.md`](./pwp-distill-spec.md) | GRO-2140 |
 | **Mega-task workflow** (the orchestration process) | [`./mega-task-workflow.md`](./mega-task-workflow.md) | the workflow for "big project" intakes |
+| **AGY architecture — The Recipe** (NEW 2026-06-23, regression-tested) | [`./agy-architecture-recipe.md`](./agy-architecture-recipe.md) | GRO-2237 | The canonical AGY reference. Read this BEFORE changing anything AGY. |
+| **Ned architecture — The Recipe** (NEW 2026-06-23) | [`./ned-architecture-recipe.md`](./ned-architecture-recipe.md) | GRO-2238 | The canonical Ned reference. |
+| **Kai architecture — The Recipe** (NEW 2026-06-23) | [`./kai-architecture-recipe.md`](./kai-architecture-recipe.md) | GRO-2239 | The canonical Kai reference. |
 | **UI/UX plan for the PWP** (10 surfaces) | [`./ui-ux-plan.md`](./ui-ux-plan.md) | GRO-2185 |
 
 ## What counts as a "standard"

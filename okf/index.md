@@ -8,8 +8,8 @@ timestamp: 2026-06-19T11:15:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/index.md
-last_verified: 2026-06-19
-verified_by: kai
+last_verified: 2026-06-23
+verified_by: fred
 status: current
 ---
 

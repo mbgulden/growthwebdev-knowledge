@@ -42,6 +42,8 @@ when first encountering the integration.
 | Linear webhook events | [`./linear-webhook-events.md`](./linear-webhook-events.md) | What events to subscribe to when configuring Linear webhooks (GRO-2084) |
 | Cloudflare Tunnel webhooks | [`./cloudflare-tunnel-webhooks.md`](./cloudflare-tunnel-webhooks.md) | How webhooks.growthwebdev.com routes to port 9000 via Tunnel (GRO-2084) |
 | Jules CLI | [`./jules-cli-capability-report.md`](./jules-cli-capability-report.md) | kai | ✅ Active |
+| API keys & tokens registry | [`./api-key-locations.md`](./api-key-locations.md) | fred | ✅ Active |
+| Cloudflare AOT account (activeoahutours.com) | [`./cloudflare-account-activeoahu.md`](./cloudflare-account-activeoahu.md) | ned | ✅ Active |
 
 ## Format
 

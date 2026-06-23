@@ -1,10 +1,10 @@
 ---
 type: Pattern
 title: Autonomous Task Loop — Commit-Early Pattern
-description: How Ned (and any other lane agent) executes Linear tasks autonomously without losing work to tool-budget exhaustion. Five rules + 9-step skeleton + atomic finalize script.
+description: How Ned (and any other lane agent) executes Linear tasks autonomously without losing work to tool-budget exhaustion. CRITICAL: new rules belong in the skeleton doc, NOT the cron prompt — see "⚠️ THE LOAD-BEARING RULE" section.
 resource: okf/integrations/autonomous-task-loop-pattern.md
-tags: [pattern, agent, autonomous, cron, commit-early, prismatic-engine, tool-budget]
-timestamp: 2026-06-23T18:45:00Z
+tags: [pattern, agent, autonomous, cron, commit-early, prismatic-engine, tool-budget, rule-placement]
+timestamp: 2026-06-23T20:15:00Z
 linear_issue: GRO-2226
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/integrations/autonomous-task-loop-pattern.md
@@ -22,6 +22,75 @@ status: current
 **Root cause:** The agent pattern was "explore → write → test → commit at the end." When the budget ran out mid-task, all the work evaporated. The agent left a status message ("ran out of tool calls before I could complete the commit, Linear state transition, and unlock steps") but that message didn't save the actual work.
 
 **Fix:** Restructure task execution so **every state mutation creates a recoverable checkpoint**. Even if the budget runs out, the work is safe.
+
+
+
+---
+
+## ⚠️ THE LOAD-BEARING RULE: where new rules belong
+
+**This is the most important section in this document. Read it twice before adding any new rule.**
+
+> **Future rule additions go in `autonomous-task-skeleton.md` (the procedural doc), NOT in the cron prompt.**
+
+### Why this rule exists
+
+If every future agent iteration adds its failure-as-rule to the cron prompt, the prompt becomes a wall of "don'ts." Walls of don'ts degrade LLM instruction-following accuracy faster than anything else. We learned this from the GRO-2226 failure: the prompt already had 12 hard rules, and the model **still** lost the work because the rules didn't address *when* to do things.
+
+The cron prompt stays **short and structural**. New failure-derived rules get appended to the skeleton doc with:
+- A clear procedural form ("After step X, do Y")
+- An anti-pattern callout if applicable
+- A worked example
+
+### The split, by layer
+
+| Layer | Contains | Size budget | Examples |
+|---|---|---|---|
+| Cron prompt (in `jobs.json`) | Top-level structure, file paths, the 8 "hard rules" that NEVER change | ≤2,500 chars (~500 tokens) — fits on a phone screen | "ALWAYS use finalize_task.sh", "NEVER modify other agents' lanes" |
+| Skeleton doc (`autonomous-task-skeleton.md`) | Procedural sequence, "when" of each rule, anti-patterns, worked examples | Grows as patterns emerge | "Step 5: commit BEFORE running tests", "Step 7: run finalize as one tool call" |
+| OKF pattern doc (this file) | The WHY, the metrics, the references, the rule-placement rule itself | Grows slowly; one section per new lesson | This section. Future agents read this to decide WHERE new rules go. |
+
+### How to decide where a new rule belongs
+
+When you (the agent) hit a new failure mode, ask:
+
+1. **Is this a hard structural rule that should NEVER change?** → Cron prompt (rare — only 8 currently).
+   - Example: "ALWAYS use finalize_task.sh before reporting"
+2. **Is this a procedural step in the workflow?** → Skeleton doc (most failures land here).
+   - Example: "If the test suite takes >5 min, run it in background"
+3. **Is this a lesson-learned that future agents should know but isn't a procedure?** → OKF pattern doc.
+   - Example: "Always verify X with a real Linear query, not a synthetic test"
+
+### Anti-pattern: rule creep into the cron prompt
+
+❌ **Wrong:**
+```
+cron prompt: 5 hard rules
++ new failure → add 6th rule to cron prompt
++ new failure → add 7th rule to cron prompt
++ ...
+→ after 20 failures, the cron prompt is a 3000-token wall of "don'ts"
+→ LLM instruction-following degrades sharply
+→ agent starts ignoring the rules, which is worse than not having them
+```
+
+✅ **Right:**
+```
+cron prompt: 8 stable structural rules (unchanged for months)
+skeleton doc: 30 procedural steps (grows as patterns emerge)
+OKF doc: 5 lessons-learned (this section is one of them)
+```
+
+**When in doubt: skeleton doc. The cron prompt should fit on a phone screen.**
+
+### How to actually do this
+
+1. New failure observed. Document it in the relevant layer.
+2. Update the **cron prompt only if** the new rule is a structural invariant. Otherwise don't touch the prompt.
+3. Update the **skeleton doc** with the procedural fix + anti-pattern.
+4. Add a **one-line cross-reference** in this section: "If you see X failure mode, see `autonomous-task-skeleton.md` step Y."
+
+---
 
 ## The five rules
 

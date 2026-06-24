@@ -261,6 +261,36 @@ in a shape the guard rejects as stale). The fact that the launch log shows
 guard message means the guard runs synchronously inside the worker loop and
 fires before the AGY subprocess gets a chance to do anything.
 
+**Updated 03:50 UTC — guard is working correctly. The real problem is upstream.**
+
+The guard is doing its job: it wrote a `RESULT.md` with `Status: ABANDONED`,
+`Duration: 0s`, `Exit code: -1` (signal-killed, not graceful). The actual
+sandbox `/tmp/agy_sandboxes/GRO-1847/` shows the warm-cache clone succeeded,
+the branch `docs/gro-1915-seven-step-docs` was checked out, `AGY_TASK.md` was
+created, then the AGY subprocess was killed before producing any output
+(`log: 0b` in the supervisor's tally).
+
+So the real chain is:
+```
+supervisor → warm-cache clone (✓) → launch AGY subprocess (✗ dies in 0s)
+```
+
+The AGY binary either:
+- Crashes on init (env var missing, /tmp write restriction, etc.)
+- Is killed by `proc.terminate()` in the supervisor's loop (line 371)
+  before the first print fires
+- Hangs forever and the watchdog kills it (would show "DONE:" or
+  "timed out" in log_content — neither appears, so probably not this)
+
+The "single-account mode: target concurrency = 3" cap on a 1-token pool
+combined with 6 worker startup could also be starving the launch
+(token acquisition failing silently). Worth checking `TokenPool.acquire()`
+returns against `TokenPool.stats()` between runs.
+
+The 1-account ceiling + 6-worker config is suspicious — 6 workers contend
+for 1 token and the supervisor's launch code at `launch_agy_in_sandbox()`
+may be treating "no token available" as a failed launch.
+
 ### Second concurrent failure: Codex primary auth
 
 The orchestrator gateway log (`/home/ubuntu/.hermes/logs/orchestrator-gateway.log`)

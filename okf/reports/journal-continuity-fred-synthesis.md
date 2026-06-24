@@ -2,7 +2,7 @@
 type: Report
 title: Fred Synthesis — Journal-Continuity Crack Audit
 description: Fred's synthesis and recommendations from the AGY crack audit.
-resource: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/fred-synthesis.md
+resource: https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/fred-synthesis.md
 tags: [report, fred, continuity, synthesis]
 timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
@@ -11,7 +11,7 @@ git_path: okf/reports/journal-continuity-fred-synthesis.md
 last_verified: 2026-06-19
 verified_by: kai
 status: current
-migrated_from: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/fred-synthesis.md
+migrated_from: https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/fred-synthesis.md
 ---
 
 # Fred Synthesis — Journal Continuity Audit Initial Pass
@@ -25,7 +25,7 @@ The audit is **partially complete, not finished**.
 Completed:
 - JCA-00: review plan + sequence manifest exists.
 - JCA-01: source inventory exists.
-- JCA-02: AGY crack audit report exists at [agy-crack-audit.md](https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md).
+- JCA-02: AGY crack audit report exists at [agy-crack-audit.md](https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md).
 - Prismatic Engine integration spec exists and is committed in `prismatic-engine` commit `5073e7b`.
 - Monthly recurrence cron exists: `Monthly Journal Continuity Audit`, scheduled `0 9 1 * *`, next run July 1.
 
@@ -38,7 +38,7 @@ Blocked/incomplete:
 
 AGY produced the expected file:
 
-- [agy-crack-audit.md](https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md) (published durable audit report, superseding local [/tmp/agy-dispatch-GRO-1937-result.md](https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md))
+- [agy-crack-audit.md](https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md) (published durable audit report, superseding local [`/tmp/agy-dispatch-GRO-1937-result.md`](https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md))
 
 Dispatcher validation later escalated `GRO-1937` because AGY did not post a Linear Walkthrough comment and the validator saw no comment file paths. That is a **book-end protocol failure**, not an artifact failure. The report exists and is usable.
 
@@ -54,19 +54,19 @@ Dispatcher validation later escalated `GRO-1937` because AGY did not post a Line
 
 2. **Credit policy engine missing**
    - Status: create.
-   - Verification: no `credit_policy_engine` file found under `https://files.growthwebdev.com/raw/published` during synthesis check.
+   - Verification: no [`credit_policy_engine.py`](https://hermes.growthwebdev.com/artifacts/raw/published/credit_policy_engine.py) file found under published workspace during synthesis check.
    - Route: `agent:ned-code` or `agent:ned-infra` depending on implementation location.
    - Priority: P1.
 
 3. **Restore Prismatic stale lock watcher path alignment**
    - Status: create/update.
-   - Verification: `stale_lock_watcher.py` was not found in `https://files.growthwebdev.com/raw/prismatic-engine`; cron references `stale-lock-watcher.py` while AGY report cited missing `prismatic/stale_lock_watcher.py`.
+   - Verification: [`stale_lock_watcher.py`](https://hermes.growthwebdev.com/artifacts/raw/prismatic-engine/prismatic/stale_lock_watcher.py) was not found in the `prismatic-engine` workspace; cron references `stale-lock-watcher.py` while AGY report cited missing `prismatic/stale_lock_watcher.py`.
    - Route: `agent:ned-code` or Fred if lane rules require orchestrator.
    - Priority: P1.
 
 4. **Fix or verify AGY watchdog**
    - Status: update/verify.
-   - Verification: `https://files.growthwebdev.com/raw/agentic-swarm-ops/ops/agy_watchdog.py` exists, so AGY's “missing/non-executable” wording is stale. Need run-level verification, not create-from-scratch.
+   - Verification: [`agy_watchdog.py`](https://hermes.growthwebdev.com/artifacts/raw/agentic-swarm-ops/ops/agy_watchdog.py) exists, so AGY's “missing/non-executable” wording is stale. Need run-level verification, not create-from-scratch.
    - Route: `agent:ned-infra`.
    - Priority: P1.
 

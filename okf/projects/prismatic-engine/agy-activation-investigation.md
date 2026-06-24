@@ -214,3 +214,89 @@ Add a health check: if `nudge-fred` file is older than 5 minutes AND AGY process
 1. **Decide whether to re-enable AGY Sandbox Supervisor cron** — yes if you want AGY to pick up nudges automatically.
 2. **Decide what to do with accumulated nudges** — the 3 stale nudge files (fred, kai, ned) are stale work that wasn't picked up.
 3. **Consider adding the health check alert** (nudge age + AGY process count) so this doesn't go silent again.
+
+---
+
+## Follow-up: 2026-06-24 03:43 UTC — Ned re-investigation
+
+**Status:** GRO-2085 re-opened for a different reason. The supervisor cron is now re-enabled
+(`enabled=True, state=scheduled, last_status=ok, repeat.completed=138`) and it IS launching.
+But the launch chain is broken downstream, so the original symptom (no AGY processes) persists.
+
+### What's still wrong
+
+```
+$ ps -ef | grep -E 'agy-bin|agy ' | grep -v grep
+(no results — 0 AGY processes)
+
+$ ls -la /tmp/prismatic/nudge-*
+-rw------- 1 ubuntu ubuntu 279 Jun 23 17:59 /tmp/prismatic/nudge-fred
+-rw------- 1 ubuntu ubuntu 326 Jun 23 16:56 /tmp/prismatic/nudge-kai
+-rw------- 1 ubuntu ubuntu 293 Jun 23 14:14 /tmp/prismatic/nudge-ned
+```
+
+3 nudges, 12–13 hours old. No AGY has been alive to consume them.
+
+### What the supervisor is doing right now
+
+The most recent run (file `output/faf8d91da716/2026-06-23_21-34-51.md`, mtime 03:34:51 UTC) shows:
+
+- Started 6 workers, pulled 59 tasks from Linear (`--from-linear`)
+- Every single one of 59 launches hit `🛡️  ABANDONMENT DETECTED — invoking guard`
+- Guard returned rc=1 for every task, so `✅ Done: 0/59, 🟠 Other: 59/59`
+- Worker pool idled for the full 24h print timeout then exited
+- **The abandonment guard is killing every AGY sandbox immediately after launch.**
+
+The supervisor IS firing on its 15-minute interval (cron output mtimes confirm
+runs at 21:34, 21:13, 20:52, 20:31, 18:48, 17:04, … all 6h back). It's just
+making zero progress because the guard rejects every launch.
+
+### Why the guard fires
+
+`agy_sandbox_event_supervisor.py:404` invokes `agy_abandonment_guard.py` when
+the launch-time heuristic detects an "abandoned" sandbox state. The 100% failure
+rate means the heuristic is over-eager (or the OAuth token / tmpfs state is
+in a shape the guard rejects as stale). The fact that the launch log shows
+`[GRO-XXXX] launching AGY in sandbox GRO-XXXX` followed immediately by the
+guard message means the guard runs synchronously inside the worker loop and
+fires before the AGY subprocess gets a chance to do anything.
+
+### Second concurrent failure: Codex primary auth
+
+The orchestrator gateway log (`/home/ubuntu/.hermes/logs/orchestrator-gateway.log`)
+shows non-stop `WARNING cron.scheduler: Job '500749c7949d': primary auth failed
+(Codex auth is missing access_token. Run \`hermes auth\` to re-authenticate.),
+trying fallback` for the AGY Watchdog job. This affects all Codex-primary
+agents (Kai, Fred, Ned, Autobot, etc.) — they keep falling back to
+non-primary providers. Not blocking the supervisor (which is `no_agent: True`),
+but it does degrade the entire swarm's effectiveness.
+
+### Disposition
+
+- **GRO-2085 stays open** — the user-visible symptom ("AGY not running") is
+  not actually fixed even though the literal "re-enable the cron" step was
+  completed by Fred on 2026-06-19.
+- **New sub-task needed:** diagnose why `agy_abandonment_guard.py` rejects
+  59/59 launches. Likely culprits:
+  1. OAuth token pool is in a bad state (last token refresh was 03:18 today;
+     timestamp is fresh, so probably not this).
+  2. `/tmp/agy_sandboxes` tmpfs is not being remounted cleanly between
+     supervisor runs (check `mount | grep agy_sandboxes`).
+  3. The guard heuristic itself is mis-tuned (compare config to AGY activation
+     history from before 2026-06-18 when the supervisor last succeeded).
+- **Second sub-task:** re-auth Codex primary so the rest of the swarm stops
+  falling back. `hermes auth` on the orchestrator profile, or refresh
+  `~/.codex/auth.json`.
+
+### Verification commands
+
+```bash
+# 1. Confirm supervisor is firing (mtime should be <30min old)
+stat -c '%y' /home/ubuntu/.hermes/profiles/orchestrator/cron/output/faf8d91da716/$(ls -t /home/ubuntu/.hermes/profiles/orchestrator/cron/output/faf8d91da716/ | head -1)
+
+# 2. Confirm guard is the failure mode
+grep -c "ABANDONMENT DETECTED" /home/ubuntu/.hermes/profiles/orchestrator/cron/output/faf8d91da716/$(ls -t /home/ubuntu/.hermes/profiles/orchestrator/cron/output/faf8d91da716/ | head -1)
+
+# 3. Confirm Codex auth needs refresh
+tail -100 /home/ubuntu/.hermes/logs/orchestrator-gateway.log | grep -c "Codex auth is missing"
+```

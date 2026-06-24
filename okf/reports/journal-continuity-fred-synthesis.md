@@ -2,7 +2,7 @@
 type: Report
 title: Fred Synthesis — Journal-Continuity Crack Audit
 description: Fred's synthesis and recommendations from the AGY crack audit.
-resource: https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/fred-synthesis.md
+resource: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/fred-synthesis.md
 tags: [report, fred, continuity, synthesis]
 timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
@@ -11,7 +11,7 @@ git_path: okf/reports/journal-continuity-fred-synthesis.md
 last_verified: 2026-06-19
 verified_by: kai
 status: current
-migrated_from: https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/fred-synthesis.md
+migrated_from: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/fred-synthesis.md
 ---
 
 # Fred Synthesis — Journal Continuity Audit Initial Pass
@@ -25,7 +25,7 @@ The audit is **partially complete, not finished**.
 Completed:
 - JCA-00: review plan + sequence manifest exists.
 - JCA-01: source inventory exists.
-- JCA-02: AGY crack audit report exists at [agy-crack-audit.md](https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md).
+- JCA-02: AGY crack audit report exists at [agy-crack-audit.md](https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md).
 - Prismatic Engine integration spec exists and is committed in `prismatic-engine` commit `5073e7b`.
 - Monthly recurrence cron exists: `Monthly Journal Continuity Audit`, scheduled `0 9 1 * *`, next run July 1.
 
@@ -38,7 +38,7 @@ Blocked/incomplete:
 
 AGY produced the expected file:
 
-- [agy-crack-audit.md](https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md) (published durable audit report, superseding local `/tmp/agy-dispatch-GRO-1937-result.md`)
+- [agy-crack-audit.md](https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md) (published durable audit report, superseding local [/tmp/agy-dispatch-GRO-1937-result.md](https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md))
 
 Dispatcher validation later escalated `GRO-1937` because AGY did not post a Linear Walkthrough comment and the validator saw no comment file paths. That is a **book-end protocol failure**, not an artifact failure. The report exists and is usable.
 

@@ -35,9 +35,9 @@ superseded).
 
 | Report | Date | Status | Cloudflare URL |
 |---|---|---|---|
-| [AGY Crack Audit](./journal-continuity-agy-crack-audit.md) | 2026-06-19 | current | [Link](https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md) |
-| [Fred Synthesis](./journal-continuity-fred-synthesis.md) | 2026-06-19 | current | [Link](https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/fred-synthesis.md) |
-| [Source Inventory (phase 1 shim-smoke)](./journal-continuity-source-inventory.md) | 2026-06-18 | current | [Link](https://files.growthwebdev.com/raw/hermes-research-reports/journal-continuity-audit/phase1-shim-smoke/source-inventory.md) |
+| [AGY Crack Audit](./journal-continuity-agy-crack-audit.md) | 2026-06-19 | current | [Link](https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md) |
+| [Fred Synthesis](./journal-continuity-fred-synthesis.md) | 2026-06-19 | current | [Link](https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/fred-synthesis.md) |
+| [Source Inventory (phase 1 shim-smoke)](./journal-continuity-source-inventory.md) | 2026-06-18 | current | [Link](https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/source-inventory.md) |
 
 
 ## Swarm operations

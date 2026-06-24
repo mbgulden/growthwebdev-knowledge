@@ -2,7 +2,7 @@
 type: Report
 title: AGY Journal-Continuity Crack Audit
 description: AGY historical crack-audit identifying stale repos, abandoned work, and journal-continuity failures across the growthwebdev stack.
-resource: https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md
+resource: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md
 tags: [report, agy, continuity, audit]
 timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
@@ -11,7 +11,7 @@ git_path: okf/reports/journal-continuity-agy-crack-audit.md
 last_verified: 2026-06-19
 verified_by: kai
 status: current
-migrated_from: https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md
+migrated_from: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md
 ---
 
 # Journal Continuity Audit — AGY Historical Crack Audit (Inception-to-Date)

@@ -2,7 +2,7 @@
 type: Report
 title: Journal-Continuity Source Inventory (Phase 1 Shim-Smoke)
 description: Canonical source inventory for journal-continuity work (phase 1 shim-smoke run). Supersedes initial and phase1-smoke versions.
-resource: https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/source-inventory.md
+resource: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/source-inventory.md
 tags: [report, continuity, inventory, phase1]
 timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
@@ -11,7 +11,7 @@ git_path: okf/reports/journal-continuity-source-inventory.md
 last_verified: 2026-06-19
 verified_by: kai
 status: current
-migrated_from: https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/source-inventory.md
+migrated_from: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/source-inventory.md
 ---
 
 # Journal Continuity Audit Source Inventory — phase1-shim-smoke
@@ -53,4 +53,4 @@ Generated: 2026-06-18T06:31:00.097301+00:00
 Read this inventory and the plan/sequence docs. Then inspect the listed journals/event indexes only. If a finding requires raw session proof, identify the exact date/session candidate instead of opening all sessions.
 
 Write the crack-audit report to:
-- `https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md`
+- `https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/initial/agy-crack-audit.md`

@@ -2,7 +2,7 @@
 type: Report
 title: Journal-Continuity Source Inventory (Phase 1 Shim-Smoke)
 description: Canonical source inventory for journal-continuity work (phase 1 shim-smoke run). Supersedes initial and phase1-smoke versions.
-resource: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/phase1-shim-smoke/source-inventory.md
+resource: https://files.growthwebdev.com/raw/hermes-research-reports/journal-continuity-audit/phase1-shim-smoke/source-inventory.md
 tags: [report, continuity, inventory, phase1]
 timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
@@ -11,7 +11,7 @@ git_path: okf/reports/journal-continuity-source-inventory.md
 last_verified: 2026-06-19
 verified_by: kai
 status: current
-migrated_from: https://hermes.growthwebdev.com/artifacts/raw/hermes-research-reports/journal-continuity-audit/phase1-shim-smoke/source-inventory.md
+migrated_from: https://files.growthwebdev.com/raw/hermes-research-reports/journal-continuity-audit/phase1-shim-smoke/source-inventory.md
 ---
 
 # Journal Continuity Audit Source Inventory — phase1-shim-smoke

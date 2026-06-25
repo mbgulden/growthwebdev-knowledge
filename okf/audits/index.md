@@ -25,6 +25,7 @@ quality measurements.
 | [AGY Homelab Repo Audit](./agy-audit-homelab-2026-06.md) | 2026-06-15 | `homelab/` |
 | [AGY Hermes Agent Manager Audit](./agy-audit-hermes-manager-2026-06.md) | 2026-06-15 | Hermes Agent Manager / Hub |
 | [AGY SIAL/ITAD Audit](./agy-audit-sentinel-itad-2026-06.md) | 2026-06-15 | `sentinel-it-asset-logistics/` |
+| [GRO-569 Jules Session Monitor Tracker Obsolescence](./ned-gro-569-tracker-obsolescence-2026-06-25.md) | 2026-06-25 | GRO-569 (linear-tracker) — replaced by 3-cron pipeline |
 
 ## What counts as an "audit"
 

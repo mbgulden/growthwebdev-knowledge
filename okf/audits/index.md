@@ -8,8 +8,8 @@ timestamp: 2026-06-19T11:30:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/audits/index.md
-last_verified: 2026-06-19
-verified_by: kai
+last_verified: 2026-06-25
+verified_by: ned
 status: current
 ---
 
@@ -22,6 +22,7 @@ quality measurements.
 
 | Audit | Date | Target |
 |---|---|---|
+| [Rule-density experiment setup](./rule-density-experiment-setup-2026-06-25.md) | 2026-06-25 | Ned prompt/skeleton rule-density experiment (Window B setup) |
 | [AGY Homelab Repo Audit](./agy-audit-homelab-2026-06.md) | 2026-06-15 | `homelab/` |
 | [AGY Hermes Agent Manager Audit](./agy-audit-hermes-manager-2026-06.md) | 2026-06-15 | Hermes Agent Manager / Hub |
 | [AGY SIAL/ITAD Audit](./agy-audit-sentinel-itad-2026-06.md) | 2026-06-15 | `sentinel-it-asset-logistics/` |

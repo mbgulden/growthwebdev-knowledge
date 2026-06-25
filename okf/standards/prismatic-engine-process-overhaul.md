@@ -7,7 +7,7 @@ tags: [standard, lessons-learned, post-mortem, anti-pattern, agent-swarm, dispat
 timestamp: 2026-06-23T08:15:00Z
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/prismatic-engine-process-overhaul.md
-last_verified: 2026-06-23
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

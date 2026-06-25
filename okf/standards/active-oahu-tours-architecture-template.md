@@ -7,7 +7,7 @@ tags: [standards, architecture, template, active-oahu, prismatic-web-plugin, mvp
 timestamp: 2026-06-23T06:12:00Z
 git_repo: mbgulden/active-oahu-tours-mirror
 linear_issue: TBD
-last_verified: 2026-06-23
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

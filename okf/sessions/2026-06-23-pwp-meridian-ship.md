@@ -7,7 +7,7 @@ tags: [session-summary, pwp, meridian, prismatic-engine, agent-swarm, infrastruc
 timestamp: 2026-06-23T17:00:00Z
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/sessions/2026-06-23-pwp-meridian-ship.md
-last_verified: 2026-06-23
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

@@ -8,7 +8,7 @@ timestamp: 2026-06-23T05:00:00Z
 linear_issue: TBD
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/agent-dispatch-architecture.md
-last_verified: 2026-06-23
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

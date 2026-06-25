@@ -8,7 +8,7 @@ timestamp: 2026-06-23T06:42:00Z
 linear_issue: GRO-2138
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/pwp-ingest-spec.md
-last_verified: 2026-06-23
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

@@ -8,7 +8,7 @@ timestamp: 2026-06-23T17:00:00Z
 linear_issue: GRO-2238
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/ned-architecture-recipe.md
-last_verified: 2026-06-23
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

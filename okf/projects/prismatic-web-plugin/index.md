@@ -8,7 +8,7 @@ timestamp: 2026-06-23T06:40:00Z
 linear_issue: GRO-2132 (superseded, new epic TBD)
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/projects/prismatic-web-plugin/index.md
-last_verified: 2026-06-23
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

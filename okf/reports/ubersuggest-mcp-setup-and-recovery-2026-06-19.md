@@ -8,7 +8,7 @@ timestamp: 2026-06-19T10:52:15Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/reports/ubersuggest-mcp-setup-and-recovery-2026-06-19.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 migrated_from: /home/ubuntu/work/reports/20260619_ubersuggest_mcp_setup_and_recovery.md

@@ -8,7 +8,7 @@ timestamp: 2026-06-19T11:47:07Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/plugins/prismatic-game-story-engine/prism_story_61_ui_atlas_packing_and_font_glyph_subsetting.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 plugin: Prismatic-Game-Story-Engine

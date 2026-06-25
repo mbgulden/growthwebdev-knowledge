@@ -5,7 +5,7 @@ description: Single entry point for everything related to the Prismatic Engine. 
 resource: okf/runbooks/prismatic-engine-tasks.md
 tags: [runbook, prismatic-engine, system-map, onboarding, tasks]
 timestamp: 2026-06-19T23:00:00Z
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

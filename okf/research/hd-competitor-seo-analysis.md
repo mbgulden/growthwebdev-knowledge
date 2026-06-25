@@ -8,7 +8,7 @@ timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/research/hd-competitor-seo-analysis.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 migrated_from: /home/ubuntu/hd_competitor_seo_analysis.md

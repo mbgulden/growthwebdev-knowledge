@@ -8,7 +8,7 @@ timestamp: 2026-06-19T10:30:00Z
 linear_issue: GRO-2008,GRO-2010,GRO-2020,GRO-2034
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/linear-rate-limit.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

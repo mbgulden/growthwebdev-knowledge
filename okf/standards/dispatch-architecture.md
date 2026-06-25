@@ -8,7 +8,7 @@ timestamp: 2026-06-19T12:30:00Z
 linear_issue: GRO-2048
 git_repo: mbgulden/prismatic-engine
 git_path: prismatic/gateway/server.py
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

@@ -8,7 +8,7 @@ timestamp: 2026-06-19T11:15:00Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/integrations/ubersuggest-mcp.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 auth_method: OAuth 2.0 + PKCE

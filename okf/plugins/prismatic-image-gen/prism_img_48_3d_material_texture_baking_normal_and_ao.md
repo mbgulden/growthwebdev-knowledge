@@ -8,7 +8,7 @@ timestamp: 2026-06-19T11:47:07Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/plugins/prismatic-image-gen/prism_img_48_3d_material_texture_baking_normal_and_ao.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 plugin: Prismatic-Image-Gen

@@ -8,7 +8,7 @@ timestamp: 2026-06-19T11:47:07Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/plugins/prismatic-image-gen/prism_img_47_3d_geometry_decimation_qem_contracts.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 plugin: Prismatic-Image-Gen

@@ -8,7 +8,7 @@ timestamp: 2026-06-19T11:47:07Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/plugins/prismatic-audio-acoustics/prism_audio_33_hybrid_local_clusters_and_flow_music_v2.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 plugin: Prismatic-Audio-Acoustics

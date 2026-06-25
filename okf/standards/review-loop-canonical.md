@@ -8,7 +8,7 @@ timestamp: 2026-06-19T10:30:00Z
 linear_issue: GRO-2024
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/review-loop-canonical.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: fred
 status: current
 ---

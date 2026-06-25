@@ -8,7 +8,7 @@ timestamp: 2026-06-19T11:47:07Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/plugins/prismatic-engine-core-ingestion-top-level/prism_ingest_64_automated_3d_vehicle_hull_deformation_profiles_variable_accessory_material_attachmen.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 plugin: Prismatic-Engine-Core-Ingestion/top-level

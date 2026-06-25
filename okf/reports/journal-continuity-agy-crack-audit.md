@@ -8,7 +8,7 @@ timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/reports/journal-continuity-agy-crack-audit.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 migrated_from: https://hermes.growthwebdev.com/artifacts/raw/published/journal-continuity-audit/initial/agy-crack-audit.md

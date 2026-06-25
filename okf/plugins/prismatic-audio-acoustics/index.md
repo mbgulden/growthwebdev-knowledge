@@ -8,7 +8,7 @@ timestamp: 2026-06-19T11:48:40Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/plugins/prismatic-audio-acoustics/index.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 source_drive_folder: Prismatic Engine Ecosystem > Premium Plugins > Prismatic-Audio-Acoustics

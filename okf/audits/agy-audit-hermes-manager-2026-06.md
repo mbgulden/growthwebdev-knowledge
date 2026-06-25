@@ -8,7 +8,7 @@ timestamp: 2026-06-19T10:52:02Z
 linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/audits/agy-audit-hermes-manager-2026-06.md
-last_verified: 2026-06-19
+last_verified: 2026-06-25
 verified_by: kai
 status: current
 migrated_from: /home/ubuntu/work/agentic-swarm-ops/docs/audits/agy-audit-hermes-manager-20260615.md

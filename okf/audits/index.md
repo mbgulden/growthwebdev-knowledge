@@ -35,6 +35,7 @@ quality measurements.
 | [Ned Scan-Triage 2026-06-26 r8](./ned-scan-triage-2026-06-26-r8.md) | 2026-06-26 | Prismatic Engine scanner backlog (8th redundant feed, GRO-554 prismatic-engine-owned) |
 | [Ned Scan-Triage 2026-06-26 r9](./ned-scan-triage-2026-06-26-r9.md) | 2026-06-26 | Prismatic Engine scanner backlog (9th redundant feed, 12 NEW Todo items GRO-287–300 surfaced below scanner cutoff) |
 | [Ned Scan-Triage 2026-06-26 r10](./ned-scan-triage-2026-06-26-r10.md) | 2026-06-26 | Prismatic Engine scanner backlog (10th redundant feed, no new actionable items) |
+| [Ned Scan-Triage 2026-06-26 r11](./ned-scan-triage-2026-06-26-r11.md) | 2026-06-26 | Prismatic Engine scanner backlog (11th redundant feed, carries r9 evidence forward, scanner-de-dup follow-up filed) |
 
 ## What counts as an "audit"
 

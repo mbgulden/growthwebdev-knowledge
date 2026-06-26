@@ -272,3 +272,23 @@ jitter=15-30
 inactivity-kill=120s
 cron=paused
 ```
+
+Wave result — PWP remaining executable children (completed):
+
+| Issue | Result | Evidence |
+|---|---|---|
+| `GRO-2508` | Done | RESULT.md 1,921 bytes; self-review posted; commit `0b0fb66f28cd1fe952368ff4f7853217b605ecba` |
+| `GRO-2509` | Done | RESULT.md 2,850 bytes; self-review posted; commit `302608f237efb4e4a770356942b083d0df627bc0` |
+| `GRO-2511` | Done | RESULT.md 1,866 bytes; self-review posted; commit `d3d9b9ca2e4c84dbf77c25141cb0f4be92a3bb2c` |
+
+Fleet validation notes:
+
+- Active root was `/archive/agy_sandboxes` for all three runs.
+- `AGY_TASK.md` files were rich Linear-derived prompts (~5KB), not placeholder prompts.
+- Watchdog fetched unrelated AGY backlog but skipped all of it as `backlog-not-explicitly-ready`.
+- No `AGY_BACKEND_TIMEOUT`.
+- No `INACTIVITY_KILL`.
+- No `PARTIAL_RESULT` after self-review detector patch.
+- Parent `GRO-2507` cascade-closed after all children `GRO-2508..GRO-2523` were verified completed.
+
+Cron remains paused until the explicit resume criteria ticket defines the pass-rate gate.

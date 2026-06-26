@@ -250,8 +250,17 @@ Reliability controls now live:
 Remaining blocker before cron resume:
 
 ```text
-RESULT.md is progress, not final completion.
-Completion should require DONE: or natural process exit after self-review.
+GRO-2512 validation proved RESULT.md can appear without AGY running self-review.
+The supervisor patch is live: RESULT.md is progress only; DONE requires `DONE:`
+or self-review evidence. A zero exit with RESULT.md but no self-review/DONE is
+classified as PARTIAL_RESULT.
+```
+
+Validation evidence:
+
+```text
+regression: TEST-RESULT-RACE wrote RESULT.md, kept running >30s, then emitted Self-Review PASSED + DONE; supervisor waited and passed.
+real run: GRO-2512 wrote /archive/agy_sandboxes/GRO-2512/RESULT.md (1838 bytes) and exited 0 without self-review; Fred ran agy_self_review.py GRO-2512 manually, which posted Linear self-review and transitioned label to agent:peer-review.
 ```
 
 Next verification wave:

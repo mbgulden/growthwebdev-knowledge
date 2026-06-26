@@ -292,3 +292,30 @@ Fleet validation notes:
 - Parent `GRO-2507` cascade-closed after all children `GRO-2508..GRO-2523` were verified completed.
 
 Cron remains paused until the explicit resume criteria ticket defines the pass-rate gate.
+
+## Auto-resume safety gates — implemented in supervisor (2026-06-26)
+
+Scheduled supervisor runs now use `--cron-mode`; manual targeted `--issues` waves remain available for recovery/debugging.
+
+Native gates:
+
+| Gate | Enforcement |
+|---|---|
+| Host storage guard | Startup requires `/tmp >= 10GB` and `/archive >= 50GB`; failure pauses supervisor cron and posts Linear alert. |
+| API preflight | Startup probes Linear GraphQL and AGY backend before worker spawn; timeout/429/backend failure aborts before queue drain. |
+| Strict opt-in dispatch | Cron/auto mode only admits issues labeled `dispatch:ready` or `dispatch:priority`; generic `agent:agy` backlog is skipped. |
+| Enforced wave parameters | Cron wrapper hardcodes `--cron-mode --max-concurrent 2 --jitter 15-30`; wrapper exports `AGY_INACTIVITY_KILL_SEC=120`; Python also enforces these if cron passes unsafe values. |
+| Circuit breaker | Two consecutive `INACTIVITY_KILL`, `AGY_BACKEND_TIMEOUT`, or `PARTIAL_RESULT` outcomes trip the breaker, pause cron, halt workers, and post Linear alerts. |
+
+Verification evidence:
+
+```text
+py_compile=PASS
+bash -n cron wrapper=PASS
+cron dry-run enforced max-concurrent 2 and inactivity-kill 120
+storage gate: /tmp=207.1GB free, /archive=1119.9GB free
+Linear API preflight=OK
+AGY backend preflight=OK
+strict opt-in skipped unrelated GRO-2545..GRO-2559 backlog issues
+circuit-breaker unit test=PASS without Linear side effects
+```

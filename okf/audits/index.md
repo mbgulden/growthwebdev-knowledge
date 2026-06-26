@@ -40,6 +40,7 @@ quality measurements.
 | [Ned Scan-Triage 2026-06-26 r13](./ned-scan-triage-2026-06-26-r13.md) | 2026-06-26 | Prismatic Engine scanner backlog (13th redundant feed, ~12+d past IRS deadline on GRO-565, GRO-572 explicit non-Ned-lane focus, no fresh comments posted) |
 | [Ned Scan-Triage 2026-06-26 r14](./ned-scan-triage-2026-06-26-r14.md) | 2026-06-26 | Prismatic Engine scanner backlog (14th redundant feed, audit-evidence branch continuation, no fresh comments posted) |
 | [Ned Scan-Triage 2026-06-26 r15](./ned-scan-triage-2026-06-26-r15.md) | 2026-06-26 | Prismatic Engine scanner backlog (15th redundant feed, live state verification at 13:51Z, no fresh comments posted) |
+| [Ned Scan-Triage 2026-06-26 r16](./ned-scan-triage-2026-06-26-r16.md) | 2026-06-26 | Prismatic Engine scanner backlog (16th redundant feed, live state verification at 14:49Z, no fresh comments posted, GRO-547 returned to scanner top-10 replacing GRO-548) |
 
 ## What counts as an "audit"
 

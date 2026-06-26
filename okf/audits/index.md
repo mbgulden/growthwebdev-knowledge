@@ -46,6 +46,7 @@ quality measurements.
 | [Ned Scan-Triage 2026-06-26 r19](./ned-scan-triage-2026-06-26-r19.md) | 2026-06-26 | Prismatic Engine scanner backlog (19th redundant feed, GRO-550→In Review, GRO-543 entered, 24h-threshold triage comments posted on GRO-545/546/557, pushed un-pushed work on ned/GRO-550 + ned/GRO-572 lane fix, disk / stable at 86%) |
 | [Ned Scan-Triage 2026-06-26 r20](./ned-scan-triage-2026-06-26-r20.md) | 2026-06-26 | Prismatic Engine scanner backlog (20th redundant feed, same batch as r19, no fresh comments posted, GRO-543 deferred to r24+ per 24h anti-fan-out window, disk / stable at 86%, GPU node persistently down) |
 | [Ned Scan-Triage 2026-06-26 r21](./ned-scan-triage-2026-06-26-r21.md) | 2026-06-26 | Prismatic Engine scanner backlog (21st redundant feed, same batch as r20, no fresh comments posted, anti-fan-out + de-dup rules honored, GRO-565 now 21.5d past IRS deadline, disk / stable at 86%, GPU still down) |
+| [Ned Scan-Triage 2026-06-26 r22](./ned-scan-triage-2026-06-26-r22.md) | 2026-06-26 | Prismatic Engine scanner backlog (22nd redundant feed, same batch as r19–r21, no fresh comments posted, GRO-543 still ~20 min from anti-fan-out threshold, GPU down ~5h, 0-of-10 lane-fit per 4-question filter) |
 
 ## What counts as an "audit"
 

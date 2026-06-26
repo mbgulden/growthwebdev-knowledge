@@ -62,15 +62,34 @@ Generated scaffolds should mark temporary pages with:
 | PWP Python pipeline: ingest/synthesize/distill | Existing |
 | Astro + EmDash scaffold kernel | Shipped in PR #7 |
 | Builder integration into `pwb run` | Next slice |
+| PWP AI Design Operating System synthesis | Shipped by AGY in `GRO-2523` (`/archive/agy_sandboxes/GRO-2523` on the fast-SSD host when present; NAS copy remains evidence/archive only) |
+| AGY active sandbox storage | **Moved off NAS** to local fast SSD: `/archive/agy_sandboxes` (`/storage` symlink). Logs/results: `/archive/agy_sandbox_logs`, `/archive/agy_sandbox_results`. NAS is archive/evidence only. |
+| AGY reliability controls | Rich `AGY_TASK.md` from Linear, sandbox guard, and 120s inactivity-based kill are live; completion semantics still need fix so `RESULT.md` is progress, not final Done. |
 | Live Valkyrie Worker placeholder | Temporary stabilization only |
 | Valkyrie Astro+EmDash replacement | Wait for client-approved direction |
+
+## Active AGY/PWP operations standard
+
+PWP research/implementation waves must run from local fast SSD, not from NAS/NFS:
+
+```text
+active sandbox root: /archive/agy_sandboxes
+friendly alias:      /storage -> /archive
+active logs:         /archive/agy_sandbox_logs
+active run JSON:     /archive/agy_sandbox_results
+NAS archive:         /home/ubuntu/mounts/synology-agentic-context/agy_sandboxes
+```
+
+Rationale: AGY's workload is random-I/O heavy (`git`, `find`, package scans, RESULT/self-review writes). Direct `/archive` writes measured ~2.9 GB/s; boot-disk reads measured ~4.6 GB/s. NAS/NFS remains useful for bulk archive, but active random I/O is latency-bound and can stall AGY's background-tool loop.
 
 ## Key records
 
 - [Decision: Astro + EmDash as default PWP website stack](./prismatic-web-plugin/decisions/2026-06-26-astro-emdash-pwp-standard.md)
+- [Operations: AGY dispatch v2 lane supervisor + fast-SSD sandbox pivot](../operations/agy-dispatch-v2-lane-supervisor-2026-06-26.md)
 - Linear: [GRO-2491](https://linear.app/growthwebdev/issue/GRO-2491/pwp-add-astro-emdash-editable-site-kernel)
+- Linear: `GRO-2492`, `GRO-2551`, `GRO-2552`, `GRO-2553` — AGY/PWP reliability track
 - PR: <https://github.com/mbgulden/prismatic-web-plugin/pull/7>
 
 ## Next action
 
-Wire the Astro+EmDash scaffold into `pwb run` after synthesis/distillation so the PWP pipeline produces a real editable site scaffold and staging deploy package automatically.
+Fix AGY completion semantics before the next PWP wave: `RESULT.md` should be treated as progress, while final completion requires `DONE:` or process exit after self-review. Then run a staggered `/archive` wave (`max-concurrent=2`, `jitter=15-30`) to retest the concurrency cliff on the fast SSD.

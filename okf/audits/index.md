@@ -49,6 +49,7 @@ quality measurements.
 | [Ned Scan-Triage 2026-06-26 r22](./ned-scan-triage-2026-06-26-r22.md) | 2026-06-26 | Prismatic Engine scanner backlog (22nd redundant feed, same batch as r19–r21, no fresh comments posted, GRO-543 still ~20 min from anti-fan-out threshold, GPU down ~5h, 0-of-10 lane-fit per 4-question filter) |
 | [Ned Scan-Triage 2026-06-26 r23](./ned-scan-triage-2026-06-26-r23.md) | 2026-06-26 | Prismatic Engine scanner backlog (23rd redundant feed, same batch as r19–r22, no fresh comments posted, disk / +1% to 87% (still under 90% cleanup threshold), GPU down ~5.5h+ (carry-over from r18), GRO-543 deferred to r24+, 0-of-10 lane-fit) |
 | [Ned Scan-Triage 2026-06-26 r24](./ned-scan-triage-2026-06-26-r24.md) | 2026-06-26 | Prismatic Engine scanner backlog (24th redundant feed, same batch as r19–r23, SUPPRESS via probe_recurrence.sh (17.6min age < 120min threshold), no fresh comments posted, disk / stable at 87%, GPU down ~6h+ (carry-over), GRO-565 now 24+ days past IRS deadline, 0-of-10 lane-fit per 4-question filter) |
+| [Ned Scan-Triage 2026-06-26 r25](./ned-scan-triage-2026-06-26-r25.md) | 2026-06-26 | Prismatic Engine scanner backlog (25th redundant feed, same batch as r19–r24, SUPPRESS via probe_recurrence.sh (31.8min age < 120min threshold), no fresh comments posted, disk / stable at 87%, GPU down ~6.5h+ (carry-over), GRO-565 still 24+ days past IRS deadline, unfiltered agent:ned query confirmed 0-of-10 scanner-top-10 lane-fit, 0 Linear mutations sustained) |
 
 ## What counts as an "audit"
 

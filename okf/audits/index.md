@@ -29,6 +29,7 @@ quality measurements.
 | [Ned Scan-Triage 2026-06-26 r2](./ned-scan-triage-2026-06-26-r2.md) | 2026-06-26 | Prismatic Engine scanner backlog (re-feed) |
 | [Ned Scan-Triage 2026-06-26 r3](./ned-scan-triage-2026-06-26-r3.md) | 2026-06-26 | Prismatic Engine scanner backlog (re-feed) |
 | [Ned Scan-Triage 2026-06-26 r4](./ned-scan-triage-2026-06-26-r4.md) | 2026-06-26 | Prismatic Engine scanner backlog (post-GRO-575-execution re-feed) |
+| [Ned Scan-Triage 2026-06-26 r5](./ned-scan-triage-2026-06-26-r5.md) | 2026-06-26 | Prismatic Engine scanner backlog (spam-prevention confirmed) |
 
 ## What counts as an "audit"
 

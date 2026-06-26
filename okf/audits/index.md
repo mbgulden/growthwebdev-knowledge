@@ -42,6 +42,7 @@ quality measurements.
 | [Ned Scan-Triage 2026-06-26 r15](./ned-scan-triage-2026-06-26-r15.md) | 2026-06-26 | Prismatic Engine scanner backlog (15th redundant feed, live state verification at 13:51Z, no fresh comments posted) |
 | [Ned Scan-Triage 2026-06-26 r16](./ned-scan-triage-2026-06-26-r16.md) | 2026-06-26 | Prismatic Engine scanner backlog (16th redundant feed, live state verification at 14:49Z, no fresh comments posted, GRO-547 returned to scanner top-10 replacing GRO-548) |
 || [Ned Scan-Triage 2026-06-26 r17](./ned-scan-triage-2026-06-26-r17.md) | 2026-06-26 | Prismatic Engine scanner backlog (17th redundant feed, live state verification at 15:15Z, 2-call batch check Row 1 SILENT, no fresh comments posted) |
+| [Ned Scan-Triage 2026-06-26 r18](./ned-scan-triage-2026-06-26-r18.md) | 2026-06-26 | Prismatic Engine scanner backlog (18th redundant feed, GRO-572→In Review, GRO-545 entered, synology mounts now populated, disk / +4% in 16 min anomaly, no fresh comments posted) |
 
 ## What counts as an "audit"
 

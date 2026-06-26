@@ -319,3 +319,43 @@ AGY backend preflight=OK
 strict opt-in skipped unrelated GRO-2545..GRO-2559 backlog issues
 circuit-breaker unit test=PASS without Linear side effects
 ```
+
+## Resume executed 2026-06-26 22:54
+
+Cron `faf8d91da716` flipped from `enabled=False state=paused` to `enabled=True state=scheduled`.
+
+Pre-resume snapshot saved at:
+
+```text
+/home/ubuntu/.hermes/profiles/orchestrator/cron/jobs.json.pre-resume-snapshot
+```
+
+Resume preflight (live, before flip):
+
+```text
+storage: /tmp=207.1GB free, /archive=1119.9GB free
+Linear API OK
+strict opt-in dispatched only dispatch:ready / dispatch:priority
+wrapper envelope enforced: --cron-mode --max-concurrent 2 --jitter 15-30 --backoff 8-15
+AGY_INACTIVITY_KILL_SEC=120
+no AGY workers running
+```
+
+Post-resume protections remain active:
+
+- storage gate still fails → cron pauses itself
+- Linear/AGY preflight fails → cron pauses itself
+- circuit breaker at 2 consecutive `INACTIVITY_KILL` / `AGY_BACKEND_TIMEOUT` / `PARTIAL_RESULT` → cron pauses itself
+
+Code hygiene applied:
+
+- Supervisor + cron wrapper live at `~/.hermes/profiles/orchestrator/scripts/` (correct profile infra home).
+- OKF repo received only markdown changes (operations doc + project doc); no scratch scripts, no `.env`, no tokens.
+- Local scratch scripts archived at `/archive/recovery/agy-scripts-20260626-2252/`.
+- `GRO-2544` closed as the canonical resume-criteria ticket.
+
+Manual pause command (replayable, idempotent):
+
+```bash
+python3 -c "import json; p='/home/ubuntu/.hermes/profiles/orchestrator/cron/jobs.json'; d=json.load(open(p)); [j.update({'enabled':False,'state':'paused','paused_at':'MANUAL'}) for j in (d.get('jobs',d)) if 'Sandbox Supervisor' in j.get('name','')]; json.dump(d, open(p,'w'), indent=2)"
+```

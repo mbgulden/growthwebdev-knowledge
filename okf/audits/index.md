@@ -19,6 +19,7 @@ Cross-project audits — point-in-time assessments of system state with findings
 | Audit | OKF location | When |
 |---|---|---|
 | **Ned's orchestration audit (2026-06-23)** | [`./orchestration-audit-2026-06-23.md`](./orchestration-audit-2026-06-23.md) | 12 bugs found + 9 anti-pattern rules + 9 Linear follow-ups filed |
+| **Ned scan triage 2026-06-27 r1** | [`./ned-scan-triage-2026-06-27-r1.md`](./ned-scan-triage-2026-06-27-r1.md) | 10-item misrouted batch refused (0/10 Ned-lane); subset drift 16→10 from 02:35Z triage; GPU 30h+ down |
 | [Ned audit 2026-06-14](../reports/ned-audit-2026-06-14.md) | (see reports/) | |
 | [Ned audit 2026-06-15](../reports/ned-audit-2026-06-15.md) | (see reports/) | |
 | [Ned audit 2026-06-16](../reports/ned-audit-2026-06-16.md) | (see reports/) | |

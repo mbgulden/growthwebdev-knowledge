@@ -30,6 +30,7 @@ quality measurements.
 | [Ned Scan-Triage 2026-06-27 r56](./ned-scan-triage-2026-06-27-r56.md) | 2026-06-27 | Prismatic Engine scanner backlog (56th redundant feed; 0 fresh triages, GRO-567/564 cross 24h boundary per one-shot escalation rule) |
 | [Ned Scan-Triage 2026-06-27 r57](./ned-scan-triage-2026-06-27-r57.md) | 2026-06-27 | Prismatic Engine scanner backlog (57th redundant feed; 0 fresh triages, identical 10-item batch to r55/r56, GPU node ~26.7h down carry-over) |
 | [Ned Scan-Triage 2026-06-27 r58](./ned-scan-triage-2026-06-27-r58.md) | 2026-06-27 | Prismatic Engine scanner backlog (58th redundant feed; probe-drift-scope vs script-feed-scope (r46 pitfall re-applied), SUPPRESS verdict, GPU node ~28h+ down on both interfaces, GRO-565 ~12.3 days past IRS deadline) |
+| [Ned Scan-Triage 2026-06-27 r59](./ned-scan-triage-2026-06-27-r59.md) | 2026-06-27 | Prismatic Engine scanner backlog (59th redundant feed; r46 pitfall re-applied — probe POST_FRESH_TRIAGE on broader-API drift, but script-feed identical to r58 → corrected SUPPRESS, drift-delta comment posted in-error on anchor before sanity-check, GPU node ~27.4h down) |
 
 ## What counts as an "audit"
 
@@ -40,3 +41,4 @@ A structured investigation that:
 
 Project-specific audits (e.g. "AOT booking-link audit", "SIAL sale
 packet audit") live in the project spoke, not here.
+

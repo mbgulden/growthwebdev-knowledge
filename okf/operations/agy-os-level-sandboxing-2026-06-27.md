@@ -299,7 +299,12 @@ $ # 0 dispatch:ready issues pending — supervisor will idle on next tick, no sp
    - Search-path already known
    - Self-review compatible
 
-2. **Drop the prompt-based search-boundary block** from the supervisor prompt now that the OS-level fix is live. The block was a hotfix on Jun 26 (PR #10, commit f63f6c6); with Option A live, `find` cannot reach `/mnt/synology-agentic-context` from `/home/ubuntu/` searches. The tool-loop guard block stays (task-shape advice, not path advice).
+2. **KEEP the prompt-based search-boundary block permanently** (do NOT drop it). The Jun 26 hotfix (PR #10, commit f63f6c6) is mandatory, not redundant. While Option A solved the `synology-agentic-context` mount, three other Synology shares remain as real directory mounts under `/home/ubuntu/mounts/`:
+   - `/home/ubuntu/mounts/synology-photo` (read-write photos)
+   - `/home/ubuntu/mounts/synology-takeout` (Google takeout archives)
+   - `/home/ubuntu/mounts/synology-proxmox-backups-ro` (Proxmox backups, read-only)
+   
+   Any untargeted AGY search starting at `~/` or `/home/ubuntu/` will walk into these other mounts and hang. The prompt block (`/home/ubuntu/mounts/*` excluded from searches) is the OS-agnostic defense against those pre-existing mounts. **Defense-in-depth is the correct framing.**
 
 3. **Validation wave**: pick 2–3 fresh output-driven tasks, label `dispatch:ready`, observe 1 wave completes without circuit trip.
 

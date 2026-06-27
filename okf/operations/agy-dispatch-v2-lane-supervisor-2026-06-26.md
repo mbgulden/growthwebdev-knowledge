@@ -359,3 +359,54 @@ Manual pause command (replayable, idempotent):
 ```bash
 python3 -c "import json; p='/home/ubuntu/.hermes/profiles/orchestrator/cron/jobs.json'; d=json.load(open(p)); [j.update({'enabled':False,'state':'paused','paused_at':'MANUAL'}) for j in (d.get('jobs',d)) if 'Sandbox Supervisor' in j.get('name','')]; json.dump(d, open(p,'w'), indent=2)"
 ```
+
+## Post-circuit-trip lesson bundle (2026-06-26 23:56 UTC)
+
+The first cron-launched wave after resume tripped the circuit breaker on 2 consecutive failures. Post-mortem on each failure (per Antigravity feedback):
+
+### GRO-2358 — tool-calling loop (NOT a backend transport timeout)
+
+- Symptom in run JSON: `has_backend_timeout=true`.
+- Real cause: AGY ran a 28-step tool-calling loop searching for files speculatively without converging. Context bloat pushed request latency past the API timeout threshold.
+- Detection: log shows 28 consecutive "I will ... search / list / find / view" lines with no file content captured.
+- Fix: prompt now includes explicit tool-loop guard block ("if you have called the same read/search/find tool more than 5 times without progress, STOP and write TOOL LOOP DETECTED to RESULT.md").
+
+### GRO-2360 — NFS traversal hang (NOT a generic backend timeout)
+
+- Symptom in run JSON: `has_backend_timeout=true` + `has_inactivity_kill=true`.
+- Real cause: AGY walked out of `/archive/agy_sandboxes/GRO-2360/` into `/home/ubuntu/mounts/synology-agentic-context/` (NFS). Random I/O on the NFS share is ~1000x slower than local SSD; AGY hung indefinitely until inactivity kill fired.
+- Detection: log shows AGY searching `/home/ubuntu/...` directories and `git ls-remote` calls on the wider filesystem.
+- Fix: prompt now includes explicit search-boundary block ("DO NOT search `/home/ubuntu/mounts/*` or `/home/ubuntu/.gemini/*`"). Hard boundary is `--add-dir` whitelisting the sandbox.
+
+### GRO-2364 — background-task hang (task-shape mismatch)
+
+- Symptom in run JSON: `has_done=false`, `has_result=true` (sentinel), `error=null` → `has_missing_result` via abandonment guard.
+- Real cause: task was "Run full test suite". AGY spawned `python3 -m pytest` as a background subprocess and waited. Pytest can hang on unmocked network sockets or interactive prompts; AGY never came back to self-review. Abandonment guard correctly wrote sentinel RESULT.md.
+- Fix: re-scope task to output-driven form, e.g. "produce the pytest command, the expected output file path, and a checklist of fixtures AGY would have to mock" rather than "run pytest and report".
+
+### Orphan cleanup (Antigravity finding, FIXED)
+
+- Old `shutdown()` only `join()`ed worker threads; did NOT terminate the active `agy-bin` subprocesses. If supervisor exits on circuit-trip mid-run, `agy-bin` children could be left as orphans holding sandbox state.
+- Fix: module-level `_ACTIVE_PROCS` registry; `_register_proc(issue_id, proc)` after `Popen`; `_unregister_proc(issue_id)` in `finally` after wait loop; `shutdown()` now calls `terminate_all_active_procs(timeout=5.0)` before joining workers. Regression test `TEST-ORPHAN-CHECK` covers dead proc, live proc, shutdown path, and 5-proc concurrent termination.
+
+### Task-picking rules (Jun 26 2026)
+
+Picking AGY work going forward must satisfy ALL of:
+
+1. **Output-driven**: AGY reads file X, writes markdown artifact Y. No `pytest`, no `git clone`, no `npm install`, no Lighthouse runs.
+2. **Bounded scope**: ≤ 1 file or directory to scan, with explicit paths in `AGY_TASK.md`.
+3. **No background subprocess**: AGY must not be asked to run and wait.
+4. **Search-path already known**: AGY_TASK.md names the files/paths to inspect, so AGY does not need to glob.
+5. **Self-review compatible**: deliverable is text/markdown, not "running test X passed".
+
+Cards that violated any of these rules were relabeled `agent:needs-human-review` for manual re-scoping.
+
+### Verified
+
+- Orphan regression: `TEST-ORPHAN-CHECK` PASS (4 sub-tests: dead proc, live proc, shutdown path, 5-proc concurrent).
+- Strict regression: `TEST-RESULT-RACE` PASS (RESULT.md not treated as completion).
+- Compile + bash-n: PASS.
+- Cron state: `enabled=False, state=paused` (paused by circuit breaker — NOT manually overridden).
+- Quota: 0 additional API calls burned since circuit trip.
+
+Re-arm requires (1) re-scoping the 4 failed tasks to output-driven form, (2) picking fresh AGY-eligible tasks that match the task-picking rules above, (3) flipping cron back to scheduled, (4) launching a fresh supervisor with the new envelope.

@@ -138,9 +138,22 @@ These are the audit artifacts from 49+ cron-triage runs documented in `okf/audit
 
 ---
 
+## Delta verification (cron r10 re-check ~08:42Z, ~8h after audit)
+
+Re-verified at r10 cron tick (2026-06-27 ~08:42Z). Findings from r0 still hold; **two updates**:
+
+1. **PR #10 merged since audit filed.** Fred merged PR #10 (`AGY post-circuit-trip lessons + Option A NFS remount`, #GRO-2544) at 2026-06-27 00:35Z against `main`. **Total merged PRs now: 7** (was 6 at audit time). The audit's headline "1 merged PR" is now **6 PRs stale** — the script's count is clearly counting from a frozen pre-2026-06-23 baseline.
+2. **Branch counts unchanged.** Still 39 branches total, 27 `ned/*` + 9 `feature/*` + `main` + `deploy-fresh`. The 10 SUPPRESS noise branches in Group B continue to accumulate from the r-h cron pattern.
+
+**Recommendation remains unchanged.** The audit script's `gh pr list` count is broken (stale baseline). File a low-severity bug-fix issue against `post_publish_audit_v2.py`. The integration rate is healthy (7 PRs in 4 days, all by Fred) and the "unintegrated work" concern is fully addressed by the per-branch follow-up list in this audit doc.
+
+The cron-prompt feed at r10 was the same 10-item misrouted batch as r1-r9 (GRO-565/564/559/558/557/545/543/542/537/512). **SUPPRESS** per established r59 rule — 0/10 are agent:ned issues, none are Ned-lane, no `finalize_task.sh` to run on any of them. This r10 cron tick wrote `okf/audits/ned-scan-triage-2026-06-27-r10.md` and updated this GRO-2564 audit doc with the 8-hour delta.
+
+---
+
 ## Cross-references
 
-- `okf/audits/ned-scan-triage-2026-06-26-r*.md` — the established 0-of-10 SUPPRESS pattern this audit dump is being confused with
+- `okf/audits/ned-scan-triage-2026-06-26-r*.md` and `2026-06-27-r*.md` — the established 0-of-10 SUPPRESS pattern this audit dump is being confused with
 - `growthwebdev-knowledge/okf/integrations/autonomous-task-loop-pattern.md` — the 9-step Ned skeleton
 - `~/.hermes/profiles/ned/skills/infrastructure/ned-autonomous-task-loop/SKILL.md` — Critical Rule #2 (skip finalize on 0-of-10 triage runs)
 - Linear GRO-2564: https://linear.app/growthwebdev/issue/GRO-2564

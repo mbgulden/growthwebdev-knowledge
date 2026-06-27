@@ -157,3 +157,39 @@ The cron-prompt feed at r10 was the same 10-item misrouted batch as r1-r9 (GRO-5
 - `growthwebdev-knowledge/okf/integrations/autonomous-task-loop-pattern.md` — the 9-step Ned skeleton
 - `~/.hermes/profiles/ned/skills/infrastructure/ned-autonomous-task-loop/SKILL.md` — Critical Rule #2 (skip finalize on 0-of-10 triage runs)
 - Linear GRO-2564: https://linear.app/growthwebdev/issue/GRO-2564
+
+---
+
+## Delta verification (cron r15 re-check 2026-06-27 ~11:18Z, ~11h after audit / ~2.5h after r10)
+
+**Signal:** scanner re-fed GRO-2564 to Ned on cron tick r15 (2026-06-27 ~11:18Z). Per the `gro-2564-audit-response-pattern.md` reference "re-hit pattern" — detect via `gh api issue state + git branch + audit-doc exists`, switch to existing branch, append "Delta verification" section, commit, finalize (comment IS the deliverable even when state doesn't change), push.
+
+**Pre-checks:**
+- Linear state: `In Review` (already — finalize Step 3 will no-op the state, but Step 4 will post a fresh "finalization report" comment which IS the desired audit-trail entry)
+- Branch: `ned/GRO-2564` exists at `4be1ce0` (4 commits ahead of `origin/deploy-fresh`, most recent `auto-commit on budget exhaustion` from r10)
+- Audit doc: exists at `okf/audits/gro-2564-post-publish-audit-response-2026-06-27.md` on the branch
+- Decision: **re-hit, not fresh**. Switched to existing branch (no recreate), appended this section.
+
+**Live re-verification (2026-06-27 11:17Z):**
+
+| Metric | r10 value (08:42Z) | r15 value (11:17Z) | Delta |
+|---|---|---|---|
+| Merged PRs | 7 | **7** | unchanged (PR #10 still latest, merged 00:35:15Z) |
+| Open PRs | 3 (all Fred's) | **3** (all Fred's) | unchanged (#3, #5, #8) |
+| Branches ahead of deploy-fresh | 39 | **39** | unchanged |
+| GPU node (100.78.237.7) | down ~24h+ | **down ~46h+** | worsening carry-over, sustained escalation GRO-570 |
+| PVE6 host (100.90.63.4) | reachable (1.008ms) | **reachable (0.959ms)** | stable |
+| Ollama (port 31434) | unreachable | **unreachable (curl 000 / 5.0s timeout)** | sustained outage |
+| Hermes VM root disk | 29% (84G/292G) | **29% (85G/292G)** | +1G (slow growth, normal) |
+| NAS mounts (synology-photo + synology-agentic-context) | 82% (22T/27T) | **82% (22T/27T)** | unchanged, under 85% threshold |
+| GRO-565 tax-deadline carry-over | 41+ days past Q2 | **41+ days past Q2** | no change, still awaiting Michael action |
+
+**Conclusions (unchanged from r10):**
+
+1. **Audit script's stale-baseline bug confirmed for the 3rd time.** Script's "1 merged PR" headline is still wrong; live `gh pr list` returns 7. No action needed from Ned — the audit script itself is the bug, owned by whoever wrote `post_publish_audit_v2.py`. Recommend filing a follow-up against the audit script maintainer (likely Fred's lane or Prismatic Engine team, NOT Ned's lane).
+2. **No new actionable work surfaced.** Branch inventory stable at 39 ahead of deploy-fresh, dominated by Ned `scan-triage-*` SUPPRESS branches (~22 of 39) and Fred `feature/*` branches (~9). Ned's truly actionable unmerged branches (Group C category from original audit) remain at ~5 — all already committed on `ned/GRO-2564`.
+3. **Cron tick context:** this is the 15th Ned cron tick on 2026-06-27. r11–r14 were all SUPPRESS audits (identical-feeds script noise). r15 re-fed the full 10-item misrouted scanner batch AND GRO-2564 specifically. Same misroute pattern as r1–r14.
+4. **Recommendations unchanged.** Group A (other agents' feature branches) — leave for Fred/Kai. Group B (Ned scan-triage noise branches) — archive/consolidate as time permits. Group C (Ned actionable: GRO-2085, GRO-2238, GRO-2267, GRO-2278, GRO-2312, GRO-2345) — PR creation deferred to Michael-on-demand. Group D (one-off Ned branches) — review-needed.
+5. **No new infra alerts beyond standing GRO-570 carry-overs.** GPU node, GRO-565 tax deadline, and Ollama all remain in same state as r10. Standing escalation unchanged.
+
+**Cron r15 action:** append this Delta section to existing audit doc, commit on `ned/GRO-2564` branch with `[Ned] GRO-2564 r15 delta: ...` message, run `finalize_task.sh` with overrides to update Linear comment audit-trail, push to origin. Total ~10 tool calls.

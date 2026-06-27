@@ -10,7 +10,7 @@ linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/audits/ned-scan-triage-2026-06-27-r57.md
 tags: [audit, scan-triage, agent:ned, cron, redundant-feed, anti-fan-out, lane-mislabel]
-follows_up: ./ned-scan-triage-2026-06-27-r56.md
+follows_up: ./ned-scan-triage-2026-06-27-r58.md
 ---
 
 # Ned Scan-Triage 2026-06-27 r57 — 57th redundant scanner feed

@@ -29,6 +29,7 @@ quality measurements.
 | [Ned Scan-Triage 2026-06-27 r55](./ned-scan-triage-2026-06-27-r55.md) | 2026-06-27 | Prismatic Engine scanner backlog (55th redundant feed; 3 fresh triages posted to GRO-543/542/538) |
 | [Ned Scan-Triage 2026-06-27 r56](./ned-scan-triage-2026-06-27-r56.md) | 2026-06-27 | Prismatic Engine scanner backlog (56th redundant feed; 0 fresh triages, GRO-567/564 cross 24h boundary per one-shot escalation rule) |
 | [Ned Scan-Triage 2026-06-27 r57](./ned-scan-triage-2026-06-27-r57.md) | 2026-06-27 | Prismatic Engine scanner backlog (57th redundant feed; 0 fresh triages, identical 10-item batch to r55/r56, GPU node ~26.7h down carry-over) |
+| [Ned Scan-Triage 2026-06-27 r58](./ned-scan-triage-2026-06-27-r58.md) | 2026-06-27 | Prismatic Engine scanner backlog (58th redundant feed; probe-drift-scope vs script-feed-scope (r46 pitfall re-applied), SUPPRESS verdict, GPU node ~28h+ down on both interfaces, GRO-565 ~12.3 days past IRS deadline) |
 
 ## What counts as an "audit"
 

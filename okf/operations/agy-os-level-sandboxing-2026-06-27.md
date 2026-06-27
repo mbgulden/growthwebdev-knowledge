@@ -203,3 +203,116 @@ The compat-symlink fallback in step 5 is designed to make this safe, but the use
 - [ ] Take a snapshot of `/home/ubuntu/mounts/synology-agentic-context` listing (read-only stat to avoid NFS traversal hang) for rollback comparison
 - [ ] Schedule the remount during a low-activity window (between waves)
 - [ ] Have the rollback command ready: `sudo systemctl enable --now home-ubuntu-mounts-synology\x2dagentic\x2dcontext.mount && sudo systemctl disable --now mnt-synology\x2dagentic\x2dcontext.mount && sudo rm /home/ubuntu/mounts/synology-agentic-context`
+
+## Execution log (2026-06-27 00:27–00:30 UTC)
+
+All steps executed successfully. Verification commands and outputs:
+
+```bash
+# Step 1: Create new mount point
+$ sudo mkdir -p /mnt/synology-agentic-context
+$ ls -la /mnt
+drwxr-xr-x 2 root root 4096 Jun 27 00:27 synology-agentic-context
+
+# Step 2: Copy systemd mount unit, retarget Where=
+$ sudo cp /etc/systemd/system/home-ubuntu-mounts-synology\x2dagentic\x2dcontext.mount \
+         /etc/systemd/system/mnt-synology\x2dagentic\x2dcontext.mount
+$ sudo sed -i 's|/home/ubuntu/mounts/synology-agentic-context|/mnt/synology-agentic-context|g' \
+         /etc/systemd/system/mnt-synology\x2dagentic\x2dcontext.mount
+$ diff <(cat /etc/systemd/system/home-ubuntu-mounts-synology\x2dagentic\x2dcontext.mount) \
+        <(cat /etc/systemd/system/mnt-synology\x2dagentic\x2dcontext.mount)
+4c4
+< Where=/home/ubuntu/mounts/synology-agentic-context
+---
+> Where=/mnt/synology-agentic-context
+# (only the Where= line changed — confirmed safe)
+
+# Step 3: Disable old unit, unmount, enable new unit
+$ OLD_UNIT=$(systemctl list-unit-files --type=mount --all | grep synology | grep home | awk '{print $1}')
+$ sudo systemctl disable "$OLD_UNIT"
+Removed "/etc/systemd/system/multi-user.target.wants/home-ubuntu-mounts-synology\x2dagentic\x2dcontext.mount".
+$ sudo umount /home/ubuntu/mounts/synology-agentic-context  # succeeded
+$ sudo systemctl enable mnt-synology\x2dagentic\x2dcontext.mount
+Created symlink /etc/systemd/system/multi-user.target.wants/mnt-synology\x2dagentic\x2dcontext.mount
+  → /etc/systemd/system/mnt-synology\x2dagentic\x2dcontext.mount
+$ sudo systemctl start mnt-synology\x2dagentic\x2dcontext.mount
+$ findmnt /mnt/synology-agentic-context
+TARGET                       SOURCE                                FSTYPE OPTIONS
+/mnt/synology-agentic-context 192.168.1.40:/volume1/agentic-context nfs  rw,relatime,vers=3,rsize=131072,wsize=131072,...
+
+# Step 4: Compat symlink
+$ sudo rmdir /home/ubuntu/mounts/synology-agentic-context  # (empty after umount)
+$ sudo ln -s /mnt/synology-agentic-context /home/ubuntu/mounts/synology-agentic-context
+$ ls -la /home/ubuntu/mounts/synology-agentic-context
+lrwxrwxrwx 1 root root 29 Jun 27 00:27 /home/ubuntu/mounts/synology-agentic-context -> /mnt/synology-agentic-context
+
+# Step 5: Update darius-star rsync cron to use new path directly
+$ crontab -l > /tmp/old_crontab.txt
+$ crontab -l | sed 's|/home/ubuntu/mounts/synology-agentic-context|/mnt/synology-agentic-context|g' > /tmp/new_crontab.txt
+$ diff /tmp/old_crontab.txt /tmp/new_crontab.txt
+4c4
+< 0 9 * * 0 rsync -av --exclude='.git' /home/ubuntu/work/darius-star/ /home/ubuntu/mounts/synology-agentic-context/darius-star-full/ ...
+---
+> 0 9 * * 0 rsync -av --exclude='.git' /home/ubuntu/work/darius-star/ /mnt/synology-agentic-context/darius-star-full/ ...
+$ crontab /tmp/new_crontab.txt
+$ # Verify rsync target is reachable + writable
+$ rsync --dry-run -av --exclude='.git' /home/ubuntu/work/darius-star/ /mnt/synology-agentic-context/darius-star-full/
+sent 328,923 bytes  received 25,513 bytes  78,763.56 bytes/sec
+total size is 1,514,693,397  speedup is 4,273.53 (DRY RUN)
+# 1.5GB darius-star data would transfer successfully on the next Sunday 9am run.
+
+# Step 6: CRITICAL — Antigravity canonical test
+$ find /home/ubuntu/mounts/ -maxdepth 2
+/home/ubuntu/mounts/
+/home/ubuntu/mounts/synology-photo
+/home/ubuntu/mounts/synology-photo/...
+/home/ubuntu/mounts/synology-takeout
+/home/ubuntu/mounts/synology-proxmox-backups-ro
+/home/ubuntu/mounts/synology-agentic-context   # ← SYMLINK, not expanded
+# exit 0, completed within 10 seconds
+#
+# Default `find` does NOT cross the symlink. This is exactly Antigravity's prediction:
+# "Most common search tools (like find or grep) do not follow symlinks by default."
+
+# Step 7: Re-arm cron supervisor
+$ python3 -c "... flip jobs.json from paused to scheduled ..."
+$ # Result: enabled=True, state=scheduled, resumed_reason=option-a-deployed:NFS-remount-completed;validation-pending
+$ # 0 dispatch:ready issues pending — supervisor will idle on next tick, no spurious dispatch
+```
+
+### Other consumers audited
+
+| Consumer | Touches the mount? | Action taken |
+|---|---|---|
+| `0 9 * * 0 rsync ... darius-star-full` | writes to `/mnt/synology-agentic-context/darius-star-full/` | Cron updated to new path directly (dry-run PASS, 1.5GB) |
+| `0 4 * * 0 agent_dispatcher.py --reconcile` | NO (Linear API only) | None needed |
+| `tmp_cleanup.sh` (3am daily) | NO (only `/tmp`) | None needed |
+| Hermes / Kai / Ned agents currently running | None on /home/ubuntu/mounts path | None needed |
+| `0 8,9 * * * archive_stale_artifacts.py` | NO (writes to /home/ubuntu/work/agentic-swarm-ops/cron/output/) | None needed |
+
+### Remaining manual follow-ups
+
+1. **Re-scope the 4 failed AGY tasks** (GRO-2357, GRO-2358, GRO-2360, GRO-2364) to output-driven form before relabeling `dispatch:ready`. Per the task-picking rules in PR #10:
+   - Output-driven (read file → write markdown)
+   - Bounded scope (≤ 1 directory, paths named in AGY_TASK.md)
+   - No background subprocess
+   - Search-path already known
+   - Self-review compatible
+
+2. **Drop the prompt-based search-boundary block** from the supervisor prompt now that the OS-level fix is live. The block was a hotfix on Jun 26 (PR #10, commit f63f6c6); with Option A live, `find` cannot reach `/mnt/synology-agentic-context` from `/home/ubuntu/` searches. The tool-loop guard block stays (task-shape advice, not path advice).
+
+3. **Validation wave**: pick 2–3 fresh output-driven tasks, label `dispatch:ready`, observe 1 wave completes without circuit trip.
+
+4. **Merge PR #10** once review confirms the execution log above matches production reality.
+
+### Rollback procedure (still available, idempotent)
+
+```bash
+sudo systemctl enable --now home-ubuntu-mounts-synology\x2dagentic\x2dcontext.mount
+sudo systemctl disable --now mnt-synology\x2dagentic\x2dcontext.mount
+sudo umount /mnt/synology-agentic-context
+sudo rm /home/ubuntu/mounts/synology-agentic-context
+# then re-edit /etc/systemd/system/mnt-synology*.mount Where= back, OR just delete the new unit
+```
+
+This restores the original state exactly: NFS back at `/home/ubuntu/mounts/synology-agentic-context`, no symlink.

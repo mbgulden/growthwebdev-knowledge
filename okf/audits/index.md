@@ -27,6 +27,7 @@ Cross-project audits — point-in-time assessments of system state with findings
 | [Journal continuity — AGY crack audit](../reports/journal-continuity-agy-crack-audit.md) | (see reports/) | |
 | [Journal continuity — Fred synthesis](../reports/journal-continuity-fred-synthesis.md) | (see reports/) | |
 | [Journal continuity — source inventory](../reports/journal-continuity-source-inventory.md) | (see reports/) | |
+| [Ned Scan-Triage 2026-06-27 r54](./ned-scan-triage-2026-06-27-r54.md) | 2026-06-27 | Prismatic Engine scanner backlog (54th redundant feed, this run) |
 
 ## How to use
 

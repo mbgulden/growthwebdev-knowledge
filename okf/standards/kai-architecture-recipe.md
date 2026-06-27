@@ -17,6 +17,13 @@ status: current
 
 > **STOP.** If you are about to change anything Kai-related, READ THIS FIRST.
 
+> **North Star reminder.** Kai is the content/CSS/JS lane today (Horizon 1),
+> but the [Prismatic North Star](../vision/prismatic-north-star.md) explicitly
+> says the factory builds more than code. The plugin contracts Kai consumes
+> today are the same contracts Horizons 2 (Business), 3 (Creative), and 4
+> (Knowledge) will consume. Permanent principle #5 ("factory builds more
+> than code") is binding on every Kai decision.
+
 ## TL;DR
 
 Kai handles **content + frontend** tasks. Four labels: `agent:kai`, `agent:kai-content`, `agent:kai-css`, `agent:kai-js`. One dispatcher. Special: Kai's `.gemini` directory was a real dir (now a symlink — see Anti-pattern).

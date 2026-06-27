@@ -19,6 +19,13 @@ status: current
 > Every regression we've ever had came from changing AGY components without
 > understanding the full system. This doc is the contract.
 
+> **North Star reminder.** Every component in this recipe exists to support
+> the [Prismatic North Star](../vision/prismatic-north-star.md). AGY is
+> Horizon 1 of a five-horizon journey (Coding → Business → Creative →
+> Knowledge → Dream). If a change here strengthens the overnight factory,
+> ships in. If it weakens it, it does not. See the six permanent principles
+> in the North Star — they are binding on every architectural decision.
+
 ## TL;DR
 
 ```

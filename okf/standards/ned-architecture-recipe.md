@@ -17,6 +17,13 @@ status: current
 
 > **STOP.** If you are about to change anything Ned-related, READ THIS FIRST.
 
+> **North Star reminder.** Ned owns the infra and governance lane. Every
+> dispatcher Ned touches exists to support the [Prismatic North Star](../vision/prismatic-north-star.md).
+> The five horizons (Coding → Business → Creative → Knowledge → Dream) all
+> need infra that runs without Michael. Permanent principles #1 ("engine
+> must run without you") and #4 ("governance is not optional") are binding
+> on every Ned decision.
+
 ## TL;DR
 
 Ned handles **infrastructure + code execution** tasks. Three labels: `agent:ned`, `agent:ned-infra`, `agent:ned-code`. One dispatcher, one supervisor, one pattern.

@@ -20,6 +20,7 @@ spoke repositories.
 
 ## Sections
 
+- [Vision](./vision/prismatic-north-star.md) — The North Star. Every standard, epic, task, and architectural decision points back to this.
 - [Standards](./standards/index.md) — Cross-project canonical standards
 - [Projects](./projects/index.md) — Per-project index docs (pointing at spokes)
 - [Decisions](./decisions/index.md) — Architecture decision records

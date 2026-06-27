@@ -18,6 +18,8 @@ status: current
 Cross-project canonical standards. Each standard lives in `okf/standards/` and
 is referenced by project-specific docs.
 
+Every standard points back to the [North Star](../vision/prismatic-north-star.md) — the guiding document that defines what Prismatic Engine actually is and where it is going.
+
 | Standard | OKF location | Linear |
 |---|---|---|
 | Review-loop codification | [`./review-loop-canonical.md`](./review-loop-canonical.md) | GRO-2024 |
@@ -39,6 +41,7 @@ is referenced by project-specific docs.
 | **Ned architecture — The Recipe** (NEW 2026-06-23) | [`./ned-architecture-recipe.md`](./ned-architecture-recipe.md) | GRO-2238 | The canonical Ned reference. |
 | **Kai architecture — The Recipe** (NEW 2026-06-23) | [`./kai-architecture-recipe.md`](./kai-architecture-recipe.md) | GRO-2239 | The canonical Kai reference. |
 | **UI/UX plan for the PWP** (10 surfaces) | [`./ui-ux-plan.md`](./ui-ux-plan.md) | GRO-2185 |
+| **Prismatic Portable Core Spec** (2026-06-27, current) | [`./prismatic-portable-core-spec.md`](./prismatic-portable-core-spec.md) | GRO-2786..2818 | D1–D6 signed off by Michael. Source of truth for the portability epic. 10 invariants + 20 outstanding items. Streams 1-5 dispatched. |
 
 ## What counts as a "standard"
 

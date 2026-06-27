@@ -28,6 +28,7 @@ quality measurements.
 | [Ned Scan-Triage 2026-06-27 r54](./ned-scan-triage-2026-06-27-r54.md) | 2026-06-27 | Prismatic Engine scanner backlog (54th redundant feed) |
 | [Ned Scan-Triage 2026-06-27 r55](./ned-scan-triage-2026-06-27-r55.md) | 2026-06-27 | Prismatic Engine scanner backlog (55th redundant feed; 3 fresh triages posted to GRO-543/542/538) |
 | [Ned Scan-Triage 2026-06-27 r56](./ned-scan-triage-2026-06-27-r56.md) | 2026-06-27 | Prismatic Engine scanner backlog (56th redundant feed; 0 fresh triages, GRO-567/564 cross 24h boundary per one-shot escalation rule) |
+| [Ned Scan-Triage 2026-06-27 r57](./ned-scan-triage-2026-06-27-r57.md) | 2026-06-27 | Prismatic Engine scanner backlog (57th redundant feed; 0 fresh triages, identical 10-item batch to r55/r56, GPU node ~26.7h down carry-over) |
 
 ## What counts as an "audit"
 

@@ -27,7 +27,8 @@ quality measurements.
 | [AGY SIAL/ITAD Audit](./agy-audit-sentinel-itad-2026-06.md) | 2026-06-15 | `sentinel-it-asset-logistics/` |
 | [Ned Scan-Triage 2026-06-26 r50](./ned-scan-triage-2026-06-26-r50.md) | 2026-06-26 | Prismatic Engine scanner backlog (50th redundant feed, SUPPRESS) |
 | [Ned Scan-Triage 2026-06-26 r51](./ned-scan-triage-2026-06-26-r51.md) | 2026-06-27 | Prismatic Engine scanner backlog (51st redundant feed) |
-| [Ned Scan-Triage 2026-06-27 r52](./ned-scan-triage-2026-06-27-r52.md) | 2026-06-27 | Prismatic Engine scanner backlog (52nd redundant feed, this run) |
+| [Ned Scan-Triage 2026-06-27 r52](./ned-scan-triage-2026-06-27-r52.md) | 2026-06-27 | Prismatic Engine scanner backlog (52nd redundant feed) |
+| [Ned Scan-Triage 2026-06-27 r53](./ned-scan-triage-2026-06-27-r53.md) | 2026-06-27 | Prismatic Engine scanner backlog (53rd redundant feed, this run) |
 
 ## What counts as an "audit"
 

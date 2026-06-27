@@ -25,6 +25,8 @@ quality measurements.
 | [AGY Homelab Repo Audit](./agy-audit-homelab-2026-06.md) | 2026-06-15 | `homelab/` |
 | [AGY Hermes Agent Manager Audit](./agy-audit-hermes-manager-2026-06.md) | 2026-06-15 | Hermes Agent Manager / Hub |
 | [AGY SIAL/ITAD Audit](./agy-audit-sentinel-itad-2026-06.md) | 2026-06-15 | `sentinel-it-asset-logistics/` |
+| [Ned Scan-Triage 2026-06-27 r54](./ned-scan-triage-2026-06-27-r54.md) | 2026-06-27 | Prismatic Engine scanner backlog (54th redundant feed) |
+| [Ned Scan-Triage 2026-06-27 r55](./ned-scan-triage-2026-06-27-r55.md) | 2026-06-27 | Prismatic Engine scanner backlog (55th redundant feed; 3 fresh triages posted to GRO-543/542/538) |
 
 ## What counts as an "audit"
 

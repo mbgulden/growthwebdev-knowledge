@@ -91,10 +91,11 @@ with self._lock:
     # 2. Compute base impact (existing)
     impact = classify_impact(result)
 
-    # 3. Apply registered impact rules OUTSIDE the classify call (NEW)
+    # 3. Apply registered impact rules (NEW) — compose() once, reuse spec
     if self._registry is not None:
-        spec = self._registry.compose()
+        spec = self._registry.compose()  # O(N) over registered items
         impact = apply_impact_rules(result, impact, spec.impact_rules)
+    # else: spec is None, rules not consulted
 
     # 4. Decide action (existing)
     action = decide_next_action(
@@ -103,13 +104,15 @@ with self._lock:
         max_rework_attempts=self.max_rework_attempts,
     )
 
-    # 5. Apply registered action rules (NEW — uses same apply_impact_rules shape)
-    if self._registry is not None:
-        spec = self._registry.compose()
+    # 5. Apply registered action rules (NEW) — reuse spec from step 3
+    # (NOTE: spec is None if registry is None; in that case action is unchanged)
+    if spec is not None:
         action = apply_impact_rules(result, action, spec.impact_rules)
 
     # ...rest of process() unchanged
 ```
+
+**Optimization applied (per Opus plan review, Jun 28 2026):** `compose()` called **once** at the top of process() under the lock, then reused for both impact and action rule application. `compose()` is O(N) over registered items — calling it twice was wasteful. The `spec` variable is bound inside the `if self._registry is not None:` block, so the second `if spec is not None:` check is true when registry is set.
 
 `apply_impact_rules` is a pure function:
 

@@ -100,6 +100,69 @@ Lane validation pre-push hook blocked my first attempt to push PR #41 because th
 
 ---
 
+
+
+---
+
+## Meta-Review (added 2026-06-28, post-declaration)
+
+After declaring Phase 2 + Gap 9 DONE, ran an architectural meta-review with Claude Sonnet 4.6 covering the full 7-PR initiative as a single deliverable.
+
+**Verdict: NEEDS_FIXES** (not COMPLETE).
+
+The meta-review caught 2 P0 blockers that per-PR review missed:
+
+### Meta-review P0 #1: QualityCheck missing from public API
+
+`from prismatic.review import QualityCheck` raised `ImportError`. The type alias existed in `registry.py` and was listed in the distribution-checklist code example, but was never imported into `prismatic/review/__init__.py`.
+
+**Why per-PR review missed it:** Each per-PR review focused on the changed files for that PR. PR #41 (registry) defined QualityCheck correctly; PR #41 (init) added the other registry exports but missed QualityCheck. Cross-file consistency checks need a higher-level review.
+
+**Fix:** PR #43 added QualityCheck to both the imports block and `__all__` in `prismatic/review/__init__.py`. Added `test_quality_check_importable_from_package` regression guard.
+
+### Meta-review P0 #2: register_impact_rule() docstring claims it works but it's inert
+
+The docstring read as fully operative. No `TODO Gap 9 / Part C` notice. A plugin author writing a safety-critical escalation rule would ship a false-safe system.
+
+**Why per-PR review missed it:** PR #41 added impact_rules with tests that passed (the tests exercised the dispatch loop *manually in the test body*, not through `RealPRReviewer.review_pr()`). Tests-with-good-coverage hiding a dead API channel.
+
+**Fix:** PR #43 added explicit `.. warning::` to the docstring with "Currently inert" notice + "TODO Gap 9 / Part C" reference. Matches the pattern used in HOOK_* docstrings. Added `test_register_impact_rule_docstring_warns` regression guard.
+
+### Meta-review carry-forward items (P1/P2/P3)
+
+Tracked in `okf/operations/phase2-meta-review-2026-06-28.md`:
+- **P1:** Wire `spec.impact_rules` into `classify_impact()` + add `registry` param to `PipelineOrchestrator` (Gap 10)
+- **P1:** Pattern count ceiling OR pre-compile regex union for `_detect_secrets_with_registry` (10k patterns = 44s)
+- **P2:** Add `medium_count` to metadata (replace regex-scraping in `_count_medium`)
+- **P2:** Rename misleading test name in PR #40
+- **P3:** Update `prismatic/review/__init__.py` module docstring (still describes stub era)
+
+### Lesson 9: Per-PR review != meta-review
+
+Per-PR review catches bugs in the PR's diff. Meta-review catches bugs in the **API surface as a whole** — missing exports, dead channels, scope drift across multiple PRs. Both are required; one does not substitute for the other.
+
+**Carry-forward rule:** After every multi-PR initiative, run one architectural meta-review on the combined state. Per-PR review alone is necessary but not sufficient for declaring COMPLETE.
+
+### Lesson 10: Tests with good coverage can hide dead APIs
+
+`register_impact_rule()` had 2 tests that both passed. Both tests manually executed the dispatch loop *in the test body*. Neither went through `RealPRReviewer.review_pr()` or `PipelineOrchestrator.process()`. 100% test coverage, 0% end-to-end validation.
+
+**Carry-forward rule:** When shipping an API channel with deferred consumer logic, write at least one test that fails if the consumer isn't wired. Example for impact_rules: "registering a rule and reviewing a PR with the relevant findings → impact is overridden." Until the consumer exists, mark the channel with `.. warning::` in the docstring.
+
+### Updated Definition of Done (post-meta-review)
+
+Phase 2 + Gap 9 is **NOW COMPLETE** after PR #43:
+- [x] P0 #1 fixed (QualityCheck importable)
+- [x] P0 #2 fixed (impact_rule docstring warns)
+- [x] P1 items tracked in `phase2-meta-review-2026-06-28.md`
+- [x] 249/249 tests passing on deploy-fresh (was 247; +2 regression guards)
+- [x] Version 0.2.0
+
+Phase 2 + Gap 9 is **DONE** as of PR #43.
+
+
+---
+
 ## Aggregate Ship Status
 
 | PR | Title | Lane | Tests Added | Peer Review |

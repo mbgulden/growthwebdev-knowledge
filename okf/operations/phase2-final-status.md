@@ -170,14 +170,32 @@ Every PR this session followed the same protocol:
 | `okf/operations/pr39-review-feedback.md` | PR #39 peer review |
 | `okf/operations/pr40-review-feedback.md` | PR #40 peer review |
 | `okf/operations/pr41-review-feedback.md` | PR #41 peer review |
+| `okf/operations/phase2-meta-review-2026-06-28.md` | Meta-review of full initiative (caught 2 P0 blockers) |
 
 ---
 
+## Meta-Review Outcome (2026-06-28)
+
+After declaring this initiative DONE, an architectural meta-review was run (Claude Sonnet 4.6 reading the full 7-PR state). Verdict: **NEEDS_FIXES** (not COMPLETE).
+
+Two P0 blockers identified and fixed in PR #43:
+1. `QualityCheck` was not importable from `prismatic.review` (missing export despite being in the documented public API)
+2. `register_impact_rule()` docstring claimed it was operative when it was inert (no `TODO Gap 9 / Part C` notice)
+
+PR #43 (merged at `f0dafb69`): adds QualityCheck export, adds explicit warning to register_impact_rule() docstring, adds 2 regression-guard tests.
+
+P1/P2/P3 items from the meta-review are tracked in `okf/operations/phase2-meta-review-2026-06-28.md`:
+- P1: Wire `spec.impact_rules` into `classify_impact()` + add `registry` param to `PipelineOrchestrator` (Gap 10)
+- P1: Pattern count ceiling OR pre-compile regex union (10k patterns = 44s)
+- P2: Add `medium_count` to metadata (replace regex-scraping in `_count_medium`)
+- P2: Rename misleading test name in PR #40
+- P3: Update `prismatic/review/__init__.py` module docstring (still describes stub era)
+
 ## Recommended Next Step
 
-Phase 2 + Gap 9 is **code-complete, peer-reviewed, distribution-declared, and operationally wired**. The remaining gaps (plugin auto-discovery, hook dispatch, Windows compat) are all clearly documented and tracked.
+Phase 2 + Gap 9 is **NOW COMPLETE** after PR #43. The remaining gaps (plugin auto-discovery, hook dispatch, Windows compat, P1 items from meta-review) are all clearly documented and tracked.
 
-**Recommendation:** Declare this initiative DONE. Move to Gap 10 (plugin auto-discovery + Windows compat) as the next initiative. Take a break from heavy coding to do strategy/planning.
+**Recommendation:** Move to Gap 10 (plugin auto-discovery + impact-rules wiring + Windows compat) as the next initiative. Take a break from heavy coding to do strategy/planning.
 
 ---
 

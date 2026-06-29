@@ -1,0 +1,127 @@
+# GitHub App: prismatic-engine-review-bot — Setup Reference
+
+> **Status (2026-06-29):** Wired but awaiting Michael's click-through in the GitHub UI.
+
+## What This Is
+
+A GitHub App that posts PR reviews (approve / request-changes) on
+`mbgulden/prismatic-engine` so Sonnet and Opus peer-review agents can
+green-light merges without tripping GitHub's self-approval policy.
+
+The App has **Contents: Read & Write** + **Pull requests: Read & Write**
+on the repo. Nothing else.
+
+## Files In This Setup
+
+| Path | Purpose |
+|---|---|
+| `/home/ubuntu/bin/prismatic-engine-bot-token` | The actual token-fetcher script. Reads env vars, generates JWT, exchanges for installation token, caches 55min. |
+| `/home/ubuntu/bin/prismatic-bot` | Wrapper. Sources `~/.config/prismatic-engine-bot.env` then exec's the script. Run this as `GH_TOKEN=$(prismatic-bot) gh …`. |
+| `/home/ubuntu/.config/prismatic-engine-bot.env.example` | Template for the env file. Copy to `~/.config/prismatic-engine-bot.env` and fill in real values. |
+| `/home/ubuntu/.hermes/profiles/orchestrator/scripts/prismatic_engine_bot_token.py` | Duplicate of the token script under Hermes for the agent's profile. |
+| `/tmp/github-app-setup.md` | The step-by-step instructions Michael used to create the App in the GitHub UI. |
+
+## What Michael Needs To Do (one-time, ~10 min)
+
+1. **Open:** https://github.com/settings/apps/new
+2. **Fill in** the form per `/tmp/github-app-setup.md`:
+   - Name: `prismatic-engine-review-bot`
+   - Homepage: `https://github.com/mbgulden/prismatic-engine`
+   - Permissions: Metadata=Read, Contents=R/W, Pull requests=R/W, Issues=Read
+   - Subscribe to events: NONE (uncheck all)
+   - Where can this be installed: **Only on this account**
+3. **Create** the App
+4. **Generate private key** (button at bottom of App settings page)
+5. **Move the .pem** to `~/.config/gh/prismatic-engine-review-bot.pem`
+6. **Install** the App on `mbgulden/prismatic-engine`
+7. **Save credentials:**
+   ```bash
+   cp ~/.config/prismatic-engine-bot.env.example ~/.config/prismatic-engine-bot.env
+   chmod 600 ~/.config/prismatic-engine-bot.env
+   $EDITOR ~/.config/prismatic-engine-bot.env   # fill in real App ID + Installation ID
+   ```
+8. **Tell Fred:** "App created, IDs are NNN and MMM"
+
+## What Fred Will Do (after Michael's setup)
+
+1. Verify token fetch works: `GH_TOKEN=$(prismatic-bot) gh api user --jq .login`
+   - Expect: `"prismatic-engine-review-bot[bot]"`
+2. Run a smoke review on a test PR (or post a comment on PR #46 retroactively)
+3. Update the `peer-review-before-merge` skill references that say "post comment + merge" to say "GH_TOKEN=$(prismatic-bot) gh pr review --approve"
+4. Document the bot in OKF (`okf/operations/prismatic-engine-bot-2026-06-29.md`)
+
+## How To Use The Bot (after setup)
+
+```bash
+# Any gh command can use the bot's token:
+GH_TOKEN=$(prismatic-bot) gh pr view 46
+GH_TOKEN=$(prismatic-bot) gh pr review 46 --approve --body "Looks good"
+GH_TOKEN=$(prismatic-bot) gh pr comment 46 --body "FYI"
+GH_TOKEN=$(prismatic-bot) gh pr merge 46 --squash
+```
+
+The `prismatic-bot` wrapper script handles the JWT generation +
+installation-token exchange + 55-minute caching automatically. The
+first call takes ~0.5s (network round-trip to GitHub); subsequent calls
+within 55 minutes take ~5ms (cache hit).
+
+## Why This Architecture
+
+- **GitHub Apps are designed for this.** Dependabot, Codecov, GitHub
+  Actions, every CI provider — they all use Apps.
+- **Scoped permissions.** The App only sees `mbgulden/prismatic-engine`.
+  Your other 21 public repos + 17 private repos are invisible.
+- **Short-lived tokens.** Installation tokens expire after 1 hour.
+  Even if a token leaks, it goes stale fast.
+- **Clear bot identity.** PR comments and reviews show as
+  `prismatic-engine-review-bot[bot]`, not as a person — agents and
+  humans reading the PR know it's a bot.
+- **No raw key in repo.** The .pem lives in `~/.config/gh/`, mode 0600.
+  The repo's `.gitignore` doesn't need it because it's outside the repo.
+
+## Token Lifecycle
+
+```
+GitHub UI  →  App created, .pem generated
+~/.config/gh/prismatic-engine-review-bot.pem  →  Private key (mode 0600)
+~/.config/prismatic-engine-bot.env           →  App ID + Installation ID
+                                                    │
+                                                    ▼
+prismatic-bot  →  reads env vars, opens .pem, generates JWT (10min TTL)
+                          │
+                          ▼
+        POST /app/installations/{id}/access_tokens
+                          │
+                          ▼
+              Installation access token (1h TTL, cached 55min)
+                          │
+                          ▼
+                  GH_TOKEN env var → gh CLI
+```
+
+## Troubleshooting
+
+### "error: pem file not found"
+The .pem path in `~/.config/prismatic-engine-bot.env` is wrong, or the
+.pem hasn't been moved to `~/.config/gh/` yet.
+
+### "error: GitHub API returned 401"
+The .pem is wrong or has been regenerated by GitHub. Re-download from
+the App settings page (Generate new private key).
+
+### "error: GitHub API returned 404"
+The Installation ID is wrong, or the App was uninstalled from the repo.
+
+### "GraphQL: Review Can not approve your own pull request"
+You're using your mbgulden PAT instead of the bot's token. Make sure
+`GH_TOKEN=$(prismatic-bot)` is set BEFORE the `gh pr review` command.
+
+### Cache shows stale token after .pem regeneration
+Delete `~/.cache/prismatic-engine-bot-token.json` to force a fresh
+fetch on the next call.
+
+## Related
+
+- `peer-review-before-merge` skill — primary user of this bot
+- `prismatic-progress.py` cron — doesn't use the bot (only reads public data)
+- `second-witness-agy-proxy.py` — doesn't use the bot (reads only)

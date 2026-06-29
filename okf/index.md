@@ -8,8 +8,8 @@ timestamp: 2026-06-19T11:15:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/index.md
-last_verified: 2026-06-19
-verified_by: kai
+last_verified: 2026-06-23
+verified_by: fred
 status: current
 ---
 
@@ -27,6 +27,7 @@ spoke repositories.
 - [Research](./research/index.md) — Cross-project reference research
 - [Reports](./reports/index.md) — Time-stamped reports (audits, post-mortems, snapshots)
 - [Audits](./audits/index.md) — Cross-project audits with findings + recommendations
+- [Sessions](./sessions/index.md) — /yolo session summaries (point-in-time snapshots of major work)
 - [Playbooks](./playbooks/index.md) — Step-by-step operational procedures
 - [Plugins](./plugins/index.md) — Prismatic Engine plugin reports (81 docs across 6 plugin domains)
 

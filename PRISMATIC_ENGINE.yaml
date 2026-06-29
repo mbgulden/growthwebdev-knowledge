@@ -1,0 +1,59 @@
+# PRISMATIC ENGINE — Workspace Governance
+# Installed: 2026-06-23 by Fred (per GRO-2217)
+# Repo: growthwebdev-knowledge
+#
+# This file governs how AI agents collaborate on this repository.
+# Every agent MUST respect lane assignments, branch conventions, and locking protocol.
+
+version: 1
+
+agents:
+  fred:
+    role: Orchestrator & Infrastructure
+    lanes:
+      owner: ["*"]  # Orchestrator needs write access to every directory
+      read_only: []
+    branch_prefix: "feature/"
+    staging_governor: true  # Only Fred merges to deploy-fresh
+
+  kai:
+    role: Content Writer
+    lanes:
+      owner: ["okf/hubs/", "okf/standards/", "okf/projects/*/index.md", "okf/audits/"]
+      read_only: ["okf/integrations/", "okf/secrets/"]
+    branch_prefix: "content/"
+
+  agy:
+    role: Research & Audit
+    lanes:
+      owner: ["okf/audits/", "okf/reports/"]
+      read_only: ["okf/hubs/"]
+    branch_prefix: "research/"
+
+  jules:
+    role: PR Auditor & Documentation
+    lanes:
+      owner: ["okf/integrations/", "README.md"]
+      read_only: ["*"]
+    branch_prefix: "jules/"
+
+  ned:
+    role: Code Execution & Infrastructure
+    lanes:
+      owner: ["okf/integrations/", "okf/standards/"]
+      read_only: ["okf/secrets/"]
+    branch_prefix: "ned/"
+
+locks:
+  file: "${PRISMATIC_HOME}/.antigravity/swarm_locks.json"
+  heartbeat_interval_s: 60
+  heartbeat_ttl_ms: 300000  # 5-minute stale timeout
+
+staging:
+  governor: "fred"
+  branch: "deploy-fresh"
+
+commit:
+  prefix_format: "[Fred] description (#ISSUE)"
+  example: "[Fred] Add cloudflare access doc (#GRO-2217)"
+  require_issue_ref: true

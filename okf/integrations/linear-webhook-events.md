@@ -78,6 +78,20 @@ This is the safety-net sweep — it re-checks Linear for any issues that should 
 
 ## What happens on HMAC failure
 
+The `Linear-Signature` header is Stripe-style: `t=<unix_timestamp>,v1=<hex_hmac>`. The HMAC is computed over the **raw request body** (NOT including the timestamp prefix) using your signing secret as the key. The handler strips the `t=` and `v1=` envelope and compares only the `v1=` value against the expected HMAC.
+
+**Header format examples:**
+
+```
+# Real Linear delivery (the format Linear actually sends):
+Linear-Signature: t=1782232317,v1=464eb8fa996d011312d15c66cd0da29bc67a7b3184fbd4c016cdd4d074f5c90e
+
+# Bare hex (legacy/internal tests):
+Linear-Signature: 464eb8fa996d011312d15c66cd0da29bc67a7b3184fbd4c016cdd4d074f5c90e
+```
+
+Both forms are accepted. The replay-protection check uses `event.createdAt` (a separate field, NOT the `t=` timestamp) — see `prismatic-webhook-chain-recovery-2026-06-23.md` for the fix history on this parser.
+
 If the signature doesn't validate:
 
 ```

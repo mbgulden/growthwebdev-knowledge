@@ -27,7 +27,7 @@ spoke repositories.
 - [Integrations](./integrations/index.md) — External tool integrations (MCP servers, SaaS APIs)
 - [Research](./research/index.md) — Cross-project reference research
 - [Reports](./reports/index.md) — Time-stamped reports (audits, post-mortems, snapshots)
-- [Audits](./audits/index.md) — Cross-project audits with findings + recommendations
+- [Audits](./audits/index.md) — Cross-project audits with findings + recommendations. Sprawl-watchdog: [`./audits/_curation-2026-07-01.md`](./audits/_curation-2026-07-01.md) (GRO-3122).
 - [Sessions](./sessions/index.md) — /yolo session summaries (point-in-time snapshots of major work)
 - [Playbooks](./playbooks/index.md) — Step-by-step operational procedures
 - [Plugins](./plugins/index.md) — Prismatic Engine plugin reports (81 docs across 6 plugin domains)

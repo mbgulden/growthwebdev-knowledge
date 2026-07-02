@@ -140,7 +140,13 @@ WORK ON {iid}: {i['title']}
 - ✅ Pass `--add-dir` for the workspace
 - ✅ Use `Gemini 3.1 Pro (High)` for synthesis tasks (longer context)
 
-### Component 3: The Queue (`/tmp/issue-batches/`)
+#### Antigravity Developer Model Routing (New 2026-07-02)
+
+To support high-volume processing (like summarizing doc piles) with $0 developer key usage, we utilize Antigravity developer sandbox models. The routing is defined in `~/.antigravity/config.json` and mapped via Linear labels:
+- **`agent:agy-doc-summarizer`**: Mapped to `google/gemini-3.1-flash-lite-preview` (high context window, optimized for document parsing and summarization)
+- **`agent:agy-doc-writer`**: Mapped to `chat_23310` (optimized for code file generation and Markdown writing)
+
+## Component 3: The Queue (`/tmp/issue-batches/`)
 
 **This is the contract between dispatchers and the supervisor.** Both must agree on:
 - File location: `/tmp/issue-batches/{iid}.txt`

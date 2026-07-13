@@ -8,7 +8,7 @@ timestamp: 2026-06-19T10:30:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/index.md
-last_verified: 2026-06-23
+last_verified: 2026-07-10
 verified_by: fred
 status: current
 ---
@@ -42,6 +42,9 @@ Every standard points back to the [North Star](../vision/prismatic-north-star.md
 | **Kai architecture — The Recipe** (NEW 2026-06-23) | [`./kai-architecture-recipe.md`](./kai-architecture-recipe.md) | GRO-2239 | The canonical Kai reference. |
 | **UI/UX plan for the PWP** (10 surfaces) | [`./ui-ux-plan.md`](./ui-ux-plan.md) | GRO-2185 |
 | **Prismatic Portable Core Spec** (2026-06-27, current) | [`./prismatic-portable-core-spec.md`](./prismatic-portable-core-spec.md) | GRO-2786..2818 | D1–D6 signed off by Michael. Source of truth for the portability epic. 10 invariants + 20 outstanding items. Streams 1-5 dispatched. |
+| **Prismatic Enterprise Governance Scorecard** (2026-07-06, current) | [`./prismatic-enterprise-governance-scorecard.md`](./prismatic-enterprise-governance-scorecard.md) | GRO-3523 | 12-gate enterprise governance rubric aligned with the audit and North Star. |
+| **Prismatic staging governance** (2026-07-13, current) | [`./prismatic-staging-governance.md`](./prismatic-staging-governance.md) | GRO-3792 | Governor-only staging branch promotion; repo-local hook precedence; Fred can push `staging`, workers cannot. |
+| **Cron alert output contract** (2026-07-13, current) | [`./cron-alert-output-contract.md`](./cron-alert-output-contract.md) | GRO-3792 | Telegram-bound no-agent cron stdout must be empty or complete user-facing Markdown. |
 
 ## What counts as a "standard"
 

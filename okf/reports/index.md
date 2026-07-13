@@ -8,8 +8,8 @@ timestamp: 2026-06-19T11:30:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/reports/index.md
-last_verified: 2026-06-19
-verified_by: kai
+last_verified: 2026-07-10
+verified_by: fred
 status: current
 ---
 
@@ -43,6 +43,7 @@ superseded).
 
 | Report | Date | Status |
 |---|---|---|
+| [Prismatic Enterprise Governance Audit](../audits/prismatic-enterprise-governance-audit-2026-07-06.md) | 2026-07-06 | current |
 | [Swarm Automation Audit](./swarm-automation-audit-2026-06.md) | 2026-06-12 | current |
 | [Triage Report — Latest Snapshot](./triage-latest.md) | (rolling) | superseded weekly |
 
@@ -50,6 +51,9 @@ superseded).
 
 | Report | Date | Status |
 |---|---|---|
+| [Post-publish stuck alert noise](./post-publish-stuck-alert-noise-2026-07-13.md) | 2026-07-13 | current |
+| [Nightly backlog cron output sanitization](./nightly-backlog-cron-output-sanitization-2026-07-13.md) | 2026-07-13 | current |
+| [Orchestrator cron hardening summary](./orchestrator-cron-hardening-summary-2026-07-13.md) | 2026-07-13 | current |
 | [Ubersuggest MCP Setup & Recovery](./ubersuggest-mcp-setup-and-recovery-2026-06-19.md) | 2026-06-19 | current |
 
 ## Conventions

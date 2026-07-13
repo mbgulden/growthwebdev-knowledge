@@ -8,7 +8,7 @@ timestamp: 2026-06-19T11:15:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/index.md
-last_verified: 2026-06-23
+last_verified: 2026-07-10
 verified_by: fred
 status: current
 ---
@@ -17,6 +17,18 @@ status: current
 
 This bundle indexes cross-project standards and points to per-project docs in
 spoke repositories.
+
+## Current enterprise governance
+
+- [Prismatic Enterprise Governance Audit — 2026-07-06](./audits/prismatic-enterprise-governance-audit-2026-07-06.md) — production-grade dashboard/control-plane governance baseline and Linear closeout tree.
+- [Prismatic Enterprise Governance Scorecard](./standards/prismatic-enterprise-governance-scorecard.md) — 12-gate enterprise rubric used by the audit.
+- [Prismatic staging governance](./standards/prismatic-staging-governance.md) — governor-only `staging` promotion rule and repo-local hook precedence.
+- [Cron alert output contract](./standards/cron-alert-output-contract.md) — no-agent Telegram cron stdout must be empty or user-facing.
+
+## Current project closeouts
+
+- [HDE Stripe staging launch closeout — 2026-07-13](./projects/human-design-engine/staging-stripe-launch-2026-07-13.md) — revenue-gate staging bundle, verification boundary, and remaining launch proof.
+- [OpenHumanDesignMCP release hardening closeout — 2026-07-13](./projects/open-human-design-mcp/release-hardening-2026-07-13.md) — Dependabot/Ned/Fred handoff PR cleanup and stale-work closure.
 
 ## Sections
 

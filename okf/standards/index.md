@@ -39,6 +39,8 @@ is referenced by project-specific docs.
 | **Ned architecture — The Recipe** (NEW 2026-06-23) | [`./ned-architecture-recipe.md`](./ned-architecture-recipe.md) | GRO-2238 | The canonical Ned reference. |
 | **Kai architecture — The Recipe** (NEW 2026-06-23) | [`./kai-architecture-recipe.md`](./kai-architecture-recipe.md) | GRO-2239 | The canonical Kai reference. |
 | **UI/UX plan for the PWP** (10 surfaces) | [`./ui-ux-plan.md`](./ui-ux-plan.md) | GRO-2185 |
+| **Prismatic staging governance** (2026-07-13, current) | [`./prismatic-staging-governance.md`](./prismatic-staging-governance.md) | GRO-3792 | Governor-only staging branch promotion; repo-local hook precedence; Fred can push `staging`, workers cannot. |
+| **Cron alert output contract** (2026-07-13, current) | [`./cron-alert-output-contract.md`](./cron-alert-output-contract.md) | GRO-3792 | Telegram-bound no-agent cron stdout must be empty or complete user-facing Markdown. |
 
 ## What counts as a "standard"
 

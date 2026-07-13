@@ -24,7 +24,8 @@ Each project has a per-project OKF index doc plus a spoke repo with its own
 | darius-star | [darius-star.md](./darius-star.md) | [`mbgulden/darius-star/okf`](https://github.com/mbgulden/darius-star/tree/main/okf) |
 | active-oahu-tours | _(see active-oahu-tours-mirror/okf/)_ | [`mbgulden/active-oahu-tours/okf`](https://github.com/mbgulden/active-oahu-tours/tree/main/okf) |
 | active-oahu-static | _(see active-oahu-static/okf/)_ | [`mbgulden/active-oahu-static/okf`](https://github.com/mbgulden/active-oahu-static/tree/main/okf) |
-| hd-platform | _(see hd-platform/okf/)_ | [`mbgulden/hd-platform/okf`](https://github.com/mbgulden/hd-platform/tree/main/okf) |
+| hd-platform / Human Design Engine | [human-design-engine/index.md](./human-design-engine/index.md) | [`mbgulden/hd-platform/okf`](https://github.com/mbgulden/hd-platform/tree/main/okf) |
+| OpenHumanDesignMCP | [open-human-design-mcp/index.md](./open-human-design-mcp/index.md) | [`mbgulden/OpenHumanDesignMCP`](https://github.com/mbgulden/OpenHumanDesignMCP) |
 | belief-deprogrammer | _(see belief-deprogrammer/okf/)_ | [`mbgulden/belief-deprogrammer/okf`](https://github.com/mbgulden/belief-deprogrammer/tree/main/okf) |
 | beyondsaas-site | _(see beyondsaas-site/okf/)_ | [`mbgulden/beyondsaas-site/okf`](https://github.com/mbgulden/beyondsaas-site/tree/main/okf) |
 | sentinel-it-asset-logistics | _(see sentinel-it-asset-logistics/okf/)_ | [`mbgulden/sentinel-it-asset-logistics/okf`](https://github.com/mbgulden/sentinel-it-asset-logistics/tree/main/okf) |
@@ -42,4 +43,4 @@ Some initiatives have sensitive competitive intelligence that shouldn't live in 
 
 | Bundle | Description | Repo |
 |---|---|---|
-| [AOT SEO/GEO Initiative](../aot-seo-knowledge) | Private OKF bundle for the Active Oahu Tours SEO, GEO, and AI-search initiative. Contains baseline audits, 6-month strategy, competitive analysis, photo-library mapping, automation stack. | [`mbgulden/aot-seo-knowledge`](https://github.com/mbgulden/aot-seo-knowledge) |
+| [AOT SEO/GEO Initiative](https://github.com/mbgulden/aot-seo-knowledge) | Private OKF bundle for the Active Oahu Tours SEO, GEO, and AI-search initiative. Contains baseline audits, 6-month strategy, competitive analysis, photo-library mapping, automation stack. | [`mbgulden/aot-seo-knowledge`](https://github.com/mbgulden/aot-seo-knowledge) |

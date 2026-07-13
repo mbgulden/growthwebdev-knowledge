@@ -18,6 +18,16 @@ status: current
 This bundle indexes cross-project standards and points to per-project docs in
 spoke repositories.
 
+## Current enterprise governance
+
+- [Prismatic staging governance](./standards/prismatic-staging-governance.md) — governor-only `staging` promotion rule and repo-local hook precedence.
+- [Cron alert output contract](./standards/cron-alert-output-contract.md) — no-agent Telegram cron stdout must be empty or user-facing.
+
+## Current project closeouts
+
+- [HDE Stripe staging launch closeout — 2026-07-13](./projects/human-design-engine/staging-stripe-launch-2026-07-13.md) — revenue-gate staging bundle, verification boundary, and remaining launch proof.
+- [OpenHumanDesignMCP release hardening closeout — 2026-07-13](./projects/open-human-design-mcp/release-hardening-2026-07-13.md) — Dependabot/Ned/Fred handoff PR cleanup and stale-work closure.
+
 ## Sections
 
 - [Standards](./standards/index.md) — Cross-project canonical standards

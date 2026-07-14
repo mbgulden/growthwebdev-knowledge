@@ -25,6 +25,7 @@ spoke repositories.
 
 ## Current project closeouts
 
+- [Prismatic Governance Dashboard Ingestion Queue repair closeout — 2026-07-14](./projects/prismatic-engine/ingestion-queue-repair-2026-07-14.md) — durable queue ledger, `/api/gateway` aliases, mutation controls, audit timeline, browser/API proof, and drainer caveat.
 - [HDE Stripe staging launch closeout — 2026-07-13](./projects/human-design-engine/staging-stripe-launch-2026-07-13.md) — revenue-gate staging bundle, verification boundary, and remaining launch proof.
 - [OpenHumanDesignMCP release hardening closeout — 2026-07-13](./projects/open-human-design-mcp/release-hardening-2026-07-13.md) — Dependabot/Ned/Fred handoff PR cleanup and stale-work closure.
 

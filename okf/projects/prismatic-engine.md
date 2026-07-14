@@ -19,6 +19,12 @@ The prismatic-engine is the cross-project orchestration layer for the
 growthwebdev stack. It owns the dispatcher, Linear rate-limit codification,
 gateway service, and capability registry.
 
+## Current records
+
+| Record | Date | Status | Why it matters |
+|---|---:|---:|---|
+| [Governance Dashboard Ingestion Queue repair closeout](./prismatic-engine/ingestion-queue-repair-2026-07-14.md) | 2026-07-14 | current | Restores durable queue ledger, `/api/gateway` aliases, retry/purge mutation semantics, audit timeline, and live browser/API proof. |
+
 ## OKF bundle location
 
 Pilot OKF docs live in the engine repo at `okf/`:

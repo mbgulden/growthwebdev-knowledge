@@ -41,6 +41,7 @@ is referenced by project-specific docs.
 | **UI/UX plan for the PWP** (10 surfaces) | [`./ui-ux-plan.md`](./ui-ux-plan.md) | GRO-2185 |
 | **Prismatic staging governance** (2026-07-13, current) | [`./prismatic-staging-governance.md`](./prismatic-staging-governance.md) | GRO-3792 | Governor-only staging branch promotion; repo-local hook precedence; Fred can push `staging`, workers cannot. |
 | **Cron alert output contract** (2026-07-13, current) | [`./cron-alert-output-contract.md`](./cron-alert-output-contract.md) | GRO-3792 | Telegram-bound no-agent cron stdout must be empty or complete user-facing Markdown. |
+| **Hermes local artifact publisher behind Cloudflare Access** (2026-07-14, current) | [`./hermes-local-artifact-publisher-cloudflare-access.md`](./hermes-local-artifact-publisher-cloudflare-access.md) | GRO-1948 | Durable artifact publishing contract: protected access, secret-scan floor, traceability, retention, and verifier evidence. |
 
 ## What counts as a "standard"
 

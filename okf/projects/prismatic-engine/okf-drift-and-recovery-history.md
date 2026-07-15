@@ -65,6 +65,10 @@ No cleanup is safe until:
 - `unsafe/private` candidates are manually reviewed and quarantined/redacted;
 - repo-local breadcrumb map points to final canonical structure.
 
+## Batch 3 archive status
+
+Batch 3 archive records are now indexed under [archive/index.md](./archive/index.md). Unsafe/private material remains redacted in [unsafe-private-quarantine.md](./archive/unsafe-private-quarantine.md). Cleanup remains blocked.
+
 ## Batch 3 queue
 
 - Ned scan-triage OKF family.

@@ -23,6 +23,7 @@ the context, decision, and consequences.
 | OKF adoption (hub-and-spoke) | 2026-06-19 | [`./okf-adoption.md`](./okf-adoption.md) | GRO-2039 |
 | Tier 1-4 cleanup (engine unification) | 2026-06-19 | (see project spokes) | GRO-2008/2010/2020/2030/2031/2032/2034 |
 | Event-driven dispatch (Tier 6 part 1) | 2026-06-19 | [`./event-driven-dispatch.md`](./event-driven-dispatch.md) | GRO-2042/2047/2048/2050 |
+| Prismatic OKF hub-and-spoke map | 2026-07-15 | [`./prismatic-okf-hub-and-spoke-map.md`](./prismatic-okf-hub-and-spoke-map.md) | GRO-3721 |
 
 ## Format
 

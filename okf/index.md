@@ -20,6 +20,9 @@ spoke repositories.
 
 ## Current enterprise governance
 
+- [Prismatic OKF hub-and-spoke map](./decisions/prismatic-okf-hub-and-spoke-map.md) — decision record for hub canonical docs plus repo-local breadcrumb map.
+- [OKF worktree reconciliation](./standards/okf-worktree-reconciliation.md) — hidden branch/worktree inventory and cleanup-gate standard.
+- [Prismatic dashboard live proof](./standards/prismatic-dashboard-live-proof.md) — live UI/API/browser-console proof standard for Prismatic control-plane claims.
 - [Prismatic staging governance](./standards/prismatic-staging-governance.md) — governor-only `staging` promotion rule and repo-local hook precedence.
 - [Cron alert output contract](./standards/cron-alert-output-contract.md) — no-agent Telegram cron stdout must be empty or user-facing.
 

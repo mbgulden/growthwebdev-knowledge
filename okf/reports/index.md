@@ -49,6 +49,12 @@ superseded).
 | [Swarm Automation Audit](./swarm-automation-audit-2026-06.md) | 2026-06-12 | current |
 | [Triage Report — Latest Snapshot](./triage-latest.md) | (rolling) | superseded weekly |
 
+## Prismatic documentation reconciliation
+
+| Report | Date | Status |
+|---|---|---|
+| [Prismatic OKF treasure hunt Phase 0/1 inventory](./prismatic-okf-treasure-hunt-2026-07-15.md) | 2026-07-15 | current |
+
 ## Incident reports
 
 | Report | Date | Status |

@@ -24,6 +24,9 @@ gateway service, and capability registry.
 | Record | Date | Status | Why it matters |
 |---|---:|---:|---|
 | [Governance Dashboard Ingestion Queue repair closeout](./prismatic-engine/ingestion-queue-repair-2026-07-14.md) | 2026-07-14 | current | Restores durable queue ledger, `/api/gateway` aliases, retry/purge mutation semantics, audit timeline, and live browser/API proof. |
+| [Prismatic OKF treasure hunt Phase 0/1 inventory](../reports/prismatic-okf-treasure-hunt-2026-07-15.md) | 2026-07-15 | current | Inventories stranded Prismatic OKF/docs across backup branches, Ned drift branches, knowledge-hub branches, and archived local worktrees. |
+
+> Current caveat: `prismatic-engine/deploy-fresh` does **not** currently contain a first-class `okf/` tree. Use the treasure-hunt report plus the repo-local `docs/okf-map.md` breadcrumb before trusting older hub links to `prismatic-engine/blob/main/okf/...`.
 
 ## OKF bundle location
 

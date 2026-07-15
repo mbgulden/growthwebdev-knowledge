@@ -42,6 +42,21 @@ Canonical OKF records now live in this hub project directory. The repo-local spo
 | Documentation governance | [OKF drift and recovery history](./okf-drift-and-recovery-history.md), [Treasure-map report](../../reports/prismatic-okf-treasure-hunt-2026-07-15.md) |
 | Repo-local breadcrumb | `prismatic-engine/docs/okf-map.md` |
 
+
+## Historical/archive records
+
+Batch 3 archive records preserve provenance without turning hidden branch contents into current truth:
+
+- [Archive index](./archive/index.md)
+- [Ned scan-triage history](./archive/ned-scan-triage-history.md)
+- [AGY audit history](./archive/agy-audit-history.md)
+- [Canonical merge winner maps](./archive/canonical-merge-winner-maps.md)
+- [Plugin ecosystem history](./archive/plugin-ecosystem-history.md)
+- [Other Prismatic docs history](./archive/other-prismatic-docs-history.md)
+- [Unsafe/private quarantine](./archive/unsafe-private-quarantine.md)
+
+Cleanup remains blocked until these archive records, duplicate manifests, and quarantine review are referenced by a final cleanup manifest.
+
 ## Historical/archival families queued for Batch 3
 
 Batch 2 promotes current canonical records only. These families are deliberately queued, not dropped:

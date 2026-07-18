@@ -26,6 +26,7 @@ spoke repositories.
 - [Prismatic staging governance](./standards/prismatic-staging-governance.md) — governor-only `staging` promotion rule and repo-local hook precedence.
 - [Cron alert output contract](./standards/cron-alert-output-contract.md) — no-agent Telegram cron stdout must be empty or user-facing.
 - [Agent memory governance](./standards/agent-memory-governance.md) — selective Hermes profile memory pruning, OKF/skill routing, and future memory write gate.
+- [OKF Source-of-Truth Reconciliation — 2026-07-18](./reports/okf-ssot-reconciliation-2026-07-18.md) — branch/worktree source map, Agent Memory canonicalization, and cleanup gates.
 
 ## Current project closeouts
 

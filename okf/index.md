@@ -25,6 +25,7 @@ spoke repositories.
 - [Prismatic dashboard live proof](./standards/prismatic-dashboard-live-proof.md) — live UI/API/browser-console proof standard for Prismatic control-plane claims.
 - [Prismatic staging governance](./standards/prismatic-staging-governance.md) — governor-only `staging` promotion rule and repo-local hook precedence.
 - [Cron alert output contract](./standards/cron-alert-output-contract.md) — no-agent Telegram cron stdout must be empty or user-facing.
+- [Agent memory governance](./standards/agent-memory-governance.md) — selective Hermes profile memory pruning, OKF/skill routing, and future memory write gate.
 
 ## Current project closeouts
 

@@ -44,6 +44,7 @@ is referenced by project-specific docs.
 | **Hermes local artifact publisher behind Cloudflare Access** (2026-07-14, current) | [`./hermes-local-artifact-publisher-cloudflare-access.md`](./hermes-local-artifact-publisher-cloudflare-access.md) | GRO-1948 | Durable artifact publishing contract: protected access, secret-scan floor, traceability, retention, and verifier evidence. |
 | **OKF worktree reconciliation** (2026-07-15, current) | [`./okf-worktree-reconciliation.md`](./okf-worktree-reconciliation.md) | GRO-3721 | Hidden branch/worktree inventory, extraction, dedupe, quarantine, and cleanup-gate standard. |
 | **Prismatic dashboard live proof** (2026-07-15, current) | [`./prismatic-dashboard-live-proof.md`](./prismatic-dashboard-live-proof.md) | GRO-3721 | Live UI/API/browser-console proof contract for dashboard/control-plane claims. |
+| **Agent memory governance** (2026-07-18, current) | [`./agent-memory-governance.md`](./agent-memory-governance.md) | none | Selective Hermes profile memory pruning, OKF/skill routing, and future memory write gate. |
 
 ## What counts as a "standard"
 

@@ -39,3 +39,6 @@ Cross-project audits — point-in-time assessments of system state with findings
 - Each audit has findings + recommendations. Most have a "what to do next" section.
 - Recurring audits (the Ned ones) track system state over time.
 - The orchestration audit (2026-06-23) drove the PWP process overhaul (GRO-2217 through GRO-2230).
+
+
+| **GRO-2934 deploy-fresh unintegrated-work audit** | [`./gro-2934-deploy-fresh-unintegrated-work.md`](./gro-2934-deploy-fresh-unintegrated-work.md) | OKF deploy-fresh false-positive audit; selectively promoted from PR #12. |

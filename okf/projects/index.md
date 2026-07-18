@@ -44,3 +44,6 @@ Some initiatives have sensitive competitive intelligence that shouldn't live in 
 | Bundle | Description | Repo |
 |---|---|---|
 | [AOT SEO/GEO Initiative](https://github.com/mbgulden/aot-seo-knowledge) | Private OKF bundle for the Active Oahu Tours SEO, GEO, and AI-search initiative. Contains baseline audits, 6-month strategy, competitive analysis, photo-library mapping, automation stack. | [`mbgulden/aot-seo-knowledge`](https://github.com/mbgulden/aot-seo-knowledge) |
+
+
+| [Prismatic Web Plugin](./prismatic-web-plugin.md) | PWP content-to-site pipeline, process docs, and Astro/EmDash decision records. |

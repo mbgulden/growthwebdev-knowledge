@@ -1,13 +1,14 @@
 ---
 type: Standard
-title: Prismatic Web Plugin — Process Documentation (the durable system)
-description: The complete process doc for the PWP. How a client's 5 Website Dev Framework docs become a deployed website via the agent swarm. The full pipeline + every step + every script + every Linear workflow. This is the canonical reference for the PWP system.
-resource: https://github.com/mbgulden/prismatic-web-plugin
-tags: [process, pwp, prismatic-web-plugin, pipeline, ingest, synthesize, distill, build, deploy, agent-swarm, documentation, system]
-timestamp: 2026-06-23T16:30:00Z
-git_repo: mbgulden/prismatic-web-plugin
-git_path: docs/PROCESS.md
-last_verified: 2026-06-23
+title: Prismatic Web Plugin — Process Documentation
+description: Canonical process reference for the Prismatic Web Plugin content-to-site pipeline. Repaired and promoted from PR #3 without sensitive client inputs.
+resource: okf/projects/prismatic-web-plugin/PROCESS.md
+tags: [standard, pwp, prismatic-web-plugin, process, pipeline, okf]
+timestamp: 2026-07-18T00:00:00Z
+linear_issue: GRO-2217
+git_repo: mbgulden/growthwebdev-knowledge
+git_path: okf/projects/prismatic-web-plugin/PROCESS.md
+last_verified: 2026-07-18
 verified_by: fred
 status: current
 ---

@@ -103,10 +103,6 @@ Suggested deliverable:
 4. Merge, verify remote readback, then remove only temporary clean worktrees/branches.
 5. Leave the dirty primary checkout alone until its sources are fully accounted for.
 
-## Queued source material
-
-A PDF received in the Hermes session was extracted to `/tmp/hde-sanctuary-pdf-extract.txt`. It appears to be HDE Sanctuary onboarding/email source material and should be handled in the HDE OKF family, not the Agent Memory standard.
-
 ## Verification boundary
 
 This report is based on live git/GitHub inventory and remote readback. It does not claim full docs-suite green. Every subsequent promotion batch needs its own focused `/tmp/hermes-verify-*` proof against the changed paths and remote canonical source.

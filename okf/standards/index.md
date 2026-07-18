@@ -58,3 +58,9 @@ something shared. Examples:
 
 A standard is *not* a project-specific runbook or architecture decision.
 Those go in project `okf/` or `okf/decisions/` respectively.
+
+
+| **Swarm Coordination Protocol** (2026-07-18, repaired legacy record) | [`./swarm-coordination-protocol.md`](./swarm-coordination-protocol.md) | n/a | Multi-agent active-work, checkpoint, and URL-verification protocol. |
+| **claim-work active registry spec** (2026-07-18, repaired legacy record) | [`./claim-work-spec.md`](./claim-work-spec.md) | n/a | Shared active-work registry spec. |
+| **Subagent checkpoint monitor spec** (2026-07-18, repaired legacy record) | [`./subagent-checkpoint-monitor-spec.md`](./subagent-checkpoint-monitor-spec.md) | n/a | Subagent checkpoint monitoring/loss-prevention spec. |
+| **URL verification spec** (2026-07-18, repaired legacy record) | [`./url-verification-spec.md`](./url-verification-spec.md) | n/a | URL verification and false-success prevention spec. |

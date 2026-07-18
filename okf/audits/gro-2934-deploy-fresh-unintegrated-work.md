@@ -1,15 +1,15 @@
 ---
 type: Audit
-title: GRO-2934 — growthwebdev-knowledge unintegrated-work audit (11 commits, 0 merged PRs)
-description: Ned investigated the post_publish_audit_v2.py finding (P2 hit_threshold) on the growthwebdev-knowledge repo; finding is a false-positive caused by intentional OKF-doc direct-to-deploy-fresh workflow. Recommendation: tune the audit threshold or carve out OKF-only repos.
+title: GRO-2934 deploy-fresh unintegrated-work audit
+description: Audit record explaining the deploy-fresh OKF-doc workflow false-positive. Promoted selectively from PR #12.
 resource: okf/audits/gro-2934-deploy-fresh-unintegrated-work.md
-tags: [audit, github-hygiene, post-publish-audit, false-positive, okf, deploy-fresh]
-timestamp: 2026-06-29T00:13:00Z
+tags: [audit, okf, deploy-fresh, github-hygiene, false-positive]
+timestamp: 2026-07-18T00:00:00Z
 linear_issue: GRO-2934
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/audits/gro-2934-deploy-fresh-unintegrated-work.md
-last_verified: 2026-06-29
-verified_by: ned
+last_verified: 2026-07-18
+verified_by: fred
 status: resolved
 ---
 

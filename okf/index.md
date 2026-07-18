@@ -65,3 +65,11 @@ Our frontmatter extensions: `linear_issue`, `git_repo`, `git_path`, `last_verifi
 - Hub `index.md` files: hand-maintained for now. Tier 5c may add a generator.
 - Spoke docs: project repos own their own `okf/`. Hub indexes point at them.
 - Sync: when a spoke doc moves or is deprecated, update the per-project index here.
+
+
+## Selectively promoted legacy OKF records
+
+- [Prismatic Web Plugin selective promotion](./projects/prismatic-web-plugin.md) — repaired PWP process/decision docs from PRs #3/#8.
+- [Dispatcher fix incident — 2026-06-23](./incidents/2026-06-23-dispatcher-fix.md) — repaired dispatcher package from PR #5; credential-adjacent webhook-chain doc excluded.
+- [GRO-2934 deploy-fresh unintegrated-work audit](./audits/gro-2934-deploy-fresh-unintegrated-work.md) — OKF deploy-fresh false-positive audit from PR #12.
+- [Swarm Coordination Protocol](./standards/swarm-coordination-protocol.md) — repaired coordination standard from PR #12.

@@ -1,13 +1,14 @@
 ---
-type: Incident Report
-title: AGY/Ned/Kai dispatcher fix — root cause was the 5-min batch-invocation pattern
-description: The dispatchers were batch-invoking AGY with a 5-min timeout for 20+ issues. That can't possibly work. The fix: write task specs to /tmp/issue-batches/ and let the AGY supervisor consume them at its own pace.
+type: Incident
+title: Dispatcher fix incident — 2026-06-23
+description: Incident report for the dispatcher fix and recovery path. Promoted selectively from conflicting PR #5.
 resource: okf/incidents/2026-06-23-dispatcher-fix.md
-tags: [incident, dispatcher, agy, ned, kai, agent-swarm, queue, fix, 2026-06-23]
-timestamp: 2026-06-23T17:00:00Z
+tags: [incident, dispatcher, prismatic, webhook, recovery]
+timestamp: 2026-07-18T00:00:00Z
+linear_issue: null
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/incidents/2026-06-23-dispatcher-fix.md
-last_verified: 2026-06-23
+last_verified: 2026-07-18
 verified_by: fred
 status: current
 ---

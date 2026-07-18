@@ -23,10 +23,13 @@ spoke repositories.
 - [Prismatic OKF hub-and-spoke map](./decisions/prismatic-okf-hub-and-spoke-map.md) — decision record for hub canonical docs plus repo-local breadcrumb map.
 - [OKF worktree reconciliation](./standards/okf-worktree-reconciliation.md) — hidden branch/worktree inventory and cleanup-gate standard.
 - [Prismatic dashboard live proof](./standards/prismatic-dashboard-live-proof.md) — live UI/API/browser-console proof standard for Prismatic control-plane claims.
+- [Prismatic enterprise governance scorecard](./standards/prismatic-enterprise-governance-scorecard.md) — 12-gate enterprise governance rubric for dashboard/control-plane trust.
 - [Prismatic staging governance](./standards/prismatic-staging-governance.md) — governor-only `staging` promotion rule and repo-local hook precedence.
 - [Cron alert output contract](./standards/cron-alert-output-contract.md) — no-agent Telegram cron stdout must be empty or user-facing.
 - [Agent memory governance](./standards/agent-memory-governance.md) — selective Hermes profile memory pruning, OKF/skill routing, and future memory write gate.
 - [OKF Source-of-Truth Reconciliation — 2026-07-18](./reports/okf-ssot-reconciliation-2026-07-18.md) — branch/worktree source map, Agent Memory canonicalization, and cleanup gates.
+- [Prismatic enterprise governance audit — 2026-07-06](./audits/prismatic-enterprise-governance-audit-2026-07-06.md) — production-grade governance baseline and Linear closeout tree.
+- [PWP visual QA proof standard](./standards/pwp-visual-qa-proof-standard.md) — proof-backed browser/accessibility/performance/link/flow standard for PWP repos.
 
 ## Current project closeouts
 

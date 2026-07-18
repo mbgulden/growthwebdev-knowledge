@@ -53,6 +53,7 @@ superseded).
 
 | Report | Date | Status |
 |---|---|---|
+| [OKF Source-of-Truth Reconciliation](./okf-ssot-reconciliation-2026-07-18.md) | 2026-07-18 | current |
 | [Prismatic OKF treasure hunt Phase 0/1 inventory](./prismatic-okf-treasure-hunt-2026-07-15.md) | 2026-07-15 | current |
 
 ## Incident reports

@@ -18,6 +18,7 @@ Cross-project audits — point-in-time assessments of system state with findings
 
 | Audit | OKF location | When |
 |---|---|---|
+| **Prismatic Enterprise Governance Audit — 2026-07-06** | [`./prismatic-enterprise-governance-audit-2026-07-06.md`](./prismatic-enterprise-governance-audit-2026-07-06.md) | Production-grade dashboard/control-plane baseline, 12-gate enterprise rubric alignment, and Linear closeout tree |
 | **Ned's orchestration audit (2026-06-23)** | [`./orchestration-audit-2026-06-23.md`](./orchestration-audit-2026-06-23.md) | 12 bugs found + 9 anti-pattern rules + 9 Linear follow-ups filed |
 | **Ned scan triage 2026-06-27 r1** | [`./ned-scan-triage-2026-06-27-r1.md`](./ned-scan-triage-2026-06-27-r1.md) | 10-item misrouted batch refused (0/10 Ned-lane); subset drift 16→10 from 02:35Z triage; GPU 30h+ down |
 | **Ned scan triage 2026-06-27 r2** | [`./ned-scan-triage-2026-06-27-r2.md`](./ned-scan-triage-2026-06-27-r2.md) | Clean SUPPRESS post-r59-fix; script feed identical to r1; broader-API drift is noise; GPU ~32h+ down |

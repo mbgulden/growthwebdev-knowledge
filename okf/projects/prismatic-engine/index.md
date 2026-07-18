@@ -25,6 +25,8 @@ Canonical OKF records now live in this hub project directory. The repo-local spo
 
 | Record | Status | Purpose |
 |---|---:|---|
+| [Enterprise Governance Audit — 2026-07-06](../../audits/prismatic-enterprise-governance-audit-2026-07-06.md) | current | Production-grade dashboard/control-plane baseline, 12-gate enterprise rubric alignment, and Linear closeout tree. |
+| [Enterprise Governance Scorecard](../../standards/prismatic-enterprise-governance-scorecard.md) | current | 12-gate rubric for enterprise-grade Prismatic operations. |
 | [Ingestion Queue repair closeout](./ingestion-queue-repair-2026-07-14.md) | current | Durable Linear webhook queue, `/api/gateway` aliases, retry/purge mutation, QueueControl/DispatcherControl audit proof. |
 | [Tier 7 journey](./tier-7-journey.md) | current/historical synthesis | Chronological production-grade hardening journey and what is still current. |
 | [Tier 7 architecture](./tier-7-architecture.md) | current/historical synthesis | Salvaged architecture map for dispatcher, gateway, dashboard, and staging governance. |
@@ -37,6 +39,7 @@ Canonical OKF records now live in this hub project directory. The repo-local spo
 | Surface | Canonical docs |
 |---|---|
 | Dashboard / control plane | [Governance dashboard history](./governance-dashboard-history.md), [Ingestion Queue closeout](./ingestion-queue-repair-2026-07-14.md) |
+| Enterprise governance | [Enterprise Governance Audit](../../audits/prismatic-enterprise-governance-audit-2026-07-06.md), [Enterprise Governance Scorecard](../../standards/prismatic-enterprise-governance-scorecard.md), [Prismatic dashboard live proof](../../standards/prismatic-dashboard-live-proof.md) |
 | Dispatcher / operator controls | [Dispatcher incident history](./dispatcher-incident-history.md), [Tier 7 architecture](./tier-7-architecture.md) |
 | Production hardening | [Tier 7 journey](./tier-7-journey.md), [Tier 7 architecture](./tier-7-architecture.md) |
 | Documentation governance | [OKF drift and recovery history](./okf-drift-and-recovery-history.md), [Treasure-map report](../../reports/prismatic-okf-treasure-hunt-2026-07-15.md) |

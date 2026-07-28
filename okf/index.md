@@ -4,11 +4,11 @@ title: growthwebdev-knowledge — Master Index
 description: Master listing of all OKF concepts in the growthwebdev knowledge hub.
 resource: https://github.com/mbgulden/growthwebdev-knowledge
 tags: [index, hub, okf]
-timestamp: 2026-06-19T11:15:00Z
+timestamp: 2026-07-28T02:48:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/index.md
-last_verified: 2026-06-23
+last_verified: 2026-07-28
 verified_by: fred
 status: current
 ---
@@ -27,6 +27,7 @@ spoke repositories.
 - [Prismatic staging governance](./standards/prismatic-staging-governance.md) — governor-only `staging` promotion rule and repo-local hook precedence.
 - [Cron alert output contract](./standards/cron-alert-output-contract.md) — no-agent Telegram cron stdout must be empty or user-facing.
 - [Agent memory governance](./standards/agent-memory-governance.md) — selective Hermes profile memory pruning, OKF/skill routing, and future memory write gate.
+- [Cloudflare Pages Direct Uploads deploy pipeline](./standards/cloudflare-pages-direct-uploads-deploy.md) — canonical GitHub Actions + `wrangler pages deploy` pattern for CF Pages projects without a CF-managed GitHub webhook.
 - [OKF Source-of-Truth Reconciliation — 2026-07-18](./reports/okf-ssot-reconciliation-2026-07-18.md) — branch/worktree source map, Agent Memory canonicalization, and cleanup gates.
 - [Prismatic enterprise governance audit — 2026-07-06](./audits/prismatic-enterprise-governance-audit-2026-07-06.md) — production-grade governance baseline and Linear closeout tree.
 - [PWP visual QA proof standard](./standards/pwp-visual-qa-proof-standard.md) — proof-backed browser/accessibility/performance/link/flow standard for PWP repos.

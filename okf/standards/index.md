@@ -4,11 +4,11 @@ title: Standards
 description: Index of cross-project canonical standards.
 resource: okf/standards/index.md
 tags: [index, standards]
-timestamp: 2026-06-19T10:30:00Z
+timestamp: 2026-07-28T02:48:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/index.md
-last_verified: 2026-06-23
+last_verified: 2026-07-28
 verified_by: fred
 status: current
 ---
@@ -47,6 +47,7 @@ is referenced by project-specific docs.
 | **Prismatic dashboard live proof** (2026-07-15, current) | [`./prismatic-dashboard-live-proof.md`](./prismatic-dashboard-live-proof.md) | GRO-3721 | Live UI/API/browser-console proof contract for dashboard/control-plane claims. |
 | **Prismatic Enterprise Governance Scorecard** (2026-07-06, current) | [`./prismatic-enterprise-governance-scorecard.md`](./prismatic-enterprise-governance-scorecard.md) | GRO-3523 | 12-gate enterprise governance rubric aligned with the audit and North Star. |
 | **Agent memory governance** (2026-07-18, current) | [`./agent-memory-governance.md`](./agent-memory-governance.md) | none | Selective Hermes profile memory pruning, OKF/skill routing, and future memory write gate. |
+| **Cloudflare Pages Direct Uploads deploy pipeline** (2026-07-28, current) | [`./cloudflare-pages-direct-uploads-deploy.md`](./cloudflare-pages-direct-uploads-deploy.md) | none (operator-action for secret) | Canonical pattern for deploying Astro/static sites to CF Pages Direct Uploads projects via GitHub Action + wrangler; replaces manual dashboard deploys. Worked example: mbgulden/sentinelitad.com. |
 
 ## What counts as a "standard"
 

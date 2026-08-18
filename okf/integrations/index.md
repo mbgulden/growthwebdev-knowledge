@@ -46,6 +46,7 @@ when first encountering the integration.
 | Cloudflare AOT account (activeoahutours.com) | [`./cloudflare-account-activeoahu.md`](./cloudflare-account-activeoahu.md) | ned | ✅ Active |
 | **Agent profile inventory (2026-06-23)** | [`./agent-profile-inventory.md`](./agent-profile-inventory.md) | The 22 agent profiles + dormant decisions |
 | **Prismatic webhook chain recovery (2026-06-23)** | [`./prismatic-webhook-chain-recovery-2026-06-23.md`](./prismatic-webhook-chain-recovery-2026-06-23.md) | ned | ✅ Active |)
+| **Local llama.cpp server (George)** | [`./llama-cpp-george-local-server.md`](./llama-cpp-george-local-server.md) | george | ✅ Active (verified 2026-08-18) |
 
 ## Format
 

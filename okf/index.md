@@ -4,11 +4,11 @@ title: growthwebdev-knowledge — Master Index
 description: Master listing of all OKF concepts in the growthwebdev knowledge hub.
 resource: https://github.com/mbgulden/growthwebdev-knowledge
 tags: [index, hub, okf]
-timestamp: 2026-07-28T02:48:00Z
+timestamp: 2026-07-29T03:55:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/index.md
-last_verified: 2026-07-28
+last_verified: 2026-07-29
 verified_by: fred
 status: current
 ---
@@ -74,3 +74,15 @@ Our frontmatter extensions: `linear_issue`, `git_repo`, `git_path`, `last_verifi
 - [Dispatcher fix incident — 2026-06-23](./incidents/2026-06-23-dispatcher-fix.md) — repaired dispatcher package from PR #5; credential-adjacent webhook-chain doc excluded.
 - [GRO-2934 deploy-fresh unintegrated-work audit](./audits/gro-2934-deploy-fresh-unintegrated-work.md) — OKF deploy-fresh false-positive audit from PR #12.
 - [Swarm Coordination Protocol](./standards/swarm-coordination-protocol.md) — repaired coordination standard from PR #12.
+
+## Session-harness discipline (added 2026-07-29)
+
+- [Hermes session-handoff discipline](./standards/hermes-session-handoff-discipline.md) — cross-profile state continuity via the `state/current.json` handoff file. Dormant-correct on Hermes 0.17.0; activates when upstream ships the prefill loader.
+- [Hermes proactive-execution discipline](./standards/hermes-proactive-execution-discipline.md) — hard rule against propose-before-work, daily briefing shape (moved/blocked/executed), per-week counter.
+- [2026-07-27 Agent harness discipline session report](./reports/2026-07-27-agent-harness-discipline-session.md) — full session writeup including gap analysis, four pins, adoption-bug recovery.
+## Projector-aware discipline (added 2026-07-29)
+
+- [Hermes projector-aware communication discipline](./standards/hermes-projector-aware-communication-discipline.md) — default reply shape: status -> evidence -> blocker -> one next action. Reserve tables for genuinely tabular comparisons. Never end with a numbered list of options unless Michael asked for choices.
+## Runtime requirements (added 2026-07-29)
+
+- [Hermes runtime requirements](./standards/hermes-runtime-requirements.md) — minimum-viable surface for Linear work (hermes binary + HERMES_HOME + profile dir + Linear credential + model credential). Asserted at session start. Verified end-to-end in ~1 second.

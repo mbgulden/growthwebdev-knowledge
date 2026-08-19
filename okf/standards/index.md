@@ -4,11 +4,11 @@ title: Standards
 description: Index of cross-project canonical standards.
 resource: okf/standards/index.md
 tags: [index, standards]
-timestamp: 2026-07-28T02:48:00Z
+timestamp: 2026-07-29T03:55:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/index.md
-last_verified: 2026-07-28
+last_verified: 2026-07-29
 verified_by: fred
 status: current
 ---
@@ -65,3 +65,11 @@ Those go in project `okf/` or `okf/decisions/` respectively.
 | **claim-work active registry spec** (2026-07-18, repaired legacy record) | [`./claim-work-spec.md`](./claim-work-spec.md) | n/a | Shared active-work registry spec. |
 | **Subagent checkpoint monitor spec** (2026-07-18, repaired legacy record) | [`./subagent-checkpoint-monitor-spec.md`](./subagent-checkpoint-monitor-spec.md) | n/a | Subagent checkpoint monitoring/loss-prevention spec. |
 | **URL verification spec** (2026-07-18, repaired legacy record) | [`./url-verification-spec.md`](./url-verification-spec.md) | n/a | URL verification and false-success prevention spec. |
+| Hermes Agent Session-Handoff Discipline | [`./hermes-session-handoff-discipline.md`](./hermes-session-handoff-discipline.md) | n/a |
+| Hermes Agent Proactive-Execution Discipline | [`./hermes-proactive-execution-discipline.md`](./hermes-proactive-execution-discipline.md) | n/a |
+| Hermes Mechanism Probe Recipe | [`./hermes-mechanism-probe-recipe.md`](./hermes-mechanism-probe-recipe.md) | n/a |
+| Hermes Agent Projector-Aware Communication Discipline | [`./hermes-projector-aware-communication-discipline.md`](./hermes-projector-aware-communication-discipline.md) | n/a |
+| Hermes Agent Verifier-as-Deliverable Discipline | [`./hermes-verifier-as-deliverable-discipline.md`](./hermes-verifier-as-deliverable-discipline.md) | n/a | Verifier ships with the artifact. Four named verifiers promoted to skills. Counter tracks % pre-written. |
+| Hermes Agent Next-Action Truth-Source Discipline | [`./hermes-next-action-truth-source-discipline.md`](./hermes-next-action-truth-source-discipline.md) | n/a | Linear is the source; project-registry.json is the cache; chat is downstream. Mutation contract + weekly reconciler. |
+| Hermes Agent Memory vs. Skills Boundary Discipline | [`./hermes-memory-skills-boundary-discipline.md`](./hermes-memory-skills-boundary-discipline.md) | n/a | Memory=preferences/facts; skills=procedures; micro-skills=single recipes (1 page max). Applied across all profiles. |
+| Hermes Agent Runtime Requirements — Minimum-Viable Surface | [`./hermes-runtime-requirements.md`](./hermes-runtime-requirements.md) | n/a |

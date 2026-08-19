@@ -44,6 +44,14 @@ agents:
       read_only: ["okf/secrets/"]
     branch_prefix: "ned/"
 
+  george:
+    role: Prismatic Helper / Workflow Guard
+    lanes:
+      owner: ["*"]  # Cross-lane review role: standards, decisions, operations, reports, indexes + governance config
+      read_only: []
+    branch_prefix: "george/"
+    staging_governor: false  # Staging governance stays Fred-only (see okf/decisions/okf-agent-commit-authorization.md)
+
 locks:
   file: "${PRISMATIC_HOME}/.antigravity/swarm_locks.json"
   heartbeat_interval_s: 60

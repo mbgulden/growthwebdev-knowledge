@@ -4,11 +4,11 @@ title: Cron alert output contract
 description: Contract for Hermes no-agent cron stdout, Telegram delivery, quiet mode, and user-facing alert bodies.
 resource: okf/standards/cron-alert-output-contract.md
 tags: [standard, hermes, cron, telegram, alerts, no-agent, output-contract]
-timestamp: 2026-07-13T20:00:00Z
+timestamp: 2026-07-29T05:30:00Z
 linear_issue: GRO-3792
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/cron-alert-output-contract.md
-last_verified: 2026-07-13
+last_verified: 2026-07-29
 verified_by: fred
 status: current
 ---
@@ -64,3 +64,21 @@ Anything else is a pager bug.
 - [Post-publish stuck alert noise — 2026-07-13](../reports/post-publish-stuck-alert-noise-2026-07-13.md)
 - [Nightly backlog cron output sanitization — 2026-07-13](../reports/nightly-backlog-cron-output-sanitization-2026-07-13.md)
 - [Orchestrator cron hardening summary — 2026-07-13](../reports/orchestrator-cron-hardening-summary-2026-07-13.md)
+
+## Companion skills (2026-07-29 sweep)
+
+- Micro-skill: `~/.hermes/profiles/orchestrator/skills/micro/telegram-cron-output-contract/` — single-page recipe for the contract, including forbidden stdout patterns and implementation requirements.
+- Verifier: `~/.hermes/profiles/orchestrator/skills/verifiers/telegram-cron-output-check/verify.py` — scans Telegram-bound cron scripts for forbidden stdout patterns. Run on every cron script change.
+
+## Concrete fixes shipped in the 2026-07-29 sweep
+
+The verifier flagged 10 scripts with violations; all were fixed:
+
+- `golden_thread_cross_project_sync.py` — silent when stale=0 and missing=0; bolded action line otherwise.
+- `cf_access_health_check.py` — silent when no problems; concise alert otherwise. Removed double-delivery (script's own send_telegram + cron deliver=origin).
+- `consulting_pipeline_delta.py` — moved `[CONSULTING-PIPELINE]` scaffolding to stderr.
+- `peer_review_orchestrator.py`, `post_publish_doc_update.py`, `jules_dispatcher.py`, `kai_delta_dispatcher.py` — removed `[SILENT]` stdout prints (silent exit means *no* stdout, not a marker).
+- `delta_cache.py` — removed `[SILENT]` print from `exit_silent()` method.
+- `post_publish_stuck_alert.py` — replaced `[SILENT]` print with `pass` (gated by `not args.quiet`, never reached in cron mode).
+- `agy_golden_thread_delta.py`, `content_engine_delta.py` — moved `AGY exit` scaffolding to stderr.
+- `morning_digest.py` — moved `Telegram send failed` warning to stderr.

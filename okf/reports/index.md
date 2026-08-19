@@ -71,3 +71,5 @@ superseded).
   canonical for any given date.
 - The Ned audit `-2`, `-3`, `.slim` variants are NOT preserved here; only
   the canonical (latest non-versioned) snapshot per date.
+
+- [2026-07-27 Agent harness discipline session](./2026-07-27-agent-harness-discipline-session.md)

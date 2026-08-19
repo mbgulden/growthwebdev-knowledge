@@ -101,3 +101,27 @@ sentinel-it-asset-logistics, or Hermes-Research.
 
 Mirrors of these findings were posted in the group; this record is the durable
 source of truth.
+
+## Addendum 2 — Full-branch census + known gap (2026-08-19, Kai)
+
+The table above reflects **default branches** only. A follow-up census across
+**all remote branches** (in response to Michael's question whether Phase 2 was
+complete) found:
+
+- `prismatic-engine`: 326 distinct okf/ paths across 23+ branches (up to 301
+  docs per branch). **Already reconciled** by the GRO-3721 treasure hunt
+  (2026-07-15, Fred): 16 docs promoted to hub `okf/projects/prismatic-engine/`,
+  ~1,138 duplicates classified, 549 historical docs archived as summaries.
+  155 "hidden-useful" docs remain as a documented backlog in the treasure-map
+  report — a future promotion project, not a Phase 2 omission.
+- `hd-platform`: 3 stubs, identical on all 44 branches. Nothing anywhere.
+- `Hermes-Research`: 0 okf files on any branch.
+- `sentinel-it-asset-logistics`: **known gap** — 2 real research docs exist only
+  on the in-flight branch `ned/GRO-4016-sial-closeout` (not on main, not in
+  hub):
+  - `okf/research/sentinel-itad-existing-content-map-2026-07-07.md`
+  - `okf/research/sentinel-itad-operating-brief-2026-07-07.md`
+
+  **Michael's decision (2026-08-19):** leave them — they land on main with the
+  GRO-4016 merge and will be consolidated in a **later sweep**. This is the
+  single tracked follow-up from Phase 2.

@@ -42,6 +42,7 @@ spoke repositories.
 
 ## Sections
 
+- [Active Oahu Tours hub](./hubs/active-oahu/index.md) — centralized AOT knowledge: business ops, compliance, SEO/GEO/AI-search, architecture doctrine, verification (migrated 2026-08-19; decision: [hubs/active-oahu/decisions/2026-08-19-aot-hub-centralization.md](./hubs/active-oahu/decisions/2026-08-19-aot-hub-centralization.md))
 - [Standards](./standards/index.md) — Cross-project canonical standards
 - [Projects](./projects/index.md) — Per-project index docs (pointing at spokes)
 - [Decisions](./decisions/index.md) — Architecture decision records

@@ -4,12 +4,12 @@ title: growthwebdev-knowledge — Master Index
 description: Master listing of all OKF concepts in the growthwebdev knowledge hub.
 resource: https://github.com/mbgulden/growthwebdev-knowledge
 tags: [index, hub, okf]
-timestamp: 2026-07-29T03:55:00Z
+timestamp: 2026-08-19T03:44:00Z
 linear_issue: GRO-2039
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/index.md
-last_verified: 2026-07-29
-verified_by: fred
+last_verified: 2026-08-19
+verified_by: george
 status: current
 ---
 
@@ -30,6 +30,7 @@ spoke repositories.
 - [Cloudflare Pages Direct Uploads deploy pipeline](./standards/cloudflare-pages-direct-uploads-deploy.md) — canonical GitHub Actions + `wrangler pages deploy` pattern for CF Pages projects without a CF-managed GitHub webhook.
 - [OKF Source-of-Truth Reconciliation — 2026-07-18](./reports/okf-ssot-reconciliation-2026-07-18.md) — branch/worktree source map, Agent Memory canonicalization, and cleanup gates.
 - [Prismatic enterprise governance audit — 2026-07-06](./audits/prismatic-enterprise-governance-audit-2026-07-06.md) — production-grade governance baseline and Linear closeout tree.
+- [OKF agent commit authorization](./decisions/okf-agent-commit-authorization.md) — George, Fred, Kai, and Ned authorized to commit/push to the OKF; george registered in PRISMATIC_ENGINE.yaml; main stays manual-merge.
 - [PWP visual QA proof standard](./standards/pwp-visual-qa-proof-standard.md) — proof-backed browser/accessibility/performance/link/flow standard for PWP repos.
 
 ## Current project closeouts

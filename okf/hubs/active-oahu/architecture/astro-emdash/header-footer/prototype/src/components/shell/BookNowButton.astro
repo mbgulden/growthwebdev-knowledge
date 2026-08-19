@@ -1,0 +1,7 @@
+---
+import shellData from "../../content/nav/aot-shell-data.json";
+const booking = shellData.bookingConfig;
+---
+<a class="btn btn-small btn-primary aot-book-now" href={booking.href} data-booking-shortname={booking.shortname} data-analytics-event={booking.analyticsEvent} onclick={`FH.open({'shortname':'${booking.shortname}','fallback':'${booking.fallback}'}); return false;`}>
+  <strong>{booking.ctaLabel}</strong>
+</a>

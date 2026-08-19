@@ -1,0 +1,20 @@
+---
+import SiteShell from "../../components/shell/SiteShell.astro";
+import shellData from "../../content/nav/aot-shell-data.json";
+import siteNavigationSchema from "../../generated/schema/site-navigation.jsonld";
+import localBusinessSchema from "../../generated/schema/local-business.jsonld";
+import llmsNavigation from "../../generated/llms/navigation-section.txt?raw";
+---
+<!--
+  Non-public Astro sandbox route stub.
+  It documents the intended integration point; the deterministic rendered proof
+  lives at prototype/rendered/sandbox-shell-route.html until an Astro build
+  harness is introduced.
+-->
+<SiteShell title="Active Oahu Tours Astro shell sandbox">
+  <script type="application/ld+json" set:html={JSON.stringify(siteNavigationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+  <h1>Active Oahu Tours Astro shell sandbox</h1>
+  <p data-booking-shortname={shellData.bookingConfig.shortname}>Canonical shell data, schema, and AI navigation output load together here.</p>
+  <pre>{llmsNavigation.split("\n").slice(0, 14).join("\n")}</pre>
+</SiteShell>

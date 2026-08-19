@@ -1,0 +1,24 @@
+{
+  "version": "aot-shell-schema-ai.v1",
+  "source": "src/content/nav/aot-shell-data.json",
+  "sourceVersion": "aot-shell-data.v1",
+  "sourceCommit": "6686a0340a961401c2415e614558f6e622259681",
+  "priorityOrder": [
+    "users",
+    "search_engines",
+    "ai_assistants",
+    "booking_conversion"
+  ],
+  "counts": {
+    "utilityRows": 2,
+    "primaryNavRows": 26,
+    "footerRows": 20,
+    "schemaNavigationElements": 46
+  },
+  "outputs": [
+    "generated/schema/site-navigation.jsonld",
+    "generated/schema/local-business.jsonld",
+    "generated/schema/combined-shell-schema.jsonld",
+    "generated/llms/navigation-section.txt"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "shortname": "activeoahutours",
+  "href": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
+  "ctaLabel": "Book Online",
+  "fallback": "simple",
+  "analyticsEvent": "booking_click",
+  "source": "homepage .social-header"
+}

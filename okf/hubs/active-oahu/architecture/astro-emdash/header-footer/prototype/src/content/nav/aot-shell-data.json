@@ -1,0 +1,490 @@
+{
+  "version": "aot-shell-data.v1",
+  "generatedAtUtc": "2026-07-11T23:42:58Z",
+  "sourceCommit": "6686a0340a961401c2415e614558f6e622259681",
+  "priorityOrder": [
+    "users",
+    "search_engines",
+    "ai_assistants",
+    "booking_conversion"
+  ],
+  "business": {
+    "name": "Active Oahu Tours",
+    "phone": "(808)498-1894",
+    "telephoneHref": "tel:+18084981894",
+    "email": "info@activeoahutours.com",
+    "url": "https://activeoahutours.com/",
+    "sameAs": [
+      "https://www.facebook.com/activeoahutours/",
+      "https://www.yelp.com/biz/active-oahu-tours-kailua",
+      "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html",
+      "https://www.instagram.com/activeoahu/"
+    ]
+  },
+  "utilityLinks": [
+    {
+      "id": "book-online",
+      "label": "Book Online",
+      "sourceText": "Book Online",
+      "href": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
+      "intent": "booking",
+      "aiSummary": "Opens the FareHarbor booking flow for Active Oahu Tours."
+    },
+    {
+      "id": "english",
+      "label": "English",
+      "sourceText": "English",
+      "href": "/",
+      "intent": "language",
+      "aiSummary": "Switches the site experience to English."
+    }
+  ],
+  "primaryNav": [
+    {
+      "id": "activities-and-tours",
+      "label": "Activities & Tours",
+      "sourceText": "Activities & Tours",
+      "href": "/activities.html",
+      "intent": "tour",
+      "aiSummary": "Helps visitors find activities & tours experiences and tour options on Oahu.",
+      "children": [
+        {
+          "id": "all-tours",
+          "label": "All Tours",
+          "sourceText": "All Tours",
+          "href": "/activities.html",
+          "intent": "tour",
+          "aiSummary": "Helps visitors find all tours experiences and tour options on Oahu.",
+          "children": []
+        },
+        {
+          "id": "self-guided-tours",
+          "label": "Self Guided Tours",
+          "sourceText": "Self Guided Tours",
+          "href": "/activities.html#Chinaman's%20Hat%20Kayak%20&%20Hike",
+          "intent": "tour",
+          "aiSummary": "Helps visitors find self guided tours experiences and tour options on Oahu.",
+          "children": []
+        },
+        {
+          "id": "guided-tours",
+          "label": "Guided Tours",
+          "sourceText": "Guided Tours",
+          "href": "/activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure",
+          "intent": "tour",
+          "aiSummary": "Helps visitors find guided tours experiences and tour options on Oahu.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "rentals",
+      "label": "Rentals",
+      "sourceText": "Rentals",
+      "href": "/rentals/index.html",
+      "intent": "rental",
+      "aiSummary": "Helps visitors compare and book rentals for Oahu beach and kayak days.",
+      "children": [
+        {
+          "id": "all-rentals",
+          "label": "All Rentals",
+          "sourceText": "All Rentals",
+          "href": "/rentals/index.html",
+          "intent": "rental",
+          "aiSummary": "Helps visitors compare and book all rentals for Oahu beach and kayak days.",
+          "children": []
+        },
+        {
+          "id": "kayak-rentals",
+          "label": "Kayak Rentals",
+          "sourceText": "Kayak Rentals",
+          "href": "/rentals/oahu-tandem-kayak-rentals/index.html",
+          "intent": "rental",
+          "aiSummary": "Helps visitors compare and book kayak rentals for Oahu beach and kayak days.",
+          "children": [
+            {
+              "id": "mokolii-kayak-rentals",
+              "label": "Mokolii Kayak Rentals",
+              "sourceText": "Mokolii Kayak Rentals",
+              "href": "/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html",
+              "intent": "rental",
+              "aiSummary": "Helps visitors compare and book mokolii kayak rentals for Oahu beach and kayak days.",
+              "children": []
+            },
+            {
+              "id": "kailua-kayak-rentals",
+              "label": "Kailua Kayak Rentals",
+              "sourceText": "Kailua Kayak Rentals",
+              "href": "/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html",
+              "intent": "rental",
+              "aiSummary": "Helps visitors compare and book kailua kayak rentals for Oahu beach and kayak days.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "multi-day-rentals",
+          "label": "Multi-Day Rentals",
+          "sourceText": "Multi-Day Rentals",
+          "href": "/multi-day-kayak-and-beach-gear-rentals/index.html",
+          "intent": "rental",
+          "aiSummary": "Helps visitors compare and book multi-day rentals for Oahu beach and kayak days.",
+          "children": [
+            {
+              "id": "rental-partners",
+              "label": "Rental Partners",
+              "sourceText": "Rental Partners",
+              "href": "/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html",
+              "intent": "rental",
+              "aiSummary": "Helps visitors compare and book rental partners for Oahu beach and kayak days.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "electric-bike-rentals",
+          "label": "Electric Bike Rentals",
+          "sourceText": "Electric Bike Rentals",
+          "href": "/rentals/kailua-beach-bike-rentals/index.html",
+          "intent": "rental",
+          "aiSummary": "Helps visitors compare and book electric bike rentals for Oahu beach and kayak days.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "adventure-guide",
+      "label": "Adventure Guide",
+      "sourceText": "Adventure Guide",
+      "href": "/oahu-kayaking-and-beach-adventures/index.html",
+      "intent": "guide",
+      "aiSummary": "Provides planning guidance for adventure guide around Oahu activities and places.",
+      "children": [
+        {
+          "id": "all-adventure-guides",
+          "label": "All Adventure Guides",
+          "sourceText": "All Adventure Guides",
+          "href": "/oahu-kayaking-and-beach-adventures/index.html",
+          "intent": "guide",
+          "aiSummary": "Provides planning guidance for all adventure guides around Oahu activities and places.",
+          "children": []
+        },
+        {
+          "id": "get-your-kayak-rental-for-chinaman-s-hat",
+          "label": "Get Your Kayak Rental for Chinaman’s Hat",
+          "sourceText": "Get Your Kayak Rental for Chinaman’s Hat",
+          "href": "/oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html",
+          "intent": "rental",
+          "aiSummary": "Helps visitors compare and book get your kayak rental for chinaman’s hat for Oahu beach and kayak days.",
+          "children": []
+        },
+        {
+          "id": "lanikai-beach-guide",
+          "label": "Lanikai Beach Guide",
+          "sourceText": "Lanikai Beach Guide",
+          "href": "/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html",
+          "intent": "guide",
+          "aiSummary": "Provides planning guidance for lanikai beach guide around Oahu activities and places.",
+          "children": []
+        },
+        {
+          "id": "kailua-beach-guide",
+          "label": "Kailua Beach Guide",
+          "sourceText": "Kailua Beach Guide",
+          "href": "/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html",
+          "intent": "guide",
+          "aiSummary": "Provides planning guidance for kailua beach guide around Oahu activities and places.",
+          "children": []
+        },
+        {
+          "id": "how-to-transport-kayaks",
+          "label": "How to Transport Kayaks",
+          "sourceText": "How to Transport Kayaks",
+          "href": "/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html",
+          "intent": "rental",
+          "aiSummary": "Helps visitors compare and book how to transport kayaks for Oahu beach and kayak days.",
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "contact-us",
+      "label": "Contact Us",
+      "sourceText": "Contact Us",
+      "href": "/contact-us.html",
+      "intent": "support",
+      "aiSummary": "Provides visitor support for contact us.",
+      "children": [
+        {
+          "id": "about",
+          "label": "About",
+          "sourceText": "About",
+          "href": "/about-active-oahu-tours/index.html",
+          "intent": "support",
+          "aiSummary": "Provides visitor support for about.",
+          "children": [
+            {
+              "id": "our-kailua-storefront",
+              "label": "Our Kailua Storefront",
+              "sourceText": "Our Kailua Storefront",
+              "href": "/kailua-oahu-storefront/index.html",
+              "intent": "support",
+              "aiSummary": "Provides visitor support for our kailua storefront.",
+              "children": []
+            },
+            {
+              "id": "awards",
+              "label": "Awards",
+              "sourceText": "Awards",
+              "href": "/about-active-oahu-tours/awards/index.html",
+              "intent": "support",
+              "aiSummary": "Provides visitor support for awards.",
+              "children": []
+            },
+            {
+              "id": "guides",
+              "label": "Guides",
+              "sourceText": "Guides",
+              "href": "/guides/index.html",
+              "intent": "guide",
+              "aiSummary": "Provides planning guidance for guides around Oahu activities and places.",
+              "children": []
+            },
+            {
+              "id": "reviews",
+              "label": "Reviews",
+              "sourceText": "Reviews",
+              "href": "/reviews/",
+              "intent": "trust",
+              "aiSummary": "Builds trust through reviews proof and visitor media.",
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "gallery",
+          "label": "Gallery",
+          "sourceText": "Gallery",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery proof and visitor media.",
+          "children": []
+        },
+        {
+          "id": "faq",
+          "label": "FAQ",
+          "sourceText": "FAQ",
+          "href": "/faq/index.html",
+          "intent": "support",
+          "aiSummary": "Provides visitor support for faq.",
+          "children": []
+        }
+      ]
+    }
+  ],
+  "footerGroups": [
+    {
+      "id": "contact",
+      "heading": "Contact",
+      "priority": "primary",
+      "items": [
+        {
+          "id": "808-498-1894-1",
+          "label": "(808)498-1894",
+          "sourceText": "(808)498-1894",
+          "href": "tel:+18084981894",
+          "intent": "contact",
+          "aiSummary": "Lets visitors contact Active Oahu Tours via (808)498-1894."
+        },
+        {
+          "id": "email-protected-2",
+          "label": "[email protected]",
+          "sourceText": "[email protected]",
+          "href": "mailto:info@activeoahutours.com",
+          "intent": "contact",
+          "aiSummary": "Lets visitors contact Active Oahu Tours via [email protected]."
+        }
+      ]
+    },
+    {
+      "id": "social-proof",
+      "heading": "Social proof",
+      "priority": "secondary",
+      "items": [
+        {
+          "id": "facebook-3",
+          "label": "Facebook",
+          "sourceText": "Facebook",
+          "href": "https://www.facebook.com/activeoahutours/",
+          "intent": "social",
+          "aiSummary": "Links to Active Oahu Tours on Facebook."
+        },
+        {
+          "id": "yelp-4",
+          "label": "Yelp",
+          "sourceText": "Yelp",
+          "href": "https://www.yelp.com/biz/active-oahu-tours-kailua",
+          "intent": "social",
+          "aiSummary": "Links to Active Oahu Tours on Yelp."
+        },
+        {
+          "id": "tripadvisor-5",
+          "label": "Tripadvisor",
+          "sourceText": "Tripadvisor",
+          "href": "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html",
+          "intent": "social",
+          "aiSummary": "Links to Active Oahu Tours on Tripadvisor."
+        },
+        {
+          "id": "instagram-6",
+          "label": "Instagram",
+          "sourceText": "Instagram",
+          "href": "https://www.instagram.com/activeoahu/",
+          "intent": "social",
+          "aiSummary": "Links to Active Oahu Tours on Instagram."
+        }
+      ]
+    },
+    {
+      "id": "gallery-and-trust",
+      "heading": "Gallery and trust",
+      "priority": "secondary",
+      "items": [
+        {
+          "id": "gallery-image-1-9",
+          "label": "Gallery image 1",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 1 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-2-10",
+          "label": "Gallery image 2",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 2 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-3-11",
+          "label": "Gallery image 3",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 3 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-4-12",
+          "label": "Gallery image 4",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 4 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-5-13",
+          "label": "Gallery image 5",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 5 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-6-14",
+          "label": "Gallery image 6",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 6 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-7-15",
+          "label": "Gallery image 7",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 7 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-8-16",
+          "label": "Gallery image 8",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 8 proof and visitor media."
+        },
+        {
+          "id": "view-the-gallery-17",
+          "label": "View the Gallery",
+          "sourceText": "View the Gallery",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through view the gallery proof and visitor media."
+        }
+      ]
+    },
+    {
+      "id": "company-and-support",
+      "heading": "Company and support",
+      "priority": "secondary",
+      "items": [
+        {
+          "id": "join-the-team-7",
+          "label": "Join The Team",
+          "sourceText": "Join The Team",
+          "href": "/join-the-team/index.html",
+          "intent": "support",
+          "aiSummary": "Provides visitor support for join the team."
+        },
+        {
+          "id": "view-job-openings-8",
+          "label": "View Job Openings",
+          "sourceText": "View Job Openings",
+          "href": "/join-the-team/index.html",
+          "intent": "support",
+          "aiSummary": "Provides visitor support for view job openings."
+        },
+        {
+          "id": "about-active-oahu-tours-18",
+          "label": "About Active Oahu Tours",
+          "sourceText": "About Active Oahu Tours",
+          "href": "/about-active-oahu-tours/index.html",
+          "intent": "support",
+          "aiSummary": "Provides visitor support for about active oahu tours."
+        }
+      ]
+    },
+    {
+      "id": "legal",
+      "heading": "Legal",
+      "priority": "legal",
+      "items": [
+        {
+          "id": "cancellation-policy-19",
+          "label": "Cancellation Policy",
+          "sourceText": "Cancellation Policy",
+          "href": "/cancellation-policy/index.html",
+          "intent": "legal",
+          "aiSummary": "Provides legal or policy details: Cancellation Policy."
+        },
+        {
+          "id": "privacy-policy-20",
+          "label": "Privacy Policy",
+          "sourceText": "Privacy Policy",
+          "href": "/privacy-policy/index.html",
+          "intent": "legal",
+          "aiSummary": "Provides legal or policy details: Privacy Policy."
+        }
+      ]
+    }
+  ],
+  "bookingConfig": {
+    "shortname": "activeoahutours",
+    "href": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
+    "ctaLabel": "Book Online",
+    "fallback": "simple",
+    "analyticsEvent": "booking_click",
+    "source": "homepage .social-header"
+  }
+}

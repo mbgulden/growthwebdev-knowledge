@@ -1,0 +1,1526 @@
+{
+  "write": true,
+  "no_counterpart_rows": 80,
+  "changed_files": 80,
+  "changed": [
+    {
+      "file": "_templates/head.html",
+      "route": "/_templates/head.html",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/_templates/head.html"
+    },
+    {
+      "file": "about-active-oahu/index.html",
+      "route": "/about-active-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/about-active-oahu/"
+    },
+    {
+      "file": "active-aloha-ambassador/index.html",
+      "route": "/active-aloha-ambassador/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/active-aloha-ambassador/",
+          "path": "/active-aloha-ambassador/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/active-aloha-ambassador/"
+    },
+    {
+      "file": "activities/couples-romantic-kayak-tour/index.html",
+      "route": "/activities/couples-romantic-kayak-tour/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/../../ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html",
+          "path": "/ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities/couples-romantic-kayak-tour/"
+    },
+    {
+      "file": "activities/family-kayak-picnic-combo/index.html",
+      "route": "/activities/family-kayak-picnic-combo/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/../../ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html",
+          "path": "/ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities/family-kayak-picnic-combo/"
+    },
+    {
+      "file": "activities/guided-efoil-experience/index.html",
+      "route": "/activities/guided-efoil-experience/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities/guided-efoil-experience/"
+    },
+    {
+      "file": "activities/guided-kayak-fishing/index.html",
+      "route": "/activities/guided-kayak-fishing/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities/guided-kayak-fishing/"
+    },
+    {
+      "file": "activities/guided-scubajet-experience/index.html",
+      "route": "/activities/guided-scubajet-experience/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities/guided-scubajet-experience/"
+    },
+    {
+      "file": "activities/kayak-snorkel-hike-adventure/index.html",
+      "route": "/activities/kayak-snorkel-hike-adventure/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/../../ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html",
+          "path": "/ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities/kayak-snorkel-hike-adventure/"
+    },
+    {
+      "file": "activities/oahu-sunset-kayak-tour/index.html",
+      "route": "/activities/oahu-sunset-kayak-tour/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/../../ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html",
+          "path": "/ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities/oahu-sunset-kayak-tour/"
+    },
+    {
+      "file": "activities/rainforest-oahu-kayak-tour.html",
+      "route": "/activities/rainforest-oahu-kayak-tour.html",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/activities/rainforest-oahu-kayak-tour.html",
+          "path": "/activities/rainforest-oahu-kayak-tour.html",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/../ja/activities/kahana-rainforest-river-oahu-kayak-tour/index.html",
+          "path": "/ja/activities/kahana-rainforest-river-oahu-kayak-tour/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities/rainforest-oahu-kayak-tour.html"
+    },
+    {
+      "file": "activities/turtle-watching-kayak-tour/index.html",
+      "route": "/activities/turtle-watching-kayak-tour/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/../../ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/index.html",
+          "path": "/ja/activities/popoia-island-and-kailua-bay-guided-kayak-tour/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities/turtle-watching-kayak-tour/"
+    },
+    {
+      "file": "activities.html",
+      "route": "/activities.html",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/activities/",
+          "path": "/activities/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/activities/index.html",
+          "path": "/ja/activities/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/activities.html"
+    },
+    {
+      "file": "beach-gear-rentals/index.html",
+      "route": "/beach-gear-rentals/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/beach-gear-rentals/"
+    },
+    {
+      "file": "chinamans-hat/index.html",
+      "route": "/chinamans-hat/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/chinamans-hat/"
+    },
+    {
+      "file": "chinamans-hat-tide-guide/index.html",
+      "route": "/chinamans-hat-tide-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/chinamans-hat-tide-guide/"
+    },
+    {
+      "file": "contact-us.html",
+      "route": "/contact-us.html",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/contact-us/",
+          "path": "/contact-us/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/contact-us/index.html",
+          "path": "/ja/contact-us/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/contact-us.html"
+    },
+    {
+      "file": "electric-bike-rentals/index.html",
+      "route": "/electric-bike-rentals/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/electric-bike-rentals/"
+    },
+    {
+      "file": "guided-tours/index.html",
+      "route": "/guided-tours/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/guided-tours/"
+    },
+    {
+      "file": "guides/best-beaches-windward-oahu/index.html",
+      "route": "/guides/best-beaches-windward-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/guides/best-beaches-windward-oahu/"
+    },
+    {
+      "file": "guides/oahu-wildlife-seabird-sanctuaries-guide/index.html",
+      "route": "/guides/oahu-wildlife-seabird-sanctuaries-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/guides/oahu-wildlife-seabird-sanctuaries-guide/",
+          "path": "/guides/oahu-wildlife-seabird-sanctuaries-guide/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/guides/oahu-wildlife-seabird-sanctuaries-guide/"
+    },
+    {
+      "file": "ja/guides/beginner-kayaking-hawaii/index.html",
+      "route": "/ja/guides/beginner-kayaking-hawaii/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/beginner-kayaking-hawaii/",
+          "path": "/ja/guides/beginner-kayaking-hawaii/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/beginner-kayaking-hawaii/"
+    },
+    {
+      "file": "ja/guides/best-snorkeling-spots-oahu/index.html",
+      "route": "/ja/guides/best-snorkeling-spots-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/best-snorkeling-spots-oahu/",
+          "path": "/ja/guides/best-snorkeling-spots-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/best-snorkeling-spots-oahu/"
+    },
+    {
+      "file": "ja/guides/family-outdoor-activities-oahu/index.html",
+      "route": "/ja/guides/family-outdoor-activities-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/family-outdoor-activities-oahu/",
+          "path": "/ja/guides/family-outdoor-activities-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/family-outdoor-activities-oahu/"
+    },
+    {
+      "file": "ja/guides/hawaii-trip-planning-checklist/index.html",
+      "route": "/ja/guides/hawaii-trip-planning-checklist/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/hawaii-trip-planning-checklist/",
+          "path": "/ja/guides/hawaii-trip-planning-checklist/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/hawaii-trip-planning-checklist/"
+    },
+    {
+      "file": "ja/guides/honeymoon-tours-oahu/index.html",
+      "route": "/ja/guides/honeymoon-tours-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/honeymoon-tours-oahu/",
+          "path": "/ja/guides/honeymoon-tours-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/honeymoon-tours-oahu/"
+    },
+    {
+      "file": "ja/guides/japanese-speaking-guides-oahu/index.html",
+      "route": "/ja/guides/japanese-speaking-guides-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/japanese-speaking-guides-oahu/",
+          "path": "/ja/guides/japanese-speaking-guides-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/japanese-speaking-guides-oahu/"
+    },
+    {
+      "file": "ja/guides/kailua-beach-complete-guide/index.html",
+      "route": "/ja/guides/kailua-beach-complete-guide/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/kailua-beach-complete-guide/",
+          "path": "/ja/guides/kailua-beach-complete-guide/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/kailua-beach-complete-guide/"
+    },
+    {
+      "file": "ja/guides/ocean-safety-guide-oahu/index.html",
+      "route": "/ja/guides/ocean-safety-guide-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/ocean-safety-guide-oahu/",
+          "path": "/ja/guides/ocean-safety-guide-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/ocean-safety-guide-oahu/"
+    },
+    {
+      "file": "ja/guides/sea-turtle-watching-oahu/index.html",
+      "route": "/ja/guides/sea-turtle-watching-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/sea-turtle-watching-oahu/",
+          "path": "/ja/guides/sea-turtle-watching-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/sea-turtle-watching-oahu/"
+    },
+    {
+      "file": "ja/guides/sunrise-kayak-oahu/index.html",
+      "route": "/ja/guides/sunrise-kayak-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/ja/guides/sunrise-kayak-oahu/",
+          "path": "/ja/guides/sunrise-kayak-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/guides/sunrise-kayak-oahu/"
+    },
+    {
+      "file": "kailua-ebike-route/index.html",
+      "route": "/kailua-ebike-route/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/kailua-ebike-route/",
+          "path": "/kailua-ebike-route/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/kailua-ebike-route/"
+    },
+    {
+      "file": "kailua-kayak/index.html",
+      "route": "/kailua-kayak/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/kailua-kayak/"
+    },
+    {
+      "file": "kailua-town-history/index.html",
+      "route": "/kailua-town-history/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/kailua-town-history/",
+          "path": "/kailua-town-history/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/kailua-town-history/"
+    },
+    {
+      "file": "kaneohe-bay-sandbar-tide-guide/index.html",
+      "route": "/kaneohe-bay-sandbar-tide-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/kaneohe-bay-sandbar-tide-guide/index.html",
+          "path": "/kaneohe-bay-sandbar-tide-guide/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/kaneohe-bay-sandbar-tide-guide/"
+    },
+    {
+      "file": "kaneohe-sandbar/index.html",
+      "route": "/kaneohe-sandbar/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/kaneohe-sandbar/"
+    },
+    {
+      "file": "kaneohe-sandbar-tide-guide/index.html",
+      "route": "/kaneohe-sandbar-tide-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/kaneohe-sandbar-tide-guide/"
+    },
+    {
+      "file": "kayak-rentals/index.html",
+      "route": "/kayak-rentals/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/kayak-rentals/"
+    },
+    {
+      "file": "kayak-safety-guide/index.html",
+      "route": "/kayak-safety-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/kayak-safety-guide/"
+    },
+    {
+      "file": "kualoa-bay-guide/index.html",
+      "route": "/kualoa-bay-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/kualoa-bay-guide/"
+    },
+    {
+      "file": "laie-bay-goat-island-kayaking/index.html",
+      "route": "/laie-bay-goat-island-kayaking/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/laie-bay-goat-island-kayaking/",
+          "path": "/laie-bay-goat-island-kayaking/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/laie-bay-goat-island-kayaking/"
+    },
+    {
+      "file": "lanikai-ebike-snorkel-self-guided-guide/index.html",
+      "route": "/lanikai-ebike-snorkel-self-guided-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/lanikai-ebike-snorkel-self-guided-guide/",
+          "path": "/lanikai-ebike-snorkel-self-guided-guide/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/lanikai-ebike-snorkel-self-guided-guide/"
+    },
+    {
+      "file": "lanikai-vs-hanauma-bay-snorkeling/index.html",
+      "route": "/lanikai-vs-hanauma-bay-snorkeling/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/lanikai-vs-hanauma-bay-snorkeling/"
+    },
+    {
+      "file": "living-aloha-respectful-travel/index.html",
+      "route": "/living-aloha-respectful-travel/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/living-aloha-respectful-travel/",
+          "path": "/living-aloha-respectful-travel/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/living-aloha-respectful-travel/"
+    },
+    {
+      "file": "mokolii/index.html",
+      "route": "/mokolii/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/mokolii/"
+    },
+    {
+      "file": "multi-activity-adventure-packages/index.html",
+      "route": "/multi-activity-adventure-packages/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/multi-activity-adventure-packages/",
+          "path": "/multi-activity-adventure-packages/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/multi-activity-adventure-packages/"
+    },
+    {
+      "file": "multi-day-rentals/index.html",
+      "route": "/multi-day-rentals/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/multi-day-rentals/"
+    },
+    {
+      "file": "oahu-equipment-rentals/extend-the-aloha-donate-your-beach-gear-before-you-fly/index.html",
+      "route": "/oahu-equipment-rentals/extend-the-aloha-donate-your-beach-gear-before-you-fly/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-equipment-rentals/extend-the-aloha-donate-your-beach-gear-before-you-fly/",
+          "path": "/oahu-equipment-rentals/extend-the-aloha-donate-your-beach-gear-before-you-fly/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-equipment-rentals/extend-the-aloha-donate-your-beach-gear-before-you-fly/"
+    },
+    {
+      "file": "oahu-equipment-rentals/standard-meeting-location-info/index.html",
+      "route": "/oahu-equipment-rentals/standard-meeting-location-info/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-equipment-rentals/standard-meeting-location-info/",
+          "path": "/oahu-equipment-rentals/standard-meeting-location-info/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-equipment-rentals/standard-meeting-location-info/"
+    },
+    {
+      "file": "oahu-hawaii-kayaking-guide/index.html",
+      "route": "/oahu-hawaii-kayaking-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-hawaii-kayaking-guide/",
+          "path": "/oahu-hawaii-kayaking-guide/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-hawaii-kayaking-guide/"
+    },
+    {
+      "file": "oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/index.html",
+      "route": "/oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/",
+          "path": "/oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-hawaii-kayaking-guide/renting-a-kayak-and-paddling-to-mokolii-island-on-oahu/"
+    },
+    {
+      "file": "oahu-kayak-safety-tide-index-map/index.html",
+      "route": "/oahu-kayak-safety-tide-index-map/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayak-safety-tide-index-map/",
+          "path": "/oahu-kayak-safety-tide-index-map/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayak-safety-tide-index-map/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/best-places-to-kayak-on-oahu/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/best-places-to-kayak-on-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/best-places-to-kayak-on-oahu/",
+          "path": "/oahu-kayaking-and-beach-adventures/best-places-to-kayak-on-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/best-places-to-kayak-on-oahu/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/",
+          "path": "/oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/discover-oahus-best-snorkel-spot-at-electric-beach/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/e-bike-rentals-in-kailua/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/e-bike-rentals-in-kailua/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/e-bike-rentals-in-kailua/",
+          "path": "/oahu-kayaking-and-beach-adventures/e-bike-rentals-in-kailua/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/e-bike-rentals-in-kailua/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/guide-to-towing-kayaks-with-e-bikes-in-kailua/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/guide-to-towing-kayaks-with-e-bikes-in-kailua/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/guide-to-towing-kayaks-with-e-bikes-in-kailua/",
+          "path": "/oahu-kayaking-and-beach-adventures/guide-to-towing-kayaks-with-e-bikes-in-kailua/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/guide-to-towing-kayaks-with-e-bikes-in-kailua/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/hidden-hawaiian-paradise-explore-kawela-bay-on-oahu/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/hidden-hawaiian-paradise-explore-kawela-bay-on-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/hidden-hawaiian-paradise-explore-kawela-bay-on-oahu/",
+          "path": "/oahu-kayaking-and-beach-adventures/hidden-hawaiian-paradise-explore-kawela-bay-on-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/hidden-hawaiian-paradise-explore-kawela-bay-on-oahu/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/honolulu-the-best-food-activities-and-social-scene-on-oahu/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/honolulu-the-best-food-activities-and-social-scene-on-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/honolulu-the-best-food-activities-and-social-scene-on-oahu/",
+          "path": "/oahu-kayaking-and-beach-adventures/honolulu-the-best-food-activities-and-social-scene-on-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/honolulu-the-best-food-activities-and-social-scene-on-oahu/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/kailua-e-bike-kau-kau-guided-adventure/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/kailua-e-bike-kau-kau-guided-adventure/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/kailua-e-bike-kau-kau-guided-adventure/",
+          "path": "/oahu-kayaking-and-beach-adventures/kailua-e-bike-kau-kau-guided-adventure/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/kailua-e-bike-kau-kau-guided-adventure/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/",
+          "path": "/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/kaneohe-sandbar-kayak-experience/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/kayak-deliveries-on-oahu/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/kayak-deliveries-on-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/kayak-deliveries-on-oahu/",
+          "path": "/oahu-kayaking-and-beach-adventures/kayak-deliveries-on-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/kayak-deliveries-on-oahu/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/rent-beach-gear-for-multiple-days-with-active-oahu/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/rent-beach-gear-for-multiple-days-with-active-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/rent-beach-gear-for-multiple-days-with-active-oahu/",
+          "path": "/oahu-kayaking-and-beach-adventures/rent-beach-gear-for-multiple-days-with-active-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/rent-beach-gear-for-multiple-days-with-active-oahu/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/store-your-bags-explore-kailua-bounce-luggage-storage-service-available-at-active-oahu/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/store-your-bags-explore-kailua-bounce-luggage-storage-service-available-at-active-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/store-your-bags-explore-kailua-bounce-luggage-storage-service-available-at-active-oahu/",
+          "path": "/oahu-kayaking-and-beach-adventures/store-your-bags-explore-kailua-bounce-luggage-storage-service-available-at-active-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/store-your-bags-explore-kailua-bounce-luggage-storage-service-available-at-active-oahu/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/the-ultimate-guide-for-the-north-shore-of-oahu/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/the-ultimate-guide-for-the-north-shore-of-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/the-ultimate-guide-for-the-north-shore-of-oahu/",
+          "path": "/oahu-kayaking-and-beach-adventures/the-ultimate-guide-for-the-north-shore-of-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/the-ultimate-guide-for-the-north-shore-of-oahu/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/the-ultimate-guide-to-exploring-windward-oahu/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/the-ultimate-guide-to-exploring-windward-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/the-ultimate-guide-to-exploring-windward-oahu/",
+          "path": "/oahu-kayaking-and-beach-adventures/the-ultimate-guide-to-exploring-windward-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/the-ultimate-guide-to-exploring-windward-oahu/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/top-5-things-to-do-on-oahu/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/top-5-things-to-do-on-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/top-5-things-to-do-on-oahu/",
+          "path": "/oahu-kayaking-and-beach-adventures/top-5-things-to-do-on-oahu/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/top-5-things-to-do-on-oahu/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/top-things-to-do-near-ko-olina-resort/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/top-things-to-do-near-ko-olina-resort/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/top-things-to-do-near-ko-olina-resort/",
+          "path": "/oahu-kayaking-and-beach-adventures/top-things-to-do-near-ko-olina-resort/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/top-things-to-do-near-ko-olina-resort/"
+    },
+    {
+      "file": "oahu-kayaking-and-beach-adventures/what-to-do-in-kailua-hidden-gems-and-must-sees/index.html",
+      "route": "/oahu-kayaking-and-beach-adventures/what-to-do-in-kailua-hidden-gems-and-must-sees/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/what-to-do-in-kailua-hidden-gems-and-must-sees/",
+          "path": "/oahu-kayaking-and-beach-adventures/what-to-do-in-kailua-hidden-gems-and-must-sees/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-kayaking-and-beach-adventures/what-to-do-in-kailua-hidden-gems-and-must-sees/"
+    },
+    {
+      "file": "oahu-launch-guide/index.html",
+      "route": "/oahu-launch-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-launch-guide/"
+    },
+    {
+      "file": "oahu-tour-packages/index.html",
+      "route": "/oahu-tour-packages/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahu-tour-packages/",
+          "path": "/oahu-tour-packages/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahu-tour-packages/"
+    },
+    {
+      "file": "oahus-best-kayaking-trips/index.html",
+      "route": "/oahus-best-kayaking-trips/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/oahus-best-kayaking-trips/",
+          "path": "/oahus-best-kayaking-trips/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/oahus-best-kayaking-trips/"
+    },
+    {
+      "file": "paa-answers/index.html",
+      "route": "/paa-answers/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/../ja/faq/index.html",
+          "path": "/ja/faq/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/paa-answers/"
+    },
+    {
+      "file": "popoia-island-self-guided-kayak-guide/index.html",
+      "route": "/popoia-island-self-guided-kayak-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/popoia-island-self-guided-kayak-guide/",
+          "path": "/popoia-island-self-guided-kayak-guide/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/popoia-island-self-guided-kayak-guide/"
+    },
+    {
+      "file": "self-guided/index.html",
+      "route": "/self-guided/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/self-guided/"
+    },
+    {
+      "file": "sharks-cove-snorkeling-guide/index.html",
+      "route": "/sharks-cove-snorkeling-guide/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/sharks-cove-snorkeling-guide/"
+    },
+    {
+      "file": "sharks-cove-vs-lanikai-snorkeling/index.html",
+      "route": "/sharks-cove-vs-lanikai-snorkeling/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/sharks-cove-vs-lanikai-snorkeling/"
+    },
+    {
+      "file": "tours/index.html",
+      "route": "/tours/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/tours/"
+    },
+    {
+      "file": "trip-cancellation-insurance-terms-and-conditions.html",
+      "route": "/trip-cancellation-insurance-terms-and-conditions.html",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/trip-cancellation-insurance-terms-and-conditions/",
+          "path": "/trip-cancellation-insurance-terms-and-conditions/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/trip-cancellation-insurance-terms-and-conditions/index.html",
+          "path": "/ja/trip-cancellation-insurance-terms-and-conditions/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/trip-cancellation-insurance-terms-and-conditions.html"
+    },
+    {
+      "file": "what-to-bring/index.html",
+      "route": "/what-to-bring/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/what-to-bring/"
+    },
+    {
+      "file": "why-choose-active-oahu/index.html",
+      "route": "/why-choose-active-oahu/",
+      "removed_links": [
+        {
+          "hreflang": "en",
+          "href": "https://activeoahutours.com/",
+          "path": "/",
+          "section": "head",
+          "target_exists": true
+        },
+        {
+          "hreflang": "ja",
+          "href": "https://activeoahutours.com/ja/index.html",
+          "path": "/ja/",
+          "section": "head",
+          "target_exists": true
+        }
+      ],
+      "counterpart": "/ja/why-choose-active-oahu/"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+# Active Oahu Tours navigation
+
+This section is generated from `prototype/src/content/nav/aot-shell-data.json`, the same canonical shell graph intended to render the Astro header/footer.
+
+## Booking
+- Book Online: https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes
+- FareHarbor shortname: `activeoahutours`
+- Fallback mode: `simple`
+
+## Primary navigation
+- [Activities & Tours](https://activeoahutours.com/activities.html) — tour: Helps visitors find activities & tours experiences and tour options on Oahu.
+  - [All Tours](https://activeoahutours.com/activities.html) — tour: Helps visitors find all tours experiences and tour options on Oahu.
+  - [Self Guided Tours](https://activeoahutours.com/activities.html#Chinaman's%20Hat%20Kayak%20&%20Hike) — tour: Helps visitors find self guided tours experiences and tour options on Oahu.
+  - [Guided Tours](https://activeoahutours.com/activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure) — tour: Helps visitors find guided tours experiences and tour options on Oahu.
+- [Rentals](https://activeoahutours.com/rentals/index.html) — rental: Helps visitors compare and book rentals for Oahu beach and kayak days.
+  - [All Rentals](https://activeoahutours.com/rentals/index.html) — rental: Helps visitors compare and book all rentals for Oahu beach and kayak days.
+  - [Kayak Rentals](https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/index.html) — rental: Helps visitors compare and book kayak rentals for Oahu beach and kayak days.
+  - [Mokolii Kayak Rentals](https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html) — rental: Helps visitors compare and book mokolii kayak rentals for Oahu beach and kayak days.
+  - [Kailua Kayak Rentals](https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html) — rental: Helps visitors compare and book kailua kayak rentals for Oahu beach and kayak days.
+  - [Multi-Day Rentals](https://activeoahutours.com/multi-day-kayak-and-beach-gear-rentals/index.html) — rental: Helps visitors compare and book multi-day rentals for Oahu beach and kayak days.
+  - [Rental Partners](https://activeoahutours.com/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html) — rental: Helps visitors compare and book rental partners for Oahu beach and kayak days.
+  - [Electric Bike Rentals](https://activeoahutours.com/rentals/kailua-beach-bike-rentals/index.html) — rental: Helps visitors compare and book electric bike rentals for Oahu beach and kayak days.
+- [Adventure Guide](https://activeoahutours.com/oahu-kayaking-and-beach-adventures/index.html) — guide: Provides planning guidance for adventure guide around Oahu activities and places.
+  - [All Adventure Guides](https://activeoahutours.com/oahu-kayaking-and-beach-adventures/index.html) — guide: Provides planning guidance for all adventure guides around Oahu activities and places.
+  - [Get Your Kayak Rental for Chinaman’s Hat](https://activeoahutours.com/oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html) — rental: Helps visitors compare and book get your kayak rental for chinaman’s hat for Oahu beach and kayak days.
+  - [Lanikai Beach Guide](https://activeoahutours.com/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html) — guide: Provides planning guidance for lanikai beach guide around Oahu activities and places.
+  - [Kailua Beach Guide](https://activeoahutours.com/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html) — guide: Provides planning guidance for kailua beach guide around Oahu activities and places.
+  - [How to Transport Kayaks](https://activeoahutours.com/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html) — rental: Helps visitors compare and book how to transport kayaks for Oahu beach and kayak days.
+- [Contact Us](https://activeoahutours.com/contact-us.html) — support: Provides visitor support for contact us.
+  - [About](https://activeoahutours.com/about-active-oahu-tours/index.html) — support: Provides visitor support for about.
+  - [Our Kailua Storefront](https://activeoahutours.com/kailua-oahu-storefront/index.html) — support: Provides visitor support for our kailua storefront.
+  - [Awards](https://activeoahutours.com/about-active-oahu-tours/awards/index.html) — support: Provides visitor support for awards.
+  - [Guides](https://activeoahutours.com/guides/index.html) — guide: Provides planning guidance for guides around Oahu activities and places.
+  - [Reviews](https://activeoahutours.com/reviews/) — trust: Builds trust through reviews proof and visitor media.
+  - [Gallery](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through gallery proof and visitor media.
+  - [FAQ](https://activeoahutours.com/faq/index.html) — support: Provides visitor support for faq.
+
+## Footer/contact navigation
+- [(808)498-1894](tel:+18084981894) — contact: Lets visitors contact Active Oahu Tours via (808)498-1894.
+- [[email protected]](mailto:info@activeoahutours.com) — contact: Lets visitors contact Active Oahu Tours via [email protected].
+- [Facebook](https://www.facebook.com/activeoahutours/) — social: Links to Active Oahu Tours on Facebook.
+- [Yelp](https://www.yelp.com/biz/active-oahu-tours-kailua) — social: Links to Active Oahu Tours on Yelp.
+- [Tripadvisor](https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html) — social: Links to Active Oahu Tours on Tripadvisor.
+- [Instagram](https://www.instagram.com/activeoahu/) — social: Links to Active Oahu Tours on Instagram.
+- [Gallery image 1](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through gallery image 1 proof and visitor media.
+- [Gallery image 2](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through gallery image 2 proof and visitor media.
+- [Gallery image 3](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through gallery image 3 proof and visitor media.
+- [Gallery image 4](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through gallery image 4 proof and visitor media.
+- [Gallery image 5](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through gallery image 5 proof and visitor media.
+- [Gallery image 6](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through gallery image 6 proof and visitor media.
+- [Gallery image 7](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through gallery image 7 proof and visitor media.
+- [Gallery image 8](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through gallery image 8 proof and visitor media.
+- [View the Gallery](https://activeoahutours.com/active-oahu-photo-gallery/index.html) — trust: Builds trust through view the gallery proof and visitor media.
+- [Join The Team](https://activeoahutours.com/join-the-team/index.html) — support: Provides visitor support for join the team.
+- [View Job Openings](https://activeoahutours.com/join-the-team/index.html) — support: Provides visitor support for view job openings.
+- [About Active Oahu Tours](https://activeoahutours.com/about-active-oahu-tours/index.html) — support: Provides visitor support for about active oahu tours.
+- [Cancellation Policy](https://activeoahutours.com/cancellation-policy/index.html) — legal: Provides legal or policy details: Cancellation Policy.
+- [Privacy Policy](https://activeoahutours.com/privacy-policy/index.html) — legal: Provides legal or policy details: Privacy Policy.
+
+## AI routing notes
+- Tours and activities live under the tour intent.
+- Rental pages live under the rental intent, including third-level kayak rental routes.
+- Place and planning content lives under the guide intent.
+- Booking remains a dedicated action and should not replace crawlable navigation links.
+- Users first, then search engines, then AI assistants, then booking conversion.

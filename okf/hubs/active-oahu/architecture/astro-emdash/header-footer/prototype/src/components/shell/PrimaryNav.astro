@@ -1,0 +1,22 @@
+---
+import shellData from "../../content/nav/aot-shell-data.json";
+const nav = shellData.primaryNav;
+---
+<nav id="site-navigation" class="main-navigation" aria-label="Primary" data-instant>
+  <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Main Menu</button>
+  <ul id="primary-menu" class="menu">
+    {nav.map((item) => (
+      <li class:list={["menu-item", item.children?.length && "menu-item-has-children", `intent-${item.intent}`]}>
+        <a href={item.href}>{item.label}</a>
+        {item.children?.length ? <ul class="sub-menu">{item.children.map((child) => (
+          <li class:list={["menu-item", child.children?.length && "menu-item-has-children", `intent-${child.intent}`]}>
+            <a href={child.href}>{child.label}</a>
+            {child.children?.length ? <ul class="sub-menu">{child.children.map((grandchild) => (
+              <li class:list={["menu-item", `intent-${grandchild.intent}`]}><a href={grandchild.href}>{grandchild.label}</a></li>
+            ))}</ul> : null}
+          </li>
+        ))}</ul> : null}
+      </li>
+    ))}
+  </ul>
+</nav>

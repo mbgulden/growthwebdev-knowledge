@@ -1,0 +1,214 @@
+[
+  {
+    "name": "eating-guide",
+    "path": "/guides/eating-your-way-windward-to-north-shore/",
+    "viewport": "mobile",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-eating-guide-mobile.png",
+    "errors": [
+      "jQuery is not defined",
+      "Failed to load resource: the server responded with a status of 404 (File not found)"
+    ],
+    "audit": {
+      "title": "Eating Your Way from Windward Oahu to the North Shore — The Ultimate Food & Adventure Guide | Active Oahu",
+      "h1": [
+        "Eating Your Way from Windward Oahu to the North Shore"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 7895,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 3
+    }
+  },
+  {
+    "name": "eating-guide",
+    "path": "/guides/eating-your-way-windward-to-north-shore/",
+    "viewport": "desktop",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-eating-guide-desktop.png",
+    "errors": [
+      "jQuery is not defined",
+      "Failed to load resource: the server responded with a status of 404 (File not found)"
+    ],
+    "audit": {
+      "title": "Eating Your Way from Windward Oahu to the North Shore — The Ultimate Food & Adventure Guide | Active Oahu",
+      "h1": [
+        "Eating Your Way from Windward Oahu to the North Shore"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 7895,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 3
+    }
+  },
+  {
+    "name": "ja-eating-guide",
+    "path": "/ja/guides/eating-your-way-windward-to-north-shore/",
+    "viewport": "mobile",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-ja-eating-guide-mobile.png",
+    "errors": [
+      "jQuery is not defined"
+    ],
+    "audit": {
+      "title": "ウィンドワードからノースショアへ — オアフ島グルメロードトリップ | Active Oahu",
+      "h1": [
+        "Eating Your Way from Windward Oahu to the North Shore"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 7787,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 0
+    }
+  },
+  {
+    "name": "ja-eating-guide",
+    "path": "/ja/guides/eating-your-way-windward-to-north-shore/",
+    "viewport": "desktop",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-ja-eating-guide-desktop.png",
+    "errors": [
+      "jQuery is not defined"
+    ],
+    "audit": {
+      "title": "ウィンドワードからノースショアへ — オアフ島グルメロードトリップ | Active Oahu",
+      "h1": [
+        "Eating Your Way from Windward Oahu to the North Shore"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 7787,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 0
+    }
+  },
+  {
+    "name": "snorkel-rentals",
+    "path": "/rentals/snorkel-gear-rentals/",
+    "viewport": "mobile",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-snorkel-rentals-mobile.png",
+    "errors": [],
+    "audit": {
+      "title": "Snorkel Gear Rentals Oʻahu — Masks, Fins & Full-Day Packages | Active Oahu",
+      "h1": [
+        "Snorkel Gear Rentals Oʻahu"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 5477,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 8
+    }
+  },
+  {
+    "name": "snorkel-rentals",
+    "path": "/rentals/snorkel-gear-rentals/",
+    "viewport": "desktop",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-snorkel-rentals-desktop.png",
+    "errors": [],
+    "audit": {
+      "title": "Snorkel Gear Rentals Oʻahu — Masks, Fins & Full-Day Packages | Active Oahu",
+      "h1": [
+        "Snorkel Gear Rentals Oʻahu"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 6692,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 8
+    }
+  },
+  {
+    "name": "ja-snorkel-rentals",
+    "path": "/ja/rentals/snorkel-gear-rentals/",
+    "viewport": "mobile",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-ja-snorkel-rentals-mobile.png",
+    "errors": [
+      "jQuery is not defined"
+    ],
+    "audit": {
+      "title": "シュノーケル装備レンタル — マスク、フィン、シュノーケル | Active Oahu",
+      "h1": [
+        "Snorkel Gear Rentals Oʻahu"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 5542,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 7
+    }
+  },
+  {
+    "name": "ja-snorkel-rentals",
+    "path": "/ja/rentals/snorkel-gear-rentals/",
+    "viewport": "desktop",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-ja-snorkel-rentals-desktop.png",
+    "errors": [
+      "jQuery is not defined"
+    ],
+    "audit": {
+      "title": "シュノーケル装備レンタル — マスク、フィン、シュノーケル | Active Oahu",
+      "h1": [
+        "Snorkel Gear Rentals Oʻahu"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 6757,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 7
+    }
+  },
+  {
+    "name": "partner-signup",
+    "path": "/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/",
+    "viewport": "mobile",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-partner-signup-mobile.png",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "jQuery is not defined",
+      "wp is not defined"
+    ],
+    "audit": {
+      "title": "Become a Partner – Active Oahu",
+      "h1": [
+        "Become a Partner"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 1300,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 2
+    }
+  },
+  {
+    "name": "partner-signup",
+    "path": "/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/become-a-partner/",
+    "viewport": "desktop",
+    "status": 200,
+    "screenshot": "/tmp/aot-pwp-partner-signup-desktop.png",
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "jQuery is not defined",
+      "wp is not defined"
+    ],
+    "audit": {
+      "title": "Become a Partner – Active Oahu",
+      "h1": [
+        "Become a Partner"
+      ],
+      "horizontalOverflow": false,
+      "mainTextLength": 1300,
+      "contrastIssues": [],
+      "contrastIssueCount": 0,
+      "buttonCount": 2
+    }
+  }
+]

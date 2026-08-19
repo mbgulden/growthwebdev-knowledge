@@ -1,0 +1,122 @@
+{
+  "$schema": "https://activeoahutours.com/schemas/aot-shell.v1.json",
+  "version": "aot-shell.v1",
+  "priority_order": [
+    "users",
+    "search_engines",
+    "ai_assistants",
+    "booking_conversion"
+  ],
+  "principles": [
+    "Preserve current URLs, labels, phone number, FareHarbor shortname, language-switching behavior, and footer legal/social links before visual redesign.",
+    "Header and footer are canonical shell modules, not page copy. Pages provide title/content/schema; shell provides orientation, trust, navigation, and booking access.",
+    "Navigation must be keyboard/touch accessible, crawlable as normal anchors, and understandable when JavaScript is unavailable.",
+    "AI/readability helpers (llms.txt, JSON-LD SiteNavigationElement, breadcrumbs) derive from the same canonical nav data as the rendered UI."
+  ],
+  "components": {
+    "SiteShell": {
+      "props": [
+        "locale",
+        "currentPath",
+        "pageType",
+        "navTree",
+        "footerGroups",
+        "bookingConfig",
+        "businessIdentity"
+      ],
+      "owns": [
+        "skip link",
+        "header",
+        "main landmark slot",
+        "footer",
+        "analytics hooks"
+      ]
+    },
+    "Header": {
+      "landmark": "header[role=banner]",
+      "subcomponents": [
+        "BrandLogo",
+        "UtilityBar",
+        "PrimaryNav",
+        "LanguageSwitch",
+        "BookNowButton"
+      ],
+      "accessibility": [
+        "single h-free banner region",
+        "button aria-controls primary nav",
+        "aria-expanded kept in sync",
+        "visible focus states",
+        "no hover-only access"
+      ]
+    },
+    "PrimaryNav": {
+      "landmark": "nav[aria-label=\"Primary\"]",
+      "data_source": "navTree",
+      "rules": [
+        "all menu labels are text",
+        "parent anchors remain navigable",
+        "submenu toggles are buttons or disclosure controls on mobile",
+        "desktop hover must mirror focus-within",
+        "third-level rentals are first-class children"
+      ]
+    },
+    "BookNowButton": {
+      "data_source": "bookingConfig",
+      "must_preserve": [
+        "FareHarbor shortname activeoahutours",
+        "fallback simple",
+        "current embed URL",
+        "booking_click analytics marker where present"
+      ]
+    },
+    "Footer": {
+      "landmark": "footer[role=contentinfo]",
+      "subcomponents": [
+        "FooterNavGroups",
+        "ContactCard",
+        "SocialLinks",
+        "LegalLinks",
+        "LocalBusinessNAP"
+      ],
+      "schema": [
+        "Organization",
+        "LocalBusiness",
+        "SiteNavigationElement"
+      ],
+      "rules": [
+        "phone/address are plain text plus links",
+        "footer links are crawlable anchors",
+        "no duplicated hidden nav trees"
+      ]
+    }
+  },
+  "data_shapes": {
+    "navItem": {
+      "id": "string stable slug",
+      "label": "visible label",
+      "href": "absolute site-root path or external URL",
+      "intent": "tour|rental|guide|support|booking|language",
+      "children": "navItem[]",
+      "aiSummary": "one sentence for llms/search docs"
+    },
+    "footerGroup": {
+      "heading": "visible heading",
+      "items": "array of {label,href,intent}",
+      "priority": "primary|secondary|legal"
+    },
+    "bookingConfig": {
+      "shortname": "activeoahutours",
+      "href": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
+      "ctaLabel": "Book Online",
+      "fallback": "simple"
+    }
+  },
+  "acceptance_checks": [
+    "Rendered header/footer match current content labels and hrefs unless a deliberate redirect fix is documented",
+    "Every page has one main landmark between header and footer",
+    "H1-H6 remain Open Sans Condensed Bold",
+    "Mobile nav screenshot shows no overlap through third-level rentals",
+    "Header/footer links pass internal route verifier",
+    "JSON-LD/SiteNavigationElement generated from navTree matches rendered anchors"
+  ]
+}

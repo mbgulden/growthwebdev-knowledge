@@ -1,0 +1,213 @@
+{
+  "version": "aot-shell-data.v1",
+  "business": {
+    "name": "Active Oahu Tours",
+    "phone": "(808)498-1894",
+    "telephoneHref": "tel:+18084981894",
+    "email": "info@activeoahutours.com",
+    "url": "https://activeoahutours.com/",
+    "sameAs": [
+      "https://www.facebook.com/activeoahutours/",
+      "https://www.yelp.com/biz/active-oahu-tours-kailua",
+      "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html",
+      "https://www.instagram.com/activeoahu/"
+    ]
+  },
+  "footerGroups": [
+    {
+      "id": "contact",
+      "heading": "Contact",
+      "priority": "primary",
+      "items": [
+        {
+          "id": "808-498-1894-1",
+          "label": "(808)498-1894",
+          "sourceText": "(808)498-1894",
+          "href": "tel:+18084981894",
+          "intent": "contact",
+          "aiSummary": "Lets visitors contact Active Oahu Tours via (808)498-1894."
+        },
+        {
+          "id": "email-protected-2",
+          "label": "[email protected]",
+          "sourceText": "[email protected]",
+          "href": "mailto:info@activeoahutours.com",
+          "intent": "contact",
+          "aiSummary": "Lets visitors contact Active Oahu Tours via [email protected]."
+        }
+      ]
+    },
+    {
+      "id": "social-proof",
+      "heading": "Social proof",
+      "priority": "secondary",
+      "items": [
+        {
+          "id": "facebook-3",
+          "label": "Facebook",
+          "sourceText": "Facebook",
+          "href": "https://www.facebook.com/activeoahutours/",
+          "intent": "social",
+          "aiSummary": "Links to Active Oahu Tours on Facebook."
+        },
+        {
+          "id": "yelp-4",
+          "label": "Yelp",
+          "sourceText": "Yelp",
+          "href": "https://www.yelp.com/biz/active-oahu-tours-kailua",
+          "intent": "social",
+          "aiSummary": "Links to Active Oahu Tours on Yelp."
+        },
+        {
+          "id": "tripadvisor-5",
+          "label": "Tripadvisor",
+          "sourceText": "Tripadvisor",
+          "href": "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html",
+          "intent": "social",
+          "aiSummary": "Links to Active Oahu Tours on Tripadvisor."
+        },
+        {
+          "id": "instagram-6",
+          "label": "Instagram",
+          "sourceText": "Instagram",
+          "href": "https://www.instagram.com/activeoahu/",
+          "intent": "social",
+          "aiSummary": "Links to Active Oahu Tours on Instagram."
+        }
+      ]
+    },
+    {
+      "id": "gallery-and-trust",
+      "heading": "Gallery and trust",
+      "priority": "secondary",
+      "items": [
+        {
+          "id": "gallery-image-1-9",
+          "label": "Gallery image 1",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 1 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-2-10",
+          "label": "Gallery image 2",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 2 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-3-11",
+          "label": "Gallery image 3",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 3 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-4-12",
+          "label": "Gallery image 4",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 4 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-5-13",
+          "label": "Gallery image 5",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 5 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-6-14",
+          "label": "Gallery image 6",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 6 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-7-15",
+          "label": "Gallery image 7",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 7 proof and visitor media."
+        },
+        {
+          "id": "gallery-image-8-16",
+          "label": "Gallery image 8",
+          "sourceText": "",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through gallery image 8 proof and visitor media."
+        },
+        {
+          "id": "view-the-gallery-17",
+          "label": "View the Gallery",
+          "sourceText": "View the Gallery",
+          "href": "/active-oahu-photo-gallery/index.html",
+          "intent": "trust",
+          "aiSummary": "Builds trust through view the gallery proof and visitor media."
+        }
+      ]
+    },
+    {
+      "id": "company-and-support",
+      "heading": "Company and support",
+      "priority": "secondary",
+      "items": [
+        {
+          "id": "join-the-team-7",
+          "label": "Join The Team",
+          "sourceText": "Join The Team",
+          "href": "/join-the-team/index.html",
+          "intent": "support",
+          "aiSummary": "Provides visitor support for join the team."
+        },
+        {
+          "id": "view-job-openings-8",
+          "label": "View Job Openings",
+          "sourceText": "View Job Openings",
+          "href": "/join-the-team/index.html",
+          "intent": "support",
+          "aiSummary": "Provides visitor support for view job openings."
+        },
+        {
+          "id": "about-active-oahu-tours-18",
+          "label": "About Active Oahu Tours",
+          "sourceText": "About Active Oahu Tours",
+          "href": "/about-active-oahu-tours/index.html",
+          "intent": "support",
+          "aiSummary": "Provides visitor support for about active oahu tours."
+        }
+      ]
+    },
+    {
+      "id": "legal",
+      "heading": "Legal",
+      "priority": "legal",
+      "items": [
+        {
+          "id": "cancellation-policy-19",
+          "label": "Cancellation Policy",
+          "sourceText": "Cancellation Policy",
+          "href": "/cancellation-policy/index.html",
+          "intent": "legal",
+          "aiSummary": "Provides legal or policy details: Cancellation Policy."
+        },
+        {
+          "id": "privacy-policy-20",
+          "label": "Privacy Policy",
+          "sourceText": "Privacy Policy",
+          "href": "/privacy-policy/index.html",
+          "intent": "legal",
+          "aiSummary": "Provides legal or policy details: Privacy Policy."
+        }
+      ]
+    }
+  ]
+}

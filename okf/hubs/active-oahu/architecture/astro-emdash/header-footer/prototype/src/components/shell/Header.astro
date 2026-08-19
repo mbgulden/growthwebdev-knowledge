@@ -1,0 +1,20 @@
+---
+import shellData from "../../content/nav/aot-shell-data.json";
+import BookNowButton from "./BookNowButton.astro";
+import PrimaryNav from "./PrimaryNav.astro";
+const business = shellData.business;
+const languageLinks = shellData.utilityLinks.filter((link) => link.intent === "language");
+---
+<header class="clearfix" role="banner">
+  <section id="branding">
+    <a class="aot-logo" href="/" aria-label="Active Oahu Tours home">Active Oahu Tours</a>
+    <div class="social-header">
+      <h3 class="social-header-h3"><a href={business.telephoneHref}>{business.phone}</a></h3>
+      <div class="social-links">
+        <BookNowButton />
+        <span class="lang-switcher">{languageLinks.map((link) => <a href={link.href}>{link.label}</a>)}</span>
+      </div>
+    </div>
+  </section>
+  <PrimaryNav />
+</header>

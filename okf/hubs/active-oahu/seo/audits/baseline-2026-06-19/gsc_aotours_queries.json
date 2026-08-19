@@ -1,0 +1,9005 @@
+{
+  "rows": [
+    {
+      "keys": [
+        "active oahu tours"
+      ],
+      "clicks": 150,
+      "impressions": 319,
+      "ctr": 0.47021943573667713,
+      "position": 1.0282131661442007
+    },
+    {
+      "keys": [
+        "active oahu"
+      ],
+      "clicks": 110,
+      "impressions": 298,
+      "ctr": 0.36912751677852351,
+      "position": 2.0302013422818792
+    },
+    {
+      "keys": [
+        "sharks cove snorkeling"
+      ],
+      "clicks": 78,
+      "impressions": 2162,
+      "ctr": 0.036077705827937095,
+      "position": 6.1100832562442182
+    },
+    {
+      "keys": [
+        "sharks cove oahu"
+      ],
+      "clicks": 51,
+      "impressions": 4800,
+      "ctr": 0.010625,
+      "position": 4.1568749999999994
+    },
+    {
+      "keys": [
+        "kaneohe sandbar kayak"
+      ],
+      "clicks": 43,
+      "impressions": 294,
+      "ctr": 0.14625850340136054,
+      "position": 5.1836734693877551
+    },
+    {
+      "keys": [
+        "kaneohe sandbar kayak rental"
+      ],
+      "clicks": 35,
+      "impressions": 288,
+      "ctr": 0.12152777777777778,
+      "position": 4.6006944444444446
+    },
+    {
+      "keys": [
+        "electric beach"
+      ],
+      "clicks": 30,
+      "impressions": 5935,
+      "ctr": 0.005054759898904802,
+      "position": 6.5403538331929232
+    },
+    {
+      "keys": [
+        "kayaking oahu"
+      ],
+      "clicks": 23,
+      "impressions": 1014,
+      "ctr": 0.022682445759368838,
+      "position": 8.2534516765285986
+    },
+    {
+      "keys": [
+        "sharks cove snorkeling oahu"
+      ],
+      "clicks": 23,
+      "impressions": 549,
+      "ctr": 0.041894353369763208,
+      "position": 5.0874316939890711
+    },
+    {
+      "keys": [
+        "shark cove snorkeling"
+      ],
+      "clicks": 18,
+      "impressions": 588,
+      "ctr": 0.030612244897959183,
+      "position": 4.4557823129251695
+    },
+    {
+      "keys": [
+        "chinamans hat kayak rental"
+      ],
+      "clicks": 15,
+      "impressions": 123,
+      "ctr": 0.12195121951219512,
+      "position": 23.4390243902439
+    },
+    {
+      "keys": [
+        "kayak rental oahu"
+      ],
+      "clicks": 15,
+      "impressions": 291,
+      "ctr": 0.051546391752577317,
+      "position": 13.06872852233677
+    },
+    {
+      "keys": [
+        "sharks cove"
+      ],
+      "clicks": 14,
+      "impressions": 4987,
+      "ctr": 0.0028072989773410867,
+      "position": 5.90395027070383
+    },
+    {
+      "keys": [
+        "kaneohe bay kayak rental"
+      ],
+      "clicks": 13,
+      "impressions": 150,
+      "ctr": 0.08666666666666667,
+      "position": 11.113333333333333
+    },
+    {
+      "keys": [
+        "kayak to chinamans hat"
+      ],
+      "clicks": 13,
+      "impressions": 87,
+      "ctr": 0.14942528735632185,
+      "position": 14.735632183908047
+    },
+    {
+      "keys": [
+        "kayak to kaneohe sandbar"
+      ],
+      "clicks": 13,
+      "impressions": 69,
+      "ctr": 0.18840579710144928,
+      "position": 3.2028985507246377
+    },
+    {
+      "keys": [
+        "snorkeling sharks cove"
+      ],
+      "clicks": 13,
+      "impressions": 211,
+      "ctr": 0.061611374407582936,
+      "position": 5.6682464454976307
+    },
+    {
+      "keys": [
+        "oahu beach chair rentals"
+      ],
+      "clicks": 11,
+      "impressions": 86,
+      "ctr": 0.12790697674418605,
+      "position": 5.9069767441860463
+    },
+    {
+      "keys": [
+        "sharks cove oahu snorkeling"
+      ],
+      "clicks": 11,
+      "impressions": 598,
+      "ctr": 0.01839464882943144,
+      "position": 5.7056856187290972
+    },
+    {
+      "keys": [
+        "kailua beach park"
+      ],
+      "clicks": 10,
+      "impressions": 2853,
+      "ctr": 0.0035050823694356818,
+      "position": 9.6996144409393619
+    },
+    {
+      "keys": [
+        "kayak oahu"
+      ],
+      "clicks": 10,
+      "impressions": 352,
+      "ctr": 0.028409090909090908,
+      "position": 5.2244318181818183
+    },
+    {
+      "keys": [
+        "kayak rental kailua"
+      ],
+      "clicks": 10,
+      "impressions": 205,
+      "ctr": 0.04878048780487805,
+      "position": 7.8243902439024389
+    },
+    {
+      "keys": [
+        "kayak rentals kailua"
+      ],
+      "clicks": 10,
+      "impressions": 98,
+      "ctr": 0.10204081632653061,
+      "position": 8.89795918367347
+    },
+    {
+      "keys": [
+        "shark's cove snorkeling"
+      ],
+      "clicks": 10,
+      "impressions": 304,
+      "ctr": 0.032894736842105261,
+      "position": 5.0756578947368425
+    },
+    {
+      "keys": [
+        "beach chair rentals oahu"
+      ],
+      "clicks": 9,
+      "impressions": 71,
+      "ctr": 0.12676056338028169,
+      "position": 4.943661971830986
+    },
+    {
+      "keys": [
+        "sharks cove snorkeling price"
+      ],
+      "clicks": 9,
+      "impressions": 89,
+      "ctr": 0.10112359550561797,
+      "position": 4.0898876404494384
+    },
+    {
+      "keys": [
+        "chinamans hat kayak"
+      ],
+      "clicks": 8,
+      "impressions": 34,
+      "ctr": 0.23529411764705882,
+      "position": 1.1176470588235294
+    },
+    {
+      "keys": [
+        "kailua beach kayak"
+      ],
+      "clicks": 8,
+      "impressions": 149,
+      "ctr": 0.053691275167785234,
+      "position": 10.986577181208053
+    },
+    {
+      "keys": [
+        "mokolii island kayak"
+      ],
+      "clicks": 8,
+      "impressions": 47,
+      "ctr": 0.1702127659574468,
+      "position": 18.914893617021278
+    },
+    {
+      "keys": [
+        "sharks cove snorkeling tour"
+      ],
+      "clicks": 8,
+      "impressions": 66,
+      "ctr": 0.12121212121212122,
+      "position": 3.3030303030303032
+    },
+    {
+      "keys": [
+        "kailua kayak rental"
+      ],
+      "clicks": 7,
+      "impressions": 403,
+      "ctr": 0.017369727047146403,
+      "position": 8.5161290322580641
+    },
+    {
+      "keys": [
+        "kailua kayak rentals"
+      ],
+      "clicks": 7,
+      "impressions": 84,
+      "ctr": 0.083333333333333329,
+      "position": 7.3214285714285712
+    },
+    {
+      "keys": [
+        "kaneohe sandbar"
+      ],
+      "clicks": 7,
+      "impressions": 1134,
+      "ctr": 0.0061728395061728392,
+      "position": 12.845679012345679
+    },
+    {
+      "keys": [
+        "kayak kaneohe sandbar"
+      ],
+      "clicks": 7,
+      "impressions": 82,
+      "ctr": 0.085365853658536592,
+      "position": 10.085365853658537
+    },
+    {
+      "keys": [
+        "kayak to mokulua islands"
+      ],
+      "clicks": 7,
+      "impressions": 217,
+      "ctr": 0.032258064516129031,
+      "position": 5.8018433179723505
+    },
+    {
+      "keys": [
+        "kayak tour oahu"
+      ],
+      "clicks": 7,
+      "impressions": 86,
+      "ctr": 0.081395348837209308,
+      "position": 3.5116279069767442
+    },
+    {
+      "keys": [
+        "kayaking in oahu"
+      ],
+      "clicks": 7,
+      "impressions": 307,
+      "ctr": 0.022801302931596091,
+      "position": 7.892508143322476
+    },
+    {
+      "keys": [
+        "oahu kayak tours"
+      ],
+      "clicks": 7,
+      "impressions": 150,
+      "ctr": 0.046666666666666669,
+      "position": 9.9466666666666672
+    },
+    {
+      "keys": [
+        "oahu kayaking"
+      ],
+      "clicks": 7,
+      "impressions": 468,
+      "ctr": 0.014957264957264958,
+      "position": 13.348290598290598
+    },
+    {
+      "keys": [
+        "shark cove oahu"
+      ],
+      "clicks": 7,
+      "impressions": 688,
+      "ctr": 0.010174418604651164,
+      "position": 4.0479651162790695
+    },
+    {
+      "keys": [
+        "シャークスコーブ"
+      ],
+      "clicks": 7,
+      "impressions": 334,
+      "ctr": 0.020958083832335328,
+      "position": 5.2185628742514973
+    },
+    {
+      "keys": [
+        "beach chair rental oahu"
+      ],
+      "clicks": 6,
+      "impressions": 63,
+      "ctr": 0.095238095238095233,
+      "position": 8.2698412698412689
+    },
+    {
+      "keys": [
+        "kailua kayak"
+      ],
+      "clicks": 6,
+      "impressions": 245,
+      "ctr": 0.024489795918367346,
+      "position": 13.742857142857142
+    },
+    {
+      "keys": [
+        "kaneohe bay kayak"
+      ],
+      "clicks": 6,
+      "impressions": 86,
+      "ctr": 0.069767441860465115,
+      "position": 9.9534883720930232
+    },
+    {
+      "keys": [
+        "kayak rental honolulu"
+      ],
+      "clicks": 6,
+      "impressions": 158,
+      "ctr": 0.0379746835443038,
+      "position": 8.6392405063291129
+    },
+    {
+      "keys": [
+        "kayak rentals oahu"
+      ],
+      "clicks": 6,
+      "impressions": 154,
+      "ctr": 0.03896103896103896,
+      "position": 8.6753246753246742
+    },
+    {
+      "keys": [
+        "kayaking in oahu hawaii"
+      ],
+      "clicks": 6,
+      "impressions": 114,
+      "ctr": 0.052631578947368418,
+      "position": 6.7543859649122808
+    },
+    {
+      "keys": [
+        "kayaking to kaneohe sandbar"
+      ],
+      "clicks": 6,
+      "impressions": 47,
+      "ctr": 0.1276595744680851,
+      "position": 3.1914893617021276
+    },
+    {
+      "keys": [
+        "oahu kayak"
+      ],
+      "clicks": 6,
+      "impressions": 157,
+      "ctr": 0.038216560509554139,
+      "position": 13.012738853503185
+    },
+    {
+      "keys": [
+        "kailua beach kayak rentals"
+      ],
+      "clicks": 5,
+      "impressions": 139,
+      "ctr": 0.035971223021582732,
+      "position": 11.575539568345324
+    },
+    {
+      "keys": [
+        "kayak chinamans hat"
+      ],
+      "clicks": 5,
+      "impressions": 95,
+      "ctr": 0.052631578947368418,
+      "position": 27.147368421052633
+    },
+    {
+      "keys": [
+        "kayak honolulu"
+      ],
+      "clicks": 5,
+      "impressions": 202,
+      "ctr": 0.024752475247524754,
+      "position": 7.3168316831683171
+    },
+    {
+      "keys": [
+        "kayak rental kaneohe"
+      ],
+      "clicks": 5,
+      "impressions": 58,
+      "ctr": 0.086206896551724144,
+      "position": 3.3103448275862069
+    },
+    {
+      "keys": [
+        "kayak rentals near me"
+      ],
+      "clicks": 5,
+      "impressions": 356,
+      "ctr": 0.014044943820224719,
+      "position": 6.1123595505617976
+    },
+    {
+      "keys": [
+        "lanikai kayak rental"
+      ],
+      "clicks": 5,
+      "impressions": 188,
+      "ctr": 0.026595744680851064,
+      "position": 7.292553191489362
+    },
+    {
+      "keys": [
+        "mokulua islands kayak rental"
+      ],
+      "clicks": 5,
+      "impressions": 81,
+      "ctr": 0.061728395061728392,
+      "position": 7.7407407407407405
+    },
+    {
+      "keys": [
+        "oahu beach gear rentals"
+      ],
+      "clicks": 5,
+      "impressions": 74,
+      "ctr": 0.067567567567567571,
+      "position": 6.9459459459459456
+    },
+    {
+      "keys": [
+        "shark cove snorkeling oahu"
+      ],
+      "clicks": 5,
+      "impressions": 101,
+      "ctr": 0.049504950495049507,
+      "position": 5.6633663366336631
+    },
+    {
+      "keys": [
+        "sharks cove snorkling"
+      ],
+      "clicks": 5,
+      "impressions": 58,
+      "ctr": 0.086206896551724144,
+      "position": 4.5172413793103452
+    },
+    {
+      "keys": [
+        "ebike rental near me"
+      ],
+      "clicks": 4,
+      "impressions": 52,
+      "ctr": 0.076923076923076927,
+      "position": 34.17307692307692
+    },
+    {
+      "keys": [
+        "kahana river"
+      ],
+      "clicks": 4,
+      "impressions": 117,
+      "ctr": 0.034188034188034191,
+      "position": 4.4017094017094021
+    },
+    {
+      "keys": [
+        "kailua beach"
+      ],
+      "clicks": 4,
+      "impressions": 2918,
+      "ctr": 0.0013708019191226869,
+      "position": 6.2546264564770393
+    },
+    {
+      "keys": [
+        "kailua bike rental"
+      ],
+      "clicks": 4,
+      "impressions": 84,
+      "ctr": 0.047619047619047616,
+      "position": 11.035714285714286
+    },
+    {
+      "keys": [
+        "kaneohe kayak rental"
+      ],
+      "clicks": 4,
+      "impressions": 152,
+      "ctr": 0.026315789473684209,
+      "position": 12.611842105263158
+    },
+    {
+      "keys": [
+        "kayak rental"
+      ],
+      "clicks": 4,
+      "impressions": 164,
+      "ctr": 0.024390243902439025,
+      "position": 9.7926829268292686
+    },
+    {
+      "keys": [
+        "kayak rental kaneohe bay"
+      ],
+      "clicks": 4,
+      "impressions": 47,
+      "ctr": 0.0851063829787234,
+      "position": 5.76595744680851
+    },
+    {
+      "keys": [
+        "kayak tours oahu"
+      ],
+      "clicks": 4,
+      "impressions": 122,
+      "ctr": 0.032786885245901641,
+      "position": 9.3196721311475414
+    },
+    {
+      "keys": [
+        "kayaking honolulu"
+      ],
+      "clicks": 4,
+      "impressions": 265,
+      "ctr": 0.01509433962264151,
+      "position": 6.5320754716981133
+    },
+    {
+      "keys": [
+        "kualoa kayak rental"
+      ],
+      "clicks": 4,
+      "impressions": 9,
+      "ctr": 0.44444444444444442,
+      "position": 1.4444444444444444
+    },
+    {
+      "keys": [
+        "lanikai beach snorkeling"
+      ],
+      "clicks": 4,
+      "impressions": 515,
+      "ctr": 0.0077669902912621356,
+      "position": 6.5883495145631068
+    },
+    {
+      "keys": [
+        "mokulua islands kayak"
+      ],
+      "clicks": 4,
+      "impressions": 268,
+      "ctr": 0.014925373134328358,
+      "position": 8.6455223880597014
+    },
+    {
+      "keys": [
+        "oahu kayak rentals"
+      ],
+      "clicks": 4,
+      "impressions": 54,
+      "ctr": 0.07407407407407407,
+      "position": 1.5370370370370372
+    },
+    {
+      "keys": [
+        "oahu sandbar kayak"
+      ],
+      "clicks": 4,
+      "impressions": 33,
+      "ctr": 0.12121212121212122,
+      "position": 2.2121212121212119
+    },
+    {
+      "keys": [
+        "popoia island"
+      ],
+      "clicks": 4,
+      "impressions": 642,
+      "ctr": 0.0062305295950155761,
+      "position": 8.7710280373831786
+    },
+    {
+      "keys": [
+        "sharks cove hawaii snorkeling"
+      ],
+      "clicks": 4,
+      "impressions": 70,
+      "ctr": 0.057142857142857141,
+      "position": 3.5857142857142859
+    },
+    {
+      "keys": [
+        "sharks cove snorkel"
+      ],
+      "clicks": 4,
+      "impressions": 85,
+      "ctr": 0.047058823529411764,
+      "position": 3.9294117647058822
+    },
+    {
+      "keys": [
+        "snorkeling at sharks cove"
+      ],
+      "clicks": 4,
+      "impressions": 118,
+      "ctr": 0.033898305084745763,
+      "position": 6.8644067796610173
+    },
+    {
+      "keys": [
+        "beach umbrella rental near me"
+      ],
+      "clicks": 3,
+      "impressions": 76,
+      "ctr": 0.039473684210526314,
+      "position": 10.828947368421053
+    },
+    {
+      "keys": [
+        "boogie board rental oahu"
+      ],
+      "clicks": 3,
+      "impressions": 50,
+      "ctr": 0.06,
+      "position": 13.42
+    },
+    {
+      "keys": [
+        "chinamans hat"
+      ],
+      "clicks": 3,
+      "impressions": 2096,
+      "ctr": 0.0014312977099236641,
+      "position": 6.2662213740458013
+    },
+    {
+      "keys": [
+        "how to get to kaneohe sandbar"
+      ],
+      "clicks": 3,
+      "impressions": 188,
+      "ctr": 0.015957446808510637,
+      "position": 7.7021276595744679
+    },
+    {
+      "keys": [
+        "kahana river oahu"
+      ],
+      "clicks": 3,
+      "impressions": 43,
+      "ctr": 0.069767441860465115,
+      "position": 2.0697674418604652
+    },
+    {
+      "keys": [
+        "kailua bay kayaking"
+      ],
+      "clicks": 3,
+      "impressions": 80,
+      "ctr": 0.0375,
+      "position": 10.725
+    },
+    {
+      "keys": [
+        "kailua beach kayak rental"
+      ],
+      "clicks": 3,
+      "impressions": 67,
+      "ctr": 0.044776119402985072,
+      "position": 7.8656716417910451
+    },
+    {
+      "keys": [
+        "kailua paddle board rental"
+      ],
+      "clicks": 3,
+      "impressions": 16,
+      "ctr": 0.1875,
+      "position": 4
+    },
+    {
+      "keys": [
+        "kaneohe sandbar kayaking"
+      ],
+      "clicks": 3,
+      "impressions": 90,
+      "ctr": 0.033333333333333333,
+      "position": 5.3111111111111109
+    },
+    {
+      "keys": [
+        "kaneohe sandbar tour"
+      ],
+      "clicks": 3,
+      "impressions": 49,
+      "ctr": 0.061224489795918366,
+      "position": 21.204081632653061
+    },
+    {
+      "keys": [
+        "kayaking in honolulu"
+      ],
+      "clicks": 3,
+      "impressions": 110,
+      "ctr": 0.027272727272727271,
+      "position": 7.3545454545454545
+    },
+    {
+      "keys": [
+        "kayaking near me"
+      ],
+      "clicks": 3,
+      "impressions": 601,
+      "ctr": 0.0049916805324459234,
+      "position": 7.429284525790349
+    },
+    {
+      "keys": [
+        "kayaking oahu hawaii"
+      ],
+      "clicks": 3,
+      "impressions": 78,
+      "ctr": 0.038461538461538464,
+      "position": 13.205128205128204
+    },
+    {
+      "keys": [
+        "kayaking on oahu"
+      ],
+      "clicks": 3,
+      "impressions": 107,
+      "ctr": 0.028037383177570093,
+      "position": 8.7383177570093462
+    },
+    {
+      "keys": [
+        "lanikai beach tours"
+      ],
+      "clicks": 3,
+      "impressions": 578,
+      "ctr": 0.0051903114186851208,
+      "position": 13.885813148788927
+    },
+    {
+      "keys": [
+        "lanikai kayak"
+      ],
+      "clicks": 3,
+      "impressions": 89,
+      "ctr": 0.033707865168539325,
+      "position": 10.112359550561798
+    },
+    {
+      "keys": [
+        "mokolii island kayak rental"
+      ],
+      "clicks": 3,
+      "impressions": 18,
+      "ctr": 0.16666666666666666,
+      "position": 8.5
+    },
+    {
+      "keys": [
+        "oahu beach equipment rentals"
+      ],
+      "clicks": 3,
+      "impressions": 361,
+      "ctr": 0.0083102493074792248,
+      "position": 4.13573407202216
+    },
+    {
+      "keys": [
+        "oahu kayak rental"
+      ],
+      "clicks": 3,
+      "impressions": 140,
+      "ctr": 0.021428571428571429,
+      "position": 8.82857142857143
+    },
+    {
+      "keys": [
+        "oahu kayak to island"
+      ],
+      "clicks": 3,
+      "impressions": 50,
+      "ctr": 0.06,
+      "position": 4.3599999999999994
+    },
+    {
+      "keys": [
+        "oahu kayak tour"
+      ],
+      "clicks": 3,
+      "impressions": 80,
+      "ctr": 0.0375,
+      "position": 14.1625
+    },
+    {
+      "keys": [
+        "sandbar kayak rental"
+      ],
+      "clicks": 3,
+      "impressions": 30,
+      "ctr": 0.1,
+      "position": 4.1
+    },
+    {
+      "keys": [
+        "shark cove"
+      ],
+      "clicks": 3,
+      "impressions": 1258,
+      "ctr": 0.0023847376788553257,
+      "position": 6.0055643879173291
+    },
+    {
+      "keys": [
+        "shark cove hawaii"
+      ],
+      "clicks": 3,
+      "impressions": 221,
+      "ctr": 0.013574660633484163,
+      "position": 5.615384615384615
+    },
+    {
+      "keys": [
+        "shark’s cove"
+      ],
+      "clicks": 3,
+      "impressions": 540,
+      "ctr": 0.0055555555555555558,
+      "position": 6.9666666666666668
+    },
+    {
+      "keys": [
+        "shark’s cove snorkeling"
+      ],
+      "clicks": 3,
+      "impressions": 53,
+      "ctr": 0.056603773584905662,
+      "position": 4.8490566037735849
+    },
+    {
+      "keys": [
+        "snorkeling sharks cove oahu"
+      ],
+      "clicks": 3,
+      "impressions": 84,
+      "ctr": 0.035714285714285712,
+      "position": 6.0238095238095237
+    },
+    {
+      "keys": [
+        "ワイキキビーチパラソルレンタル 安い"
+      ],
+      "clicks": 3,
+      "impressions": 20,
+      "ctr": 0.15,
+      "position": 3.15
+    },
+    {
+      "keys": [
+        "best kayaking in oahu"
+      ],
+      "clicks": 2,
+      "impressions": 87,
+      "ctr": 0.022988505747126436,
+      "position": 11.448275862068966
+    },
+    {
+      "keys": [
+        "boogie board rentals"
+      ],
+      "clicks": 2,
+      "impressions": 68,
+      "ctr": 0.029411764705882353,
+      "position": 14.411764705882353
+    },
+    {
+      "keys": [
+        "chinamans hat hike"
+      ],
+      "clicks": 2,
+      "impressions": 67,
+      "ctr": 0.029850746268656716,
+      "position": 3.0298507462686568
+    },
+    {
+      "keys": [
+        "chinamans hat oahu"
+      ],
+      "clicks": 2,
+      "impressions": 573,
+      "ctr": 0.0034904013961605585,
+      "position": 6.9476439790575917
+    },
+    {
+      "keys": [
+        "ebike rental oahu"
+      ],
+      "clicks": 2,
+      "impressions": 9,
+      "ctr": 0.22222222222222221,
+      "position": 7
+    },
+    {
+      "keys": [
+        "electric beach oahu"
+      ],
+      "clicks": 2,
+      "impressions": 2458,
+      "ctr": 0.00081366965012205042,
+      "position": 8.56346623270952
+    },
+    {
+      "keys": [
+        "hanauma bay life jacket rental"
+      ],
+      "clicks": 2,
+      "impressions": 6,
+      "ctr": 0.33333333333333331,
+      "position": 1.6666666666666665
+    },
+    {
+      "keys": [
+        "hawaii kayaking"
+      ],
+      "clicks": 2,
+      "impressions": 250,
+      "ctr": 0.008,
+      "position": 10.808
+    },
+    {
+      "keys": [
+        "honolulu kayak rental"
+      ],
+      "clicks": 2,
+      "impressions": 56,
+      "ctr": 0.035714285714285712,
+      "position": 9.5178571428571423
+    },
+    {
+      "keys": [
+        "how long does it take to kayak to kaneohe sandbar"
+      ],
+      "clicks": 2,
+      "impressions": 40,
+      "ctr": 0.05,
+      "position": 2.5
+    },
+    {
+      "keys": [
+        "kahana river kayak"
+      ],
+      "clicks": 2,
+      "impressions": 85,
+      "ctr": 0.023529411764705882,
+      "position": 3.4352941176470586
+    },
+    {
+      "keys": [
+        "kailua beach park kayak rentals"
+      ],
+      "clicks": 2,
+      "impressions": 35,
+      "ctr": 0.057142857142857141,
+      "position": 7.1142857142857139
+    },
+    {
+      "keys": [
+        "kaneohe bay kayaking"
+      ],
+      "clicks": 2,
+      "impressions": 734,
+      "ctr": 0.0027247956403269754,
+      "position": 4.62125340599455
+    },
+    {
+      "keys": [
+        "kayak"
+      ],
+      "clicks": 2,
+      "impressions": 2283,
+      "ctr": 0.00087604029785370125,
+      "position": 7.0455540954883924
+    },
+    {
+      "keys": [
+        "kayak china man hat"
+      ],
+      "clicks": 2,
+      "impressions": 11,
+      "ctr": 0.18181818181818182,
+      "position": 2.0909090909090908
+    },
+    {
+      "keys": [
+        "kayak in oahu"
+      ],
+      "clicks": 2,
+      "impressions": 92,
+      "ctr": 0.021739130434782608,
+      "position": 13.043478260869565
+    },
+    {
+      "keys": [
+        "kayak kailua"
+      ],
+      "clicks": 2,
+      "impressions": 173,
+      "ctr": 0.011560693641618497,
+      "position": 11.294797687861271
+    },
+    {
+      "keys": [
+        "kayak oahu hawaii"
+      ],
+      "clicks": 2,
+      "impressions": 86,
+      "ctr": 0.023255813953488372,
+      "position": 11.988372093023257
+    },
+    {
+      "keys": [
+        "kayak rental lanikai beach"
+      ],
+      "clicks": 2,
+      "impressions": 94,
+      "ctr": 0.021276595744680851,
+      "position": 10.01063829787234
+    },
+    {
+      "keys": [
+        "kayak rental waikiki"
+      ],
+      "clicks": 2,
+      "impressions": 138,
+      "ctr": 0.014492753623188406,
+      "position": 8.68840579710145
+    },
+    {
+      "keys": [
+        "kayak rentals"
+      ],
+      "clicks": 2,
+      "impressions": 188,
+      "ctr": 0.010638297872340425,
+      "position": 13.531914893617021
+    },
+    {
+      "keys": [
+        "kayak rentals honolulu"
+      ],
+      "clicks": 2,
+      "impressions": 47,
+      "ctr": 0.0425531914893617,
+      "position": 3.6595744680851063
+    },
+    {
+      "keys": [
+        "kayak rentals on oahu"
+      ],
+      "clicks": 2,
+      "impressions": 26,
+      "ctr": 0.076923076923076927,
+      "position": 4
+    },
+    {
+      "keys": [
+        "kayak to the mokulua islands"
+      ],
+      "clicks": 2,
+      "impressions": 65,
+      "ctr": 0.030769230769230771,
+      "position": 5.907692307692308
+    },
+    {
+      "keys": [
+        "kayaking hawaii"
+      ],
+      "clicks": 2,
+      "impressions": 135,
+      "ctr": 0.014814814814814815,
+      "position": 4.3333333333333339
+    },
+    {
+      "keys": [
+        "kayaking kaneohe bay"
+      ],
+      "clicks": 2,
+      "impressions": 43,
+      "ctr": 0.046511627906976744,
+      "position": 7.0465116279069768
+    },
+    {
+      "keys": [
+        "lanikai beach"
+      ],
+      "clicks": 2,
+      "impressions": 2185,
+      "ctr": 0.00091533180778032041,
+      "position": 4.9771167048054918
+    },
+    {
+      "keys": [
+        "lanikai beach kayak rental"
+      ],
+      "clicks": 2,
+      "impressions": 131,
+      "ctr": 0.015267175572519083,
+      "position": 8.442748091603054
+    },
+    {
+      "keys": [
+        "lanikai pillbox trail tickets"
+      ],
+      "clicks": 2,
+      "impressions": 89,
+      "ctr": 0.02247191011235955,
+      "position": 5.8651685393258424
+    },
+    {
+      "keys": [
+        "mokolii island self guided kayak tour"
+      ],
+      "clicks": 2,
+      "impressions": 23,
+      "ctr": 0.086956521739130432,
+      "position": 7.9130434782608692
+    },
+    {
+      "keys": [
+        "oahu hiking tour"
+      ],
+      "clicks": 2,
+      "impressions": 30,
+      "ctr": 0.066666666666666666,
+      "position": 8.3666666666666671
+    },
+    {
+      "keys": [
+        "oahu hiking tours"
+      ],
+      "clicks": 2,
+      "impressions": 85,
+      "ctr": 0.023529411764705882,
+      "position": 8.5647058823529409
+    },
+    {
+      "keys": [
+        "rent a life jacket"
+      ],
+      "clicks": 2,
+      "impressions": 9,
+      "ctr": 0.22222222222222221,
+      "position": 12.444444444444445
+    },
+    {
+      "keys": [
+        "sandbar kayaking"
+      ],
+      "clicks": 2,
+      "impressions": 58,
+      "ctr": 0.034482758620689655,
+      "position": 14.637931034482758
+    },
+    {
+      "keys": [
+        "shark cove honolulu"
+      ],
+      "clicks": 2,
+      "impressions": 57,
+      "ctr": 0.035087719298245612,
+      "position": 7.12280701754386
+    },
+    {
+      "keys": [
+        "shark's cove"
+      ],
+      "clicks": 2,
+      "impressions": 1067,
+      "ctr": 0.0018744142455482662,
+      "position": 11.135895032802249
+    },
+    {
+      "keys": [
+        "shark's cove hawaii"
+      ],
+      "clicks": 2,
+      "impressions": 55,
+      "ctr": 0.036363636363636362,
+      "position": 8.581818181818182
+    },
+    {
+      "keys": [
+        "sharks cove snorkel rental"
+      ],
+      "clicks": 2,
+      "impressions": 132,
+      "ctr": 0.015151515151515152,
+      "position": 9.295454545454545
+    },
+    {
+      "keys": [
+        "snorkel rental north shore oahu"
+      ],
+      "clicks": 2,
+      "impressions": 72,
+      "ctr": 0.027777777777777776,
+      "position": 11
+    },
+    {
+      "keys": [
+        "snorkel sharks cove"
+      ],
+      "clicks": 2,
+      "impressions": 81,
+      "ctr": 0.024691358024691357,
+      "position": 5.5185185185185182
+    },
+    {
+      "keys": [
+        "snorkeling at sharks cove oahu"
+      ],
+      "clicks": 2,
+      "impressions": 57,
+      "ctr": 0.035087719298245612,
+      "position": 3.736842105263158
+    },
+    {
+      "keys": [
+        "snorkeling in sharks cove"
+      ],
+      "clicks": 2,
+      "impressions": 37,
+      "ctr": 0.054054054054054057,
+      "position": 10.162162162162161
+    },
+    {
+      "keys": [
+        "waikiki kayak rental"
+      ],
+      "clicks": 2,
+      "impressions": 102,
+      "ctr": 0.0196078431372549,
+      "position": 10.882352941176471
+    },
+    {
+      "keys": [
+        "windward oahu"
+      ],
+      "clicks": 2,
+      "impressions": 287,
+      "ctr": 0.0069686411149825784,
+      "position": 11.104529616724738
+    },
+    {
+      "keys": [
+        "シャークスコーブ 駐車場"
+      ],
+      "clicks": 2,
+      "impressions": 5,
+      "ctr": 0.4,
+      "position": 1.8
+    },
+    {
+      "keys": [
+        "シャークスコープ ハワイ"
+      ],
+      "clicks": 2,
+      "impressions": 40,
+      "ctr": 0.05,
+      "position": 5.875
+    },
+    {
+      "keys": [
+        "ノースショア シュノーケリング"
+      ],
+      "clicks": 2,
+      "impressions": 35,
+      "ctr": 0.057142857142857141,
+      "position": 1.9714285714285715
+    },
+    {
+      "keys": [
+        "ハワイ ボディボード"
+      ],
+      "clicks": 2,
+      "impressions": 25,
+      "ctr": 0.08,
+      "position": 11.2
+    },
+    {
+      "keys": [
+        "2 person kayak rentals near me"
+      ],
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 17.5
+    },
+    {
+      "keys": [
+        "beach chair rental honolulu"
+      ],
+      "clicks": 1,
+      "impressions": 165,
+      "ctr": 0.0060606060606060606,
+      "position": 10.157575757575758
+    },
+    {
+      "keys": [
+        "beach rental equipment near me"
+      ],
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 12
+    },
+    {
+      "keys": [
+        "beach wagon rental"
+      ],
+      "clicks": 1,
+      "impressions": 15,
+      "ctr": 0.066666666666666666,
+      "position": 37
+    },
+    {
+      "keys": [
+        "beach with chair rentals near me"
+      ],
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 11
+    },
+    {
+      "keys": [
+        "beginner"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 8
+    },
+    {
+      "keys": [
+        "best snorkling in oahu"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best things to do in hawaii"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 1
+    },
+    {
+      "keys": [
+        "bike rental kailua"
+      ],
+      "clicks": 1,
+      "impressions": 64,
+      "ctr": 0.015625,
+      "position": 4.0625
+    },
+    {
+      "keys": [
+        "bike rentals near me"
+      ],
+      "clicks": 1,
+      "impressions": 25,
+      "ctr": 0.04,
+      "position": 4.7200000000000006
+    },
+    {
+      "keys": [
+        "bodyboard rental near me"
+      ],
+      "clicks": 1,
+      "impressions": 13,
+      "ctr": 0.076923076923076927,
+      "position": 15.153846153846153
+    },
+    {
+      "keys": [
+        "boogie board rentals near me"
+      ],
+      "clicks": 1,
+      "impressions": 151,
+      "ctr": 0.0066225165562913907,
+      "position": 9.2317880794702
+    },
+    {
+      "keys": [
+        "boogie boarding oahu"
+      ],
+      "clicks": 1,
+      "impressions": 36,
+      "ctr": 0.027777777777777776,
+      "position": 3.6944444444444446
+    },
+    {
+      "keys": [
+        "can you snorkel at lanikai beach"
+      ],
+      "clicks": 1,
+      "impressions": 58,
+      "ctr": 0.017241379310344827,
+      "position": 5.6379310344827589
+    },
+    {
+      "keys": [
+        "canoe rental near me"
+      ],
+      "clicks": 1,
+      "impressions": 37,
+      "ctr": 0.027027027027027029,
+      "position": 4.513513513513514
+    },
+    {
+      "keys": [
+        "canoes for rent"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 3
+    },
+    {
+      "keys": [
+        "canoes for rent near me"
+      ],
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.33333333333333331,
+      "position": 3.6666666666666665
+    },
+    {
+      "keys": [
+        "cargo ebike rental"
+      ],
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 3.5
+    },
+    {
+      "keys": [
+        "chair and umbrella rental"
+      ],
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.33333333333333331,
+      "position": 8.3333333333333321
+    },
+    {
+      "keys": [
+        "chair rentals oahu"
+      ],
+      "clicks": 1,
+      "impressions": 136,
+      "ctr": 0.0073529411764705881,
+      "position": 9.9117647058823533
+    },
+    {
+      "keys": [
+        "cheap"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 4
+    },
+    {
+      "keys": [
+        "china man hat oahu"
+      ],
+      "clicks": 1,
+      "impressions": 64,
+      "ctr": 0.015625,
+      "position": 12.609375
+    },
+    {
+      "keys": [
+        "china mans hat"
+      ],
+      "clicks": 1,
+      "impressions": 749,
+      "ctr": 0.0013351134846461949,
+      "position": 6.0720961281708945
+    },
+    {
+      "keys": [
+        "china mans hat oahu"
+      ],
+      "clicks": 1,
+      "impressions": 200,
+      "ctr": 0.005,
+      "position": 7.825
+    },
+    {
+      "keys": [
+        "chinaman's hat oahu"
+      ],
+      "clicks": 1,
+      "impressions": 155,
+      "ctr": 0.0064516129032258064,
+      "position": 12.483870967741936
+    },
+    {
+      "keys": [
+        "chinaman’s hat"
+      ],
+      "clicks": 1,
+      "impressions": 108,
+      "ctr": 0.0092592592592592587,
+      "position": 9.6574074074074066
+    },
+    {
+      "keys": [
+        "cooler rentals"
+      ],
+      "clicks": 1,
+      "impressions": 18,
+      "ctr": 0.055555555555555552,
+      "position": 12.777777777777779
+    },
+    {
+      "keys": [
+        "e bike rental oahu"
+      ],
+      "clicks": 1,
+      "impressions": 9,
+      "ctr": 0.1111111111111111,
+      "position": 7
+    },
+    {
+      "keys": [
+        "e bike rentals"
+      ],
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 10.166666666666666
+    },
+    {
+      "keys": [
+        "ebike hire"
+      ],
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.33333333333333331,
+      "position": 4
+    },
+    {
+      "keys": [
+        "electric bike rental"
+      ],
+      "clicks": 1,
+      "impressions": 7,
+      "ctr": 0.14285714285714285,
+      "position": 6.8571428571428568
+    },
+    {
+      "keys": [
+        "flat island hawaii"
+      ],
+      "clicks": 1,
+      "impressions": 52,
+      "ctr": 0.019230769230769232,
+      "position": 3.9807692307692308
+    },
+    {
+      "keys": [
+        "flat island oahu"
+      ],
+      "clicks": 1,
+      "impressions": 75,
+      "ctr": 0.013333333333333334,
+      "position": 11.573333333333334
+    },
+    {
+      "keys": [
+        "give links"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 2
+    },
+    {
+      "keys": [
+        "gravel bike rental near me"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 1
+    },
+    {
+      "keys": [
+        "haleiwa beach park snorkeling"
+      ],
+      "clicks": 1,
+      "impressions": 23,
+      "ctr": 0.043478260869565216,
+      "position": 2.0434782608695654
+    },
+    {
+      "keys": [
+        "hawaii shark cove"
+      ],
+      "clicks": 1,
+      "impressions": 26,
+      "ctr": 0.038461538461538464,
+      "position": 2.4230769230769234
+    },
+    {
+      "keys": [
+        "hiking tours oahu"
+      ],
+      "clicks": 1,
+      "impressions": 84,
+      "ctr": 0.011904761904761904,
+      "position": 8
+    },
+    {
+      "keys": [
+        "honolulu beach chair rentals"
+      ],
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.33333333333333331,
+      "position": 6.333333333333333
+    },
+    {
+      "keys": [
+        "honolulu kayak"
+      ],
+      "clicks": 1,
+      "impressions": 65,
+      "ctr": 0.015384615384615385,
+      "position": 18.4
+    },
+    {
+      "keys": [
+        "honolulu kayaking"
+      ],
+      "clicks": 1,
+      "impressions": 119,
+      "ctr": 0.0084033613445378148,
+      "position": 11.369747899159664
+    },
+    {
+      "keys": [
+        "how do i reserve"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 3
+    },
+    {
+      "keys": [
+        "inflatable paddle board rental"
+      ],
+      "clicks": 1,
+      "impressions": 19,
+      "ctr": 0.052631578947368418,
+      "position": 61.473684210526315
+    },
+    {
+      "keys": [
+        "is kaneohe sandbar worth it"
+      ],
+      "clicks": 1,
+      "impressions": 8,
+      "ctr": 0.125,
+      "position": 1.25
+    },
+    {
+      "keys": [
+        "is lanikai beach good for snorkeling"
+      ],
+      "clicks": 1,
+      "impressions": 84,
+      "ctr": 0.011904761904761904,
+      "position": 8.8928571428571423
+    },
+    {
+      "keys": [
+        "jet ski rental oahu"
+      ],
+      "clicks": 1,
+      "impressions": 12,
+      "ctr": 0.083333333333333329,
+      "position": 11.166666666666666
+    },
+    {
+      "keys": [
+        "kahana bay kayaking"
+      ],
+      "clicks": 1,
+      "impressions": 76,
+      "ctr": 0.013157894736842105,
+      "position": 24.723684210526315
+    },
+    {
+      "keys": [
+        "kahana stream oahu"
+      ],
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 7.2
+    },
+    {
+      "keys": [
+        "kailua activities"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 1
+    },
+    {
+      "keys": [
+        "kailua beach oahu"
+      ],
+      "clicks": 1,
+      "impressions": 228,
+      "ctr": 0.0043859649122807015,
+      "position": 10.587719298245615
+    },
+    {
+      "keys": [
+        "kailua island"
+      ],
+      "clicks": 1,
+      "impressions": 297,
+      "ctr": 0.0033670033670033669,
+      "position": 3.5454545454545454
+    },
+    {
+      "keys": [
+        "kailua kayak to island"
+      ],
+      "clicks": 1,
+      "impressions": 7,
+      "ctr": 0.14285714285714285,
+      "position": 2.5714285714285712
+    },
+    {
+      "keys": [
+        "kailua kayaks"
+      ],
+      "clicks": 1,
+      "impressions": 57,
+      "ctr": 0.017543859649122806,
+      "position": 3.3508771929824563
+    },
+    {
+      "keys": [
+        "kailua state park"
+      ],
+      "clicks": 1,
+      "impressions": 29,
+      "ctr": 0.034482758620689655,
+      "position": 11.172413793103448
+    },
+    {
+      "keys": [
+        "kaiwa ridge trail"
+      ],
+      "clicks": 1,
+      "impressions": 29,
+      "ctr": 0.034482758620689655,
+      "position": 21.758620689655171
+    },
+    {
+      "keys": [
+        "kaiwa ridge trail oahu"
+      ],
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 5
+    },
+    {
+      "keys": [
+        "kaneohe bay sandbar"
+      ],
+      "clicks": 1,
+      "impressions": 61,
+      "ctr": 0.016393442622950821,
+      "position": 17.081967213114755
+    },
+    {
+      "keys": [
+        "kaneohe bay tours"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 6
+    },
+    {
+      "keys": [
+        "kaneohe sandbar photos"
+      ],
+      "clicks": 1,
+      "impressions": 28,
+      "ctr": 0.035714285714285712,
+      "position": 2.0714285714285712
+    },
+    {
+      "keys": [
+        "kayak hawaii"
+      ],
+      "clicks": 1,
+      "impressions": 235,
+      "ctr": 0.00425531914893617,
+      "position": 6.6
+    },
+    {
+      "keys": [
+        "kayak kailua to mokulua"
+      ],
+      "clicks": 1,
+      "impressions": 47,
+      "ctr": 0.021276595744680851,
+      "position": 15.659574468085106
+    },
+    {
+      "keys": [
+        "kayak lanikai"
+      ],
+      "clicks": 1,
+      "impressions": 80,
+      "ctr": 0.0125,
+      "position": 8.4625
+    },
+    {
+      "keys": [
+        "kayak near me"
+      ],
+      "clicks": 1,
+      "impressions": 64,
+      "ctr": 0.015625,
+      "position": 8.328125
+    },
+    {
+      "keys": [
+        "kayak near mw"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 1
+    },
+    {
+      "keys": [
+        "kayak rental hawaii"
+      ],
+      "clicks": 1,
+      "impressions": 42,
+      "ctr": 0.023809523809523808,
+      "position": 2.7857142857142856
+    },
+    {
+      "keys": [
+        "kayak rental near me"
+      ],
+      "clicks": 1,
+      "impressions": 81,
+      "ctr": 0.012345679012345678,
+      "position": 6.2592592592592595
+    },
+    {
+      "keys": [
+        "kayak rentals hawaii"
+      ],
+      "clicks": 1,
+      "impressions": 28,
+      "ctr": 0.035714285714285712,
+      "position": 8.25
+    },
+    {
+      "keys": [
+        "kayak rentals in kailua"
+      ],
+      "clicks": 1,
+      "impressions": 40,
+      "ctr": 0.025,
+      "position": 16.975
+    },
+    {
+      "keys": [
+        "kayak rentals in oahu"
+      ],
+      "clicks": 1,
+      "impressions": 17,
+      "ctr": 0.058823529411764705,
+      "position": 3.8823529411764706
+    },
+    {
+      "keys": [
+        "kayak rentals lanikai"
+      ],
+      "clicks": 1,
+      "impressions": 34,
+      "ctr": 0.029411764705882353,
+      "position": 22.382352941176471
+    },
+    {
+      "keys": [
+        "kayak to the mokes"
+      ],
+      "clicks": 1,
+      "impressions": 107,
+      "ctr": 0.0093457943925233638,
+      "position": 17.028037383177569
+    },
+    {
+      "keys": [
+        "kayaking"
+      ],
+      "clicks": 1,
+      "impressions": 656,
+      "ctr": 0.0015243902439024391,
+      "position": 6.5289634146341466
+    },
+    {
+      "keys": [
+        "kayaking in hawaii"
+      ],
+      "clicks": 1,
+      "impressions": 212,
+      "ctr": 0.0047169811320754715,
+      "position": 6.4198113207547172
+    },
+    {
+      "keys": [
+        "kayaking in kailua"
+      ],
+      "clicks": 1,
+      "impressions": 63,
+      "ctr": 0.015873015873015872,
+      "position": 4.9365079365079367
+    },
+    {
+      "keys": [
+        "kayaking lanikai beach"
+      ],
+      "clicks": 1,
+      "impressions": 48,
+      "ctr": 0.020833333333333332,
+      "position": 7.333333333333333
+    },
+    {
+      "keys": [
+        "kayaking rentals"
+      ],
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 14.8
+    },
+    {
+      "keys": [
+        "kayaking waikiki"
+      ],
+      "clicks": 1,
+      "impressions": 92,
+      "ctr": 0.010869565217391304,
+      "position": 12.717391304347826
+    },
+    {
+      "keys": [
+        "kayaks kailua"
+      ],
+      "clicks": 1,
+      "impressions": 21,
+      "ctr": 0.047619047619047616,
+      "position": 11.666666666666666
+    },
+    {
+      "keys": [
+        "kualoa regional park map"
+      ],
+      "clicks": 1,
+      "impressions": 22,
+      "ctr": 0.045454545454545456,
+      "position": 1.6363636363636362
+    },
+    {
+      "keys": [
+        "kyack rentals"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 6
+    },
+    {
+      "keys": [
+        "kyak rentals"
+      ],
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 7.5
+    },
+    {
+      "keys": [
+        "lani kai beach"
+      ],
+      "clicks": 1,
+      "impressions": 417,
+      "ctr": 0.0023980815347721821,
+      "position": 8.4700239808153484
+    },
+    {
+      "keys": [
+        "lanikai beach chair rentals"
+      ],
+      "clicks": 1,
+      "impressions": 38,
+      "ctr": 0.026315789473684209,
+      "position": 3.4473684210526314
+    },
+    {
+      "keys": [
+        "lanikai beach from waikiki"
+      ],
+      "clicks": 1,
+      "impressions": 12,
+      "ctr": 0.083333333333333329,
+      "position": 2
+    },
+    {
+      "keys": [
+        "lanikai beach kayaking"
+      ],
+      "clicks": 1,
+      "impressions": 119,
+      "ctr": 0.0084033613445378148,
+      "position": 11.84873949579832
+    },
+    {
+      "keys": [
+        "lanikai kayak rentals"
+      ],
+      "clicks": 1,
+      "impressions": 27,
+      "ctr": 0.037037037037037035,
+      "position": 6.2222222222222223
+    },
+    {
+      "keys": [
+        "lanikai snorkeling"
+      ],
+      "clicks": 1,
+      "impressions": 163,
+      "ctr": 0.0061349693251533744,
+      "position": 11.349693251533742
+    },
+    {
+      "keys": [
+        "life jacket rental"
+      ],
+      "clicks": 1,
+      "impressions": 23,
+      "ctr": 0.043478260869565216,
+      "position": 18.130434782608695
+    },
+    {
+      "keys": [
+        "life jacket rental near me"
+      ],
+      "clicks": 1,
+      "impressions": 29,
+      "ctr": 0.034482758620689655,
+      "position": 10.586206896551724
+    },
+    {
+      "keys": [
+        "mokolii island"
+      ],
+      "clicks": 1,
+      "impressions": 331,
+      "ctr": 0.0030211480362537764,
+      "position": 14.528700906344412
+    },
+    {
+      "keys": [
+        "mokolii island oahu"
+      ],
+      "clicks": 1,
+      "impressions": 7,
+      "ctr": 0.14285714285714285,
+      "position": 12.285714285714286
+    },
+    {
+      "keys": [
+        "mokulua islands"
+      ],
+      "clicks": 1,
+      "impressions": 294,
+      "ctr": 0.0034013605442176869,
+      "position": 13.142857142857142
+    },
+    {
+      "keys": [
+        "mokulua islands kayaking"
+      ],
+      "clicks": 1,
+      "impressions": 14,
+      "ctr": 0.071428571428571425,
+      "position": 3.7857142857142856
+    },
+    {
+      "keys": [
+        "na mokulua kayak"
+      ],
+      "clicks": 1,
+      "impressions": 50,
+      "ctr": 0.02,
+      "position": 26.6
+    },
+    {
+      "keys": [
+        "north shore hawaii snorkeling"
+      ],
+      "clicks": 1,
+      "impressions": 18,
+      "ctr": 0.055555555555555552,
+      "position": 9.0555555555555554
+    },
+    {
+      "keys": [
+        "north shore sharks cove"
+      ],
+      "clicks": 1,
+      "impressions": 30,
+      "ctr": 0.033333333333333333,
+      "position": 10.166666666666666
+    },
+    {
+      "keys": [
+        "north shore snorkeling tour"
+      ],
+      "clicks": 1,
+      "impressions": 161,
+      "ctr": 0.0062111801242236021,
+      "position": 10.06832298136646
+    },
+    {
+      "keys": [
+        "oahu canoe"
+      ],
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 4.25
+    },
+    {
+      "keys": [
+        "oahu kayaking to island"
+      ],
+      "clicks": 1,
+      "impressions": 87,
+      "ctr": 0.011494252873563218,
+      "position": 1.3793103448275863
+    },
+    {
+      "keys": [
+        "oahu north shore snorkeling"
+      ],
+      "clicks": 1,
+      "impressions": 222,
+      "ctr": 0.0045045045045045045,
+      "position": 16.153153153153156
+    },
+    {
+      "keys": [
+        "oahu snorkel rental"
+      ],
+      "clicks": 1,
+      "impressions": 64,
+      "ctr": 0.015625,
+      "position": 6.796875
+    },
+    {
+      "keys": [
+        "oahu snorkeling tour"
+      ],
+      "clicks": 1,
+      "impressions": 85,
+      "ctr": 0.011764705882352941,
+      "position": 12.894117647058824
+    },
+    {
+      "keys": [
+        "oahu tour packages"
+      ],
+      "clicks": 1,
+      "impressions": 43,
+      "ctr": 0.023255813953488372,
+      "position": 22.88372093023256
+    },
+    {
+      "keys": [
+        "paddle board rental oahu"
+      ],
+      "clicks": 1,
+      "impressions": 184,
+      "ctr": 0.005434782608695652,
+      "position": 14.603260869565217
+    },
+    {
+      "keys": [
+        "paddle board rentals"
+      ],
+      "clicks": 1,
+      "impressions": 33,
+      "ctr": 0.030303030303030304,
+      "position": 26.333333333333332
+    },
+    {
+      "keys": [
+        "paddle boarding honolulu"
+      ],
+      "clicks": 1,
+      "impressions": 32,
+      "ctr": 0.03125,
+      "position": 17.96875
+    },
+    {
+      "keys": [
+        "paddle boarding in oahu"
+      ],
+      "clicks": 1,
+      "impressions": 61,
+      "ctr": 0.016393442622950821,
+      "position": 16.622950819672131
+    },
+    {
+      "keys": [
+        "paddle rentals"
+      ],
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 4.5
+    },
+    {
+      "keys": [
+        "parking at sharks cove"
+      ],
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 12.5
+    },
+    {
+      "keys": [
+        "pictures of a boogie board"
+      ],
+      "clicks": 1,
+      "impressions": 41,
+      "ctr": 0.024390243902439025,
+      "position": 1
+    },
+    {
+      "keys": [
+        "popoia"
+      ],
+      "clicks": 1,
+      "impressions": 275,
+      "ctr": 0.0036363636363636364,
+      "position": 4.2836363636363632
+    },
+    {
+      "keys": [
+        "pupukea beach park"
+      ],
+      "clicks": 1,
+      "impressions": 564,
+      "ctr": 0.0017730496453900709,
+      "position": 9.4822695035461
+    },
+    {
+      "keys": [
+        "pupukea tide pools oahu"
+      ],
+      "clicks": 1,
+      "impressions": 16,
+      "ctr": 0.0625,
+      "position": 9.5625
+    },
+    {
+      "keys": [
+        "rent kayak near me"
+      ],
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 2.75
+    },
+    {
+      "keys": [
+        "rent life jackets near me"
+      ],
+      "clicks": 1,
+      "impressions": 17,
+      "ctr": 0.058823529411764705,
+      "position": 16.588235294117645
+    },
+    {
+      "keys": [
+        "rent snorkel gear near me"
+      ],
+      "clicks": 1,
+      "impressions": 49,
+      "ctr": 0.020408163265306121,
+      "position": 15.857142857142858
+    },
+    {
+      "keys": [
+        "rent snorkel gear oahu"
+      ],
+      "clicks": 1,
+      "impressions": 58,
+      "ctr": 0.017241379310344827,
+      "position": 11.120689655172415
+    },
+    {
+      "keys": [
+        "rent surf board"
+      ],
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.33333333333333331,
+      "position": 10.333333333333334
+    },
+    {
+      "keys": [
+        "sandbar in oahu"
+      ],
+      "clicks": 1,
+      "impressions": 48,
+      "ctr": 0.020833333333333332,
+      "position": 15.9375
+    },
+    {
+      "keys": [
+        "sandbar kayak"
+      ],
+      "clicks": 1,
+      "impressions": 98,
+      "ctr": 0.01020408163265306,
+      "position": 12.714285714285714
+    },
+    {
+      "keys": [
+        "sea kayak rental"
+      ],
+      "clicks": 1,
+      "impressions": 9,
+      "ctr": 0.1111111111111111,
+      "position": 19.555555555555557
+    },
+    {
+      "keys": [
+        "shark cove oahu snorkeling"
+      ],
+      "clicks": 1,
+      "impressions": 75,
+      "ctr": 0.013333333333333334,
+      "position": 9.48
+    },
+    {
+      "keys": [
+        "shark cove snorkel"
+      ],
+      "clicks": 1,
+      "impressions": 55,
+      "ctr": 0.018181818181818181,
+      "position": 3.5090909090909093
+    },
+    {
+      "keys": [
+        "shark's cove oahu snorkeling"
+      ],
+      "clicks": 1,
+      "impressions": 32,
+      "ctr": 0.03125,
+      "position": 10.5625
+    },
+    {
+      "keys": [
+        "sharks cove hawaii"
+      ],
+      "clicks": 1,
+      "impressions": 670,
+      "ctr": 0.0014925373134328358,
+      "position": 5.991044776119403
+    },
+    {
+      "keys": [
+        "snorkel at sharks cove"
+      ],
+      "clicks": 1,
+      "impressions": 45,
+      "ctr": 0.022222222222222223,
+      "position": 7.6444444444444448
+    },
+    {
+      "keys": [
+        "snorkel equipment rental oahu"
+      ],
+      "clicks": 1,
+      "impressions": 7,
+      "ctr": 0.14285714285714285,
+      "position": 12.571428571428571
+    },
+    {
+      "keys": [
+        "snorkel gear rental oahu"
+      ],
+      "clicks": 1,
+      "impressions": 55,
+      "ctr": 0.018181818181818181,
+      "position": 6.6727272727272728
+    },
+    {
+      "keys": [
+        "snorkel oahu"
+      ],
+      "clicks": 1,
+      "impressions": 153,
+      "ctr": 0.0065359477124183009,
+      "position": 16.947712418300654
+    },
+    {
+      "keys": [
+        "snorkel on oahu"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 1
+    },
+    {
+      "keys": [
+        "snorkel rental"
+      ],
+      "clicks": 1,
+      "impressions": 69,
+      "ctr": 0.014492753623188406,
+      "position": 27.188405797101449
+    },
+    {
+      "keys": [
+        "snorkel rental north shore"
+      ],
+      "clicks": 1,
+      "impressions": 39,
+      "ctr": 0.02564102564102564,
+      "position": 17.46153846153846
+    },
+    {
+      "keys": [
+        "snorkel rentals oahu"
+      ],
+      "clicks": 1,
+      "impressions": 45,
+      "ctr": 0.022222222222222223,
+      "position": 6.3555555555555552
+    },
+    {
+      "keys": [
+        "snorkeling at shark's cove oahu"
+      ],
+      "clicks": 1,
+      "impressions": 9,
+      "ctr": 0.1111111111111111,
+      "position": 3.6666666666666665
+    },
+    {
+      "keys": [
+        "snorkeling electric beach"
+      ],
+      "clicks": 1,
+      "impressions": 15,
+      "ctr": 0.066666666666666666,
+      "position": 13.133333333333333
+    },
+    {
+      "keys": [
+        "snorkeling north shore"
+      ],
+      "clicks": 1,
+      "impressions": 18,
+      "ctr": 0.055555555555555552,
+      "position": 11.888888888888889
+    },
+    {
+      "keys": [
+        "stand up paddle tour"
+      ],
+      "clicks": 1,
+      "impressions": 17,
+      "ctr": 0.058823529411764705,
+      "position": 12.058823529411764
+    },
+    {
+      "keys": [
+        "sup rental near me"
+      ],
+      "clicks": 1,
+      "impressions": 11,
+      "ctr": 0.090909090909090912,
+      "position": 26.09090909090909
+    },
+    {
+      "keys": [
+        "twin islands"
+      ],
+      "clicks": 1,
+      "impressions": 27,
+      "ctr": 0.037037037037037035,
+      "position": 17.666666666666668
+    },
+    {
+      "keys": [
+        "used beach chairs for sale near me"
+      ],
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 6
+    },
+    {
+      "keys": [
+        "waterproof bag"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 10
+    },
+    {
+      "keys": [
+        "waters of kailua"
+      ],
+      "clicks": 1,
+      "impressions": 24,
+      "ctr": 0.041666666666666664,
+      "position": 8.3333333333333321
+    },
+    {
+      "keys": [
+        "ちゃいなマンズハット"
+      ],
+      "clicks": 1,
+      "impressions": 82,
+      "ctr": 0.012195121951219513,
+      "position": 6.8658536585365857
+    },
+    {
+      "keys": [
+        "らにかいぴるぼっくす"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 2
+    },
+    {
+      "keys": [
+        "カイルア レンタサイクル"
+      ],
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 24.8
+    },
+    {
+      "keys": [
+        "カハナ"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 1
+    },
+    {
+      "keys": [
+        "シャークスコーブ シュノーケル"
+      ],
+      "clicks": 1,
+      "impressions": 46,
+      "ctr": 0.021739130434782608,
+      "position": 3.1956521739130435
+    },
+    {
+      "keys": [
+        "チャイナマンズハット"
+      ],
+      "clicks": 1,
+      "impressions": 78,
+      "ctr": 0.01282051282051282,
+      "position": 11.576923076923077
+    },
+    {
+      "keys": [
+        "ノースショア"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 6
+    },
+    {
+      "keys": [
+        "ノースショア サーフィン"
+      ],
+      "clicks": 1,
+      "impressions": 17,
+      "ctr": 0.058823529411764705,
+      "position": 15.647058823529411
+    },
+    {
+      "keys": [
+        "ワイキキ シュノーケリング レンタル"
+      ],
+      "clicks": 1,
+      "impressions": 24,
+      "ctr": 0.041666666666666664,
+      "position": 3.875
+    },
+    {
+      "keys": [
+        "ワイキキビーチ パラソル レンタル"
+      ],
+      "clicks": 1,
+      "impressions": 16,
+      "ctr": 0.0625,
+      "position": 10.6875
+    },
+    {
+      "keys": [
+        "\"active view selector: fast and accurate active view selection with cross reference image quality assessment\""
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2.333333333333333
+    },
+    {
+      "keys": [
+        "\"burning sands\" \"hawaiian tour\" \"basic equipment\""
+      ],
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 9.481481481481481
+    },
+    {
+      "keys": [
+        "\"dead man's catwalk\" hawaii location island"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "\"malibu\" vacation rental \"book direct\" -site:airbnb.com -site:vrbo.com -site:expedia.com -site:booking.com"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "keys": [
+        "\"oahu\" vacation rental \"book direct\" -site:airbnb.com -site:vrbo.com -site:expedia.com -site:booking.com"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 85
+    },
+    {
+      "keys": [
+        "\"ship dowson\" \"captain bruce\""
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "\"surf &amp; earn\" ton promo code"
+      ],
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 6.1875
+    },
+    {
+      "keys": [
+        "\"surf hnl\" \"honolulu\""
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "#lanikaibeach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "keys": [
+        "'beach chair rentals near me'"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 45.2
+    },
+    {
+      "keys": [
+        "'beach umbrella rentals near me'"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 53.428571428571431
+    },
+    {
+      "keys": [
+        "-comments \"kayak\" and (\"traveling\" or \"hotel\" or \"travel\" or \"website\" or \"flights\" or \"rental\")"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "keys": [
+        "-posts \"kayak\" and (\"traveling\" or \"hotel\" or \"travel\" or \"website\" or \"flights\" or \"rental\")"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "-vidoes -posts -reels \"kayak\" and (\"traveling\" or \"hotel\" or \"travel\" or \"website\" or \"flights\" or \"rental\")"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "130 kailua rd"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 34.5
+    },
+    {
+      "keys": [
+        "130 kailua road"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "2 man canoe for sale"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "2 people"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "2 person kayak near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 15.5
+    },
+    {
+      "keys": [
+        "2 person kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 40.2
+    },
+    {
+      "keys": [
+        "2 person kayak rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 31.25
+    },
+    {
+      "keys": [
+        "2日間"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "3 days"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "3 person kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 17.4
+    },
+    {
+      "keys": [
+        "3 tables beach"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12.5
+    },
+    {
+      "keys": [
+        "3 tables beach hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 36
+    },
+    {
+      "keys": [
+        "3 tables beach oahu"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 38.142857142857146
+    },
+    {
+      "keys": [
+        "808 bounce coupons"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "\u003cprivate_address\u003e hotel email"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "a boogie board"
+      ],
+      "clicks": 0,
+      "impressions": 66,
+      "ctr": 0,
+      "position": 3.606060606060606
+    },
+    {
+      "keys": [
+        "a day away kayak rentals"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 29.1
+    },
+    {
+      "keys": [
+        "a day away kayak tour"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "a day away kayak tours"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "keys": [
+        "a day away kayak tours reviews"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 23
+    },
+    {
+      "keys": [
+        "a short adventure kayaking rentals"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "a1a beach rentals and outdoor center"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "accessible beaches near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "acive"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 3.25
+    },
+    {
+      "keys": [
+        "actitve"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "active"
+      ],
+      "clicks": 0,
+      "impressions": 86,
+      "ctr": 0,
+      "position": 3.6279069767441858
+    },
+    {
+      "keys": [
+        "active access hire"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "active adventures"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "active adventures reviews"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 19.142857142857142
+    },
+    {
+      "keys": [
+        "active campaing"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "active hi"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "active leadgen llc"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "active life"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "active mlb career hits leaders 2026"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "active oahu tours ライエ"
+      ],
+      "clicks": 0,
+      "impressions": 216,
+      "ctr": 0,
+      "position": 12.62962962962963
+    },
+    {
+      "keys": [
+        "active play twirl dress manufacturer"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "active pool"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "active rent a car official website"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "active rental"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "active ride"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "active ride shop"
+      ],
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 5.666666666666667
+    },
+    {
+      "keys": [
+        "active spinal & sports care, inc."
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "active sports"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "active things to do"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "active waters"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "active winner () reviews"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "activities honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 99
+    },
+    {
+      "keys": [
+        "activities to do in hawaii oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "activities to do in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "activities to do in oahu hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "activities to do in the rainforest"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "activity shop"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 58
+    },
+    {
+      "keys": [
+        "activr"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "activve"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "activw"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "acttive"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "actuve"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3.5
+    },
+    {
+      "keys": [
+        "actvie"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "adventure"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "adventure in hawaii reviews"
+      ],
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 4.8695652173913047
+    },
+    {
+      "keys": [
+        "adventure kayak"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "adventure oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 60
+    },
+    {
+      "keys": [
+        "adventure sports near me"
+      ],
+      "clicks": 0,
+      "impressions": 91,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "affordable guided kayak adventures"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "ahu o laka"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 34
+    },
+    {
+      "keys": [
+        "ahu o laka sandbar"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "akua moku isla"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "ala moana beach snorkeling"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "ali'i adventures"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 85.5
+    },
+    {
+      "keys": [
+        "ali'i adventures hawaii reviews"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "ali'i adventures hawaii tripadvisor rating"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "ali'i kayaks"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 60.25
+    },
+    {
+      "keys": [
+        "alii adventures"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 41.75
+    },
+    {
+      "keys": [
+        "alii adventures hawaii reviews rating"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10.666666666666666
+    },
+    {
+      "keys": [
+        "alii kayak"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 48.333333333333336
+    },
+    {
+      "keys": [
+        "all clad kayak review"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10.666666666666666
+    },
+    {
+      "keys": [
+        "all clad kayak review 2024"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "aloha beach chair"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "aloha kai 50 rental pros"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 87.333333333333329
+    },
+    {
+      "keys": [
+        "aloha kayak"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 28.727272727272727
+    },
+    {
+      "keys": [
+        "aloha kayak co. ホナロ"
+      ],
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 8.1875
+    },
+    {
+      "keys": [
+        "ambush adventures kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "anahulu river kayak"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 64.4
+    },
+    {
+      "keys": [
+        "anahulu river kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 50.2
+    },
+    {
+      "keys": [
+        "anahulu river kayaking"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 57
+    },
+    {
+      "keys": [
+        "anahulu river paddle board"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 68.333333333333329
+    },
+    {
+      "keys": [
+        "anchor rental"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "anchors up adventures"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "keys": [
+        "anclote key sandbar"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2.666666666666667
+    },
+    {
+      "keys": [
+        "anclote sandbar"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "anclote sandbar fl"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "and the price"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "and their photos"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 97
+    },
+    {
+      "keys": [
+        "and there cost"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "any sharks"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "apartments in kailua oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 21
+    },
+    {
+      "keys": [
+        "are there sea turtles"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "are there sharks at sharks cove oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "are there sharks in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 46.333333333333336
+    },
+    {
+      "keys": [
+        "are there sharks in sharks cove"
+      ],
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 2.5333333333333332
+    },
+    {
+      "keys": [
+        "are there sharks in sharks cove oahu"
+      ],
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 6.0666666666666664
+    },
+    {
+      "keys": [
+        "are there vacation rentals available near the beach in north shore, hawaii?"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 24.5
+    },
+    {
+      "keys": [
+        "atlantic rainforest kayaking tour"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 54.5
+    },
+    {
+      "keys": [
+        "atv rentals oahu"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 72.25
+    },
+    {
+      "keys": [
+        "atv rentals oahu hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "awa kayak tours"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 37.142857142857146
+    },
+    {
+      "keys": [
+        "baby beach equipment rental oahu"
+      ],
+      "clicks": 0,
+      "impressions": 121,
+      "ctr": 0,
+      "position": 10.900826446280991
+    },
+    {
+      "keys": [
+        "baby equipment rental pupukea"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9.5
+    },
+    {
+      "keys": [
+        "baby gear rental pupukea"
+      ],
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 9.117647058823529
+    },
+    {
+      "keys": [
+        "backpack storage honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 38
+    },
+    {
+      "keys": [
+        "bar on beach near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "bay kayak"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "bay of islands kayak hire"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "bay side adventures"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "keys": [
+        "bayside kayak rentals"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 12.4
+    },
+    {
+      "keys": [
+        "bde maka ska kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 67
+    },
+    {
+      "keys": [
+        "beach adventures"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "beach and chairs"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "keys": [
+        "beach bike rentals"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 8.8
+    },
+    {
+      "keys": [
+        "beach boogie"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "keys": [
+        "beach boogie board"
+      ],
+      "clicks": 0,
+      "impressions": 130,
+      "ctr": 0,
+      "position": 17.530769230769231
+    },
+    {
+      "keys": [
+        "beach boogie boards"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 24.4
+    },
+    {
+      "keys": [
+        "beach chair and umbrella rental"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "beach chair and umbrella rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "beach chair and umbrella rentals"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 4.6666666666666661
+    },
+    {
+      "keys": [
+        "beach chair and umbrella rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 10.8125
+    },
+    {
+      "keys": [
+        "beach chair companies"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 60
+    },
+    {
+      "keys": [
+        "beach chair delivery"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 60.5
+    },
+    {
+      "keys": [
+        "beach chair in sand"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 12.285714285714286
+    },
+    {
+      "keys": [
+        "beach chair rental"
+      ],
+      "clicks": 0,
+      "impressions": 59,
+      "ctr": 0,
+      "position": 36.711864406779661
+    },
+    {
+      "keys": [
+        "beach chair rental fort myers beach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 84
+    },
+    {
+      "keys": [
+        "beach chair rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 6.25
+    },
+    {
+      "keys": [
+        "beach chair rental prices"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "beach chair rental waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 143,
+      "ctr": 0,
+      "position": 50.41958041958042
+    },
+    {
+      "keys": [
+        "beach chair rentals"
+      ],
+      "clicks": 0,
+      "impressions": 68,
+      "ctr": 0,
+      "position": 21.470588235294116
+    },
+    {
+      "keys": [
+        "beach chair rentals amelia island"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "beach chair rentals fort myers beach"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 82
+    },
+    {
+      "keys": [
+        "beach chair rentals fort myers beach florida"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 87
+    },
+    {
+      "keys": [
+        "beach chair rentals honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "beach chair rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 243,
+      "ctr": 0,
+      "position": 8.54732510288066
+    },
+    {
+      "keys": [
+        "beach chair rentals waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 46.2
+    },
+    {
+      "keys": [
+        "beach chair umbrella rental"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 67
+    },
+    {
+      "keys": [
+        "beach chair umbrella rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "beach chairs and umbrella rental"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "beach chairs and umbrella rental honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "beach chairs and umbrella rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "beach chairs for rent"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 38.4
+    },
+    {
+      "keys": [
+        "beach chairs for rent near me"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 17.5
+    },
+    {
+      "keys": [
+        "beach chairs for sale near me"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 15.25
+    },
+    {
+      "keys": [
+        "beach chairs hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "beach chairs in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 24
+    },
+    {
+      "keys": [
+        "beach chairs near me"
+      ],
+      "clicks": 0,
+      "impressions": 136,
+      "ctr": 0,
+      "position": 7.2205882352941178
+    },
+    {
+      "keys": [
+        "beach chairs on beach"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 12.8
+    },
+    {
+      "keys": [
+        "beach chairs on the beach"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "beach chairs rental"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "beach chairs rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 55
+    },
+    {
+      "keys": [
+        "beach chairs rentals"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 37.6
+    },
+    {
+      "keys": [
+        "beach chairs rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 5.166666666666667
+    },
+    {
+      "keys": [
+        "beach chairs waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "beach cooler rentals"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 22.666666666666668
+    },
+    {
+      "keys": [
+        "beach cruiser rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "beach electric"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4.5
+    },
+    {
+      "keys": [
+        "beach equipment rental"
+      ],
+      "clicks": 0,
+      "impressions": 265,
+      "ctr": 0,
+      "position": 6.3547169811320758
+    },
+    {
+      "keys": [
+        "beach equipment rental honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 86,
+      "ctr": 0,
+      "position": 6.5697674418604652
+    },
+    {
+      "keys": [
+        "beach equipment rental kahuku"
+      ],
+      "clicks": 0,
+      "impressions": 65,
+      "ctr": 0,
+      "position": 6.8461538461538458
+    },
+    {
+      "keys": [
+        "beach equipment rental kailua"
+      ],
+      "clicks": 0,
+      "impressions": 81,
+      "ctr": 0,
+      "position": 3.382716049382716
+    },
+    {
+      "keys": [
+        "beach equipment rental kapolei"
+      ],
+      "clicks": 0,
+      "impressions": 70,
+      "ctr": 0,
+      "position": 7.4428571428571431
+    },
+    {
+      "keys": [
+        "beach equipment rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 32.75
+    },
+    {
+      "keys": [
+        "beach equipment rental oahu"
+      ],
+      "clicks": 0,
+      "impressions": 341,
+      "ctr": 0,
+      "position": 6.5601173020527863
+    },
+    {
+      "keys": [
+        "beach equipment rental pupukea"
+      ],
+      "clicks": 0,
+      "impressions": 80,
+      "ctr": 0,
+      "position": 6.3625
+    },
+    {
+      "keys": [
+        "beach equipment rentals"
+      ],
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0,
+      "position": 15.692307692307692
+    },
+    {
+      "keys": [
+        "beach equipment rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 5.3529411764705879
+    },
+    {
+      "keys": [
+        "beach equipment rentals waialua"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 18.222222222222221
+    },
+    {
+      "keys": [
+        "beach equipment rentals waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 46.8
+    },
+    {
+      "keys": [
+        "beach gear meaning"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 19.5
+    },
+    {
+      "keys": [
+        "beach gear rental"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 8.3076923076923066
+    },
+    {
+      "keys": [
+        "beach gear rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 31.2
+    },
+    {
+      "keys": [
+        "beach gear rentals"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 6.7
+    },
+    {
+      "keys": [
+        "beach gear rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 7.0740740740740744
+    },
+    {
+      "keys": [
+        "beach hire"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "beach in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "keys": [
+        "beach in kailua"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 3.2857142857142856
+    },
+    {
+      "keys": [
+        "beach kailua"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 10.285714285714286
+    },
+    {
+      "keys": [
+        "beach kayak"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 11.666666666666666
+    },
+    {
+      "keys": [
+        "beach kayaking"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "beach kayaking near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "beach lanikai"
+      ],
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 19.148148148148149
+    },
+    {
+      "keys": [
+        "beach lounge chairs near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "beach lounger near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "beach near me"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9.3333333333333339
+    },
+    {
+      "keys": [
+        "beach near me now"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "beach near me with chair rentals"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 33.75
+    },
+    {
+      "keys": [
+        "beach paddle board"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "beach paddles rental honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 59,
+      "ctr": 0,
+      "position": 17.881355932203391
+    },
+    {
+      "keys": [
+        "beach parasol near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "beach park near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "beach parks near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "beach rental chairs"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "beach rental chairs near me"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 12.5
+    },
+    {
+      "keys": [
+        "beach rental equipment"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9.6666666666666661
+    },
+    {
+      "keys": [
+        "beach rental equipment waialua"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 19.692307692307693
+    },
+    {
+      "keys": [
+        "beach rental umbrella"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "beach rentals oahu hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "beach rentals that include water sports gear"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10.666666666666666
+    },
+    {
+      "keys": [
+        "beach rentals waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 72.142857142857139
+    },
+    {
+      "keys": [
+        "beach service near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "beach services near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "beach set up"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "beach setup service"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 18
+    },
+    {
+      "keys": [
+        "beach shade rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "beach shelter"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "beach snorkel"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "beach stuhl"
+      ],
+      "clicks": 0,
+      "impressions": 72,
+      "ctr": 0,
+      "position": 17.333333333333332
+    },
+    {
+      "keys": [
+        "beach tent rentals"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 11.75
+    },
+    {
+      "keys": [
+        "beach tent rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4.5
+    },
+    {
+      "keys": [
+        "beach tent rentals pawleys island"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "beach towel rental"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "beach towel rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "keys": [
+        "beach umbrella and chair rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "keys": [
+        "beach umbrella for rent"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 49.777777777777779
+    },
+    {
+      "keys": [
+        "beach umbrella hire"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 67
+    },
+    {
+      "keys": [
+        "beach umbrella near"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "beach umbrella near me"
+      ],
+      "clicks": 0,
+      "impressions": 214,
+      "ctr": 0,
+      "position": 19.060747663551403
+    },
+    {
+      "keys": [
+        "beach umbrella rental"
+      ],
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0,
+      "position": 23
+    },
+    {
+      "keys": [
+        "beach umbrella rental honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 68,
+      "ctr": 0,
+      "position": 13.455882352941176
+    },
+    {
+      "keys": [
+        "beach umbrella rental waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 17.571428571428573
+    },
+    {
+      "keys": [
+        "beach umbrella rentals"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 29.333333333333332
+    },
+    {
+      "keys": [
+        "beach umbrella rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 38.421052631578945
+    },
+    {
+      "keys": [
+        "beach umbrellas for sale near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 31.5
+    },
+    {
+      "keys": [
+        "beach umbrellas hawaiian large"
+      ],
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "keys": [
+        "beach umbrellas near me"
+      ],
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 23.85
+    },
+    {
+      "keys": [
+        "beach unbrella near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "beach wagon rentals"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 53.666666666666664
+    },
+    {
+      "keys": [
+        "beach wagon rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 52.857142857142854
+    },
+    {
+      "keys": [
+        "beach wagons near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "beach wheelchair rental"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "keys": [
+        "beach with chair"
+      ],
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 1.625
+    },
+    {
+      "keys": [
+        "beach with chairs"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "beach with umbrella"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "keys": [
+        "beach with umbrella rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 19.5
+    },
+    {
+      "keys": [
+        "beach with umbrellas near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "beach+chair+rentals+stone+harbor"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 64.666666666666657
+    },
+    {
+      "keys": [
+        "beach+umbrella+rentals+stone+harbor"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 64
+    },
+    {
+      "keys": [
+        "beaches in kailua"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 33.5
+    },
+    {
+      "keys": [
+        "beaches in kailua hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "beaches in kailua oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "beaches in kaneohe"
+      ],
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "beaches in kona"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "keys": [
+        "beaches in kona hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "beaches in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "beaches in oahu map"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "beaches kailua"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "beaches kona hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "beaches near kailua kona"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "keys": [
+        "beaches near kaneohe"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "beaches near me"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 13.5
+    },
+    {
+      "keys": [
+        "beaches near me with chair rentals"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 55.5
+    },
+    {
+      "keys": [
+        "beaches oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "beaches with chair rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 55.333333333333336
+    },
+    {
+      "keys": [
+        "beaches with umbrella rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 34.75
+    },
+    {
+      "keys": [
+        "beachs"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "beautiful beaches in usa"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "keys": [
+        "beginner surf lessons oahu"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 52.5
+    },
+    {
+      "keys": [
+        "beginner tandem kayak"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "bellows beach oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "best beach big island"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "best beach chair rental waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "best beach chairs near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "best beach for snorkeling in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 51.333333333333336
+    },
+    {
+      "keys": [
+        "best beach for snorkeling near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 56
+    },
+    {
+      "keys": [
+        "best beach for snorkeling oahu"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 39.666666666666664
+    },
+    {
+      "keys": [
+        "best beach in kailua"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "best beach in kona"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "best beach in kona hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "best beach in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "best beach in oahu for snorkeling"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 59.5
+    },
+    {
+      "keys": [
+        "best beach near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best beach to boogie board near me"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "keys": [
+        "best beach to snorkel in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 51.5
+    },
+    {
+      "keys": [
+        "best beaches for snorkeling in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 59
+    },
+    {
+      "keys": [
+        "best beaches for snorkeling in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 41.75
+    },
+    {
+      "keys": [
+        "best beaches for snorkeling oahu"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 32.75
+    },
+    {
+      "keys": [
+        "best beaches in hawaii for snorkeling"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 68.4
+    },
+    {
+      "keys": [
+        "best beaches in kailua"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "best beaches in kona"
+      ],
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0,
+      "position": 9.7027027027027035
+    },
+    {
+      "keys": [
+        "best beaches in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 4.3333333333333339
+    },
+    {
+      "keys": [
+        "best beaches in oahu for snorkeling"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best beaches near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best beaches on kona"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "best boogie boarding beaches in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 22.75
+    },
+    {
+      "keys": [
+        "best boogie boarding big island"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "keys": [
+        "best boogie boarding near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "best boogie boarding oahu"
+      ],
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0,
+      "position": 5.0526315789473681
+    },
+    {
+      "keys": [
+        "best cafes for river paddling"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 7.75
+    },
+    {
+      "keys": [
+        "best family beaches hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "best for snorkeling"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "best free snorkeling in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "best hawaii island for snorkeling"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 78.8
+    },
+    {
+      "keys": [
+        "best hawaiian island for snorkeling"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 83.714285714285708
+    },
+    {
+      "keys": [
+        "best hawaiian island to snorkel"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 84.5
+    },
+    {
+      "keys": [
+        "best hikes on oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best kaneohe sandbar tour"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 3.6
+    },
+    {
+      "keys": [
+        "best kayak for renters"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best kayak rentals"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "best kayak rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "best kayak spots near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "keys": [
+        "best kayak tours near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "best kayaking in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 5.7777777777777777
+    },
+    {
+      "keys": [
+        "best kayaking near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best kayaking oahu"
+      ],
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 6.9534883720930232
+    },
+    {
+      "keys": [
+        "best local beaches"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "keys": [
+        "best oahu tours"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "best place for snorkeling in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "keys": [
+        "best place for snorkeling in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 40.666666666666664
+    },
+    {
+      "keys": [
+        "best place to boogie board near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best place to go snorkeling in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 68.75
+    },
+    {
+      "keys": [
+        "best place to snorkel in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "keys": [
+        "best place to snorkel in hawaii for beginners"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best place to snorkel in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 49,
+      "ctr": 0,
+      "position": 39.612244897959187
+    },
+    {
+      "keys": [
+        "best place to snorkel in oahu hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 43.5
+    },
+    {
+      "keys": [
+        "best place to snorkel oahu"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 45.666666666666664
+    },
+    {
+      "keys": [
+        "best place to snorkel on oahu"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 38.875
+    },
+    {
+      "keys": [
+        "best place to surf in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "keys": [
+        "best places for snorkeling in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 75.333333333333329
+    },
+    {
+      "keys": [
+        "best places for snorkeling in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 42
+    },
+    {
+      "keys": [
+        "best places to go snorkeling in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "best places to hike in the us"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "best places to kayak near me"
+      ],
+      "clicks": 0,
+      "impressions": 705,
+      "ctr": 0,
+      "position": 9.77304964539007
+    },
+    {
+      "keys": [
+        "best places to snorkel"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "best places to snorkel in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 49.769230769230766
+    },
+    {
+      "keys": [
+        "best places to snorkel in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 67,
+      "ctr": 0,
+      "position": 36.492537313432834
+    },
+    {
+      "keys": [
+        "best places to snorkel in oahu hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 52.7
+    },
+    {
+      "keys": [
+        "best places to snorkel oahu"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 41.222222222222221
+    },
+    {
+      "keys": [
+        "best places to snorkel on oahu"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 36.142857142857146
+    },
+    {
+      "keys": [
+        "best places to sup hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 39.666666666666664
+    },
+    {
+      "keys": [
+        "best places to sup near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "best places to work from near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 48
+    },
+    {
+      "keys": [
+        "best snorkel oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "best snorkel spots oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "best snorkeling"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best snorkeling beach in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 37.333333333333336
+    },
+    {
+      "keys": [
+        "best snorkeling beach near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 56
+    },
+    {
+      "keys": [
+        "best snorkeling beaches in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 66.75
+    },
+    {
+      "keys": [
+        "best snorkeling beaches in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 45.285714285714285
+    },
+    {
+      "keys": [
+        "best snorkeling beaches oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "best snorkeling beaches on oahu"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 52.375
+    },
+    {
+      "keys": [
+        "best snorkeling honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best snorkeling in hawaii for beginners"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 68.666666666666671
+    },
+    {
+      "keys": [
+        "best snorkeling in hawaii islands"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 76.4
+    },
+    {
+      "keys": [
+        "best snorkeling in hawaii oahu"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 39.230769230769234
+    },
+    {
+      "keys": [
+        "best snorkeling in hawaiian islands"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 82.5
+    },
+    {
+      "keys": [
+        "best snorkeling in honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "best snorkeling in honolulu hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 60.916666666666664
+    },
+    {
+      "keys": [
+        "best snorkeling in north shore oahu"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 23.6
+    },
+    {
+      "keys": [
+        "best snorkeling in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 3.1666666666666665
+    },
+    {
+      "keys": [
+        "best snorkeling in oahu for beginners"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 47.571428571428569
+    },
+    {
+      "keys": [
+        "best snorkeling in oahu free"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 41.75
+    },
+    {
+      "keys": [
+        "best snorkeling in oahu hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 45.25
+    },
+    {
+      "keys": [
+        "best snorkeling in oahu north shore"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 22.5
+    },
+    {
+      "keys": [
+        "best snorkeling island in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 80.5
+    },
+    {
+      "keys": [
+        "best snorkeling kauai north shore"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "best snorkeling near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best snorkeling north shore kauai"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "keys": [
+        "best snorkeling north shore oahu"
+      ],
+      "clicks": 0,
+      "impressions": 41,
+      "ctr": 0,
+      "position": 24.414634146341463
+    },
+    {
+      "keys": [
+        "best snorkeling oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 6.666666666666667
+    },
+    {
+      "keys": [
+        "best snorkeling oahu north shore"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 42.333333333333336
+    },
+    {
+      "keys": [
+        "best snorkeling on oahu"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best snorkeling places in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "keys": [
+        "best snorkeling places in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 47.666666666666664
+    },
+    {
+      "keys": [
+        "best snorkeling spot in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 44.4
+    },
+    {
+      "keys": [
+        "best snorkeling spots in hawaii for beginners reddit"
+      ],
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 1.1052631578947367
+    },
+    {
+      "keys": [
+        "best snorkeling spots in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best snorkeling spots north shore oahu"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 14.2
+    },
+    {
+      "keys": [
+        "best snorkeling spots oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best snorkeling tour in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 46.611111111111114
+    },
+    {
+      "keys": [
+        "best snorkeling tours in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 44.571428571428569
+    },
+    {
+      "keys": [
+        "best snorkeling tours near me"
+      ],
+      "clicks": 0,
+      "impressions": 189,
+      "ctr": 0,
+      "position": 63.820105820105823
+    },
+    {
+      "keys": [
+        "best spot to paddle board near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "best spots to snorkel in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best surf lessons north shore oahu"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 34.7
+    },
+    {
+      "keys": [
+        "best surf lessons on oahu"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 62.2
+    },
+    {
+      "keys": [
+        "best surfing north shore oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "keys": [
+        "best things to do in kona"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "best things to do in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2.666666666666667
+    },
+    {
+      "keys": [
+        "best things to do in oahu hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best things to do on oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best time to go to lanikai beach mornign"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "keys": [
+        "best time to visit lanikai beach"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 41
+    },
+    {
+      "keys": [
+        "best wailua river kayak tour"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "keys": [
+        "best water activities oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "best way to transport a kayak"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "keys": [
+        "bicycle rental oahu"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 25.833333333333332
+    },
+    {
+      "keys": [
+        "bicycle rental service"
+      ],
+      "clicks": 0,
+      "impressions": 57,
+      "ctr": 0,
+      "position": 113.28070175438596
+    },
+    {
+      "keys": [
+        "bicycle rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4.5
+    },
+    {
+      "keys": [
+        "bicycle shop kailua"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 24.5
+    },
+    {
+      "keys": [
+        "bicycle shop oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "bicycle store"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "keys": [
+        "big 5"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 1.6
+    },
+    {
+      "keys": [
+        "big beach umbrella near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "big island electric bike rentals in kona"
+      ],
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 61.674418604651166
+    },
+    {
+      "keys": [
+        "big island hawaii beach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "big island kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 56
+    },
+    {
+      "keys": [
+        "bike and kayak tour"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 34.333333333333336
+    },
+    {
+      "keys": [
+        "bike and kayak tours"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 30.444444444444443
+    },
+    {
+      "keys": [
+        "bike and kayak tours inc"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 45.285714285714285
+    },
+    {
+      "keys": [
+        "bike hike kayak"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 39.714285714285715
+    },
+    {
+      "keys": [
+        "bike hire near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "bike hire waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 65
+    },
+    {
+      "keys": [
+        "bike rental"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 5.666666666666667
+    },
+    {
+      "keys": [
+        "bike rental ainhoa"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 25.333333333333332
+    },
+    {
+      "keys": [
+        "bike rental hawaii oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "bike rental kailua kona"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 42.1
+    },
+    {
+      "keys": [
+        "bike rental kailua oahu"
+      ],
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 11.714285714285714
+    },
+    {
+      "keys": [
+        "bike rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 7.2857142857142856
+    },
+    {
+      "keys": [
+        "bike rental north shore oahu"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 51.666666666666664
+    },
+    {
+      "keys": [
+        "bike rental oahu"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 20.333333333333332
+    },
+    {
+      "keys": [
+        "bike rental options"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "bike rental place near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "bike rentals"
+      ],
+      "clicks": 0,
+      "impressions": 44,
+      "ctr": 0,
+      "position": 9.3863636363636367
+    },
+    {
+      "keys": [
+        "bike rentals hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "bike rentals in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "bike rentals in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 21.428571428571427
+    },
+    {
+      "keys": [
+        "bike rentals kailua kona hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 55
+    },
+    {
+      "keys": [
+        "bike rentals north shore oahu"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 52.142857142857146
+    },
+    {
+      "keys": [
+        "bike rentals oahu"
+      ],
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 22.5
+    },
+    {
+      "keys": [
+        "bike rentals waialua"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 19.8
+    },
+    {
+      "keys": [
+        "bike shop in kailua"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 28.75
+    },
+    {
+      "keys": [
+        "bike shop kailua"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 26.666666666666668
+    },
+    {
+      "keys": [
+        "bike shop kailua oahu"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 21
+    },
+    {
+      "keys": [
+        "bike shop near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "keys": [
+        "bike shops in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "bike store"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "bike store kailua"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 24
+    },
+    {
+      "keys": [
+        "bike stores"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 25
+    },
+    {
+      "keys": [
+        "bikes for rent near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "biking in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "bile rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "billys beach service"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "bird island oahu"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "blow up paddle board near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "board beach"
+      ],
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0,
+      "position": 24.44736842105263
+    },
+    {
+      "keys": [
+        "board hire"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 65.75
+    },
+    {
+      "keys": [
+        "board rental"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 38.6
+    },
+    {
+      "keys": [
+        "board rental waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "keys": [
+        "board rentals"
+      ],
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 29.533333333333335
+    },
+    {
+      "keys": [
+        "board rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 43.545454545454547
+    },
+    {
+      "keys": [
+        "board rentals waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "keys": [
+        "board shore"
+      ],
+      "clicks": 0,
+      "impressions": 26,
+      "ctr": 0,
+      "position": 1.0769230769230769
+    },
+    {
+      "keys": [
+        "boarding house"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "boat rental kaneohe bay"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 19.4
+    },
+    {
+      "keys": [
+        "boat rental kaneohe sandbar"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 23
+    },
+    {
+      "keys": [
+        "boat rental oahu"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 65.2
+    },
+    {
+      "keys": [
+        "boat rentals in oahu hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 66
+    },
+    {
+      "keys": [
+        "boat rentals oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 58
+    },
+    {
+      "keys": [
+        "boat tours to kaneohe sandbar"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 51
+    },
+    {
+      "keys": [
+        "body board beach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "keys": [
+        "body board hire"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "body board rental"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 26.777777777777779
+    },
+    {
+      "keys": [
+        "body board rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 48.285714285714285
+    },
+    {
+      "keys": [
+        "body board rentals"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 21
+    },
+    {
+      "keys": [
+        "body board rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 19.695652173913043
+    },
+    {
+      "keys": [
+        "body boards near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "bodyboard beach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "keys": [
+        "bodyboard rental"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 37.666666666666664
+    },
+    {
+      "keys": [
+        "bodyboard rentals"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 14.6
+    },
+    {
+      "keys": [
+        "bodyboard rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 18.666666666666668
+    },
+    {
+      "keys": [
+        "bodyboarding in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 35.5
+    },
+    {
+      "keys": [
+        "bodyboarding sandy beach oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "bogey boarding"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boggie board"
+      ],
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 7.5882352941176467
+    },
+    {
+      "keys": [
+        "boggie boarding"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 5.6
+    },
+    {
+      "keys": [
+        "boggie boards"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 22.666666666666668
+    },
+    {
+      "keys": [
+        "boggie bord"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boggie bored"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 18.5
+    },
+    {
+      "keys": [
+        "boggy board"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "bogie board"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 21.6
+    },
+    {
+      "keys": [
+        "bogie boarding"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boodie board"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "keys": [
+        "boogey board"
+      ],
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogey boarding"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogey boards"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 41.5
+    },
+    {
+      "keys": [
+        "boogeyboard"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogi board"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "boogie baord"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "boogie biard"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 54
+    },
+    {
+      "keys": [
+        "boogie boa"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "keys": [
+        "boogie boaed"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie boar"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie board"
+      ],
+      "clicks": 0,
+      "impressions": 3146,
+      "ctr": 0,
+      "position": 17.013032422123331
+    },
+    {
+      "keys": [
+        "boogie board at the beach"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 16.333333333333336
+    },
+    {
+      "keys": [
+        "boogie board beach"
+      ],
+      "clicks": 0,
+      "impressions": 159,
+      "ctr": 0,
+      "position": 17.547169811320753
+    },
+    {
+      "keys": [
+        "boogie board beach near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "boogie board for beach"
+      ],
+      "clicks": 0,
+      "impressions": 117,
+      "ctr": 0,
+      "position": 24.307692307692307
+    },
+    {
+      "keys": [
+        "boogie board for the beach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "boogie board hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 29,
+      "ctr": 0,
+      "position": 14.96551724137931
+    },
+    {
+      "keys": [
+        "boogie board hire near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "boogie board images"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie board near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 43
+    },
+    {
+      "keys": [
+        "boogie board nearby"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 33.625
+    },
+    {
+      "keys": [
+        "boogie board on beach"
+      ],
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie board on the beach"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 2.2727272727272725
+    },
+    {
+      "keys": [
+        "boogie board pics"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie board rental"
+      ],
+      "clicks": 0,
+      "impressions": 77,
+      "ctr": 0,
+      "position": 10.870129870129871
+    },
+    {
+      "keys": [
+        "boogie board rental honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 56,
+      "ctr": 0,
+      "position": 11.267857142857142
+    },
+    {
+      "keys": [
+        "boogie board rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0,
+      "position": 10.470588235294118
+    },
+    {
+      "keys": [
+        "boogie board rental waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0,
+      "position": 17.363636363636363
+    },
+    {
+      "keys": [
+        "boogie board rentals honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 72,
+      "ctr": 0,
+      "position": 7.0138888888888893
+    },
+    {
+      "keys": [
+        "boogie board rentals waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 13.117647058823529
+    },
+    {
+      "keys": [
+        "boogie board."
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie boarding"
+      ],
+      "clicks": 0,
+      "impressions": 266,
+      "ctr": 0,
+      "position": 10.548872180451127
+    },
+    {
+      "keys": [
+        "boogie boarding at the beach"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 23.666666666666668
+    },
+    {
+      "keys": [
+        "boogie boarding beaches near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "boogie boarding hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0,
+      "position": 14.636363636363637
+    },
+    {
+      "keys": [
+        "boogie boarding in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "keys": [
+        "boogie boarding near me"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 14.363636363636363
+    },
+    {
+      "keys": [
+        "boogie boarding waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "boogie boards"
+      ],
+      "clicks": 0,
+      "impressions": 837,
+      "ctr": 0,
+      "position": 25.707287933094385
+    },
+    {
+      "keys": [
+        "boogie boards beach"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "boogie boards for beach"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 20.636363636363637
+    },
+    {
+      "keys": [
+        "boogie boards near me"
+      ],
+      "clicks": 0,
+      "impressions": 87,
+      "ctr": 0,
+      "position": 10.74712643678161
+    },
+    {
+      "keys": [
+        "boogie boards nearby"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "boogie boars"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 8.4
+    },
+    {
+      "keys": [
+        "boogie boatd"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 10.75
+    },
+    {
+      "keys": [
+        "boogie boatds"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 34.5
+    },
+    {
+      "keys": [
+        "boogie borad"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie borading"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "boogie bord"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie bording"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie bosrd"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie bourd"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "boogie bowrd"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie kalama"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "boogie rental"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 29.6
+    },
+    {
+      "keys": [
+        "boogie. board"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie.board"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogie.boarding"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "boogieboard"
+      ],
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 25.785714285714285
+    },
+    {
+      "keys": [
+        "boogieboarding"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 6.4285714285714288
+    },
+    {
+      "keys": [
+        "boogieboards"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10.5
+    },
+    {
+      "keys": [
+        "boogir board"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "keys": [
+        "boogiw board"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "keys": [
+        "boogy board"
+      ],
+      "clicks": 0,
+      "impressions": 42,
+      "ctr": 0,
+      "position": 17.666666666666668
+    },
+    {
+      "keys": [
+        "boogy boarding"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 5.8
+    },
+    {
+      "keys": [
+        "boogy boards"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 30.4
+    },
+    {
+      "keys": [
+        "book chair waiki facebook"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 17.8
+    },
+    {
+      "keys": [
+        "book kayaking near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "boot rentals"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "boston to hawaii flights kayaktravel_and_tourism"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "boto beach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "bougie board"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "bounce"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 10.75
+    },
+    {
+      "keys": [
+        "bounce luggage cancellation policy"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "bounce luggage coupon code"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "bounce luggage promo code"
+      ],
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0,
+      "position": 21.772727272727273
+    },
+    {
+      "keys": [
+        "bounce luggage storage"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    },
+    {
+      "keys": [
+        "bounce luggage storage - kailua-kona"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.833333333333333
+    },
+    {
+      "keys": [
+        "bounce luggage storage honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 9.9166666666666661
+    },
+    {
+      "keys": [
+        "bounce luggage storage near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "bounce luggage storage promo code"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "bounce luggage storage waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 44,
+      "ctr": 0,
+      "position": 11.181818181818182
+    },
+    {
+      "keys": [
+        "bounce storage near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "breakaway excursions"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "keys": [
+        "bring me a kayak"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 65
+    },
+    {
+      "keys": [
+        "bring me a kayak maui"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "bringing own"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "brown water advisory oahu"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "buggie boards"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "buggy board beach"
+      ],
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 1.95
+    },
+    {
+      "keys": [
+        "buggy board for the beach"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "buggy boards for beach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "bus from waikiki to lanikai beach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "buy a beach umbrella near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 36
+    },
+    {
+      "keys": [
+        "buy beach chairs near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "keys": [
+        "buy beach umbrella near me"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "cage diving with sharks hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "camp hi canoe & kayak"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 70.75
+    },
+    {
+      "keys": [
+        "can i borrow your umbrella"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "keys": [
+        "can i find adventure travel packages in honolulu that include hiking and snorkeling tours?"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "can i have photos"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "can i kayak"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "can i rent a kayak near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "can i rent fishing equipment for multiple days, and what are the rates?"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "keys": [
+        "can i see an image of it"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 24
+    },
+    {
+      "keys": [
+        "can i see photo"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "can you rent beach chairs"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "can you rent snorkel gear at hanauma bay"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 57
+    },
+    {
+      "keys": [
+        "can you rent snorkel gear at trunk bay"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "keys": [
+        "can you show me a picture?"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "can you swim at lanikai beach"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "keys": [
+        "canoe"
+      ],
+      "clicks": 0,
+      "impressions": 58,
+      "ctr": 0,
+      "position": 1.6379310344827587
+    },
+    {
+      "keys": [
+        "canoe & kayak rentals and sales"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 95
+    },
+    {
+      "keys": [
+        "canoe activity"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "canoe adventures"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "canoe and kayak hikes near me"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "keys": [
+        "canoe and kayak holder hire"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 67
+    },
+    {
+      "keys": [
+        "canoe and kayak rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "canoe company"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "canoe for rent near me"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "canoe hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 1.6666666666666665
+    },
+    {
+      "keys": [
+        "canoe hire near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "canoe in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "canoe lessons near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "canoe near me"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 10.5
+    },
+    {
+      "keys": [
+        "canoe paddle"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "canoe paddle near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "canoe paddles for sale near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "canoe paddles near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "canoe paddling hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 6.666666666666667
+    },
+    {
+      "keys": [
+        "canoe rental"
+      ],
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 3.7058823529411766
+    },
+    {
+      "keys": [
+        "canoe rentals"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 6.1111111111111107
+    },
+    {
+      "keys": [
+        "canoe rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 7.4
+    },
+    {
+      "keys": [
+        "canoe ride"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "canoe rides near me"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 3.4
+    },
+    {
+      "keys": [
+        "canoe riding"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "keys": [
+        "canoe services"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "canoe shop near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "canoe shops near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "canoe surfing oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "canoe tour"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "canoe tours near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "canoe trips near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "canoeing"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 8.4444444444444446
+    },
+    {
+      "keys": [
+        "canoeing & kayaking"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "canoeing hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 18.625
+    },
+    {
+      "keys": [
+        "canoeing in hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 14.076923076923077
+    },
+    {
+      "keys": [
+        "canoeing in oahu"
+      ],
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0,
+      "position": 9.8235294117647065
+    },
+    {
+      "keys": [
+        "canoeing near me"
+      ],
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 5.48
+    },
+    {
+      "keys": [
+        "canoeing near me rental"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4.5
+    },
+    {
+      "keys": [
+        "canoes"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10.5
+    },
+    {
+      "keys": [
+        "canoes for sale oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "keys": [
+        "canoes hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "canoes oahu"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "canoes rental"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "canohi"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "canoing"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "canoing near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "captain bob sandbar"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "keys": [
+        "captain bobs picnic sail"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "keys": [
+        "captain bruce kaneohe sandbar"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "captain cook hawaii kayak rentals"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 68
+    },
+    {
+      "keys": [
+        "captain cook kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 52.5
+    },
+    {
+      "keys": [
+        "captain cook kayak rentals"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 57.5
+    },
+    {
+      "keys": [
+        "captain cook monument kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "car rental on oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 106
+    },
+    {
+      "keys": [
+        "car storage oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 55
+    },
+    {
+      "keys": [
+        "cash beach oahu"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "keys": [
+        "cayak"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "chair and umbrella rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 18.25
+    },
+    {
+      "keys": [
+        "chair and umbrella rentals"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "chair and umbrella rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 16.8
+    },
+    {
+      "keys": [
+        "chair rent"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "chair rental"
+      ],
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 6.5714285714285712
+    },
+    {
+      "keys": [
+        "chair rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "keys": [
+        "chair rentals"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 6.3636363636363633
+    },
+    {
+      "keys": [
+        "chair rentals honolulu"
+      ],
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 12.48
+    },
+    {
+      "keys": [
+        "chairs and umbrella rental"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "charter oahu reviews"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 34.666666666666664
+    },
+    {
+      "keys": [
+        "cheap beach chair near me"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 14.555555555555555
+    },
+    {
+      "keys": [
+        "cheap beach chairs near me"
+      ],
+      "clicks": 0,
+      "impressions": 293,
+      "ctr": 0,
+      "position": 15.784982935153584
+    },
+    {
+      "keys": [
+        "cheap beach chairs nearby"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 15.333333333333334
+    },
+    {
+      "keys": [
+        "cheap beach umbrella near me"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 47.333333333333336
+    },
+    {
+      "keys": [
+        "cheap beach umbrellas near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12.5
+    },
+    {
+      "keys": [
+        "cheap kayak rental"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 38
+    },
+    {
+      "keys": [
+        "cheap kayak rentals"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "cheap kayak rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "cheap kayaking"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "cheap kayaks near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "keys": [
+        "cheap paddle board rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "cheap paddle boards near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 99
+    },
+    {
+      "keys": [
+        "cheap surfboard rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 12.2
+    },
+    {
+      "keys": [
+        "cheapest"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "cheapest e bike near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "keys": [
+        "cheapest kayak rental near me"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    },
+    {
+      "keys": [
+        "cheapest kayak rentals near me"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 64
+    },
+    {
+      "keys": [
+        "cheapest kayaking near me"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 50.166666666666664
+    },
+    {
+      "keys": [
+        "cheapest surfboard rental waikiki"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "cheapest way to get to islamorada sandbar"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "keys": [
+        "cheapest way to get to kaneohe sandbar"
+      ],
+      "clicks": 0,
+      "impressions": 50,
+      "ctr": 0,
+      "position": 3.68
+    },
+    {
+      "keys": [
+        "china hat"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 6.333333333333333
+    },
+    {
+      "keys": [
+        "china hat hawaii"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 10.714285714285714
+    }
+  ],
+  "responseAggregationType": "byProperty"
+}

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Active Oahu Tours Astro shell sandbox</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root { --aot-blue: #004466; --aot-orange: #f57c00; --font-headings: "Open Sans Condensed", "Arial Narrow", Arial, sans-serif; }
+    body { margin: 0; font-family: Arial, sans-serif; color: #123; }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-headings) !important; font-weight: 700 !important; font-style: normal !important; }
+    .skip-link { position: absolute; left: 0; top: 0; background: #fff; color: #004466; padding: .5rem; transform: translateY(-120%); }
+    .skip-link:focus { transform: translateY(0); }
+    header, footer { padding: 1rem; background: #f5fbfd; }
+    nav ul { list-style: none; padding-left: 0; }
+    nav .sub-menu { padding-left: 1.25rem; }
+    a { color: #004466; }
+    .book-now { display: inline-block; background: var(--aot-orange); color: #111; padding: .6rem .9rem; font-weight: 700; }
+    main { padding: 1rem; }
+    pre { white-space: pre-wrap; background: #f6f6f6; padding: 1rem; overflow-x: auto; }
+  </style>
+  <script type="application/ld+json" id="aot-site-navigation-schema">{"@context": "https://schema.org", "@type": "ItemList", "@id": "https://activeoahutours.com/#site-navigation", "name": "Active Oahu Tours site navigation", "description": "Canonical navigation graph generated from the Active Oahu shell data source for users, search engines, and AI assistants.", "itemListElement": [{"@type": "SiteNavigationElement", "position": 1, "name": "Book Online", "url": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes", "description": "Opens the FareHarbor booking flow for Active Oahu Tours.", "additionalType": "booking"}, {"@type": "SiteNavigationElement", "position": 2, "name": "English", "url": "https://activeoahutours.com/", "description": "Switches the site experience to English.", "additionalType": "language"}, {"@type": "SiteNavigationElement", "position": 3, "name": "Activities & Tours", "url": "https://activeoahutours.com/activities.html", "description": "Helps visitors find activities & tours experiences and tour options on Oahu.", "additionalType": "tour"}, {"@type": "SiteNavigationElement", "position": 4, "name": "All Tours", "url": "https://activeoahutours.com/activities.html", "description": "Helps visitors find all tours experiences and tour options on Oahu.", "additionalType": "tour"}, {"@type": "SiteNavigationElement", "position": 5, "name": "Self Guided Tours", "url": "https://activeoahutours.com/activities.html#Chinaman's%20Hat%20Kayak%20&%20Hike", "description": "Helps visitors find self guided tours experiences and tour options on Oahu.", "additionalType": "tour"}, {"@type": "SiteNavigationElement", "position": 6, "name": "Guided Tours", "url": "https://activeoahutours.com/activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure", "description": "Helps visitors find guided tours experiences and tour options on Oahu.", "additionalType": "tour"}, {"@type": "SiteNavigationElement", "position": 7, "name": "Rentals", "url": "https://activeoahutours.com/rentals/index.html", "description": "Helps visitors compare and book rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 8, "name": "All Rentals", "url": "https://activeoahutours.com/rentals/index.html", "description": "Helps visitors compare and book all rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 9, "name": "Kayak Rentals", "url": "https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/index.html", "description": "Helps visitors compare and book kayak rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 10, "name": "Mokolii Kayak Rentals", "url": "https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html", "description": "Helps visitors compare and book mokolii kayak rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 11, "name": "Kailua Kayak Rentals", "url": "https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html", "description": "Helps visitors compare and book kailua kayak rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 12, "name": "Multi-Day Rentals", "url": "https://activeoahutours.com/multi-day-kayak-and-beach-gear-rentals/index.html", "description": "Helps visitors compare and book multi-day rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 13, "name": "Rental Partners", "url": "https://activeoahutours.com/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html", "description": "Helps visitors compare and book rental partners for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 14, "name": "Electric Bike Rentals", "url": "https://activeoahutours.com/rentals/kailua-beach-bike-rentals/index.html", "description": "Helps visitors compare and book electric bike rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 15, "name": "Adventure Guide", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/index.html", "description": "Provides planning guidance for adventure guide around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 16, "name": "All Adventure Guides", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/index.html", "description": "Provides planning guidance for all adventure guides around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 17, "name": "Get Your Kayak Rental for Chinaman’s Hat", "url": "https://activeoahutours.com/oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html", "description": "Helps visitors compare and book get your kayak rental for chinaman’s hat for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 18, "name": "Lanikai Beach Guide", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html", "description": "Provides planning guidance for lanikai beach guide around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 19, "name": "Kailua Beach Guide", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html", "description": "Provides planning guidance for kailua beach guide around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 20, "name": "How to Transport Kayaks", "url": "https://activeoahutours.com/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html", "description": "Helps visitors compare and book how to transport kayaks for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 21, "name": "Contact Us", "url": "https://activeoahutours.com/contact-us.html", "description": "Provides visitor support for contact us.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 22, "name": "About", "url": "https://activeoahutours.com/about-active-oahu-tours/index.html", "description": "Provides visitor support for about.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 23, "name": "Our Kailua Storefront", "url": "https://activeoahutours.com/kailua-oahu-storefront/index.html", "description": "Provides visitor support for our kailua storefront.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 24, "name": "Awards", "url": "https://activeoahutours.com/about-active-oahu-tours/awards/index.html", "description": "Provides visitor support for awards.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 25, "name": "Guides", "url": "https://activeoahutours.com/guides/index.html", "description": "Provides planning guidance for guides around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 26, "name": "Reviews", "url": "https://activeoahutours.com/reviews/", "description": "Builds trust through reviews proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 27, "name": "Gallery", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 28, "name": "FAQ", "url": "https://activeoahutours.com/faq/index.html", "description": "Provides visitor support for faq.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 31, "name": "Facebook", "url": "https://www.facebook.com/activeoahutours/", "description": "Links to Active Oahu Tours on Facebook.", "additionalType": "social"}, {"@type": "SiteNavigationElement", "position": 32, "name": "Yelp", "url": "https://www.yelp.com/biz/active-oahu-tours-kailua", "description": "Links to Active Oahu Tours on Yelp.", "additionalType": "social"}, {"@type": "SiteNavigationElement", "position": 33, "name": "Tripadvisor", "url": "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html", "description": "Links to Active Oahu Tours on Tripadvisor.", "additionalType": "social"}, {"@type": "SiteNavigationElement", "position": 34, "name": "Instagram", "url": "https://www.instagram.com/activeoahu/", "description": "Links to Active Oahu Tours on Instagram.", "additionalType": "social"}, {"@type": "SiteNavigationElement", "position": 35, "name": "Gallery image 1", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 1 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 36, "name": "Gallery image 2", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 2 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 37, "name": "Gallery image 3", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 3 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 38, "name": "Gallery image 4", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 4 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 39, "name": "Gallery image 5", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 5 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 40, "name": "Gallery image 6", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 6 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 41, "name": "Gallery image 7", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 7 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 42, "name": "Gallery image 8", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 8 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 43, "name": "View the Gallery", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through view the gallery proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 44, "name": "Join The Team", "url": "https://activeoahutours.com/join-the-team/index.html", "description": "Provides visitor support for join the team.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 45, "name": "View Job Openings", "url": "https://activeoahutours.com/join-the-team/index.html", "description": "Provides visitor support for view job openings.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 46, "name": "About Active Oahu Tours", "url": "https://activeoahutours.com/about-active-oahu-tours/index.html", "description": "Provides visitor support for about active oahu tours.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 47, "name": "Cancellation Policy", "url": "https://activeoahutours.com/cancellation-policy/index.html", "description": "Provides legal or policy details: Cancellation Policy.", "additionalType": "legal"}, {"@type": "SiteNavigationElement", "position": 48, "name": "Privacy Policy", "url": "https://activeoahutours.com/privacy-policy/index.html", "description": "Provides legal or policy details: Privacy Policy.", "additionalType": "legal"}]}</script>
+  <script type="application/ld+json" id="aot-local-business-schema">{"@context": "https://schema.org", "@type": ["LocalBusiness", "TouristTrip"], "@id": "https://activeoahutours.com/#localbusiness", "name": "Active Oahu Tours", "url": "https://activeoahutours.com/", "telephone": "(808)498-1894", "email": "info@activeoahutours.com", "sameAs": ["https://www.facebook.com/activeoahutours/", "https://www.yelp.com/biz/active-oahu-tours-kailua", "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html", "https://www.instagram.com/activeoahu/"], "areaServed": ["Oahu", "Kailua", "Kaneohe Bay", "North Shore"], "priceRange": "$$", "potentialAction": {"@type": "ReserveAction", "target": {"@type": "EntryPoint", "urlTemplate": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes", "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]}, "name": "Book Online"}}</script>
+  <script type="application/ld+json" id="aot-combined-shell-schema">{"@context": "https://schema.org", "@graph": [{"@context": "https://schema.org", "@type": "ItemList", "@id": "https://activeoahutours.com/#site-navigation", "name": "Active Oahu Tours site navigation", "description": "Canonical navigation graph generated from the Active Oahu shell data source for users, search engines, and AI assistants.", "itemListElement": [{"@type": "SiteNavigationElement", "position": 1, "name": "Book Online", "url": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes", "description": "Opens the FareHarbor booking flow for Active Oahu Tours.", "additionalType": "booking"}, {"@type": "SiteNavigationElement", "position": 2, "name": "English", "url": "https://activeoahutours.com/", "description": "Switches the site experience to English.", "additionalType": "language"}, {"@type": "SiteNavigationElement", "position": 3, "name": "Activities & Tours", "url": "https://activeoahutours.com/activities.html", "description": "Helps visitors find activities & tours experiences and tour options on Oahu.", "additionalType": "tour"}, {"@type": "SiteNavigationElement", "position": 4, "name": "All Tours", "url": "https://activeoahutours.com/activities.html", "description": "Helps visitors find all tours experiences and tour options on Oahu.", "additionalType": "tour"}, {"@type": "SiteNavigationElement", "position": 5, "name": "Self Guided Tours", "url": "https://activeoahutours.com/activities.html#Chinaman's%20Hat%20Kayak%20&%20Hike", "description": "Helps visitors find self guided tours experiences and tour options on Oahu.", "additionalType": "tour"}, {"@type": "SiteNavigationElement", "position": 6, "name": "Guided Tours", "url": "https://activeoahutours.com/activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure", "description": "Helps visitors find guided tours experiences and tour options on Oahu.", "additionalType": "tour"}, {"@type": "SiteNavigationElement", "position": 7, "name": "Rentals", "url": "https://activeoahutours.com/rentals/index.html", "description": "Helps visitors compare and book rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 8, "name": "All Rentals", "url": "https://activeoahutours.com/rentals/index.html", "description": "Helps visitors compare and book all rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 9, "name": "Kayak Rentals", "url": "https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/index.html", "description": "Helps visitors compare and book kayak rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 10, "name": "Mokolii Kayak Rentals", "url": "https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html", "description": "Helps visitors compare and book mokolii kayak rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 11, "name": "Kailua Kayak Rentals", "url": "https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html", "description": "Helps visitors compare and book kailua kayak rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 12, "name": "Multi-Day Rentals", "url": "https://activeoahutours.com/multi-day-kayak-and-beach-gear-rentals/index.html", "description": "Helps visitors compare and book multi-day rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 13, "name": "Rental Partners", "url": "https://activeoahutours.com/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html", "description": "Helps visitors compare and book rental partners for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 14, "name": "Electric Bike Rentals", "url": "https://activeoahutours.com/rentals/kailua-beach-bike-rentals/index.html", "description": "Helps visitors compare and book electric bike rentals for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 15, "name": "Adventure Guide", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/index.html", "description": "Provides planning guidance for adventure guide around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 16, "name": "All Adventure Guides", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/index.html", "description": "Provides planning guidance for all adventure guides around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 17, "name": "Get Your Kayak Rental for Chinaman’s Hat", "url": "https://activeoahutours.com/oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html", "description": "Helps visitors compare and book get your kayak rental for chinaman’s hat for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 18, "name": "Lanikai Beach Guide", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html", "description": "Provides planning guidance for lanikai beach guide around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 19, "name": "Kailua Beach Guide", "url": "https://activeoahutours.com/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html", "description": "Provides planning guidance for kailua beach guide around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 20, "name": "How to Transport Kayaks", "url": "https://activeoahutours.com/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html", "description": "Helps visitors compare and book how to transport kayaks for Oahu beach and kayak days.", "additionalType": "rental"}, {"@type": "SiteNavigationElement", "position": 21, "name": "Contact Us", "url": "https://activeoahutours.com/contact-us.html", "description": "Provides visitor support for contact us.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 22, "name": "About", "url": "https://activeoahutours.com/about-active-oahu-tours/index.html", "description": "Provides visitor support for about.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 23, "name": "Our Kailua Storefront", "url": "https://activeoahutours.com/kailua-oahu-storefront/index.html", "description": "Provides visitor support for our kailua storefront.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 24, "name": "Awards", "url": "https://activeoahutours.com/about-active-oahu-tours/awards/index.html", "description": "Provides visitor support for awards.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 25, "name": "Guides", "url": "https://activeoahutours.com/guides/index.html", "description": "Provides planning guidance for guides around Oahu activities and places.", "additionalType": "guide"}, {"@type": "SiteNavigationElement", "position": 26, "name": "Reviews", "url": "https://activeoahutours.com/reviews/", "description": "Builds trust through reviews proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 27, "name": "Gallery", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 28, "name": "FAQ", "url": "https://activeoahutours.com/faq/index.html", "description": "Provides visitor support for faq.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 31, "name": "Facebook", "url": "https://www.facebook.com/activeoahutours/", "description": "Links to Active Oahu Tours on Facebook.", "additionalType": "social"}, {"@type": "SiteNavigationElement", "position": 32, "name": "Yelp", "url": "https://www.yelp.com/biz/active-oahu-tours-kailua", "description": "Links to Active Oahu Tours on Yelp.", "additionalType": "social"}, {"@type": "SiteNavigationElement", "position": 33, "name": "Tripadvisor", "url": "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html", "description": "Links to Active Oahu Tours on Tripadvisor.", "additionalType": "social"}, {"@type": "SiteNavigationElement", "position": 34, "name": "Instagram", "url": "https://www.instagram.com/activeoahu/", "description": "Links to Active Oahu Tours on Instagram.", "additionalType": "social"}, {"@type": "SiteNavigationElement", "position": 35, "name": "Gallery image 1", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 1 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 36, "name": "Gallery image 2", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 2 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 37, "name": "Gallery image 3", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 3 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 38, "name": "Gallery image 4", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 4 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 39, "name": "Gallery image 5", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 5 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 40, "name": "Gallery image 6", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 6 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 41, "name": "Gallery image 7", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 7 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 42, "name": "Gallery image 8", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through gallery image 8 proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 43, "name": "View the Gallery", "url": "https://activeoahutours.com/active-oahu-photo-gallery/index.html", "description": "Builds trust through view the gallery proof and visitor media.", "additionalType": "trust"}, {"@type": "SiteNavigationElement", "position": 44, "name": "Join The Team", "url": "https://activeoahutours.com/join-the-team/index.html", "description": "Provides visitor support for join the team.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 45, "name": "View Job Openings", "url": "https://activeoahutours.com/join-the-team/index.html", "description": "Provides visitor support for view job openings.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 46, "name": "About Active Oahu Tours", "url": "https://activeoahutours.com/about-active-oahu-tours/index.html", "description": "Provides visitor support for about active oahu tours.", "additionalType": "support"}, {"@type": "SiteNavigationElement", "position": 47, "name": "Cancellation Policy", "url": "https://activeoahutours.com/cancellation-policy/index.html", "description": "Provides legal or policy details: Cancellation Policy.", "additionalType": "legal"}, {"@type": "SiteNavigationElement", "position": 48, "name": "Privacy Policy", "url": "https://activeoahutours.com/privacy-policy/index.html", "description": "Provides legal or policy details: Privacy Policy.", "additionalType": "legal"}]}, {"@context": "https://schema.org", "@type": ["LocalBusiness", "TouristTrip"], "@id": "https://activeoahutours.com/#localbusiness", "name": "Active Oahu Tours", "url": "https://activeoahutours.com/", "telephone": "(808)498-1894", "email": "info@activeoahutours.com", "sameAs": ["https://www.facebook.com/activeoahutours/", "https://www.yelp.com/biz/active-oahu-tours-kailua", "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html", "https://www.instagram.com/activeoahu/"], "areaServed": ["Oahu", "Kailua", "Kaneohe Bay", "North Shore"], "priceRange": "$$", "potentialAction": {"@type": "ReserveAction", "target": {"@type": "EntryPoint", "urlTemplate": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes", "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]}, "name": "Book Online"}}]}</script>
+</head>
+<body data-shell-source="aot-shell-data.v1" data-llms-digest="84c3c88460fb4942" data-booking-shortname="activeoahutours">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header role="banner" aria-label="Active Oahu Tours sandbox header">
+    <section id="branding" aria-label="Brand and booking">
+      <a class="aot-logo" href="https://activeoahutours.com/" aria-label="Active Oahu Tours home">Active Oahu Tours</a>
+      <p><a href="tel:+18084981894">(808)498-1894</a></p>
+      <a class="book-now" href="https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes" data-booking-shortname="activeoahutours" data-booking-event="booking_click">Book Online</a>
+      <p class="language-links"><a href="https://activeoahutours.com/">English</a></p>
+    </section>
+    <nav aria-label="Primary" data-source="aot-shell-data.json">
+      <ul class="primary-nav" data-depth="1">
+<li data-intent="tour" data-has-children="true">
+<a href="https://activeoahutours.com/activities.html" data-ai-summary="Helps visitors find activities &amp; tours experiences and tour options on Oahu.">Activities &amp; Tours</a>
+<ul class="sub-menu" data-depth="2">
+<li data-intent="tour">
+<a href="https://activeoahutours.com/activities.html" data-ai-summary="Helps visitors find all tours experiences and tour options on Oahu.">All Tours</a>
+</li>
+<li data-intent="tour">
+<a href="https://activeoahutours.com/activities.html#Chinaman&#x27;s%20Hat%20Kayak%20&amp;%20Hike" data-ai-summary="Helps visitors find self guided tours experiences and tour options on Oahu.">Self Guided Tours</a>
+</li>
+<li data-intent="tour">
+<a href="https://activeoahutours.com/activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure" data-ai-summary="Helps visitors find guided tours experiences and tour options on Oahu.">Guided Tours</a>
+</li>
+</ul>
+</li>
+<li data-intent="rental" data-has-children="true">
+<a href="https://activeoahutours.com/rentals/index.html" data-ai-summary="Helps visitors compare and book rentals for Oahu beach and kayak days.">Rentals</a>
+<ul class="sub-menu" data-depth="2">
+<li data-intent="rental">
+<a href="https://activeoahutours.com/rentals/index.html" data-ai-summary="Helps visitors compare and book all rentals for Oahu beach and kayak days.">All Rentals</a>
+</li>
+<li data-intent="rental" data-has-children="true">
+<a href="https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/index.html" data-ai-summary="Helps visitors compare and book kayak rentals for Oahu beach and kayak days.">Kayak Rentals</a>
+<ul class="sub-menu" data-depth="3">
+<li data-intent="rental">
+<a href="https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html" data-ai-summary="Helps visitors compare and book mokolii kayak rentals for Oahu beach and kayak days.">Mokolii Kayak Rentals</a>
+</li>
+<li data-intent="rental">
+<a href="https://activeoahutours.com/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html" data-ai-summary="Helps visitors compare and book kailua kayak rentals for Oahu beach and kayak days.">Kailua Kayak Rentals</a>
+</li>
+</ul>
+</li>
+<li data-intent="rental" data-has-children="true">
+<a href="https://activeoahutours.com/multi-day-kayak-and-beach-gear-rentals/index.html" data-ai-summary="Helps visitors compare and book multi-day rentals for Oahu beach and kayak days.">Multi-Day Rentals</a>
+<ul class="sub-menu" data-depth="3">
+<li data-intent="rental">
+<a href="https://activeoahutours.com/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html" data-ai-summary="Helps visitors compare and book rental partners for Oahu beach and kayak days.">Rental Partners</a>
+</li>
+</ul>
+</li>
+<li data-intent="rental">
+<a href="https://activeoahutours.com/rentals/kailua-beach-bike-rentals/index.html" data-ai-summary="Helps visitors compare and book electric bike rentals for Oahu beach and kayak days.">Electric Bike Rentals</a>
+</li>
+</ul>
+</li>
+<li data-intent="guide" data-has-children="true">
+<a href="https://activeoahutours.com/oahu-kayaking-and-beach-adventures/index.html" data-ai-summary="Provides planning guidance for adventure guide around Oahu activities and places.">Adventure Guide</a>
+<ul class="sub-menu" data-depth="2">
+<li data-intent="guide">
+<a href="https://activeoahutours.com/oahu-kayaking-and-beach-adventures/index.html" data-ai-summary="Provides planning guidance for all adventure guides around Oahu activities and places.">All Adventure Guides</a>
+</li>
+<li data-intent="rental">
+<a href="https://activeoahutours.com/oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html" data-ai-summary="Helps visitors compare and book get your kayak rental for chinaman’s hat for Oahu beach and kayak days.">Get Your Kayak Rental for Chinaman’s Hat</a>
+</li>
+<li data-intent="guide">
+<a href="https://activeoahutours.com/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html" data-ai-summary="Provides planning guidance for lanikai beach guide around Oahu activities and places.">Lanikai Beach Guide</a>
+</li>
+<li data-intent="guide">
+<a href="https://activeoahutours.com/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html" data-ai-summary="Provides planning guidance for kailua beach guide around Oahu activities and places.">Kailua Beach Guide</a>
+</li>
+<li data-intent="rental">
+<a href="https://activeoahutours.com/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html" data-ai-summary="Helps visitors compare and book how to transport kayaks for Oahu beach and kayak days.">How to Transport Kayaks</a>
+</li>
+</ul>
+</li>
+<li data-intent="support" data-has-children="true">
+<a href="https://activeoahutours.com/contact-us.html" data-ai-summary="Provides visitor support for contact us.">Contact Us</a>
+<ul class="sub-menu" data-depth="2">
+<li data-intent="support" data-has-children="true">
+<a href="https://activeoahutours.com/about-active-oahu-tours/index.html" data-ai-summary="Provides visitor support for about.">About</a>
+<ul class="sub-menu" data-depth="3">
+<li data-intent="support">
+<a href="https://activeoahutours.com/kailua-oahu-storefront/index.html" data-ai-summary="Provides visitor support for our kailua storefront.">Our Kailua Storefront</a>
+</li>
+<li data-intent="support">
+<a href="https://activeoahutours.com/about-active-oahu-tours/awards/index.html" data-ai-summary="Provides visitor support for awards.">Awards</a>
+</li>
+<li data-intent="guide">
+<a href="https://activeoahutours.com/guides/index.html" data-ai-summary="Provides planning guidance for guides around Oahu activities and places.">Guides</a>
+</li>
+<li data-intent="trust">
+<a href="https://activeoahutours.com/reviews/" data-ai-summary="Builds trust through reviews proof and visitor media.">Reviews</a>
+</li>
+</ul>
+</li>
+<li data-intent="trust">
+<a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html" data-ai-summary="Builds trust through gallery proof and visitor media.">Gallery</a>
+</li>
+<li data-intent="support">
+<a href="https://activeoahutours.com/faq/index.html" data-ai-summary="Provides visitor support for faq.">FAQ</a>
+</li>
+</ul>
+</li>
+</ul>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1">
+    <h1>Active Oahu Tours Astro shell sandbox</h1>
+    <p>This non-public route proves the Astro shell can render from canonical shell data while embedding the generated search and AI artifacts.</p>
+    <section aria-labelledby="schema-proof">
+      <h2 id="schema-proof">Schema and AI proof</h2>
+      <ul>
+        <li>SiteNavigationElement rows: 46</li>
+        <li>Footer groups: 5</li>
+        <li>LLMS navigation digest: 84c3c88460fb4942</li>
+        <li>Priority order: users → search_engines → ai_assistants → booking_conversion</li>
+      </ul>
+      <h3>LLMS navigation excerpt</h3>
+      <pre># Active Oahu Tours navigation
+
+This section is generated from `prototype/src/content/nav/aot-shell-data.json`, the same canonical shell graph intended to render the Astro header/footer.
+
+## Booking
+- Book Online: https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&amp;from-ssl=yes
+- FareHarbor shortname: `activeoahutours`
+- Fallback mode: `simple`
+
+## Primary navigation
+- [Activities &amp; Tours](https://activeoahutours.com/activities.html) — tour: Helps visitors find activities &amp; tours experiences and tour options on Oahu.
+  - [All Tours](https://activeoahutours.com/activities.html) — tour: Helps visitors find all tours experiences and tour options on Oahu.
+  - [Self Guided Tours](https://activeoahutours.com/activities.html#Chinaman&#x27;s%20Hat%20Kayak%20&amp;%20Hike) — tour: Helps visitors find self guided tours experiences and tour options on Oahu.
+  - [Guided Tours](https://activeoahutours.com/activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure) — tour: Helps visitors find guided tours experiences and tour options on Oahu.</pre>
+    </section>
+  </main>
+  <footer role="contentinfo" aria-label="Active Oahu Tours sandbox footer">
+    <section aria-label="Business contact">
+      <h2>Active Oahu Tours</h2>
+      <p><a href="tel:+18084981894">(808)498-1894</a> · <a href="mailto:info@activeoahutours.com">info@activeoahutours.com</a></p>
+    </section>
+    <nav aria-label="Footer" data-source="aot-shell-data.json">
+      <section class="footer-group priority-primary" aria-labelledby="footer-contact">
+<h2 id="footer-contact">Contact</h2>
+<ul>
+<li data-intent="contact"><a href="tel:+18084981894">(808)498-1894</a></li>
+<li data-intent="contact"><a href="mailto:info@activeoahutours.com">[email protected]</a></li>
+</ul>
+</section>
+<section class="footer-group priority-secondary" aria-labelledby="footer-social-proof">
+<h2 id="footer-social-proof">Social proof</h2>
+<ul>
+<li data-intent="social"><a href="https://www.facebook.com/activeoahutours/">Facebook</a></li>
+<li data-intent="social"><a href="https://www.yelp.com/biz/active-oahu-tours-kailua">Yelp</a></li>
+<li data-intent="social"><a href="https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html">Tripadvisor</a></li>
+<li data-intent="social"><a href="https://www.instagram.com/activeoahu/">Instagram</a></li>
+</ul>
+</section>
+<section class="footer-group priority-secondary" aria-labelledby="footer-gallery-and-trust">
+<h2 id="footer-gallery-and-trust">Gallery and trust</h2>
+<ul>
+<li data-intent="trust"><a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html">Gallery image 1</a></li>
+<li data-intent="trust"><a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html">Gallery image 2</a></li>
+<li data-intent="trust"><a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html">Gallery image 3</a></li>
+<li data-intent="trust"><a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html">Gallery image 4</a></li>
+<li data-intent="trust"><a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html">Gallery image 5</a></li>
+<li data-intent="trust"><a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html">Gallery image 6</a></li>
+<li data-intent="trust"><a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html">Gallery image 7</a></li>
+<li data-intent="trust"><a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html">Gallery image 8</a></li>
+<li data-intent="trust"><a href="https://activeoahutours.com/active-oahu-photo-gallery/index.html">View the Gallery</a></li>
+</ul>
+</section>
+<section class="footer-group priority-secondary" aria-labelledby="footer-company-and-support">
+<h2 id="footer-company-and-support">Company and support</h2>
+<ul>
+<li data-intent="support"><a href="https://activeoahutours.com/join-the-team/index.html">Join The Team</a></li>
+<li data-intent="support"><a href="https://activeoahutours.com/join-the-team/index.html">View Job Openings</a></li>
+<li data-intent="support"><a href="https://activeoahutours.com/about-active-oahu-tours/index.html">About Active Oahu Tours</a></li>
+</ul>
+</section>
+<section class="footer-group priority-legal" aria-labelledby="footer-legal">
+<h2 id="footer-legal">Legal</h2>
+<ul>
+<li data-intent="legal"><a href="https://activeoahutours.com/cancellation-policy/index.html">Cancellation Policy</a></li>
+<li data-intent="legal"><a href="https://activeoahutours.com/privacy-policy/index.html">Privacy Policy</a></li>
+</ul>
+</section>
+    </nav>
+  </footer>
+</body>
+</html>

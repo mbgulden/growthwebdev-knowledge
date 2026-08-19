@@ -1,0 +1,703 @@
+{
+  "generated_at_utc": "2026-07-11T22:46:20Z",
+  "source_commit": "addf7acb2f983bb003c5e3637b92949839a440bf",
+  "html_pages_scanned": 306,
+  "header": {
+    "pages_with_header": 295,
+    "structural_variants": 220,
+    "top_variants": [
+      {
+        "hash": "baf0196d74cb",
+        "pages": 28,
+        "sample": "index.html"
+      },
+      {
+        "hash": "04520fc4ea6f",
+        "pages": 22,
+        "sample": "what-to-bring/index.html"
+      },
+      {
+        "hash": "c68c2e84d319",
+        "pages": 6,
+        "sample": "activities/oahu-sunset-kayak-tour/index.html"
+      },
+      {
+        "hash": "49943be21216",
+        "pages": 4,
+        "sample": "guides/kailua-vs-lanikai/index.html"
+      },
+      {
+        "hash": "c81ca2c5a88e",
+        "pages": 4,
+        "sample": "reviews/page/5/index.html"
+      },
+      {
+        "hash": "a11c05167f7c",
+        "pages": 4,
+        "sample": "ja/reviews/page/5/index.html"
+      },
+      {
+        "hash": "2f4cfade0809",
+        "pages": 3,
+        "sample": "kailua-ebike-route/index.html"
+      },
+      {
+        "hash": "b94f54a14540",
+        "pages": 2,
+        "sample": "oahu-equipment-rentals/index.html"
+      },
+      {
+        "hash": "f3baa7901473",
+        "pages": 2,
+        "sample": "lanikai-ebike-snorkel-self-guided-guide/index.html"
+      },
+      {
+        "hash": "ddd53a79aca4",
+        "pages": 2,
+        "sample": "guides/oahu-kayak-safety-tide-guide/index.html"
+      },
+      {
+        "hash": "753e012111b4",
+        "pages": 2,
+        "sample": "activities/lanikai-beach-self-guided-snorkel/index.html"
+      },
+      {
+        "hash": "b6968f5b4bf4",
+        "pages": 2,
+        "sample": "activities/destination-yoga/index.html"
+      }
+    ]
+  },
+  "footer": {
+    "pages_with_footer": 295,
+    "structural_variants": 214,
+    "top_variants": [
+      {
+        "hash": "78eab2f31095",
+        "pages": 27,
+        "sample": "tours/index.html"
+      },
+      {
+        "hash": "96adee8a8702",
+        "pages": 22,
+        "sample": "what-to-bring/index.html"
+      },
+      {
+        "hash": "65c74dd1ce87",
+        "pages": 5,
+        "sample": "kailua-ebike-route/index.html"
+      },
+      {
+        "hash": "10a10cede4d3",
+        "pages": 5,
+        "sample": "guides/kailua-vs-lanikai/index.html"
+      },
+      {
+        "hash": "c9fa7127cd12",
+        "pages": 5,
+        "sample": "activities/oahu-sunset-kayak-tour/index.html"
+      },
+      {
+        "hash": "f9b92005e009",
+        "pages": 4,
+        "sample": "activities/kaneohe-sandbar-kayak-ultimate-guide/index.html"
+      },
+      {
+        "hash": "e6481dd5960e",
+        "pages": 3,
+        "sample": "laie-bay-goat-island-kayaking/index.html"
+      },
+      {
+        "hash": "c98a9ecfb1dd",
+        "pages": 2,
+        "sample": "paa-answers/index.html"
+      },
+      {
+        "hash": "d5c3b3cce809",
+        "pages": 2,
+        "sample": "guides/oahu-kayak-safety-tide-guide/index.html"
+      },
+      {
+        "hash": "a0e6db5f83ef",
+        "pages": 2,
+        "sample": "activities/east-oahu-self-guided-kayaking-experience/index.html"
+      },
+      {
+        "hash": "eff7309702ad",
+        "pages": 2,
+        "sample": "activities/lanikai-beach-self-guided-snorkel/index.html"
+      },
+      {
+        "hash": "1e0d9826407c",
+        "pages": 2,
+        "sample": "activities/kawela-bay-self-guided-kayak-tour/index.html"
+      }
+    ]
+  },
+  "homepage_primary_header_links": [
+    {
+      "href": "/",
+      "text": "English",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/activities.html",
+      "text": "Activities & Tours",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/activities.html",
+      "text": "All Tours",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/activities.html#Chinaman's%20Hat%20Kayak%20&%20Hike",
+      "text": "Self Guided Tours",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/activities.html#Guided%20Mokulua%20Islands%20Kayak%20Tour%20and%20E-Bike%20Adventure",
+      "text": "Guided Tours",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/rentals/index.html",
+      "text": "Rentals",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/rentals/index.html",
+      "text": "All Rentals",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/rentals/oahu-tandem-kayak-rentals/index.html",
+      "text": "Kayak Rentals",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/rentals/oahu-tandem-kayak-rentals/mokolii-kayak-rentals/index.html",
+      "text": "Mokolii Kayak Rentals",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/rentals/oahu-tandem-kayak-rentals/kailua-kayak-rentals/index.html",
+      "text": "Kailua Kayak Rentals",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/multi-day-kayak-and-beach-gear-rentals/index.html",
+      "text": "Multi-Day Rentals",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/multi-day-kayak-and-beach-gear-rentals/kayak-beach-gear-rental-partners/index.html",
+      "text": "Rental Partners",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/rentals/kailua-beach-bike-rentals/index.html",
+      "text": "Electric Bike Rentals",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/oahu-kayaking-and-beach-adventures/index.html",
+      "text": "Adventure Guide",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/oahu-kayaking-and-beach-adventures/index.html",
+      "text": "All Adventure Guides",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/oahu-equipment-rentals/kayak-rental-near-chinamans-hat/index.html",
+      "text": "Get Your Kayak Rental for Chinaman’s Hat",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/oahu-kayaking-and-beach-adventures/ultimate-guide-to-lanikai-beach/index.html",
+      "text": "Lanikai Beach Guide",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/oahu-kayaking-and-beach-adventures/ultimate-guide-for-kailua-beach-park-experience-windward-oahus-safest-and-most-adventurous-beach/index.html",
+      "text": "Kailua Beach Guide",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/oahu-equipment-rentals/how-to-transport-kayaks-and-sups-from-our-shop-in-kailua-to-the-beach/index.html",
+      "text": "How to Transport Kayaks",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/contact-us.html",
+      "text": "Contact Us",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/about-active-oahu-tours/index.html",
+      "text": "About",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/kailua-oahu-storefront/index.html",
+      "text": "Our Kailua Storefront",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/about-active-oahu-tours/awards/index.html",
+      "text": "Awards",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/guides/index.html",
+      "text": "Guides",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/reviews/",
+      "text": "Reviews",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "Gallery",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/faq/index.html",
+      "text": "FAQ",
+      "class": "",
+      "id": ""
+    }
+  ],
+  "homepage_footer_links": [
+    {
+      "href": "tel:+18084981894",
+      "text": "(808)498-1894",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "mailto:info@activeoahutours.com",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "https://www.facebook.com/activeoahutours/",
+      "text": "Facebook",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "https://www.yelp.com/biz/active-oahu-tours-kailua",
+      "text": "Yelp",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html",
+      "text": "Tripadvisor",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "https://www.instagram.com/activeoahu/",
+      "text": "Instagram",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/join-the-team/index.html",
+      "text": "Join The Team",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/join-the-team/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/active-oahu-photo-gallery/index.html",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/about-active-oahu-tours/index.html",
+      "text": "About Active Oahu Tours",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/cancellation-policy/index.html",
+      "text": "Cancellation Policy",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "/privacy-policy/index.html",
+      "text": "Privacy Policy",
+      "class": "",
+      "id": ""
+    }
+  ],
+  "homepage_booking_links": [
+    {
+      "href": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
+      "text": "",
+      "class": "pull-right btn btn-small btn-primary",
+      "id": ""
+    },
+    {
+      "href": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
+      "text": "",
+      "class": "pull-right btn btn-small btn-primary",
+      "id": ""
+    },
+    {
+      "href": "https://fareharbor.com/embeds/book/activeoahutours/?u=091a25cd-93e6-4bf0-bad5-d305c6dbb1ea&from-ssl=yes&ga4t=AW-11496137384%2Cundefined__undefined%3B&g4=yes&cp=no&csp=no&back=https%3A%2F%2Factiveoahutours.com%2F&language=en-us",
+      "text": "",
+      "class": "btn btn-info text-center",
+      "id": ""
+    },
+    {
+      "href": "https://fareharbor.com/embeds/book/activeoahutours/items/115595/calendar/",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "https://fareharbor.com/embeds/book/activeoahutours/items/521252/calendar/",
+      "text": "",
+      "class": "",
+      "id": ""
+    },
+    {
+      "href": "https://fareharbor.com/embeds/book/activeoahutours/items/8522/calendar/",
+      "text": "",
+      "class": "",
+      "id": ""
+    }
+  ],
+  "sample_page_summary": [
+    {
+      "path": "contact-us.html",
+      "header_links": 28,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "index.html",
+      "header_links": 28,
+      "footer_links": 20,
+      "booking_links": 6
+    },
+    {
+      "path": "404.html",
+      "header_links": 1,
+      "footer_links": 4,
+      "booking_links": 1
+    },
+    {
+      "path": "activities.html",
+      "header_links": 28,
+      "footer_links": 20,
+      "booking_links": 29
+    },
+    {
+      "path": "trip-cancellation-insurance-terms-and-conditions.html",
+      "header_links": 28,
+      "footer_links": 34,
+      "booking_links": 1
+    },
+    {
+      "path": "stand-up-paddleboard-rental/index.html",
+      "header_links": 0,
+      "footer_links": 0,
+      "booking_links": 0
+    },
+    {
+      "path": "become-a-partner/index.html",
+      "header_links": 31,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "kailua-ebike-route/index.html",
+      "header_links": 30,
+      "footer_links": 20,
+      "booking_links": 7
+    },
+    {
+      "path": "kaneohe-bay-sandbar-kayak/index.html",
+      "header_links": 0,
+      "footer_links": 0,
+      "booking_links": 0
+    },
+    {
+      "path": "what-to-bring/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "active-oahu-llc-wins-2022-tripadvisor-travelers-choice-award-for-tours-and-activities/index.html",
+      "header_links": 31,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "kayak-kailua/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "oahu-launch-guide/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "privacy-policy/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "guides/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "kailua-kayak/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "oahus-best-kayaking-trips/index.html",
+      "header_links": 0,
+      "footer_links": 3,
+      "booking_links": 2
+    },
+    {
+      "path": "oahu-kayak-safety-tide-index-map/index.html",
+      "header_links": 0,
+      "footer_links": 0,
+      "booking_links": 0
+    },
+    {
+      "path": "active-oahu-photo-gallery/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "kailua-oahu-storefront/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "activities/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 29
+    },
+    {
+      "path": "activities/rainforest-oahu-kayak-tour.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 7
+    },
+    {
+      "path": "kualoa-bay-guide/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "trip-cancellation-insurance-terms-and-conditions/index.html",
+      "header_links": 29,
+      "footer_links": 34,
+      "booking_links": 1
+    },
+    {
+      "path": "kailua-town-history/index.html",
+      "header_links": 31,
+      "footer_links": 20,
+      "booking_links": 6
+    },
+    {
+      "path": "chinamans-hat-tide-guide/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "tours/index.html",
+      "header_links": 28,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "kaneohe-sandbar-tide-guide/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "electric-bike-rentals/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 6
+    },
+    {
+      "path": "sharks-cove-vs-lanikai-snorkeling/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "job-dashboard/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "oahu-equipment-rentals/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "lanikai-ebike-snorkel-self-guided-guide/index.html",
+      "header_links": 30,
+      "footer_links": 20,
+      "booking_links": 6
+    },
+    {
+      "path": "join-the-team/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "oahu-kayaking-and-beach-adventures/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "chinamans-hat-kayak-tour/index.html",
+      "header_links": 0,
+      "footer_links": 0,
+      "booking_links": 0
+    },
+    {
+      "path": "why-choose-active-oahu/index.html",
+      "header_links": 28,
+      "footer_links": 20,
+      "booking_links": 4
+    },
+    {
+      "path": "oahu-hawaii-kayaking-guide/index.html",
+      "header_links": 30,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "contact-us/index.html",
+      "header_links": 29,
+      "footer_links": 20,
+      "booking_links": 1
+    },
+    {
+      "path": "reviews/index.html",
+      "header_links": 29,
+      "footer_links": 7,
+      "booking_links": 5
+    }
+  ]
+}

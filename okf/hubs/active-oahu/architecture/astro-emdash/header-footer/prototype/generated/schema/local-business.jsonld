@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "LocalBusiness",
+    "TouristTrip"
+  ],
+  "@id": "https://activeoahutours.com/#localbusiness",
+  "name": "Active Oahu Tours",
+  "url": "https://activeoahutours.com/",
+  "telephone": "(808)498-1894",
+  "email": "info@activeoahutours.com",
+  "sameAs": [
+    "https://www.facebook.com/activeoahutours/",
+    "https://www.yelp.com/biz/active-oahu-tours-kailua",
+    "https://www.tripadvisor.com/Attraction_Review-g60656-d5079465-Reviews-Active_Oahu_Tours-Laie_Oahu_Hawaii.html",
+    "https://www.instagram.com/activeoahu/"
+  ],
+  "areaServed": [
+    "Oahu",
+    "Kailua",
+    "Kaneohe Bay",
+    "North Shore"
+  ],
+  "priceRange": "$$",
+  "potentialAction": {
+    "@type": "ReserveAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://fareharbor.com/embeds/book/activeoahutours/?u=f9b48d18-715e-4919-9c8e-077c045cf4bf&from-ssl=yes",
+      "actionPlatform": [
+        "https://schema.org/DesktopWebPlatform",
+        "https://schema.org/MobileWebPlatform"
+      ]
+    },
+    "name": "Book Online"
+  }
+}

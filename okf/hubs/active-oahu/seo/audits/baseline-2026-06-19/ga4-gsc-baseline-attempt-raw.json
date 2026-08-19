@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-06-19T12:38:47.816Z",
+  "oauth_client_id": "977861670312-8prttldh1prmgf1h0pguld5boa3g022h.apps.googleusercontent.com",
+  "oauth_project": "spartan-impact-497114-m2",
+  "refresh_token_present": true,
+  "refresh_token_expires_in": 604799,
+  "current_scope": "https://www.googleapis.com/auth/drive.readonly https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/documents https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/drive.file",
+  "required_scopes": [
+    "https://www.googleapis.com/auth/webmasters.readonly",
+    "https://www.googleapis.com/auth/analytics.readonly"
+  ],
+  "api_checks": {
+    "gsc_list_sites": {
+      "status": 403,
+      "body": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"errors\": [\n      {\n        \"message\": \"Insufficient Permission\",\n        \"domain\": \"global\",\n        \"reason\": \"insufficientPermissions\"\n      }\n    ],\n    \"status\": \"PERMISSION_DENIED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"ACCES"
+    },
+    "ga4_account_summaries": {
+      "status": 403,
+      "body": "{\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"Request had insufficient authentication scopes.\",\n    \"status\": \"PERMISSION_DENIED\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"ACCESS_TOKEN_SCOPE_INSUFFICIENT\",\n        \"domain\": \"googleapis.com\",\n        \"metadata\": {\n          \"service\": \"analyticsadmin.googleapis.com\",\n          \"metho"
+    },
+    "drive_about": {
+      "status": 200,
+      "body": "{\n  \"user\": {\n    \"kind\": \"drive#user\",\n    \"displayName\": \"Michael Gulden\",\n    \"photoLink\": \"https://lh3.googleusercontent.com/a/ACg8ocLAMLJ3n8si0FkLnnfaQFLyZHHr-lb3pNVqAV421CR1OhWkJfTD=s64\",\n    \"m"
+    }
+  }
+}

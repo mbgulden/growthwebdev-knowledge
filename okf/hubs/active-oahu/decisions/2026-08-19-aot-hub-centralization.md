@@ -68,3 +68,60 @@ themselves the knowledge.
 - `okf/hubs/active-oahu/index.md` — hub master index
 - `okf/decisions/okf-agent-commit-authorization.md` — agent commit authorization
 - `okf/decisions/prismatic-okf-hub-and-spoke-map.md` — original hub-and-spoke pattern (GRO-3721)
+
+## Addendum — Phase 2 scope boundary (2026-08-19, Kai)
+
+The consolidation plan named a Phase 2 covering `hd-platform`, `prismatic-engine`,
+`Hermes-Research`, and `sentinel`. Full survey of each repo's **default branch**
+found that "same treatment as Phase 1" is wrong for all four — the Phase 1
+pattern (migrate docs → retire `okf/` to a pointer) applies only when `okf/`
+holds knowledge docs. Findings:
+
+| Repo | `okf/` on default branch | Verdict |
+|---|---|---|
+| `mbgulden/prismatic-engine` | `okf/index.yaml` + `okf/schemas/okf.schema.json` — **schema infrastructure**, read directly by `scripts/validate_okf_docs.py` and `tests/test_okf_docs.py` | **DO NOT RETIRE.** Retiring to a pointer breaks the test suite. This is the machine that validates OKF docs, not knowledge docs. Canonical Prismatic knowledge already lives in the hub at `okf/projects/prismatic-engine/` (per the hub-and-spoke decision, GRO-3721). |
+| `mbgulden/hd-platform` | 3 files: `index.md`, `audits/index.md`, `research/index.md` — all empty scaffolds ("No entries yet") | Nothing to migrate. Empty hub-and-spoke stubs, identical to the SIAL pattern. |
+| `mbgulden/sentinel-it-asset-logistics` | same 3 empty scaffold files | Nothing to migrate. |
+| `mbgulden/Hermes-Research` | 0 okf files on `main` | Nothing to do. |
+
+Secret sweep across all four repos' default branches: **clean** — no
+git-filter-repo history rewrite required in Phase 2.
+
+**Boundary rule (durable):** before retiring any repo's `okf/` dir, verify it
+contains knowledge docs, not load-bearing infrastructure (schemas, registries,
+validator inputs). `prismatic-engine/okf/` is the canonical example of the
+latter and is **exempt from retirement** indefinitely. Empty scaffold stubs
+(hd-platform, SIAL) are left in place — they are the intended spoke landing
+pages; populating them is the project owner's work, not a migration.
+
+Coordination: George and Fred were pinged in the `Prismatic Kai` Telegram group
+(2026-08-19 ~16:41 initial notice, ~17:10 course-correction) before any action.
+No PRs were opened against prismatic-engine, hd-platform,
+sentinel-it-asset-logistics, or Hermes-Research.
+
+Mirrors of these findings were posted in the group; this record is the durable
+source of truth.
+
+## Addendum 2 — Full-branch census + known gap (2026-08-19, Kai)
+
+The table above reflects **default branches** only. A follow-up census across
+**all remote branches** (in response to Michael's question whether Phase 2 was
+complete) found:
+
+- `prismatic-engine`: 326 distinct okf/ paths across 23+ branches (up to 301
+  docs per branch). **Already reconciled** by the GRO-3721 treasure hunt
+  (2026-07-15, Fred): 16 docs promoted to hub `okf/projects/prismatic-engine/`,
+  ~1,138 duplicates classified, 549 historical docs archived as summaries.
+  155 "hidden-useful" docs remain as a documented backlog in the treasure-map
+  report — a future promotion project, not a Phase 2 omission.
+- `hd-platform`: 3 stubs, identical on all 44 branches. Nothing anywhere.
+- `Hermes-Research`: 0 okf files on any branch.
+- `sentinel-it-asset-logistics`: **known gap** — 2 real research docs exist only
+  on the in-flight branch `ned/GRO-4016-sial-closeout` (not on main, not in
+  hub):
+  - `okf/research/sentinel-itad-existing-content-map-2026-07-07.md`
+  - `okf/research/sentinel-itad-operating-brief-2026-07-07.md`
+
+  **Michael's decision (2026-08-19):** leave them — they land on main with the
+  GRO-4016 merge and will be consolidated in a **later sweep**. This is the
+  single tracked follow-up from Phase 2.

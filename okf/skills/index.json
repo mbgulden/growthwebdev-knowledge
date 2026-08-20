@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T15:33:25+00:00",
+  "generated_at": "2026-08-20T15:52:20+00:00",
   "generator": "scripts/skill-hub-snapshot.py",
   "sources": {
     "hermes_profiles": [
@@ -24,7 +24,7 @@
       "prismatic-skill-pkg"
     ]
   },
-  "files": 2444,
+  "files": 2445,
   "skills": 176,
   "status_counts": {
     "shared-2": 59,
@@ -1419,8 +1419,8 @@
           "profile_or_store": "kai",
           "category": "devops",
           "path": "hermes/kai/devops/hermes-profile-audit",
-          "hash": "f0f5428abe581ff7",
-          "hash_full": "f0f5428abe581ff78c45ef9c8c9903b5fbc211c733df1425872790f9ff238920"
+          "hash": "56ca6f74b83cd568",
+          "hash_full": "56ca6f74b83cd56891a2573dee67f8b4b3ad1f406e484d75398710c5831d3aaf"
         }
       ]
     },
@@ -2129,8 +2129,8 @@
           "profile_or_store": "kai",
           "category": "devops",
           "path": "hermes/kai/devops/okf-mcp-hub",
-          "hash": "034b19967aee286e",
-          "hash_full": "034b19967aee286e98940b6806858b7e4c499947c5186a4dbfa120ba1f92bd37"
+          "hash": "060ae8d1e38db799",
+          "hash_full": "060ae8d1e38db799f5c7c5485c1539a74ba4c9f14de7d7fa0336f04693c7a144"
         },
         {
           "source": "hermes/autobot",
@@ -3385,7 +3385,7 @@
     "hermes/orchestrator/.bundled_manifest": "875163bb9db12a84fae7725f99208ed0902def168a03ff4eca9a507a1444ba8f",
     "hermes/kai/.curator_state": "990fbcf1b47cd52bb919dc7a81ef1c72ca27f961d3bc24a4f6a8ef9d044b4407",
     "hermes/kai/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "hermes/kai/.usage.json": "3942b6779bdc0232ef6bcf082450ef0fefdd0eec30a043b9067ac9ef9050781d",
+    "hermes/kai/.usage.json": "12d25e322b3bfe93648d3b4296a71a4c82ba9db7f1be151fbc24c01cd04bb46a",
     "hermes/hdengine/.curator_state": "8f58ea99a56d902c82220904f1e72ad110ab7630dde6ee6937c84d35ff512193",
     "hermes/hdengine/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/hdengine/.usage.json": "3153501e2c4225c79404ff3bc2e11cdda05bf868a5aaa9672237e6947062945d",
@@ -5170,9 +5170,9 @@
     "hermes/kai/devops/local-llm-provider-tuning/SKILL.md": "29d797600261ac155153b24de1e932580bc279cda550f20d511e467ed4bc7ce0",
     "hermes/kai/devops/local-llm-inference-ops/SKILL.md": "f040d38a4069300a27455910f76e1668d5660cd13b9a9f8d4ab39313b7873472",
     "hermes/kai/devops/cloudflare-security-event-check/SKILL.md": "0d475a03ac7557c8cb6cc4e59e90227eb2ad5dd012c27538cce94547c8c1df3d",
-    "hermes/kai/devops/hermes-profile-audit/SKILL.md": "f0f5428abe581ff78c45ef9c8c9903b5fbc211c733df1425872790f9ff238920",
+    "hermes/kai/devops/hermes-profile-audit/SKILL.md": "56ca6f74b83cd56891a2573dee67f8b4b3ad1f406e484d75398710c5831d3aaf",
     "hermes/kai/devops/hermes-agent/SKILL.md": "9a5f5f5f6faaee970ddd506754b755441aaf854fcccede65ba0e5967ff2a97f4",
-    "hermes/kai/devops/okf-mcp-hub/SKILL.md": "034b19967aee286e98940b6806858b7e4c499947c5186a4dbfa120ba1f92bd37",
+    "hermes/kai/devops/okf-mcp-hub/SKILL.md": "060ae8d1e38db799f5c7c5485c1539a74ba4c9f14de7d7fa0336f04693c7a144",
     "hermes/kai/devops/hermes-profile-ops/SKILL.md": "0e73e1e6e7076214ee352d8e6201db0055ddbe541fc2c9522fcc829e685e388b",
     "hermes/kai/devops/llm-serving-benchmark/SKILL.md": "c658196b8abfdf992ea5cf2709e77bae36db37959c4defc37ccaf9c629ee492d",
     "hermes/kai/devops/agent-onboarding-workflow/SKILL.md": "71cc7f2bbc2dee40a02e2b3397b039ebd7581e7e7bde607829b38235e976ea3f",
@@ -5183,6 +5183,7 @@
     "hermes/kai/devops/local-llm-inference-ops/references/vllm-switch-2026-08-15.md": "e185708e38bdfd02e23bfd4f3fd586d9d9c596963457f67ee0b0f96f3198bd41",
     "hermes/kai/devops/cloudflare-security-event-check/references/cloudflare-credentials.md": "02de4c2c29c97bdbcd767ecfc9420a7d39236bcaa1ab6d0edee3722b569ef7c5",
     "hermes/kai/devops/hermes-agent/references/cloudflare-api-token-troubleshooting.md": "f2fc7df3a9e23b563c1c16e92b75ab2a0721d48d0e091ce9cf297cb64e37a207",
+    "hermes/kai/devops/okf-mcp-hub/references/skill-hub-phasea-2026-08-20.md": "6b92804f385be1c5a7feafb522e774d7e64eb66f00182cea87ff26f37d4bbb3a",
     "hermes/kai/devops/okf-mcp-hub/references/verification-receipt-2026-08-19.md": "32523ac0fd7e9118af76eed3f6592ad815fee3ccae42bf1e70581eecf7978649",
     "hermes/kai/devops/okf-mcp-hub/references/okf-phase3-spoke-migration-2026-08-19.md": "0217dfa00272e58931d41e40bbb305067fadf59c3bb367c4d414579a4e4090a1",
     "hermes/kai/devops/okf-mcp-hub/references/okf-phase4-adoption-plan-2026-08-20.md": "034124f79ac7c0d9b6f2afa43ad1bf8a2eb544a37e16ac658a8e7318bc307901",

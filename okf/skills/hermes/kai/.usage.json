@@ -484,14 +484,14 @@
     "archived_at": null,
     "created_at": "2026-08-18T04:04:02.492999+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-18T20:42:40.434242+00:00",
-    "last_used_at": "2026-08-18T20:42:19.894956+00:00",
-    "last_viewed_at": "2026-08-18T20:42:19.890354+00:00",
-    "patch_count": 3,
+    "last_patched_at": "2026-08-20T15:42:34.148310+00:00",
+    "last_used_at": "2026-08-20T15:38:49.374986+00:00",
+    "last_viewed_at": "2026-08-20T15:38:49.366808+00:00",
+    "patch_count": 5,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 4,
+    "view_count": 4
   },
   "hermes-profile-ops": {
     "archived_at": null,
@@ -627,14 +627,14 @@
     "archived_at": null,
     "created_at": "2026-08-19T14:43:22.597028+00:00",
     "created_by": null,
-    "last_patched_at": "2026-08-20T10:08:51.474519+00:00",
-    "last_used_at": "2026-08-20T10:03:59.264997+00:00",
-    "last_viewed_at": "2026-08-20T10:03:59.231122+00:00",
-    "patch_count": 19,
+    "last_patched_at": "2026-08-20T15:42:33.134282+00:00",
+    "last_used_at": "2026-08-20T15:38:49.370499+00:00",
+    "last_viewed_at": "2026-08-20T15:38:49.361678+00:00",
+    "patch_count": 22,
     "pinned": false,
     "state": "active",
-    "use_count": 10,
-    "view_count": 10
+    "use_count": 11,
+    "view_count": 11
   },
   "orchestrator-delegation-discipline": {
     "archived_at": null,

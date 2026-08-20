@@ -1,6 +1,6 @@
 # OKF Skill Hub — Catalog
 
-_Generated 2026-08-20T15:33:25+00:00 by `scripts/skill-hub-snapshot.py`. 176 skills / 2444 files across 12 Hermes profiles, AGY CLI, and the Prismatic engine._
+_Generated 2026-08-20T15:52:20+00:00 by `scripts/skill-hub-snapshot.py`. 176 skills / 2445 files across 12 Hermes profiles, AGY CLI, and the Prismatic engine._
 
 ## Status counts
 
@@ -76,7 +76,7 @@ _Generated 2026-08-20T15:33:25+00:00 by `scripts/skill-hub-snapshot.py`. 176 ski
 - `hermes/fred/devops/okf-mcp-hub` (sha256 89ffdeccebd2ec0a)
 - `hermes/george/devops/okf-mcp-hub` (sha256 1ed583bd59f9caab)
 - `hermes/orchestrator/devops/okf-mcp-hub` (sha256 89ffdeccebd2ec0a)
-- `hermes/kai/devops/okf-mcp-hub` (sha256 034b19967aee286e)
+- `hermes/kai/devops/okf-mcp-hub` (sha256 060ae8d1e38db799)
 - `hermes/autobot/devops/okf-mcp-hub` (sha256 89ffdeccebd2ec0a)
 
 ### pwp-visual-qa-proof
@@ -187,7 +187,7 @@ _Generated 2026-08-20T15:33:25+00:00 by `scripts/skill-hub-snapshot.py`. 176 ski
 | hermes-agent | divergent-3-variants | devops, hermes-operations, operations | hermes/ned/hermes-operations/hermes-agent<br>hermes/fred/operations/hermes-agent<br>hermes/george/devops/hermes-agent<br>hermes/orchestrator/operations/hermes-agent<br>hermes/kai/devops/hermes-agent | 7e6be342487bb3e2 |
 | hermes-mcp-stdio-server-wiring | unique | devops | hermes/george/devops/hermes-mcp-stdio-server-wiring | 638d8540afebc953 |
 | hermes-model-provider-ops | shared-2-identical | operations | hermes/fred/operations/hermes-model-provider-ops<br>hermes/orchestrator/operations/hermes-model-provider-ops | 8dc1048232b9d713 |
-| hermes-profile-audit | unique | devops | hermes/kai/devops/hermes-profile-audit | f0f5428abe581ff7 |
+| hermes-profile-audit | unique | devops | hermes/kai/devops/hermes-profile-audit | 56ca6f74b83cd568 |
 | hermes-profile-audit-and-prune | unique | devops | hermes/ned/devops/hermes-profile-audit-and-prune | ce9474f6d2fcbcf3 |
 | hermes-profile-ops | unique | devops | hermes/kai/devops/hermes-profile-ops | 0e73e1e6e7076214 |
 | hermes-provider-diagnostics | unique | devops | hermes/george/devops/hermes-provider-diagnostics | 7f52c9a5fe0d2594 |

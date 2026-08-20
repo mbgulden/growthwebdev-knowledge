@@ -140,6 +140,10 @@ Phases 1–3 **MOVED** knowledge into the hub. Phase 4 is **ADOPTION** — the h
 
 **Gotcha hit live — pointer-retired default but full legacy branch:** darius-star's `main` (default) was already a one-line pointer README, yet `master` still held all 25 docs. "Is this repo retired?" must check **ALL branches** (full-branch census, Phase 2 item 2), not just the default. Full Phase 4 recon + plan + open decisions in `references/okf-phase4-adoption-plan-2026-08-20.md`.
 
+## Skill hub (`okf/skills/` — added 2026-08-20, PR #33)
+
+`okf/skills/` is the **git-versioned registry of every skill** (Hermes 12 profiles + AGY CLI `~/.antigravity/skills/` + 4 engine stores). 283 SKILL.md / 176 unique names; 12 divergent (reconciliation backlog in `okf/skills/index.md` ⚠ section). Standard: `okf/standards/okf-skill-hub.md`; decision: `okf/decisions/2026-08-20-okf-skill-hub-phase-a.md`. Regenerate after skill changes: `python3 scripts/skill-hub-snapshot.py` (idempotent, marker-guarded) — the index diff IS the change report. Never hand-edit generated files. Distribution (Phase B) = engine `prismatic skills sync --source <okf-checkout>`; the engine reads a plain git checkout, never the MCP. Full session record: `references/skill-hub-phasea-2026-08-20.md`.
+
 ## Rotating / verifying a Google (GCP) credential after a leak (2026-08-19)
 
 1. **Chat redaction blocks pasting secrets.** The gateway masks credential-shaped strings in transit: a 39-char `AIzaSy…` API key arrives as a ~13-char `AIzaSy…<last4>` form (middle → `...`). It survives even when the user splits it into halves — the halves are re-joined *after* redaction. **Do not treat the masked form as the key; do not retry it.** (Observed 2026-08-19: two "full" key sends both arrived byte-identical and both failed live validation.)
@@ -173,7 +177,7 @@ hermes --profile <p> mcp test okf   # expect: ✓ Connected + ✓ Tools discover
 
 Live in-session proof: call `mcp_okf_status` + `mcp_okf_search("linear rate limit", limit=3)` → expect `standards/linear-rate-limit.md` as top hit.
 
-Reference: `references/aot-hub-centralization-phase1-2026-08-19.md` — session record for the first consolidation (AOT → `okf/hubs/active-oahu/`), source inventory, secret-scan incident, open follow-ups. `references/okf-phase3-spoke-migration-2026-08-19.md` — Phase 3 full-repo census table, migration transform, env quirks, open items. `references/okf-phase4-adoption-plan-2026-08-20.md` — Phase 4 adoption plan + verified recon state (redundant-branch census, deferred-gap branch names, darius-star pointer/legacy gotcha, open decisions).
+Reference: `references/aot-hub-centralization-phase1-2026-08-19.md` — session record for the first consolidation (AOT → `okf/hubs/active-oahu/`), source inventory, secret-scan incident, open follow-ups. `references/okf-phase3-spoke-migration-2026-08-19.md` — Phase 3 full-repo census table, migration transform, env quirks, open items. `references/okf-phase4-adoption-plan-2026-08-20.md` — Phase 4 adoption plan + verified recon state (redundant-branch census, deferred-gap branch names, darius-star pointer/legacy gotcha, open decisions). `references/skill-hub-phasea-2026-08-20.md` — skill-hub Phase A: okf/skills/ registry design, generator, drift status, Phase B/C plan, pitfalls.
 
 ## Profile distribution (as wired 2026-08-19)
 

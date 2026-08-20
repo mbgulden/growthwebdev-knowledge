@@ -107,8 +107,48 @@ PY
 
 A browser-header 200 with a Stripe URL is a checkout smoke pass; a bare-request 1010 alone is bot/WAF friction, not proof the CSP/header change broke checkout.
 
+## Repointing production: there is NO promote API (verified 2026-08-20)
+
+When the production custom domain is serving a bad deployment and you want a specific
+existing good deployment live, **you cannot promote it**:
+
+- `wrangler pages deployment promote` — **does not exist** in wrangler 4.x (4.124/4.125); the CLI errors with "Unknown arguments".
+- CF API: `POST/PUT .../deployments/{id}/promote`, `POST .../{production}/deployments`, `PUT .../{production}/deployments` — **all 405 method_not_allowed**. There is no promotion endpoint.
+- The Pages API does **not** accept the `CF-API-Token` header — use `Authorization: <token>` (or the Python-subprocess env pattern above).
+
+**The supported path is a clean rebuild + production-branch deploy:**
+
+1. `git worktree add /tmp/<name> <known-good-commit>` (never build inside a dirty checkout).
+2. `npm ci && npm run build` in the worktree.
+3. **Pre-deploy gate:** byte-compare the local `dist/` against the known-good deployment
+   (every sitemap route, SHA-256). This session: 176/176 byte-identical before deploying.
+   If the rebuild doesn't reproduce the target build, stop — don't ship a drift.
+4. Deploy via Python-subprocess env pattern with `--branch main` (branch decides environment).
+5. Post-deploy: verify the live domain, not just the deploy record.
+
+**Gotchas:**
+
+- `GET .../pages/projects/{name}/{production}/deployments` is **unreliable** — it returned a
+  stale May-29 record even after the production pointer actually changed (it was already
+  stale before the fix: showed `a45d6798` while the domain served `19c62026`). The routed
+  content follows the **latest production-branch deployment** (`/deployments?per_page=3`,
+  check `environment: production` + `deployment_trigger.metadata.commit_dirty`).
+- **Dirty-tree ad-hoc deploys are how untracked content reaches prod.** The bad HDE prod
+  build was `ad_hoc` + `commit_dirty: true` from a checkout with 113 dirty files; its
+  homepage title existed in **no tracked commit** — only in untracked `dist/`. Rule:
+  never `wrangler pages deploy` from a dirty tree; check `commit_dirty: false` on any
+  production deployment; content living only in untracked `dist/` is unrecoverable from git.
+- **Byte-comparing custom domain vs `pages.dev` requires normalizing CF custom-domain
+  injections** or you get false "differences": Web-Analytics beacon script
+  (`cloudflareinsights.com/beacon.min.js`), email obfuscation (`__cf_email__` anchors +
+  `email-decode.min.js` + `mailto:` → `/cdn-cgi/l/email-protection#…`), and a stray `\n`
+  left at the injection point. Use `scripts/cf-pages-deploy-diff.py` (normalizes all of
+  these) instead of hand-rolling. Session result: 173/173 routes equal after normalization;
+  the raw diff had shown 12 "different" routes, all CF injections.
+
 ## Supporting references
 
+- `scripts/cf-pages-deploy-diff.py` — reusable live-deploy verifier: byte-compares a custom domain against a reference deployment across all sitemap routes, normalizes CF beacon/email-obfuscation/injection-whitespace, smoke-tests API routes, exits non-zero on any real diff. Pick `--api` routes that are actually live on prod (`/api/health` is reliable; `/api/demo/start` 404s on prod while `hde-api.service` runs an old checkout — checking it false-flags the deploy as broken).
 - `references/2026-08-hde-prod-deploy-token-env-pitfall.md` — CF API token env redaction pitfall (`CLOUDFLARE_API_TOKEN=*** in a command line → code 6111), in-process subprocess fix, and the 2026-08-19 HDE prod deploy record.
 - `references/hde-pages-workers-build-conflict.md` — session-specific reproduction from GRO-3996: `assets.directory` passed Workers dry-run but broke Cloudflare Pages validation, so the branch restored Pages-compatible config and handed off the external Workers trigger decision.
 - `references/hde-redispatch-completed-code-work.md` — redispatch/dequeue pattern when implementation already exists, Pages is green, and only the duplicate Workers build check remains red.

@@ -227,6 +227,20 @@ The operator-approved max_tasks=2 unattended-window guard is implemented, tested
 
 See `references/unattended-window-guard-2026-07.md`.
 
+## AGY shared skill pool — placement and registration (2026-08-18)
+
+AGY CLI skill discovery does **not** read Hermes profile skill dirs. Every AGY run (launched by prismatic-consumer with `AGY_CLI_HOME` → kai profile home, whose `~/.gemini` symlinks to `/home/ubuntu/.gemini`) shares ONE skill pool: `/home/ubuntu/.gemini/config/skills/` (flat `*.md` files, frontmatter `name`/`description`/`tags`/`related_skills`, `agy-as-*` lane pattern).
+
+Placement procedure for a new AGY skill:
+
+1. Write the skill as a flat `.md` in `~/.gemini/config/skills/` with the lane frontmatter.
+2. Register it in `~/.gemini/config/skills/agy-lane-system-index.md` (one list line) — without the index entry, AGY's skill routing won't pick it up.
+3. Verify: file exists with mode 644, frontmatter parses, index line present.
+4. Durability: the pool is **not git-tracked** (`git rev-parse` → not a repo). Back up before edits; for durable versioning, commit a copy into `growthwebdev-knowledge` (e.g. `okf/playbooks/`) and say so in the closeout.
+5. Never place an AGY skill in `~/.hermes/profiles/agy/skills/` — that's the Hermes `agy` profile's dir, not AGY CLI discovery.
+
+Session detail (discovery evidence + example: `agy-okf-infrastructure-update`): `references/agy-shared-skill-pool-placement-2026-08.md`.
+
 ## Stale Hermes verification guard refresh
 
 When Hermes posts a stale verification warning after code edits, do not argue with it or reuse old evidence. Refresh it literally:

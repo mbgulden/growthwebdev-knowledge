@@ -1,6 +1,6 @@
 # OKF Skill Hub — Catalog
 
-_Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 176 skills / 2435 files across 12 Hermes profiles, AGY CLI, and the Prismatic engine._
+_Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 176 skills / 2438 files across 12 Hermes profiles, AGY CLI, and the Prismatic engine._
 
 ## Status counts
 
@@ -76,7 +76,7 @@ _Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 176 skills /
 - `hermes/fred/devops/okf-mcp-hub` (sha256 89ffdeccebd2ec0a)
 - `hermes/george/devops/okf-mcp-hub` (sha256 1ed583bd59f9caab)
 - `hermes/orchestrator/devops/okf-mcp-hub` (sha256 89ffdeccebd2ec0a)
-- `hermes/kai/devops/okf-mcp-hub` (sha256 060ae8d1e38db799)
+- `hermes/kai/devops/okf-mcp-hub` (sha256 65f0f7c0eaecade3)
 - `hermes/autobot/devops/okf-mcp-hub` (sha256 89ffdeccebd2ec0a)
 
 ### pwp-visual-qa-proof
@@ -185,7 +185,7 @@ _Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 176 skills /
 | hde-guest-ops-scripts | unique | devops | hermes/ned/devops/hde-guest-ops-scripts | 245a87d9190d4d4f |
 | headless-cli-oauth-login | unique | devops | hermes/ned/devops/headless-cli-oauth-login | d47af9909f868644 |
 | hermes-agent | divergent-3-variants | devops, hermes-operations, operations | hermes/ned/hermes-operations/hermes-agent<br>hermes/fred/operations/hermes-agent<br>hermes/george/devops/hermes-agent<br>hermes/orchestrator/operations/hermes-agent<br>hermes/kai/devops/hermes-agent | 7e6be342487bb3e2 |
-| hermes-mcp-stdio-server-wiring | unique | devops | hermes/george/devops/hermes-mcp-stdio-server-wiring | 638d8540afebc953 |
+| hermes-mcp-stdio-server-wiring | unique | devops | hermes/george/devops/hermes-mcp-stdio-server-wiring | 0fe5307a28b092d5 |
 | hermes-model-provider-ops | shared-2-identical | operations | hermes/fred/operations/hermes-model-provider-ops<br>hermes/orchestrator/operations/hermes-model-provider-ops | 8dc1048232b9d713 |
 | hermes-profile-audit | unique | devops | hermes/kai/devops/hermes-profile-audit | 56ca6f74b83cd568 |
 | hermes-profile-audit-and-prune | unique | devops | hermes/ned/devops/hermes-profile-audit-and-prune | ce9474f6d2fcbcf3 |
@@ -205,7 +205,7 @@ _Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 176 skills /
 | linear-backlog-routing-governance | shared-2-identical | operations | hermes/fred/operations/linear-backlog-routing-governance<br>hermes/orchestrator/operations/linear-backlog-routing-governance | d1cb2f497c048a66 |
 | linear-bulk-project-setup | unique | project-management | hermes/ned/project-management/linear-bulk-project-setup | c8feb65e8b2af5a6 |
 | linear-epic-evidence-reconciliation | unique | project-management | hermes/ned/project-management/linear-epic-evidence-reconciliation | d9d81a98aabab6a8 |
-| linear-handoff-build-out | shared-2-identical | operations | hermes/fred/operations/linear-handoff-build-out<br>hermes/orchestrator/operations/linear-handoff-build-out | 53bc68e1727c2097 |
+| linear-handoff-build-out | shared-2-identical | operations | hermes/fred/operations/linear-handoff-build-out<br>hermes/orchestrator/operations/linear-handoff-build-out | abc45e7ea4cf72de |
 | linear-read-verify | unique | devops | hermes/george/devops/linear-read-verify | face48a48b8ae479 |
 | linear-routing-classify | shared-2-identical | verifiers | hermes/fred/verifiers/linear-routing-classify<br>hermes/orchestrator/verifiers/linear-routing-classify | 19a0b36b1637187b |
 | llm-serving-benchmark | unique | devops | hermes/kai/devops/llm-serving-benchmark | c658196b8abfdf99 |
@@ -253,7 +253,7 @@ _Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 176 skills /
 | prismatic-plugin-development | unique | flat | prismatic/engine-skills/prismatic-plugin-development | 627257cc99c3f45c |
 | prismatic-portability | unique | flat | prismatic/engine-skills/prismatic-portability | 4ae87f6326d818a1 |
 | prismatic-pr-batch-cleanup | unique | prismatic-pr-batch-cleanup | hermes/ned/prismatic-pr-batch-cleanup | 9f6cebb91ebad763 |
-| prismatic-status-surface-ops | shared-2-identical | operations | hermes/fred/operations/prismatic-status-surface-ops<br>hermes/orchestrator/operations/prismatic-status-surface-ops | 953a12c5acb736ef |
+| prismatic-status-surface-ops | shared-2-identical | operations | hermes/fred/operations/prismatic-status-surface-ops<br>hermes/orchestrator/operations/prismatic-status-surface-ops | 53b4a523ab6103e2 |
 | prismatic-task-admission-smoke | unique | operations | hermes/george/operations/prismatic-task-admission-smoke | 2d67fe231cd0f8e2 |
 | prismatic-worktree-safety | shared-2-identical | flat | prismatic/prismatic-skill-pkg/prismatic-worktree-safety<br>prismatic/agents-skills/prismatic-worktree-safety | b8346d498514ee87 |
 | proactive-execution-discipline | shared-2-identical | agent-operations | hermes/fred/agent-operations/proactive-execution-discipline<br>hermes/orchestrator/agent-operations/proactive-execution-discipline | 5bddcfe4d3fe73fd |

@@ -30,6 +30,7 @@ HUB = Path("/home/ubuntu/work/growthwebdev-knowledge")
 DEST = HUB / "okf" / "skills"
 MARKER = ".generated-by-skill-hub-snapshot"
 SKIP_DIRS = {".archive", ".curator_backups", ".hub", "__pycache__", ".git", "node_modules"}
+SKIP_FILES = {".usage.json"}  # runtime usage telemetry — churns on every skill use, not skill content
 HERMES_PROFILES = Path("/home/ubuntu/.hermes/profiles")
 AGY = Path("/home/ubuntu/.antigravity/skills")
 ENGINE = Path("/home/ubuntu/work/prismatic-engine")
@@ -76,6 +77,8 @@ def import_tree(src: Path, dst: Path) -> dict:
             dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
             base = Path(dirpath)
             for fn in filenames:
+                if fn in SKIP_FILES:
+                    continue
                 sp = base / fn
                 dp = dst / base.relative_to(src) / fn
                 dp.parent.mkdir(parents=True, exist_ok=True)
@@ -117,8 +120,15 @@ def main():
     per_source = {}
 
     # --- wipe previous generated trees (guarded) ---
-    for sub in ("hermes", "agy", "prismatic"):
-        wipe_generated(DEST / sub)
+    wipe_generated(DEST / "agy")
+    wipe_generated(DEST / "prismatic")
+    # hermes: single marker at hermes/ root; wipe per-profile subdirs under it
+    hermes_root = DEST / "hermes"
+    if hermes_root.is_dir() and (hermes_root / MARKER).is_file():
+        for prof_dir in hermes_root.iterdir():
+            if prof_dir.is_dir():
+                shutil.rmtree(prof_dir)
+                print(f"  wiped {prof_dir.relative_to(HUB)}")
     (DEST).mkdir(parents=True, exist_ok=True)
 
     # --- import sources ---
@@ -126,11 +136,12 @@ def main():
         d.name for d in HERMES_PROFILES.iterdir()
         if d.is_dir() and (d / "skills").is_dir()
     )
+    (DEST / "hermes").mkdir(parents=True, exist_ok=True)
     for prof in profiles:
         src = HERMES_PROFILES / prof / "skills"
         dst = DEST / "hermes" / prof
         per_source[f"hermes/{prof}"] = import_tree(src, dst)
-        (dst / MARKER).write_text("generated\n")
+    (DEST / "hermes" / MARKER).write_text("generated\n")
 
     per_source["agy"] = import_tree(AGY, DEST / "agy")
     (DEST / "agy" / MARKER).write_text("generated\n")

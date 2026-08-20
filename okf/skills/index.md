@@ -1,6 +1,6 @@
 # OKF Skill Hub — Catalog
 
-_Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 176 skills / 2445 files across 12 Hermes profiles, AGY CLI, and the Prismatic engine._
+_Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 176 skills / 2435 files across 12 Hermes profiles, AGY CLI, and the Prismatic engine._
 
 ## Status counts
 

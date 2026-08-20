@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0.0",
+  "agent": "ned",
+  "agent_profile": "ned",
+  "session_id": "2026-07-27T22-30Z",
+  "written_at_utc": "2026-07-28T23:19:00+00:00",
+  "written_by": "agent_turn",
+  "previous_handoff": "/home/ubuntu/.hermes/profiles/ned/state/archive/ned-2026-07-28T22-45-00+00-00.json",
+  "current_state": {
+    "one_line": "Telegram restored; KPI dashboard PWP plugin first-slice spec is the workstream.",
+    "energy_phase": "fresh",
+    "last_meaningful_turn_summary": "Killed stale bash-spawned gateway that was holding the duplicate-check lock. Live probe NED_GATEWAY_OK. Pivoted to KPI dashboard PWP plugin workstream with one bounded move: write the kpi-collections.json skeleton at the active-oahu-tours-mirror-2529 site path."
+  },
+  "executed_since_last_handoff": [
+    {"kind": "process_management", "what": "Killed stale Ned gateway PID 1707198; systemd unit recovered", "evidence": "journalctl + systemctl show"},
+    {"kind": "live_probe", "what": "hermes --profile ned -z 'NED_GATEWAY_OK' returned NED_GATEWAY_OK", "evidence": "live CLI"}
+  ],
+  "in_flight": [
+    {"id_or_title": "Write kpi-collections.json skeleton for active-oahu-tours-mirror-2529", "status": "awaiting_human", "owner": "ned", "next_step": "Create the JSON file. Use the schema in skills/devops/kpis-and-reporter-architecture/SKILL.md. When done, post the file path + a one-line Telegram status update."}
+  ],
+  "pending_decisions_for_human": [],
+  "next_action": {
+    "title": "Create /home/ubuntu/work/active-oahu-tours-mirror-2529/scripts/kpis/kpi-collections.json — one real collection, three real metrics, pwp_dashboard_surface block. One file. Then post a one-line Telegram status with the path."
+  },
+  "links_to_truth": {
+    "kpi_skill": "/home/ubuntu/.hermes/profiles/ned/skills/devops/kpis-and-reporter-architecture/SKILL.md",
+    "live_site": "https://activeoahutours.com/"
+  },
+  "verification": {
+    "last_verifier_at_utc": "2026-07-28T23:19:00+00:00",
+    "verifier_path": "live CLI probe + journalctl + systemctl show",
+    "verifier_result": "pass",
+    "scope": "live runtime"
+  },
+  "notes_for_next_self": [
+    "Stale Ned gateway root cause: kai session on Jul 26 ran hermes --profile ned gateway run --replace in bash. When the kai session ended, the bash + python kept running.",
+    "Fix going forward: never hermes --profile X gateway run --replace from an interactive bash session. Use hermes gateway restart (systemd-managed).",
+    "Active Oahu has no Stripe (FareHarbor handles payment). Don't add Stripe metrics."
+  ],
+  "do_not_repeat": [
+    "Do not run hermes --profile X gateway run --replace from interactive bash — it leaves a stale process that blocks systemd.",
+    "Do not treat Ned Telegram outages as a Telegram-config problem before checking for stale bash-spawned duplicates."
+  ]
+}

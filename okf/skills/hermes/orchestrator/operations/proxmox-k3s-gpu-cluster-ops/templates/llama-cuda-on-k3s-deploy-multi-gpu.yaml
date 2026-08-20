@@ -1,0 +1,213 @@
+# Multi-GPU (2+ GPUs) llama-server Deployment — VERIFIED 2026-08-15
+
+This is the live-working multi-GPU manifest for **Fred** (Q5_K_M 27B on
+GPUs 0+1 layer-split, port 31001). Uses `--split-mode layer --tensor-split 1,1`
+to split weights across both NVLink-paired cards.
+
+Things this template gets right (and others get wrong):
+
+- `nvidia.com/gpu: 2` (single resource request spanning both cards)
+- `--split-mode layer --tensor-split 1,1` (layer-split, equal halves)
+- `--parallel 1` (one slot; multi-GPU doesn't need multi-slot)
+- `strategy.type: Recreate` (NOT RollingUpdate — can't have two pods
+  competing for the same GPU reservation)
+- `--n-predict 4096` for the slot monopolization fix (defense in depth)
+- `runtimeClassName: nvidia` at POD level
+- `--mmproj` flag for vision
+
+VRAM usage: ~14 GiB per card, ~60% utilization, ~10 GiB headroom.
+
+---
+
+```yaml
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: qwen-models-hostpath
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: manual
+  hostPath:
+    path: /models
+    type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qwen-models
+  namespace: llm-inference
+spec:
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 100Gi
+  volumeName: qwen-models-hostpath
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: llama-fred
+  namespace: llm-inference
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fred-llama
+  namespace: llm-inference
+  labels:
+    app: fred-llama
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate   # layer-split can't have two concurrent pods on same GPUs
+  selector:
+    matchLabels:
+      app: fred-llama
+  template:
+    metadata:
+      labels:
+        app: fred-llama
+    spec:
+      runtimeClassName: nvidia
+      serviceAccountName: llama-fred
+      nodeSelector:
+        kubernetes.io/hostname: k3s-node-230
+      containers:
+        - name: llama-server
+          image: llama-cuda:v2
+          imagePullPolicy: Never
+          env:
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "0,1"
+            - name: NVIDIA_DRIVER_CAPABILITIES
+              value: "compute,utility"
+          resources:
+            requests:
+              nvidia.com/gpu: 2    # single request, 2 GPUs
+            limits:
+              nvidia.com/gpu: 2
+          ports:
+            - containerPort: 31001
+          args:
+            - --model
+            - /models/qwen3.8-27b-q5/Qwen3.8-27B-Q5_K_M.gguf
+            - --mmproj
+            - /models/qwen3.8-27b-q5/mmproj-F16.gguf
+            - --alias
+            - local-qwen-27b-q5-fred
+            - --ctx-size
+            - "262144"               # n_ctx_train; YARN doesn't extend past this
+            - --parallel
+            - "1"
+            - --cache-type-k
+            - q4_0
+            - --cache-type-v
+            - q4_0
+            - --flash-attn
+            - "on"
+            - --n-predict
+            - "4096"                 # server-side output cap
+            - --split-mode
+            - layer
+            - --tensor-split
+            - "1,1"
+            - --host
+            - 0.0.0.0
+            - --port
+            - "31001"
+          volumeMounts:
+            - name: models
+              mountPath: /models
+              readOnly: true
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 31001
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 30
+      volumes:
+        - name: models
+          persistentVolumeClaim:
+            claimName: qwen-models
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fred-llama
+  namespace: llm-inference
+spec:
+  type: NodePort
+  selector:
+    app: fred-llama
+  ports:
+    - port: 31001
+      targetPort: 31001
+      nodePort: 31001
+  externalTrafficPolicy: Cluster
+```
+
+---
+
+## Why `Recreate` (not `RollingUpdate`)
+
+With `--split-mode layer`, the model weights are split across both GPUs
+inside a single pod. A second pod would try to claim both GPUs and conflict
+with the first. Use `strategy.type: Recreate` so:
+- Old pod is fully terminated
+- New pod is started with both GPU reservations
+
+This guarantees no GPU-conflict during rollouts.
+
+## VRAM math at 262k ctx
+
+For Q5_K_M 27B on 2× 24 GiB RTX 3090 with q4_0 KV cache:
+
+| Component | Per card |
+|-----------|----------|
+| Weights (layer-split) | ~9.25 GiB |
+| KV cache q4_0 at 262k | ~1.79 GiB (split across cards) |
+| mmproj (vision) | ~1 GiB |
+| CUDA overhead + output buffer | ~2 GiB |
+| **Total per card** | **~14 GiB (60%)** |
+| Headroom | ~10 GiB |
+
+Even at long generation, headroom is comfortable. The mmproj shares both
+GPUs uniformly — `--mmproj-offload` (default enabled) auto-distributes.
+
+## YARN args are deliberately omitted
+
+`--rope-scaling yarn --yarn-orig-ctx 262144 --yarn-ext-factor 2.0` does
+NOT extend `--ctx-size` past `n_ctx_train` (262144) on llama.cpp b5368.
+The startup log will show "exceeds the training context - capping" and the
+actual slot ctx will be 262144 regardless. Adding YARN args is harmless
+but pointless — see `references/llama-server-runtime-gotchas.md` Gotcha 7.
+
+## Verification
+
+```bash
+export KUBECONFIG=/tmp/k3s230.yaml
+
+# Both GPUs show ~equal memory usage
+qm guest exec 230 -- nvidia-smi --query-gpu=index,memory.used --format=csv,noheader,nounits
+# Expect: 0,~14000 and 1,~14000 (within ~1 GB of each other)
+
+# Slot context
+curl -s http://<vm-lan-ip>:31001/slots | jq '.[0].n_ctx'    # 262144
+
+# Real chat completion (should generate at ~30-37 t/s on layer-split pair)
+curl -s -X POST http://<vm-lan-ip>:31001/v1/chat/completions \
+    -H 'Content-Type: application/json' \
+    -d '{"model":"local-qwen-27b-q5-fred","messages":[{"role":"user","content":"Say OK."}],"max_tokens":5}' \
+    | jq '.usage, .choices[0].finish_reason'
+
+# mmproj loaded (search pod logs)
+kubectl logs -n llm-inference -l app=fred-llama | grep -i mmproj
+```

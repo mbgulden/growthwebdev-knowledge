@@ -26,7 +26,7 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-HUB = Path("/home/ubuntu/work/growthwebdev-knowledge")
+HUB = Path(os.environ.get("SKILL_HUB_ROOT", "/home/ubuntu/work/growthwebdev-knowledge"))
 DEST = HUB / "okf" / "skills"
 MARKER = ".generated-by-skill-hub-snapshot"
 SKIP_DIRS = {".archive", ".curator_backups", ".hub", "__pycache__", ".git", "node_modules"}

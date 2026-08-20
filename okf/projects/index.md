@@ -21,15 +21,15 @@ Each project has a per-project OKF index doc plus a spoke repo with its own
 | Project | Index | Spoke repo |
 |---|---|---|
 | prismatic-engine | [prismatic-engine/index.md](./prismatic-engine/index.md) | Hub canonical; repo-local breadcrumb [`docs/okf-map.md`](https://github.com/mbgulden/prismatic-engine/blob/deploy-fresh/docs/okf-map.md) |
-| darius-star | [darius-star.md](./darius-star.md) | [`mbgulden/darius-star/okf`](https://github.com/mbgulden/darius-star/tree/main/okf) |
+| darius-star | [darius-star/index.md](./darius-star/index.md) | Hub canonical (migrated 2026-08-19); source `mbgulden/darius-star` `okf/` retired to pointer |
 | active-oahu-tours | _(see active-oahu-tours-mirror/okf/)_ | [`mbgulden/active-oahu-tours/okf`](https://github.com/mbgulden/active-oahu-tours/tree/main/okf) |
 | active-oahu-static | _(see active-oahu-static/okf/)_ | [`mbgulden/active-oahu-static/okf`](https://github.com/mbgulden/active-oahu-static/tree/main/okf) |
 | hd-platform / Human Design Engine | [human-design-engine/index.md](./human-design-engine/index.md) | [`mbgulden/hd-platform/okf`](https://github.com/mbgulden/hd-platform/tree/main/okf) |
 | OpenHumanDesignMCP | [open-human-design-mcp/index.md](./open-human-design-mcp/index.md) | [`mbgulden/OpenHumanDesignMCP`](https://github.com/mbgulden/OpenHumanDesignMCP) |
-| belief-deprogrammer | _(see belief-deprogrammer/okf/)_ | [`mbgulden/belief-deprogrammer/okf`](https://github.com/mbgulden/belief-deprogrammer/tree/main/okf) |
+| belief-deprogrammer | [belief-deprogrammer/index.md](./belief-deprogrammer/index.md) | Hub canonical (migrated 2026-08-19); source `mbgulden/belief-deprogrammer` `okf/` retired to pointer |
+| agentic-swarm-ops | [agentic-swarm-ops/index.md](./agentic-swarm-ops/index.md) | Hub canonical (migrated 2026-08-19); source `mbgulden/agentic-swarm-ops` `okf/` retired to pointer |
 | beyondsaas-site | _(see beyondsaas-site/okf/)_ | [`mbgulden/beyondsaas-site/okf`](https://github.com/mbgulden/beyondsaas-site/tree/main/okf) |
 | sentinel-it-asset-logistics | _(see sentinel-it-asset-logistics/okf/)_ | [`mbgulden/sentinel-it-asset-logistics/okf`](https://github.com/mbgulden/sentinel-it-asset-logistics/tree/main/okf) |
-| darius-star | _(see darius-star/okf/)_ | [`mbgulden/darius-star/okf`](https://github.com/mbgulden/darius-star/tree/main/okf) |
 | homelab | _(see homelab/okf/)_ | [`mbgulden/homelab/okf`](https://github.com/mbgulden/homelab/tree/main/okf) |
 
 Each spoke contains an `index.md` plus subdirectories `reports/`, `audits/`,

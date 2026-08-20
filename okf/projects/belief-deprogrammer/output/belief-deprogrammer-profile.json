@@ -1,0 +1,699 @@
+{
+  "project": {
+    "name": "Belief Deprogrammer",
+    "tagline": "Personalized Human Design Deconditioning",
+    "description": "Epistemologically grounded deprogramming knowledge base.",
+    "mission": "Empower individuals to safely identify, deconstruct, and dissolve limiting conditioning through integrated psychological and somatic modalities.",
+    "type": "knowledge-base",
+    "status": "active"
+  },
+  "content": {
+    "primary_sections": [
+      {
+        "name": "audits",
+        "type": "audit",
+        "doc_count": 1
+      },
+      {
+        "name": "cases",
+        "type": "case_study",
+        "doc_count": 4
+      },
+      {
+        "name": "cognitive_biases",
+        "type": "cognitive_bias",
+        "doc_count": 5
+      },
+      {
+        "name": "methodologies",
+        "type": "deprogramming_vector",
+        "doc_count": 8
+      },
+      {
+        "name": "okf",
+        "type": "index",
+        "doc_count": 6
+      },
+      {
+        "name": "research",
+        "type": "research",
+        "doc_count": 1
+      }
+    ],
+    "assets": [
+      "assets/belief_systems_map.svg",
+      "assets/belief_deconditioning_concept.png"
+    ],
+    "testimonials_or_quotes": []
+  },
+  "design": {
+    "color_palette": [
+      "#00ffff",
+      "#ff0055",
+      "#00ff55",
+      "#ffaa00"
+    ],
+    "typography": "Georgia, system-ui, sans-serif",
+    "mood": "scientific, premium, deep, mystical-yet-rational",
+    "reference_sites": []
+  },
+  "technical": {
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Python API Server"
+    ],
+    "deployment": "Cloudflare Pages (landing), Python Service (engine)",
+    "github_repo": "mbgulden/belief-deprogrammer",
+    "live_url": "https://belief-deprogrammer.pages.dev"
+  },
+  "automation": {
+    "workflows": []
+  },
+  "okf_docs": [
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/audits/index.md",
+      "relative": "audits/index.md",
+      "title": "Belief Deprogrammer \u2014 Audits",
+      "type": "Index",
+      "description": "Project-specific audits with findings + recommendations.",
+      "tags": [
+        "index",
+        "audits"
+      ],
+      "relations": [
+        "index.md"
+      ],
+      "timestamp": "2026-06-19T11:06:00Z",
+      "status": "current"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/case_study_and_empirical_evidence_ledger.md",
+      "relative": "case_study_and_empirical_evidence_ledger.md",
+      "title": "Case Study and Empirical Evidence Ledger",
+      "type": "Ledger",
+      "description": "Standardized repository documenting historical case studies, empirical trials, and intervention outcomes.",
+      "tags": [
+        "case-study",
+        "evidence",
+        "ledger",
+        "research"
+      ],
+      "relations": [
+        "cases/michael_workbook.md",
+        "cognitive_bias_and_fallacy_index.md",
+        "methodologies/street_epistemology.md",
+        "methodologies/cbt_restructuring.md",
+        "deprogramming_methodologies_playbook.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "methodologies/emotion_code.md",
+        "cases/mouse_trauma_study_2025.md",
+        "cases/morning_sickness_study_2025.md",
+        "cases/heart_wall_clearing_study.md",
+        "ontology_and_taxonomy_manifesto.md",
+        "index.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "current"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cases/heart_wall_clearing_study.md",
+      "relative": "cases/heart_wall_clearing_study.md",
+      "title": "Heart-Wall Clearing Trial",
+      "type": "empirical_trial",
+      "description": "Self-reported evaluation of clearing emotional Heart-Walls on general well-being.",
+      "tags": [
+        "nelson",
+        "empirical",
+        "evidence",
+        "research",
+        "heart-wall"
+      ],
+      "relations": [
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "methodologies/emotion_code.md",
+        "case_study_and_empirical_evidence_ledger.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cases/michael_workbook.md",
+      "relative": "cases/michael_workbook.md",
+      "title": "Michael Workbook Case Study",
+      "type": "case_study",
+      "description": "Empirical case study validating the deconditioning and belief restructuring process.",
+      "tags": [
+        "case_study",
+        "empirical",
+        "sacral",
+        "generator"
+      ],
+      "relations": [
+        "methodologies/socratic_questioning.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "case_study_and_empirical_evidence_ledger.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cases/morning_sickness_study_2025.md",
+      "relative": "cases/morning_sickness_study_2025.md",
+      "title": "Morning Sickness Study (2025)",
+      "type": "empirical_trial",
+      "description": "Preliminary evaluation of the Emotion Code on pregnancy-related morning sickness symptoms.",
+      "tags": [
+        "nelson",
+        "empirical",
+        "evidence",
+        "research",
+        "morning-sickness"
+      ],
+      "relations": [
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "methodologies/emotion_code.md",
+        "case_study_and_empirical_evidence_ledger.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cases/mouse_trauma_study_2025.md",
+      "relative": "cases/mouse_trauma_study_2025.md",
+      "title": "Mouse Trauma Study (2025)",
+      "type": "empirical_trial",
+      "description": "Empirical evaluation of the Emotion Code vs pharmaceutical interventions on trauma-induced behavior in mice.",
+      "tags": [
+        "nelson",
+        "empirical",
+        "evidence",
+        "research",
+        "trauma"
+      ],
+      "relations": [
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "methodologies/emotion_code.md",
+        "case_study_and_empirical_evidence_ledger.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_bias_and_fallacy_index.md",
+      "relative": "cognitive_bias_and_fallacy_index.md",
+      "title": "Cognitive Bias and Fallacy Index",
+      "type": "Index",
+      "description": "Encyclopedic repository analyzing cognitive biases, logical fallacies, and countermeasures.",
+      "tags": [
+        "bias",
+        "fallacy",
+        "index",
+        "cognitive-psychology"
+      ],
+      "relations": [
+        "methodologies/socratic_questioning.md",
+        "cognitive_biases/confirmation_bias.md",
+        "methodologies/street_epistemology.md",
+        "cognitive_biases/backfire_effect.md",
+        "methodologies/cbt_restructuring.md",
+        "cognitive_biases/cognitive_dissonance.md",
+        "cognitive_biases/authority_bias.md",
+        "cognitive_biases/tribalism_bias.md",
+        "ontology_and_taxonomy_manifesto.md",
+        "deprogramming_methodologies_playbook.md",
+        "case_study_and_empirical_evidence_ledger.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "index.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "current"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/authority_bias.md",
+      "relative": "cognitive_biases/authority_bias.md",
+      "title": "Authority Bias",
+      "type": "cognitive_bias",
+      "description": "The tendency to attribute greater accuracy to the opinion of an authority figure and be more influenced by that opinion.",
+      "tags": [
+        "bias",
+        "psychology",
+        "authority",
+        "compliance"
+      ],
+      "relations": [
+        "methodologies/socratic_questioning.md",
+        "methodologies/street_epistemology.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cases/michael_workbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/backfire_effect.md",
+      "relative": "cognitive_biases/backfire_effect.md",
+      "title": "The Backfire Effect",
+      "type": "cognitive_bias",
+      "description": "A cognitive phenomenon where presenting corrective facts actually increases the subject's belief in the original misconception due to identity protection.",
+      "tags": [
+        "bias",
+        "psychology",
+        "backfire",
+        "identity"
+      ],
+      "relations": [
+        "methodologies/street_epistemology.md",
+        "methodologies/socratic_questioning.md",
+        "cognitive_bias_and_fallacy_index.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cases/michael_workbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/cognitive_dissonance.md",
+      "relative": "cognitive_biases/cognitive_dissonance.md",
+      "title": "Cognitive Dissonance",
+      "type": "cognitive_bias",
+      "description": "The mental discomfort experienced by someone who holds two or more contradictory beliefs, ideas, or values.",
+      "tags": [
+        "bias",
+        "psychology",
+        "discomfort",
+        "dissonance"
+      ],
+      "relations": [
+        "methodologies/cbt_restructuring.md",
+        "methodologies/socratic_questioning.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cognitive_biases/backfire_effect.md",
+        "cases/michael_workbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/confirmation_bias.md",
+      "relative": "cognitive_biases/confirmation_bias.md",
+      "title": "Confirmation Bias",
+      "type": "cognitive_bias",
+      "description": "The tendency to search for, interpret, favor, and recall information in a way that confirms one's prior beliefs.",
+      "tags": [
+        "bias",
+        "psychology",
+        "cognitive",
+        "confirmation"
+      ],
+      "relations": [
+        "methodologies/socratic_questioning.md",
+        "cognitive_bias_and_fallacy_index.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/cognitive_biases/tribalism_bias.md",
+      "relative": "cognitive_biases/tribalism_bias.md",
+      "title": "Tribalism Bias",
+      "type": "cognitive_bias",
+      "description": "The tendency to conform to group beliefs and reject outside information to maintain belonging and protect social standing.",
+      "tags": [
+        "bias",
+        "psychology",
+        "tribalism",
+        "belonging"
+      ],
+      "relations": [
+        "methodologies/street_epistemology.md",
+        "methodologies/socratic_questioning.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cases/michael_workbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/deprogramming_methodologies_playbook.md",
+      "relative": "deprogramming_methodologies_playbook.md",
+      "title": "Deprogramming Methodologies Playbook",
+      "type": "Playbook",
+      "description": "Tactical playbook detailing non-coercive cognitive interventions and belief restructuring protocols.",
+      "tags": [
+        "methodology",
+        "playbook",
+        "intervention",
+        "socratic-questioning"
+      ],
+      "relations": [
+        "methodologies/street_epistemology.md",
+        "methodologies/cbt_restructuring.md",
+        "methodologies/socratic_questioning.md",
+        "methodologies/remove_replace_scripting.md",
+        "methodologies/emotion_code.md",
+        "methodologies/body_code.md",
+        "methodologies/belief_code.md",
+        "methodologies/muscle_testing.md",
+        "ontology_and_taxonomy_manifesto.md",
+        "cognitive_bias_and_fallacy_index.md",
+        "case_study_and_empirical_evidence_ledger.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "index.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "current"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/ethical_guardrails_and_harm_reduction_framework.md",
+      "relative": "ethical_guardrails_and_harm_reduction_framework.md",
+      "title": "Ethical Guardrails and Harm Reduction Framework",
+      "type": "Framework",
+      "description": "Ethical constitution governing deprogramming interventions, harm reduction, and psychological safety.",
+      "tags": [
+        "ethics",
+        "safety",
+        "guardrails",
+        "harm-reduction"
+      ],
+      "relations": [
+        "methodologies/remove_replace_scripting.md",
+        "methodologies/muscle_testing.md",
+        "methodologies/emotion_code.md",
+        "methodologies/body_code.md",
+        "methodologies/street_epistemology.md",
+        "ontology_and_taxonomy_manifesto.md",
+        "cognitive_bias_and_fallacy_index.md",
+        "cognitive_biases/backfire_effect.md",
+        "cognitive_biases/cognitive_dissonance.md",
+        "deprogramming_methodologies_playbook.md",
+        "methodologies/socratic_questioning.md",
+        "case_study_and_empirical_evidence_ledger.md",
+        "cases/michael_workbook.md",
+        "index.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "current"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/index.md",
+      "relative": "index.md",
+      "title": "Belief Deprogrammer",
+      "type": "Index",
+      "description": "Belief change / deprogramming product \u2014 therapist quote research, behavioral change content.",
+      "tags": [
+        "index",
+        "project",
+        "okf-spoke"
+      ],
+      "relations": [
+        "audits/index.md",
+        "research/index.md",
+        "ontology_and_taxonomy_manifesto.md",
+        "cognitive_bias_and_fallacy_index.md",
+        "deprogramming_methodologies_playbook.md",
+        "case_study_and_empirical_evidence_ledger.md",
+        "ethical_guardrails_and_harm_reduction_framework.md"
+      ],
+      "timestamp": "2026-06-19T11:06:00Z",
+      "status": "current"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/belief_code.md",
+      "relative": "methodologies/belief_code.md",
+      "title": "The Belief Code",
+      "type": "deprogramming_vector",
+      "description": "Dr. Bradley Nelson's level 3 methodology mapping belief networks as trees to identify and dismantle core identity issues.",
+      "tags": [
+        "nelson",
+        "methodology",
+        "belief-code",
+        "deprogramming",
+        "core-identity"
+      ],
+      "relations": [
+        "methodologies/muscle_testing.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cognitive_biases/cognitive_dissonance.md",
+        "cases/michael_workbook.md",
+        "deprogramming_methodologies_playbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/body_code.md",
+      "relative": "methodologies/body_code.md",
+      "title": "The Body Code",
+      "type": "deprogramming_vector",
+      "description": "Dr. Bradley Nelson's level 2 methodology identifying and releasing physical and energetic imbalances across six distinct categories.",
+      "tags": [
+        "nelson",
+        "methodology",
+        "body-code",
+        "energy-healing",
+        "clearing"
+      ],
+      "relations": [
+        "methodologies/muscle_testing.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cognitive_biases/cognitive_dissonance.md",
+        "cases/michael_workbook.md",
+        "deprogramming_methodologies_playbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/cbt_restructuring.md",
+      "relative": "methodologies/cbt_restructuring.md",
+      "title": "Cognitive Behavioral Restructuring (CBT-derived)",
+      "type": "deprogramming_vector",
+      "description": "An intervention protocol targeting automatic thoughts and cognitive distortions to reconstruct rational belief systems.",
+      "tags": [
+        "cbt",
+        "psychology",
+        "methodology",
+        "cognitive-distortions",
+        "intervention"
+      ],
+      "relations": [
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cognitive_biases/cognitive_dissonance.md",
+        "cognitive_biases/confirmation_bias.md",
+        "cases/michael_workbook.md",
+        "deprogramming_methodologies_playbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/emotion_code.md",
+      "relative": "methodologies/emotion_code.md",
+      "title": "The Emotion Code",
+      "type": "deprogramming_vector",
+      "description": "Dr. Bradley Nelson's level 1 methodology focusing on identifying and releasing trapped emotional energies stored in the physical and energetic body.",
+      "tags": [
+        "nelson",
+        "methodology",
+        "energy",
+        "trapped-emotions",
+        "clearing"
+      ],
+      "relations": [
+        "methodologies/muscle_testing.md",
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cognitive_biases/cognitive_dissonance.md",
+        "cases/michael_workbook.md",
+        "deprogramming_methodologies_playbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/muscle_testing.md",
+      "relative": "methodologies/muscle_testing.md",
+      "title": "Applied Kinesiology (Muscle Testing)",
+      "type": "deprogramming_vector",
+      "description": "A diagnostic and clearing verification technique relying on physical biofeedback responses to binary questions.",
+      "tags": [
+        "nelson",
+        "methodology",
+        "kinesiology",
+        "muscle-testing",
+        "diagnostics"
+      ],
+      "relations": [
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "methodologies/emotion_code.md",
+        "methodologies/body_code.md",
+        "methodologies/belief_code.md",
+        "cognitive_biases/cognitive_dissonance.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/remove_replace_scripting.md",
+      "relative": "methodologies/remove_replace_scripting.md",
+      "title": "Remove-Replace Scripting",
+      "type": "deprogramming_vector",
+      "description": "Allie Duzett's methodology of identifying limiting beliefs, removing them via script, and installing present-tense positive replacements.",
+      "tags": [
+        "duzett",
+        "methodology",
+        "script",
+        "remove-replace",
+        "reprogram"
+      ],
+      "relations": [
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cognitive_biases/confirmation_bias.md",
+        "cases/michael_workbook.md",
+        "deprogramming_methodologies_playbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/socratic_questioning.md",
+      "relative": "methodologies/socratic_questioning.md",
+      "title": "Socratic Questioning",
+      "type": "deprogramming_vector",
+      "description": "A cooperative argumentative dialogue to stimulate critical thinking and draw out ideas and underlying presuppositions.",
+      "tags": [
+        "socratic",
+        "methodology",
+        "questioning",
+        "intervention"
+      ],
+      "relations": [
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cognitive_biases/confirmation_bias.md",
+        "cases/michael_workbook.md",
+        "deprogramming_methodologies_playbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/methodologies/street_epistemology.md",
+      "relative": "methodologies/street_epistemology.md",
+      "title": "Street Epistemology",
+      "type": "deprogramming_vector",
+      "description": "A conversational methodology focused on how a person knows a claim to be true, emphasizing critical thinking and the reliability of belief-forming methods.",
+      "tags": [
+        "socratic",
+        "epistemology",
+        "methodology",
+        "questioning",
+        "intervention"
+      ],
+      "relations": [
+        "ethical_guardrails_and_harm_reduction_framework.md",
+        "cognitive_biases/backfire_effect.md",
+        "cognitive_biases/tribalism_bias.md",
+        "cases/michael_workbook.md",
+        "deprogramming_methodologies_playbook.md",
+        "ontology_and_taxonomy_manifesto.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "active"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/ontology_and_taxonomy_manifesto.md",
+      "relative": "ontology_and_taxonomy_manifesto.md",
+      "title": "Ontology and Taxonomy Manifesto",
+      "type": "manifesto",
+      "description": "Structural blueprint and controlled vocabulary for the Belief Deprogrammer knowledge graph.",
+      "tags": [
+        "ontology",
+        "taxonomy",
+        "architecture",
+        "blueprint"
+      ],
+      "relations": [
+        "cognitive_bias_and_fallacy_index.md",
+        "cognitive_biases/confirmation_bias.md",
+        "deprogramming_methodologies_playbook.md",
+        "methodologies/socratic_questioning.md",
+        "case_study_and_empirical_evidence_ledger.md",
+        "cases/michael_workbook.md",
+        "cases/mouse_trauma_study_2025.md",
+        "index.md",
+        "ethical_guardrails_and_harm_reduction_framework.md"
+      ],
+      "timestamp": "2026-06-23T08:00:00Z",
+      "status": "current"
+    },
+    {
+      "path": "/home/ubuntu/work/belief-deprogrammer/okf/research/index.md",
+      "relative": "research/index.md",
+      "title": "Belief Deprogrammer \u2014 Research",
+      "type": "Index",
+      "description": "Project-specific reference research.",
+      "tags": [
+        "index",
+        "research"
+      ],
+      "relations": [
+        "index.md"
+      ],
+      "timestamp": "2026-06-19T11:06:00Z",
+      "status": "current"
+    }
+  ],
+  "metadata": {
+    "okf_root": "/home/ubuntu/work/belief-deprogrammer/okf",
+    "ingest_date": "2026-06-24T00:00:00Z",
+    "doc_count": 25
+  },
+  "primary_sections": [
+    {
+      "name": "audits",
+      "type": "audit",
+      "doc_count": 1
+    },
+    {
+      "name": "cases",
+      "type": "case_study",
+      "doc_count": 4
+    },
+    {
+      "name": "cognitive_biases",
+      "type": "cognitive_bias",
+      "doc_count": 5
+    },
+    {
+      "name": "methodologies",
+      "type": "deprogramming_vector",
+      "doc_count": 8
+    },
+    {
+      "name": "okf",
+      "type": "index",
+      "doc_count": 6
+    },
+    {
+      "name": "research",
+      "type": "research",
+      "doc_count": 1
+    }
+  ]
+}

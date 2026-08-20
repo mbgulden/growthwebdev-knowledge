@@ -25,6 +25,7 @@ the context, decision, and consequences.
 | Event-driven dispatch (Tier 6 part 1) | 2026-06-19 | [`./event-driven-dispatch.md`](./event-driven-dispatch.md) | GRO-2042/2047/2048/2050 |
 | Prismatic OKF hub-and-spoke map | 2026-07-15 | [`./prismatic-okf-hub-and-spoke-map.md`](./prismatic-okf-hub-and-spoke-map.md) | GRO-3721 |
 | OKF agent commit authorization (George registration) | 2026-08-19 | [`./okf-agent-commit-authorization.md`](./okf-agent-commit-authorization.md) | n/a (direct Michael authorization) |
+| OKF hub unification — Phase 3 (belief-deprogrammer, darius-star, agentic-swarm-ops) | 2026-08-19 | [`./2026-08-19-okf-hub-unification-phase3.md`](./2026-08-19-okf-hub-unification-phase3.md) | n/a (Kai standing-goal; Michael direction) |
 
 ## Format
 

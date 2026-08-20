@@ -39,6 +39,11 @@ spoke repositories.
 - [Prismatic Governance Dashboard Ingestion Queue repair closeout — 2026-07-14](./projects/prismatic-engine/ingestion-queue-repair-2026-07-14.md) — durable queue ledger, `/api/gateway` aliases, mutation controls, audit timeline, browser/API proof, and drainer caveat.
 - [HDE Stripe staging launch closeout — 2026-07-13](./projects/human-design-engine/staging-stripe-launch-2026-07-13.md) — revenue-gate staging bundle, verification boundary, and remaining launch proof.
 - [OpenHumanDesignMCP release hardening closeout — 2026-07-13](./projects/open-human-design-mcp/release-hardening-2026-07-13.md) — Dependabot/Ned/Fred handoff PR cleanup and stale-work closure.
+- [OKF hub unification — Phase 3 decision](./decisions/2026-08-19-okf-hub-unification-phase3.md) — migrates belief-deprogrammer (27), darius-star (25), agentic-swarm-ops (1) into the hub; establishes the all-agents MCP-first enablement standard.
+- [OKF MCP-first agent enablement + slim-skill routing](./standards/okf-agent-mcp-enablement.md) — search OKF first, land knowledge in the hub, keep skills as thin pointers to canonical OKF docs.
+- [Belief Deprogrammer canonical index](./projects/belief-deprogrammer/index.md) — deprogramming methodologies, cognitive-bias catalog, case studies, ethical guardrails.
+- [Darius Star canonical index](./projects/darius-star/index.md) — story-mode narrative, character arcs, biome/audio design, game mechanics.
+- [Agentic Swarm Ops canonical index](./projects/agentic-swarm-ops/index.md) — deployed fleet-watchdog v3 alert + auto-action design.
 
 ## Sections
 

@@ -23,6 +23,8 @@ The active spoke repo is `mbgulden/hd-platform` / local workspace
 
 | Record | Date | Status | Why it matters |
 |---|---:|---:|---|
+| [HDE Guest Fleet Ops — audit/sync/canary/naming-guard](../../operations/hde-guest-fleet-ops.md) | 2026-08-20 | current | One-command fleet build audit + sync + two-detector drift canary + dev/test naming guard for the 12-guest guest_hermes fleet (GRO-4797). |
+
 | [HDE Stripe staging launch closeout](./staging-stripe-launch-2026-07-13.md) | 2026-07-13 | current | Revenue gate, staging push, verification boundary, and remaining launch proof. |
 
 ## Related standards

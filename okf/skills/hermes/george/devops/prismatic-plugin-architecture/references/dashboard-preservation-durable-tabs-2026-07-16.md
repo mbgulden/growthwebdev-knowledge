@@ -4,7 +4,7 @@
 
 During a Prismatic dashboard/operator-access repair, Fred initially restored `/` and `/dashboard` by creating a small fallback/operator shell. Michael corrected the workflow: the goal was not to invent a new governance dashboard, but to reconnect the existing Prismatic Hub Dashboard and preserve the good work Fred had already built across prior dashboard branches.
 
-Then Fred reconnected the existing dashboard and moved Workspace Tree into the main **Workspaces** tab with folder navigation, file preview, `/dashboard?file=...` deep links, legacy `/workspace-tree?file=...`, and traversal protection. That was closer to the desired workflow, but the dashboard still contained mock/sample/broken tab surfaces and the mobile file viewer was not usable enough.
+Then Fred reconnected the existing dashboard and moved Workspace Tree into the main **Workspaces** tab with folder navigation, file preview, the canonical `/workspaces?file=...` deep link (307 → `/dashboard?file=…#workspaces`), `/dashboard?file=...` + legacy `/workspace-tree?file=...` fallbacks, and traversal protection. That was closer to the desired workflow, but the dashboard still contained mock/sample/broken tab surfaces and the mobile file viewer was not usable enough.
 
 ## Durable lessons
 
@@ -73,7 +73,8 @@ The dashboard Workspaces tab needs mobile visual proof, not just API proof. At ~
 - file preview content must be visible and scrollable;
 - selected file/deep link must remain visible;
 - `/dashboard?file=prismatic%2Fgateway%2Fserver.py` must land on the file;
-- `/workspace-tree?file=...` must still work;
+- `/workspaces?file=...` (canonical) must land on the file;
+- `/workspace-tree?file=...` (legacy) must still work;
 - traversal attempts must still return 403.
 
 ## Prompt markers from this session

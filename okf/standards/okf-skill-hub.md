@@ -51,7 +51,9 @@ reconciliation is a deliberate act, never a silent merge.
 `python3 scripts/skill-hub-snapshot.py` — idempotent (guarded by
 `.generated-by-skill-hub-snapshot` markers; wipes + re-imports only marked
 trees). Run after any skill change and commit the diff; the index diff IS the
-change report (new skills, changed skills, removed skills, drift deltas).
+change report (new skill changes only — `generated_at` is derived from the
+last commit date touching skill files, so no-op runs are byte-stable).
+`SKILL_HUB_ROOT` env var overrides the hub path (portability / sandboxing).
 
 ## Rules
 

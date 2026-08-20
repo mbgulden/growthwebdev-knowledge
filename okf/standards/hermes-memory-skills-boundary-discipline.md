@@ -1,15 +1,15 @@
 ---
 type: Standards
 title: Hermes Agent Memory vs. Skills Boundary Discipline
-description: Audit memory once. Anything that reads like a runbook goes to skills; anything that's a stable preference or fact stays in memory. Recurring procedures become named micro-skills under skills/micro/ (1-page max). Stop expanding umbrella skills when a single decision-tree subprocedure would do. Applied to all profiles. The verification: cold load gets only what's useful now, with the rest reachable in one click.
+description: Audit memory once. Anything that reads like a runbook goes to skills; anything that's a stable preference or fact stays in memory. Recurring procedures become named micro-skills under skills/micro/ (1-page max). Stop expanding umbrella skills when a single decision-tree subprocedure would do. Applied to all profiles. The verification: cold load gets only what's useful now, with the rest reachable in one click. (2026-08-20: extended to the full six-layer split — memory / handoff / journal / skills / OKF / session DB.)
 resource: okf/standards/hermes-memory-skills-boundary-discipline.md
-tags: [standards, hermes, memory, skills, micro-skills, boundary]
-timestamp: 2026-07-29T05:00:00Z
+tags: [standards, hermes, memory, skills, micro-skills, boundary, journal, okf]
+timestamp: 2026-08-20T14:30:00Z
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/standards/hermes-memory-skills-boundary-discipline.md
 linear_issue: null
-last_verified: 2026-07-29
-verified_by: fred
+last_verified: 2026-08-20
+verified_by: kai
 status: current
 ---
 
@@ -26,6 +26,33 @@ The gap is: the boundary between memory and skills has leaked. Memory is for sta
 3. **Micro-skills** under `skills/micro/` hold single-procedure recipes. 1-page max. For decisions that are single decision trees, not class-level disciplines.
 4. **Umbrella skills** stay as umbrellas when they describe a class of decisions (e.g., "reply shape" covers status, evidence, blocker, next). They get split when a sub-procedure would do.
 5. **Skill pointers in memory**: when memory needs to reference a runbook, it does so via "see skills/<path>/". The pointer is the boundary.
+
+### The journal layer (added 2026-08-20)
+
+Memory and skills are only half the picture. The full split has six layers:
+
+| Layer | What it is | Lives in | Loaded when | Example |
+|---|---|---|---|---|
+| **Memory** (hot) | Stable preferences + facts + pointers only. ~2.2K chars, injected every turn | `profiles/<agent>/memories/MEMORY.md` + `USER.md` | Always | "OKF MCP = systemd service, bearer auth" |
+| **Handoff** | Durable-but-transient state | `state/current.json` | Session start | in_flight, pending decisions |
+| **Journal** | Timestamped evidence trail: what happened, with citations. Append-only, **never injected** | `~/work/Hermes-Research/journals/` (canonical swarm corpus) | On query via **journal MCP** | "Autobot digests broken since 08-19, root cause X" |
+| **Skills** | Procedures the agent re-derives each session (umbrella + 1-page micro) | `profiles/<agent>/skills/`, symlinked from orchestrator | On demand | `scheduled-journal-recaps` |
+| **OKF** | Curated, versioned, shared knowledge: standards, decisions, reports, env facts, handoffs | `growthwebdev-knowledge` git repo | On query via okf-mcp | llama-cpp server doc, lane governance |
+| **Session DB** | Verbatim transcripts, FTS5 | per-profile `state.db` | `session_search` | exact quotes from a conversation |
+
+One-sentence rule: **memory = who/what now · skills = how to do it · journal = what happened (evidence) · OKF = what we know and decided (curated).**
+
+Journal vs OKF are complementary, not competing: the journal is the raw append-only
+ledger (grows ~5 MB/day); OKF holds the *conclusions extracted from it* plus pointers
+back to the evidence. Never paste raw journal content into OKF; link it instead.
+Never copy curated OKF facts into the journal; the journal records events, not policy.
+
+Query path: the **journal MCP** (`okf/integrations/journal-mcp.md`) exposes
+`journal_latest` / `journal_read` / `journal_list` / `journal_search` /
+`journal_freshness` over the corpus. Call `journal_freshness()` before trusting
+journal content as current. Becca's personal HD journal stays separate and private
+(`~/work/next-step-becca/journals/`) — it is not part of the swarm corpus and never
+crosses into it.
 
 ## What this standard explicitly does NOT cover
 
@@ -96,3 +123,5 @@ The cold-load memory file is small enough to read in one screen. The number of `
 - [Hermes Projector-Aware Communication Discipline](hermes-projector-aware-communication-discipline.md) — an umbrella skill.
 - [Hermes Verifier-as-Deliverable Discipline](hermes-verifier-as-deliverable-discipline.md) — covers the verifier side.
 - [Hermes Runtime Requirements](hermes-runtime-requirements.md) — covers the runtime surface.
+- [Journal MCP](../integrations/journal-mcp.md) — the query surface over the journal evidence layer.
+- [Prismatic Journal-Setup Independence Map](prismatic-independence-map-journal-setup.md) — which journal pieces are engine vs harness.

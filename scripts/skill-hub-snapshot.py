@@ -92,6 +92,26 @@ def wipe_generated(subdir: Path):
         print(f"  wiped {subdir.relative_to(HUB)}")
 
 
+def stable_timestamp() -> str:
+    """Deterministic timestamp: last commit date touching real skill files.
+
+    Excludes index.json/index.md so no-op regenerations stay byte-stable and
+    the index diff only reflects actual skill changes.
+    """
+    import subprocess
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(HUB), "log", "-1", "--format=%cd", "--date=short",
+             "--", ":(glob)okf/skills/**", ":(exclude)okf/skills/index.json", ":(exclude)okf/skills/index.md"],
+            capture_output=True, text=True, timeout=30,
+        )
+        if out.returncode == 0 and out.stdout.strip():
+            return out.stdout.strip() + "T00:00:00Z"
+    except Exception:
+        pass
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d") + "T00:00:00Z"
+
+
 def main():
     files_copied = 0
     per_source = {}
@@ -172,7 +192,7 @@ def main():
 
     # --- index.json ---
     index = {
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "generated_at": stable_timestamp(),
         "generator": "scripts/skill-hub-snapshot.py",
         "sources": {
             "hermes_profiles": profiles,

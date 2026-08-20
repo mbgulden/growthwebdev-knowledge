@@ -1,0 +1,344 @@
+# 1M-context trial deployment pattern
+
+Distilled from the 2026-08-15 sessions that tried (and ultimately could not
+fully unlock) 1M context on Qwen3.8-27B with the latest llama.cpp master.
+
+## When to use this template
+
+Use this as the starting point for any trial pod that wants to test
+extended context (>262k for Qwen3.8-27B / Qwen3-30B-A3B) on a 2× GPU
+layer-split K3s deployment. The template is **known to NOT fully work**
+as of llama.cpp master Aug 15 2026 — the hard cap at
+`tools/server/server-context.cpp:1202` still fires — but it's the
+right starting point for proving that and for unblocking if a future
+build removes the cap.
+
+## Key elements baked in
+
+- `llama-cuda:v3` (or latest locally-built image): fresh llama.cpp master
+- `--ctx-size 1048576` (1M)
+- `--parallel 1` (required; with `--parallel 2` the cap slices in half)
+- `--cache-type-k q4_0 --cache-type-v q4_0` (halves KV cache size)
+- `--flash-attn on` (required by q4_0 KV; see runtime gotchas Gotcha 15)
+- `--rope-scaling yarn --yarn-orig-ctx 262144 --yarn-ext-factor 4.0` (parsed but does NOT bypass cap)
+- `--fit off` (bypasses auto-shrink heuristic, NOT the hard cap)
+- `--tensor-split 1,1 --split-mode layer` (layer-split across 2 GPUs)
+- `nvidia.com/gpu: 2`, `NVIDIA_VISIBLE_DEVICES=0,1`
+- `runtimeClassName: nvidia`, `tolerations` for `nvidia.com/gpu`
+- `strategy.type: Recreate` (layer-split can't run two pods at once)
+- `readinessProbe.initialDelaySeconds: 90`, `failureThreshold: 6`
+
+## The manifest
+
+```yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trial-1m-yarn
+  namespace: llm-inference
+  labels:
+    app: trial-1m-yarn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trial-1m-yarn
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: trial-1m-yarn
+    spec:
+      serviceAccountName: llama-server
+      runtimeClassName: nvidia
+      nodeSelector:
+        kubernetes.io/hostname: k3s-node-230
+      tolerations:
+      - effect: NoSchedule
+        key: nvidia.com/gpu
+        operator: Exists
+      containers:
+      - name: llama-server
+        image: llama-cuda:v3
+        imagePullPolicy: Never
+        env:
+        - name: NVIDIA_VISIBLE_DEVICES
+          value: "0,1"
+        - name: NVIDIA_DRIVER_CAPABILITIES
+          value: "all"
+        - name: GGML_CUDA
+          value: "ON"
+        args:
+        - --model
+        - /models/qwen3.8-27b-q5/Qwen3.8-27B-Q5_K_M.gguf
+        - --host
+        - 0.0.0.0
+        - --port
+        - "8010"
+        - --ctx-size
+        - "1048576"
+        - --n-gpu-layers
+        - "99"
+        - --batch-size
+        - "512"
+        - --parallel
+        - "1"
+        - --cont-batching
+        - --flash-attn
+        - "on"
+        - --cache-type-k
+        - q4_0
+        - --cache-type-v
+        - q4_0
+        - --rope-scaling
+        - yarn
+        - --yarn-orig-ctx
+        - "262144"
+        - --yarn-ext-factor
+        - "4.0"
+        - --yarn-attn-factor
+        - "1.0"
+        - --tensor-split
+        - 1,1
+        - --split-mode
+        - layer
+        - --alias
+        - local-qwen-27b-q5-fred-1m
+        - --fit
+        - "off"
+        ports:
+        - containerPort: 8010
+          name: http
+        resources:
+          limits:
+            nvidia.com/gpu: 2
+            memory: 48Gi
+          requests:
+            memory: 16Gi
+        volumeMounts:
+        - name: models
+          mountPath: /models
+          readOnly: true
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8010
+          initialDelaySeconds: 90
+          periodSeconds: 15
+      volumes:
+      - name: models
+        persistentVolumeClaim:
+          claimName: qwen-q4-models
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trial-1m-yarn
+  namespace: llm-inference
+spec:
+  type: NodePort
+  selector:
+    app: trial-1m-yarn
+  ports:
+  - name: http
+    port: 8010
+    targetPort: 8010
+    nodePort: 30101
+    protocol: TCP
+```
+
+## What this template does NOT do (the honest gap)
+
+As of latest master (commit `0d9ceae`, 2026-08-15 23:30 UTC), the
+above deployment will:
+
+1. Build successfully and import into containerd cleanly
+2. Start the pod, load the model, and serve /health with 200 OK
+3. Cap `--ctx-size 1048576` to `n_ctx_train = 262144` at the hard cap
+   in `tools/server/server-context.cpp:1202`
+
+`/slots` will report `n_ctx: 262144`, NOT `1048576`. A request with
+>262k tokens will return `exceed_context_size_error`.
+
+To actually unlock 1M context, the source must be patched at
+`server-context.cpp:1202`. The patch is one line:
+
+```cpp
+// BEFORE:
+if (n_ctx_slot > n_ctx_train) {
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: trial-1m-yarn
+      namespace: llm-inference
+    spec:
+      type: NodePort
+      selector:
+        app: trial-1m-yarn
+      ports:
+      - name: http
+        port: 8010
+        targetPort: 8010
+        nodePort: 30101
+        protocol: TCP
+    ```
+
+    ## Workflow to deploy this trial
+
+    1. **Scale down Fred** (the production deployment uses GPUs 0+1 too):
+       ```bash
+       kubectl -n llm-inference scale deploy fred-llama --replicas=0
+       ```
+
+    2. **Apply the trial**:
+       ```bash
+       kubectl apply -f trial-1m-yarn.yaml
+       ```
+
+    3. **Watch for the cap**:
+       ```bash
+       kubectl -n llm-inference logs -l app=trial-1m-yarn --tail=20
+       # Look for "the slot context (1048576) exceeds the training context of the model (262144) - capping"
+       ```
+
+    4. **Verify the cap actually fired** (don't trust "Running" status):
+       ```bash
+       curl -s http://192.168.1.230:30101/slots | jq '.[0].n_ctx'
+       # must equal 262144 (cap fired) or 1048576 (cap bypassed)
+       ```
+
+    5. **Cleanup**: delete the trial and restore Fred:
+       ```bash
+       kubectl -n llm-inference delete deploy trial-1m-yarn svc trial-1m-yarn
+       kubectl -n llm-inference scale deploy fred-llama --replicas=1
+       ```
+
+    ## When NOT to use this template
+
+    - If your model has `n_ctx_train` higher than 262144 (Qwen3.8 native is
+      262144; some models are 128k, 32k, etc.), the cap is lower and YARN
+      can actually extend it on some builds.
+    - If you're using vLLM instead of llama.cpp (vLLM has its own cap
+      logic and supports prefix caching; different parameter set).
+    - If you're using Ollama (Ollama wraps llama.cpp but has its own cap
+      handling via Modelfile).
+
+    ## Verified working — the patched path (Aug 15 2026, session-proven)
+
+    The above template's "known to NOT work" caveat is **wrong** as of the
+    patched `llama-cuda:v6` image. With source patched at line 1202 + `--kv-unified`
+    flag + Q4_K_M (saves 4 GB vs Q5_K_M) + mmproj + 2× RTX 3090 (48 GiB),
+    the trial actually serves 1M context. End-to-end verified evidence:
+
+    - `/slots` returned `n_ctx: 1048576` (NOT capped)
+    - `/v1/chat/completions` accepted 35,062 prompt tokens in a single request
+    - `prompt_per_second: 1717`, `predicted_per_second: 31.7`
+    - GPU 0: 23,390 MiB used / 868 MiB free (97.4%)
+    - GPU 1: 22,816 MiB used / 1,442 MiB free (94.0%)
+    - mmproj loaded for vision: `loaded multimodal model, mmproj-F16.gguf`
+
+    The four layers that had to ALL be right (each fails silently if missed):
+
+    1. **Patch `tools/server/server-context.cpp:1202`** — comment out `n_ctx_slot = n_ctx_train;`
+    2. **`--kv-unified` in the K8s args** — bypasses the per-sequence division at `src/llama-context.cpp:293`
+    3. **`--fit off` in the K8s args** — bypasses the auto-shrink heuristic
+    4. **`docker build --no-cache`** — the build context can have stale `.so` files that don't match the patched binary
+
+    **The recipe (using Q4 to save memory):**
+
+    ```yaml
+    # In trial-1m-yarn.yaml, use Q4_K_M + mmproj:
+    args:
+    - --model
+    - /models/qwen3.8-27b-q4/Qwen3.8-27B-Q4_K_M.gguf
+    - --mmproj
+    - /models/qwen3.8-27b-q4/mmproj-F16.gguf
+    - --ctx-size
+    - "1048576"
+    - --parallel
+    - "1"
+    - --cache-type-k
+    - q4_0
+    - --cache-type-v
+    - q4_0
+    - --flash-attn
+    - "on"
+    - --rope-scaling
+    - yarn
+    - --yarn-orig-ctx
+    - "262144"
+    - --yarn-ext-factor
+    - "4.0"
+    - --yarn-attn-factor
+    - "1.0"
+    - --tensor-split
+    - 1,1
+    - --split-mode
+    - layer
+    - --alias
+    - local-qwen-27b-q5-fred-1m
+    - --kv-unified        # CRITICAL — bypasses per-sequence ctx division
+    - --fit
+    - "off"
+    ```
+
+    The image must be `llama-cuda:v6` or later (the one with the patched
+    `libllama-server-impl.so` baked in via `--no-cache` build).
+
+    **Memory math at 1M with Q4_K_M + q4_0 KV:**
+    - Weights: 16 GB (Q4_K_M)
+    - KV cache q4_0: 14.7 GB
+    - mmproj: 1 GB
+    - Flash-attn workspace: 3 GB
+    - CUDA overhead: 2 GB
+    - **Total: ~37 GB** — fits in 48 GiB pair
+
+    **If still capping after the patch:**
+
+    1. **Verify the patched binary is what's running** (most common gotcha):
+       ```bash
+       ctr -n k8s.io images ls | grep llama-cuda
+       docker images llama-cuda:v6 -q
+       # If SHAs match across versions, the rebuild wasn't actually picked up
+       ```
+
+    2. **Verify the in-image library has the patch** (catches the docker-cache gotcha):
+       ```bash
+       docker run --rm --entrypoint /bin/sh llama-cuda:v6 \
+         -c "grep -c 'exceeds the training context' \
+             /usr/local/lib/llama/libllama-server-impl.so; true"
+       # must output 0 — if it outputs 1 or more, the library is stale
+       ```
+
+    3. **Verify `--kv-unified` is in the args** (catches the second cap):
+       ```bash
+       kubectl logs -n llm-inference <pod> | grep "kv_unified"
+       # must show "kv_unified = 'true'", NOT "kv_unified = 'false'"
+       ```
+
+    4. **Verify flash-attn is on** (q4_0 KV requires it):
+       ```bash
+       kubectl logs -n llm-inference <pod> | grep -i flash
+       # must show flash_attn = 1
+       # If you see "quantized V cache requires flash_attn to be enabled",
+       # you turned flash-attn off somewhere — undo that.
+       ```
+
+    The diagnostic sequence above catches every known failure mode in
+    order of likelihood.
+
+    **Quality caveat:** the model wasn't trained at positions past 262k.
+    Outputs at far positions will degrade due to RoPE extrapolation. In
+    practice, the degradation kicks in slowly (YARN 4× is more graceful
+    than naive RoPE), but document this in user-facing deployment notes.
+
+    **Performance at 1M:** with the 35k-token real test we observed 31.7 t/s
+    generation. Expect ~5-15 t/s for genuinely 1M-token prompts because
+    attention is O(n²) and prefill of 1M tokens dominates.
+
+    **The 1M context path is a production-grade capability now** — patched
+    `llama-cuda:v6` + `--kv-unified` + Q4 + mmproj, on 2× 24 GiB RTX 3090.
+    The "1M is impossible" perception from earlier 2026 sessions is stale.

@@ -1,0 +1,17 @@
+[Unit]
+Description=Next Step Bot — {USER} ({HD_NOTES})
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=$PRISMATIC_HOME/work/next-step-{user}
+EnvironmentFile=$PRISMATIC_HOME/work/next-step-{user}/.env
+ExecStart=$PRISMATIC_HOME/.local/share/pipx/venvs/hermes-agent/bin/python $PRISMATIC_HOME/work/next-step-{user}/bot.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

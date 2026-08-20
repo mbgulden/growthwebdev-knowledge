@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hermes-agent.nousresearch.com/schemas/handoff.schema.json",
+  "title": "Hermes Agent Session Handoff",
+  "description": "Cross-agent durable-but-transient state written at the end of every substantive agent turn and read on cold start. Distinct from memory (durable preferences) and Linear (source-of-truth tasks): handoff is the bridge between them.",
+  "type": "object",
+  "required": ["schema_version", "agent", "agent_profile", "written_at_utc", "session_id", "current_state"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "const": "1.0.0"},
+    "agent": {"type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{0,31}$"},
+    "agent_profile": {"type": "string"},
+    "session_id": {"type": "string"},
+    "written_at_utc": {"type": "string", "format": "date-time"},
+    "written_by": {"type": "string", "enum": ["agent_turn", "cron_no_agent", "manual_recovery", "imported"]},
+    "previous_handoff": {"type": "string"},
+    "current_state": {
+      "type": "object",
+      "required": ["one_line", "energy_phase"],
+      "additionalProperties": false,
+      "properties": {
+        "one_line": {"type": "string", "maxLength": 280},
+        "energy_phase": {"type": "string", "enum": ["fresh", "in_sprint", "post_sprint_crash", "recovery", "idle", "blocked_on_human"]},
+        "last_meaningful_turn_summary": {"type": "string", "maxLength": 1000},
+        "mood_signal": {"type": "string", "maxLength": 280}
+      }
+    },
+    "executed_since_last_handoff": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "what"],
+        "additionalProperties": false,
+        "properties": {
+          "kind": {"type": "string", "enum": ["linear_mutation", "github_commit", "github_pr", "telegram_send", "file_write", "file_patch", "cron_create", "cron_update", "cron_remove", "skill_create", "skill_patch", "okf_artifact", "deploy", "test_run", "external_api", "memory_write", "manual_recovery_only"]},
+          "what": {"type": "string", "maxLength": 280},
+          "ref": {"type": "string"},
+          "evidence": {"type": "string"},
+          "by_agent": {"type": "string"},
+          "ts_utc": {"type": "string"}
+        }
+      }
+    },
+    "in_flight": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id_or_title", "status"],
+        "additionalProperties": false,
+        "properties": {
+          "id_or_title": {"type": "string", "maxLength": 280},
+          "status": {"type": "string", "enum": ["started", "blocked", "awaiting_evidence", "awaiting_human", "paused"]},
+          "owner": {"type": "string"},
+          "next_step": {"type": "string", "maxLength": 500},
+          "linear_id": {"type": "string"},
+          "ref": {"type": "string"},
+          "ts_utc": {"type": "string"}
+        }
+      }
+    },
+    "pending_decisions_for_human": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["question"],
+        "additionalProperties": false,
+        "properties": {
+          "question": {"type": "string", "maxLength": 500},
+          "options": {"type": "array", "items": {"type": "string"}, "maxItems": 6},
+          "blocker_class": {"type": "string", "enum": ["approval", "send", "record", "credential", "decision", "feedback"]},
+          "urgency": {"type": "string", "enum": ["now", "today", "this_week", "whenever"]},
+          "linear_id": {"type": "string"},
+          "ts_utc": {"type": "string"}
+        }
+      }
+    },
+    "next_action": {
+      "type": "object",
+      "required": ["title"],
+      "additionalProperties": false,
+      "properties": {
+        "title": {"type": "string", "maxLength": 280},
+        "rationale": {"type": "string", "maxLength": 1000},
+        "linear_id": {"type": "string"},
+        "first_command": {"type": "string", "maxLength": 500}
+      }
+    },
+    "links_to_truth": {"type": "object", "additionalProperties": {"type": "string"}},
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "last_verifier_at_utc": {"type": "string", "format": "date-time"},
+        "verifier_path": {"type": "string"},
+        "verifier_result": {"type": "string", "enum": ["pass", "fail", "partial", "not_run"]},
+        "scope": {"type": "string", "enum": ["ad_hoc_targeted", "focused_suite", "full_suite"]}
+      }
+    },
+    "notes_for_next_self": {"type": "array", "items": {"type": "string", "maxLength": 500}, "maxItems": 12},
+    "do_not_repeat": {"type": "array", "items": {"type": "string", "maxLength": 500}, "maxItems": 12},
+    "extends": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "parent_agent": {"type": "string"},
+        "parent_handoff_path": {"type": "string"},
+        "inherited_decisions": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

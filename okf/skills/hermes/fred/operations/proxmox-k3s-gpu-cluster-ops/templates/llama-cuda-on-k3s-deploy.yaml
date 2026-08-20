@@ -1,0 +1,209 @@
+# Single-card (1 GPU) llama-server Deployment — VERIFIED 2026-08-15
+
+This is the live-working single-GPU manifest for Kai (port 31002, GPU 2) and
+Ned (port 31003, GPU 3) on VM 230. Used for Q4_K_M 27B at 262k ctx with q4_0 KV
+cache. VRAM per card: 23 GiB used / 1 GiB free (94% utilization — at the line).
+
+Things this template gets right (and others get wrong):
+
+- `--mmproj` flag for Qwen3.8 vision
+- `--cache-type-k q4_0 --cache-type-v q4_0` (mandatory for >65k ctx)
+- `--ctx-size 262144` (n_ctx_train; YARN doesn't extend past this on b5368)
+- `--parallel 1` (NOT 2; each slot has its own KV cache allocation)
+- `--flash-attn "on"` (explicit value — `--flash-attn --alias` silently
+  consumes `--alias` as the flash-attn value)
+- `hostPath.path: /models` (parent of `qwen3.8-27b-q4/` subdirectory)
+- `--model /models/qwen3.8-27b-q4/Qwen3.8-27B-Q4_K_M.gguf` (includes subdir
+  because the PV mounts at the parent)
+- `strategy.rollingUpdate.maxSurge: 0` to avoid GPU conflict during rollout
+- `runtimeClassName: nvidia` at POD level (not container level — K3s v1.34
+  strict-decoder)
+
+---
+
+```yaml
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: llm-inference
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: qwen-q4-models
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: manual
+  hostPath:
+    path: /models          # PARENT of qwen3.8-27b-q4/ subdirectory
+    type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qwen-q4-models
+  namespace: llm-inference
+spec:
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 100Gi
+  volumeName: qwen-q4-models
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: llama-server
+  namespace: llm-inference
+---
+# Kai: GPU 2 (assigned via NVIDIA_VISIBLE_DEVICES=2), port 31002
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kai-llama
+  namespace: llm-inference
+  labels:
+    app: kai-llama
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 0           # see reference: avoid GPU conflict during rollout
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: kai-llama
+  template:
+    metadata:
+      labels:
+        app: kai-llama
+    spec:
+      runtimeClassName: nvidia   # at POD level, not container level
+      serviceAccountName: llama-server
+      nodeSelector:
+        kubernetes.io/hostname: k3s-node-230
+      tolerations:
+      - effect: NoSchedule
+        key: nvidia.com/gpu
+        operator: Exists
+      containers:
+      - name: llama-server
+        image: llama-cuda:v2
+        imagePullPolicy: Never
+        env:
+        - name: NVIDIA_VISIBLE_DEVICES
+          value: "2"
+        args:
+        - --model
+        - /models/qwen3.8-27b-q4/Qwen3.8-27B-Q4_K_M.gguf
+        - --mmproj
+        - /models/qwen3.8-27b-q4/mmproj-F16.gguf      # vision enabled
+        - --alias
+        - local-qwen-27b-q4-kai
+        - --host
+        - 0.0.0.0
+        - --port
+        - "31002"
+        - --ctx-size
+        - "262144"               # n_ctx_train; YARN doesn't extend past this
+        - --parallel
+        - "1"                    # NOT 2; see gotcha 2
+        - --cache-type-k
+        - q4_0                   # mandatory for >65k ctx on 24 GB card
+        - --cache-type-v
+        - q4_0
+        - --flash-attn
+        - "on"                   # explicit value — see gotcha 3
+        - --n-predict
+        - "4096"                 # server-side output cap; defense in depth
+        - --n-gpu-layers
+        - "99"
+        - --batch-size
+        - "512"
+        - --cont-batching
+        ports:
+        - containerPort: 31002
+          name: http
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+            memory: 20Gi
+          requests:
+            memory: 8Gi
+        volumeMounts:
+        - name: models
+          mountPath: /models
+          readOnly: true
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 31002
+          initialDelaySeconds: 60
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 30
+      volumes:
+      - name: models
+        persistentVolumeClaim:
+          claimName: qwen-q4-models
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kai
+  namespace: llm-inference
+spec:
+  selector:
+    app: kai-llama
+  ports:
+  - name: http
+    port: 31002
+    targetPort: 31002
+    nodePort: 31002
+  type: NodePort
+```
+
+---
+
+For Ned, copy the deployment, change `kai-llama` → `ned-llama`, GPU 2 → 3,
+port 31002 → 31003, alias `local-qwen-27b-q4-kai` → `local-qwen-27b-q4-ned`.
+
+## What the PV parent-vs-leaf trap looks like
+
+If your model lives at `/models/qwen3.8-27b-q4/Qwen3.8-27B-Q4_K_M.gguf`:
+- PV `hostPath.path` must be `/models` (PARENT)
+- kubelet `--model` arg must include the subdir: `/models/qwen3.8-27b-q4/Qwen3.8-27B-Q4_K_M.gguf`
+
+If the model is FLAT at `/models/Qwen3.8-27B-Q4_K_M.gguf`:
+- PV `hostPath.path` is still `/models` (PARENT)
+- kubelet `--model` is `/models/Qwen3.8-27B-Q4_K_M.gguf` (no subdir)
+
+The mount maps `hostPath.path` to the kubelet's `/models`, so the kubelet's
+`--model` path must be relative to that mount.
+
+## Verification
+
+```bash
+# Pod is 1/1 Running
+export KUBECONFIG=/tmp/k3s230.yaml
+kubectl get pods -n llm-inference -l app=kai-llama
+
+# Health responds
+curl -s http://<vm-lan-ip>:31002/health
+
+# Vision is advertised
+curl -s http://<vm-lan-ip>:31002/v1/models \
+  | python3 -c "import json,sys; d=json.load(sys.stdin); print([m.get('capabilities') for m in d.get('models', d.get('data', []))])"
+
+# Slot context matches
+curl -s http://<vm-lan-ip>:31002/slots | jq '.[0].n_ctx'   # 262144
+
+# Real vision test
+# (see references/llama-server-vision-and-multi-pod.md section 1.3)
+```

@@ -1,0 +1,9 @@
+{
+  "last_report_path": "/home/ubuntu/.hermes/profiles/orchestrator/logs/curator/20260528-142004",
+  "last_run_at": "2026-05-28T14:20:04.966311+00:00",
+  "last_run_duration_seconds": 221.469564,
+  "last_run_summary": "auto: no changes; llm: The skills are managed internally by the skill system, not as raw filesystem files. The patches I made already absorbed the content. Let me archive the three HD siblings:\narchived 5 skill(s):\n  • hd-engine-validation → human-design-computation-engine\n  • homelab-inventory-observability → homelab-inventory-management\n  • human-design-engine-verification → human-design-computation-engine\n  • next-step-bot-architecture → next-step-bot\n  • secure-project-deployment → credential-security-and-git-hygiene\nfull report: hermes curator status\nkeep an umbrella stable: hermes curator pin credential-security-and-git-hygiene",
+  "last_run_summary_shown_at": null,
+  "paused": false,
+  "run_count": 1
+}

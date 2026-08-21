@@ -550,3 +550,15 @@ index 00000000..7610f716
 -- 
 2.43.0
 ```
+
+## Addendum 2026-08-21: unpushed auto-regen commit in the hub checkout
+
+`~/work/growthwebdev-knowledge` local `main` is **1 commit ahead of origin/main**:
+`5bd072d` "okf/skills: auto-regen 2026-08-21 (50 file changes)" (author: Ned, 07:00 UTC).
+Clean fast-forward (origin/main is an ancestor; 51 files, +1800/−190, all under `okf/skills/`).
+
+**Could not be landed by Kai — same guard, different wall:**
+- `okf/skills/` is owned by **Fred (`*`) or George (`*`) only** in the hub `PRISMATIC_ENGINE.yaml` — not even Ned's lane.
+- Local-branch `main` resolves to no registered agent → guard rejects; a `feature/`/`george/` push by Kai would misattribute the push (explicitly rejected in the 2026-08-19 authorization decision).
+
+**Status: SAFE.** The commit is committed on local main (nothing lost); the daily auto-regen process will regenerate equivalent content on its next run. **Decision needed (Michael):** either (a) George/Fred lands a PR for `5bd072d`, or (b) the OKF skill auto-regen is pointed at the correct target so it stops accumulating unlanded commits in the shared hub checkout (see `okf/skills/hermes/fred/operations/okf-documentation-ops/references/shared-hub-concurrent-writer-landing-2026-08-20.md` for the failure-mode history).

@@ -8,7 +8,7 @@ timestamp: 2026-08-20T14:30:00Z
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/integrations/journal-mcp.md
 linear_issue: null
-last_verified: 2026-08-20
+last_verified: 2026-08-21
 verified_by: kai
 status: current
 auth_method: none (local stdio, read-only)
@@ -55,7 +55,9 @@ autobot, orchestrator, …). **Becca's personal HD journal is separate and priva
 
 ## Usage
 
-Registered per-profile in `mcp_servers.journal` (stdio). Verify live:
+Registered per-profile in `mcp_servers.journal` (stdio). As of 2026-08-21 it is live in
+**kai** and **george** profiles; registration for the remaining profiles is tracked as gap
+G4 in `okf/audits/journal-system-and-mcp-audit-2026-08-21.md`. Verify live:
 
 ```
 # direct smoke (no gateway needed)
@@ -94,3 +96,4 @@ continuity audit + unification plan (orchestrator deliveries) for the full remed
 - [Hermes Memory vs Skills Boundary Discipline](../standards/hermes-memory-skills-boundary-discipline.md) — where the journal sits in the memory/skills/OKF split (the journal = the evidence layer).
 - [Prismatic Journal-Setup Independence Map](../standards/prismatic-independence-map-journal-setup.md)
 - [OKF MCP](../standards/okf-skill-hub.md) — the sibling read-only MCP this copies its pattern from.
+- [Journal System & MCP — End-to-End Audit (2026-08-21)](../audits/journal-system-and-mcp-audit-2026-08-21.md) — live-verified system audit; 9 gaps with fill steps (retention G1 needs Michael's 90d-vs-400d decision).

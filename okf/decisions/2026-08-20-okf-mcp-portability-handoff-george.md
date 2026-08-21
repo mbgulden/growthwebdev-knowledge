@@ -3,8 +3,8 @@ type: decision
 title: OKF MCP server portability — handoff to George
 description: State of the okf-mcp.service portability work (Kai, 2026-08-20): what's done, what's open, exact commands, open 401 thread, and the division of labor for whoever picks this up next.
 tags: [okf, mcp, portability, handoff, kai, george]
-status: open
-last_verified: 2026-08-20
+status: closed
+last_verified: 2026-08-21
 created_by: kai
 ---
 
@@ -94,3 +94,42 @@ Wiring Kai's MCP client from stdio-child to the standalone HTTP endpoint **fails
 - `profiles/kai/scripts/skill-hub-regen.sh` — daily regen (now restarts the service after push)
 - `/home/ubuntu/work/okf-mcp-server/server.py` — server source (bearer gate at lines 303-322)
 - GRO-4817 — Phase B (engine `--source <okf-checkout>`)
+
+---
+
+## Closeout (George, 2026-08-21) — acceptance PASS, GRO-4821 Done
+
+**Status: closed.** All checklist items below are resolved; proof packet at
+`~/.hermes/profiles/george/reports/gro4821-proof-packet-2026-08-20.md` (George profile).
+
+- **Open 401 thread — RESOLVED.** Root cause: `/etc/okf-mcp/mcp.env` token had drifted from
+  the live service environment (gate captures the token at process start). Synced file to
+  live token, `sudo systemctl restart okf-mcp.service`, then round-tripped the file token on
+  all three transports: stdio (Inspector CLI + direct launch), streamable-http local
+  `127.0.0.1:8910/mcp`, and public `okf.growthwebdev.com/mcp` — all 200, `head=0a40e7b`.
+- **Other profiles onto the shared HTTP endpoint — DONE.** All five Hermes profiles (default,
+  autobot, fred, ned, george) now register `mcp_servers.okf` against `http://127.0.0.1:8910/mcp`
+  with `MCP_OKF_API_KEY` bearer; verified live in the 2026-08-21 journal audit (okf MCP
+  401-without-token / 200-with-token on the service).
+- **Main pin — restored** to `origin/main` (`0a40e7b`) after finding the shared checkout on a
+  concurrent agent's branch; untracked `okf/integrations/journal-mcp.md` preserved (merged as
+  PR #38, `2e0433a`).
+- **New bug found + fixed (F1):** `okf-mcp.service` runs as root on the ubuntu-owned repo →
+  git dubious-ownership made `status` return `head=""` while doc counts still worked (looked
+  healthy). Fixed via root `safe.directory`; optional code follow-up: `server.py:_git()`
+  should surface stderr instead of swallowing it.
+- **F2 (flagged, not acted):** 2 stale orphan `server.py` PIDs (946236, 946409) remain;
+  kill needs Michael's explicit authorization. F3 (note): public endpoint 403s non-browser
+  UAs (Cloudflare 1010).
+- **"Second platform" answer:** Google Antigravity (desktop). It connects remote MCPs via
+  `serverUrl` + static `Authorization: Bearer <token>` header; existing bearer design covers
+  it, so **Phase 3 (OAuth 2.1 + PKCE) stays deferred** until a client genuinely cannot send
+  static headers.
+- **GRO-4821 marked Done** (Michael's explicit Telegram authorization, 2026-08-21; stateId-only
+  mutation per `single-issue-state-transition-after-acceptance`): before Todo
+  `3d29ebe3` → after Done `bbf71b3e`, `completedAt 2026-08-21T02:16:37.942Z`; receipt
+  `~/.hermes/profiles/george/reports/reconciliations/linear-gro4821-done-receipts.jsonl`
+  (sha256 `aab948399bb853611f237daabda6b497b84413b1a228883ae5a8d4cdb2a0f3cf`).
+
+Remaining (out of this ticket): orchestrator-down drill; `okf/standards/` final wiring doc
+(Kai's lane); orchestrator-gateway-outside-systemd ticket (Kai).

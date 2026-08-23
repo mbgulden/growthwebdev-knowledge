@@ -1,0 +1,42 @@
+[Unit]
+Description=Hermes Orchestrator Gateway
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+TimeoutStopSec=240
+Type=simple
+User=ubuntu
+Group=ubuntu
+ExecStart=/home/ubuntu/.local/bin/hermes --profile orchestrator gateway run --replace
+WorkingDirectory=/home/ubuntu/.hermes/profiles/orchestrator
+Environment="HOME=/home/ubuntu"
+Environment="USER=ubuntu"
+Environment="LOGNAME=ubuntu"
+Environment="PATH=/home/ubuntu/.local/share/pipx/venvs/hermes-agent/bin:/usr/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Environment="VIRTUAL_ENV=/home/ubuntu/.local/share/pipx/venvs/hermes-agent"
+Environment="HERMES_HOME=/home/ubuntu/.hermes/profiles/orchestrator"
+# Allow AGY Sandbox Supervisor cron to run long‑lived multi‑hour tasks.
+# AGY tasks commonly take 25-90+ min. Default 300s killed the supervisor mid‑task.
+# 7200s = 2h covers any single task + buffer.
+Environment=HERMES_CRON_SCRIPT_TIMEOUT=7200
+Restart=always
+RestartSec=5
+RestartForceExitStatus=75
+KillMode=mixed
+KillSignal=SIGTERM
+ExecReload=/bin/kill -USR1 $MAINPID
+
+# ── Memory guard ──────────────────────────────────────────────
+# Gateway peaked at 40.6 GB before. Cap at 48G so it can't OOM the VM.
+# MemoryHigh=40G triggers kernel memory pressure reclaim first.
+MemoryHigh=40G
+MemoryMax=48G
+
+StandardOutput=append:/home/ubuntu/.hermes/logs/orchestrator-gateway.log
+StandardError=append:/home/ubuntu/.hermes/logs/orchestrator-gateway.log
+
+[Install]
+WantedBy=multi-user.target

@@ -6,10 +6,9 @@ description: Prismatic gates/proofs without overclaiming.
 # Prismatic Coordination Workflows
 
 ## Refs
-- Refs index abbreviated; see linked `references/` files.
 - `references/discovery-precontract-ownership-corrections.md` — discovery/precontract corrections.
 - `references/receipt-transport-discovery-precontracts.md` — prove deployed routes/outboxes; no shortcuts.
-- Foundation refs: launch/dispatch, blockers, sequencing, Linear gates, drift/rollback, exact-byte.
+- `references/registry-new-project-sync.md` — new-project registry sync: receipt IDs, atomic write, no lane-state clobber.
 - `references/parent-child-objective-sequencing.md` — parent authorization sequencing.
 - `references/temporal-lease-ordering-contracts.md` — UTC µs ordering, not raw timestamp text.
 - `references/event-driven-one-shot-admission-receipts.md` — one launch proof packet; stop polling.

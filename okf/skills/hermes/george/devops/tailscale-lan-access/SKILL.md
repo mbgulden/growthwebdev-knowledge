@@ -17,8 +17,9 @@ All Hermes profiles on this host share one key: `/home/ubuntu/.ssh/id_ed25519` (
 | webtop-hermes (this box) | 100.83.32.92 | — | local |
 | pve1 | 100.114.18.91 | 192.168.1.2 | ✅ root via tailscale IP |
 | k3s-node-230 (VM 230; runs Qwen llama.cpp :31002 Kai, :31003 Ned) | 100.78.237.7 | 192.168.1.230 | ✅ root via BOTH tailscale + LAN |
-| pve2/pve3/pve5/pve6 | 100.119.225.27 / 100.115.231.48 / 100.65.32.83 / 100.90.63.4 | — | ⚠️ tailscale offline as of 2026-08-15; no key test |
-| bigboy (windows) | 100.98.80.41 | — | offline |
+| pve2/pve3/pve5/pve6 | 100.119.225.27 / 100.115.231.48 / 100.65.32.83 / 100.90.63.4 | — | ⚠️ tailscale offline as of 2026-08-15; no key test (see VM 232 below) |
+| k3s-node-232 (VM 232, on pve3) | — | 192.168.1.232 | ✅ root via LAN (verified 2026-08-22); hosts llama-kai.service (Qwen 27B llama.cpp :8080, `--parallel 2`) |
+| bigboy (windows) | 100.98.80.41 | offline |
 
 Notes:
 - `ubuntu@` does not exist on pve1 (Tailscale SSH: "failed to look up local user") and NOT on k3s-node-230 (key is registered for root only). Use `root@`.

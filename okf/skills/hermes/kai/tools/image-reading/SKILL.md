@@ -14,10 +14,30 @@ triggers:
 Class-level procedure for reading any image Michael sends on Telegram: product
 listings, Lighthouse reports, CF dashboards, UI screenshots, photos.
 
-## Inputs
+## Step 0 — Find the image fast (do NOT re-discover it)
 
-- Telegram images are cached at `~/.hermes/profiles/kai/image_cache/img_<hash>.jpg`.
-- The message header gives the exact path — use it; don't guess.
+**Use absolute paths.** The terminal's `HOME` on this box can point at a
+profile-local home, so `~` may expand to a doubled, nonexistent path like
+`/home/ubuntu/.hermes/profiles/kai/home/.hermes/...` — every command then
+fails silently (empty `ls`, missing config). Hard-code the real location:
+`/home/ubuntu/.hermes/profiles/kai/`
+
+Fast-find recipe (sub-second, verified 2026-08-21):
+
+1. If the message header gives an exact path → use it directly.
+2. Otherwise, newest file in the Telegram upload cache:
+   ```bash
+   ls -lt /home/ubuntu/.hermes/profiles/kai/image_cache/ 2>/dev/null | head -5
+   ```
+   Take the newest `img_<hash>.jpg` — that's Michael's just-sent image.
+3. Cache empty (upload still landing)? Sleep ~2s, repeat the `ls` ONCE.
+
+NEVER run unscoped disk searches to locate an upload:
+
+- `find /home/ubuntu -mmin 10 ...` → **TIMED OUT at 180s** (2026-08-21, real incident).
+- Scoped search, only if genuinely needed: `find /home/ubuntu/.hermes -mmin 10 \( -iname '*.jpg' -o -iname '*.png' -o -iname '*.webp' \)` — takes seconds.
+- Prefix any find with `timeout 20` as a safety belt.
+- The cache dir is the ONLY place Telegram uploads land. Don't hunt elsewhere.
 
 ## Steps
 
@@ -52,7 +72,39 @@ listings, Lighthouse reports, CF dashboards, UI screenshots, photos.
    photo rather than UI text, say so honestly and offer alternatives — never
    fabricate content you didn't extract.
 
+## Benchmarks (measured 2026-08-21, local server 192.168.1.232:8080, qwen3.8-27b)
+
+End-to-end HTTP→stream-complete (what `vision_analyze` pays), median of 3
+after warmup. TTFE = time to first content token.
+
+| image | reasoning | TTFE med | total med |
+|---|---|---|---|
+| telegram upload 190KB | medium | 1.42s | 2.54s |
+| telegram upload 190KB | none | 0.27s | 1.37s |
+| telegram upload 190KB | low (config default) | 1.42s (est.) | 2.54s (est.) |
+| beach photo 1600px | medium | 1.43s | 2.37s |
+| beach photo 1600px | none | 0.29s | 1.22s |
+| lighthouse mock | medium | 1.95s | 2.82s |
+| lighthouse mock | none | 0.22s | 1.33s |
+
+- **Dominant cost = generation, not discovery or encoding.** File read +
+  base64 of a 190KB image is <50ms; the Step 0 `ls` is <100ms. The model
+  does ~1.1s of reasoning (reasoning_effort=medium) before the first token.
+- **OCR fallback** (3× LANCZOS + `--psm 6`, phone-size 588px): **~0.57s**.
+  Faster than vision — only for plain-text screenshots when vision is down.
+- **Honest user-perceived total** (upload → reply) ≈ discovery (≤1s) +
+  vision (~2.5s med) + my summarization (1–3s) = **~4–7s**. Don't promise
+  sub-second; "a few seconds" is the true number.
+
+**The one real speed lever:** `reasoning_effort`. The auxiliary vision
+provider currently runs `medium` (see custom_providers `qwen27b-kai-local`).
+Setting it to `none` halves latency (2.5s→1.4s) and quality held up on all 4
+tests, but it changes behavior globally for that provider — **only change it
+if Michael approves**, and via the provider config, not a per-call hack.
+
 ## Pitfalls
+
+- **`vision_analyze` is a tool, not a Python import.** You cannot `from hermes_tools import vision_analyze` and call it directly in an `execute_code` block; it will fail with `ImportError`.
 
 - **Never treat a `success: false` vision result as a description.** The HTML
   error page contains no image content; summarizing it would be fabrication.

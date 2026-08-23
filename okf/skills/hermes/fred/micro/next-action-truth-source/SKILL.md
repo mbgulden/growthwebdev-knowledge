@@ -50,6 +50,7 @@ python3 /home/ubuntu/.hermes/profiles/orchestrator/scripts/registry_reconciler.p
 - "I'll skip the registry update; the next cron will catch it." (Same turn, not next cron. Drift accumulates.)
 - "next_action is X where X is some Linear issue that doesn't exist yet." (Inventing work. Refuse.)
 - "I'll write next_action in the chat reply; the user can copy it to Linear later." (User won't. Mirror now or don't write.)
+- **Incorrect Linear API usage**: Using incorrect `stateId` values or attempting to add comments directly within an `issueUpdate` mutation. Always fetch correct `stateId` values via Linear's API and use `commentCreate` for adding comments.
 
 ## Verification
 

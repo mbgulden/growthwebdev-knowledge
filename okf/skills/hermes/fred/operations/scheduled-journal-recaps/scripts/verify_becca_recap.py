@@ -40,14 +40,20 @@ Exit codes:
   2  recap file does not exist (fatal)
 
 The script is self-contained (imports only stdlib) and safe to delete
-after use. It is the recommended replacement for typing a fresh
-tempfile.mkstemp verifier every Becca recap session.
+after the verification gate closes (leave it on disk through the gate —
+see prismatic-evidence-handling; a post-green delete re-triggers the
+workspace's verification nudge).
 
 NOTE: The Hermes verification-nudge system requires the temp script filename
 to start with `hermes-verify-`, so this reusable script is typically invoked
-by being copied (or symlinked) to /tmp/hermes-verify-becca-YYYY-MM-DD.py,
-then deleted. The body is the canonical verifier; only the filename matters
+by being copied (or symlinked) to /tmp/hermes-verify-becca-YYYY-MM-DD.py.
+The body is the canonical verifier; only the filename matters
 for the workspace's audit hooks.
+
+2026-08-22 change: the timestamp-citation gate now treats a bare
+"01:00:34Z" citation (no date prefix AND no T prefix) as a timestamp
+citation too, closing the escape hatch where dropping both the date and
+the T evaded the "cites zero full-ISO timestamps" failure.
 """
 from __future__ import annotations
 
@@ -180,7 +186,7 @@ def main(argv: list[str]) -> int:
     # Timestamp fidelity: every full-ISO timestamp from the inbox headings
     # must appear verbatim in the recap. A recap that abbreviates the
     # middle timestamps (e.g. "...T00:00:33Z, 01:00:34Z, 02:00:36Z...")
-    # instead of full "...T00:00:33Z, 2026-08-04T01:00:34Z, 2026-08-04T02:00:36Z..."
+    # instead of full "2026-08-04T00:00:33Z, 2026-08-04T01:00:34Z, 2026-08-04T02:00:36Z..."
     # will fail this check. Read skew tolerated: only require coverage of
     # the timestamps the recap already claims to cite.
     if inbox_iso_ts:
@@ -188,7 +194,11 @@ def main(argv: list[str]) -> int:
         # Only fail if the recap cites SOME timestamps but misses all of
         # the full-ISO ones. If the recap cites zero timestamps at all,
         # the snapshot-count check above is the only signal.
-        recap_cites_any_ts = bool(re.search(r"T\d{2}:\d{2}:\d{2}Z\b", recap_text))
+        # 2026-08-22: the T prefix is optional in the citation detector —
+        # a bare "04:06:37Z" citation counts as citing timestamps too,
+        # closing the escape hatch where dropping both the date and the T
+        # evaded the check entirely.
+        recap_cites_any_ts = bool(re.search(r"\d{2}:\d{2}:\d{2}Z\b", recap_text))
         missing = sorted(inbox_iso_ts - ts_present)
         if recap_cites_any_ts and ts_present == set():
             failures.append(

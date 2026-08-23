@@ -8,15 +8,20 @@ related_skills: [hermes-agent, llm-serving-benchmark]
 
 # Qwen 27B / llama.cpp Reasoning Effort
 
-Applies to Hermes profiles whose main model is a custom OpenAI-compatible llama.cpp server. Known instances (2026-08-15):
+Applies to Hermes profiles whose main model is a custom OpenAI-compatible llama.cpp server. Known instances (2026-08-21, supersedes 2026-08-15 table — kai moved off the .230 NodePorts):
 
-| Profile | Provider key | URL | Model |
+| Profile | Provider key | URL | Served model id |
 |---|---|---|---|
-| kai | `qwen27b-kai-local` | http://192.168.1.230:31002/v1 | local-qwen-27b-q4-kai |
-| ned | `qwen27b-ned-local` | http://192.168.1.230:31003/v1 | local-qwen-27b-q4-ned |
-| fred | `qwen27b-fred-local` (verify key) | http://192.168.1.230:31001/v1 | local-qwen-27b-q5-fred (Q5) |
+| kai | `qwen27b-kai-local` | http://192.168.1.232:8080/v1 | `qwen3.8-27b` (NOT local-qwen-27b-q4-kai) |
+| ned | `qwen27b-ned-local` | http://192.168.1.230:8003/v1 | verify |
 
-Both run Qwen 3.8 27B Q4_K_M GGUF. Server-side `reasoning_effort` levels verified live: `xhigh/high ≈ 10.7–11k think-chars`, `medium ≈ 6k`, `low ≈ 3.6–4.6k`, `none = 0` (thinking fully off). **Server default is xhigh-class** — a Hermes agent with no effort set is running at max thinking.
+Both run Qwen 3.8 27B Q4_K_M GGUF with MTP spec decoding (~50–70 tok/s single-stream).
+
+**Context topology (measured 2026-08-21, .232:8080):** flags are `-c 131072 -np 2` = ONE 3090 (24GB, ~23.9GB used), total KV pool 131k split across 2 parallel slots of **65,536 tokens each**. Per-request cap is 65k — prompts >65k get HTTP 400 (no auto-shrink). Hermes reads this correctly via /props n_ctx=65536 and compresses at 85% (~55.7k). Needle-in-haystack recall holds through ~62k but degraded at 63.8k — treat ~55–60k as the reliable working window. "131k context" is the POOL, not per-request. Server-side `reasoning_effort` levels verified live: `xhigh/high ≈ 10.7–11k think-chars`, `medium ≈ 6k–12k`, `low ≈ 3.6–6.7k` (low and medium barely differ on hard prompts), `none = 0` (thinking fully off). **No effort in the request = server default.**
+
+**CRITICAL — max_tokens interaction (verified 2026-08-21):** thinking tokens COUNT against `completion_tokens`/`max_tokens`. With `model.max_tokens: 4096` (the old default) and thinking on, a medium task burned the whole budget (finish_reason=`length`, answer truncated mid-sentence, or ZERO answer chars if thinking alone exceeded the cap). Kai's profile is now `model.max_tokens: 8192` — at that cap, medium completes with `finish_reason=stop`. If a profile answers get cut off mid-thought: check `finish_reason` + `reasoning_content` length first, then raise `model.max_tokens`.
+
+**Quality trade-off measured (2026-08-21, hard multi-bug Python prompt):** medium found the real bug AND caught an incorrect expectation in the prompt itself (58.6s); `none` misdiagnosed, hallucinated test output matching the wrong expectation, and contradicted its own code (3.7s). `none` is NOT "fast but slightly dumber" — on hard tasks it is fast and wrong. Keep main=medium; use `none` only for pure formatting/transform/mechanical work.
 
 ## The one rule
 **Never use `agent.reasoning_effort` or the `/reasoning` command for these routes.** Hermes's `run_agent._supports_reasoning_extra_body()` returns False for non-OpenRouter/Nous/GitHub/LM-Studio custom providers, so the effort never leaves the process. The **only** path that works is the provider block's `extra_body` (and the aux task's `extra_body`).

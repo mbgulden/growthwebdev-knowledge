@@ -41,6 +41,26 @@ query {
 
 Use those IDs for `IssueUpdateInput.labelIds`.
 
+## GraphQL payload via shell: never inline `id: "GRO-4797"` in a curl one-liner (2026-08-20)
+
+GraphQL `issue(id: "GRO-4797")` (and any field with an escaped-quoted string argument) is fatal in a bash double-quoted heredoc/one-liner — `\"` gets mangled by shell expansion and curl dies with `syntax error near unexpected token '('` before it ever reaches Linear. Observed 2026-08-20: the same query worked perfectly once written to a file.
+
+**Recipe:** `write_file` a JSON payload, then send it:
+
+```bash
+# /tmp/gro4797.json  (no shell quoting involved)
+{"query": "{ issue(id: \"GRO-4797\") { identifier title url state { name } description } }"}
+
+curl -s https://api.linear.app/graphql \
+  -H "Authorization: $LINEAR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d @/tmp/gro4797.json
+```
+
+`-d @file` is the fix; inline `'{...}'` is the failure mode.
+
+**Schema note:** `pullRequests` is NOT a field on the `Issue` type (GraphQL validation error 2026-08-20). For PR lookups, query the GitHub branch (`branchName` field works on Issue) or search PRs via the GitHub API instead of retrying the Linear schema.
+
 ## Search fallback
 
 Some schemas do not support `issueSearch(term:)`. If that fails, do not keep retrying the same search. Prefer:

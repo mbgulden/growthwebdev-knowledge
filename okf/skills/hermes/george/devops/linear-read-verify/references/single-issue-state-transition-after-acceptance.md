@@ -55,6 +55,33 @@ RECEIPT_SHA256=<sha256>
 NOT_CLAIMING=push,PR,merge,deployment,cron/timer mutation,production DB mutation,or downstream issue start
 ```
 
+## Post-mutation drift forensics (hit live 2026-08-21, GRO-4821)
+
+Within ~10 minutes of a successful `Done` mutation, a re-run of the same writer can fail its `updatedAt` drift guard, or a later readback can show a different `completedAt`/`updatedAt` than the receipt. **Do not assume a fault and do not re-mutate.** The issue may have been legitimately toggled by a human (Linear attributes API calls to the account owner, so the history trail shows your mutation AND Michael's manual toggles under the same actor name).
+
+1. **Query the issue history trail — it is the authoritative audit record:**
+   ```graphql
+   query C($id: String!) {
+     issue(id: $id) {
+       identifier
+       history(first: 20) {
+         nodes {
+           createdAt
+           autoClosed
+           fromState { id name }
+           toState { id name }
+           actor { name }
+         }
+       }
+     }
+   }
+   ```
+   Reconstruct the full sequence (e.g. `Todo→Done` (mutation) → `Done→In Progress` (manual) → `In Progress→Done` (manual)). If the final `toState` is the canonical completed state, the target holds — the later entries are human-driven, not agent action.
+2. **Schema notes (verified live 2026-08-21):** `issue.history` exists (type `IssueHistoryConnection`, nodes carry `fromState`/`toState`/`actor`/`autoClosed`/`changes`/label deltas). `Comment` has **no `author` field** — use `user { name }`. `issue.pullRequests` does not exist (no PR-link field on `Issue` in this workspace).
+3. **`completedAt` resets on re-entry.** Every re-entry into a completed state sets a new `completedAt`; the receipt records the mutation's own readback, which may differ from the live value — that is expected, not drift corruption. Never "recover" a receipt because live timestamps moved.
+4. **Record the full trail in the handoff state file** (e.g. a `blocker.note` line: timestamps + transitions + actor attribution) so a future agent doesn't misread the toggles as an agent regression.
+5. **A drift-guard BLOCKED on re-run is the guard working.** Report it as PASS-with-explanation (guard fired, zero writes), then cite the history trail for the source of the drift.
+
 ## Pitfalls
 
 - Do not create a fresh precontract, blocker document, or broad writer review merely to move one already-accepted issue to `Done` when the scope is exactly one state field and authorization is already present.

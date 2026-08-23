@@ -118,6 +118,34 @@ GraphQL filter pitfalls (verified live 2026-08-19):
 - `assignee { name }` comes back `null` when unassigned — guard with
   `(n.get("assignee") or {}).get("name")`.
 
+GraphQL schema quirks (verified live 2026-08-20):
+
+- `Query.team` takes `id: String!`, **not** `key` (`team(key: "GRO")` →
+  HTTP 400 `Unknown argument "key"`). Get the team ID from the registry's
+  `_linear_team_id` or `list-teams`. `WorkflowState.workflow` and
+  `Project.key` are not queryable fields.
+- A bare `Argument Validation Error` / GraphQL error hides the real cause in
+  the HTTPError body: read `exc.read()` on HTTP 400 and inspect
+  `errors[].extensions.validationErrors` — each entry names the
+  `property` + `constraints` (e.g. `description must be shorter than or
+  equal to 255 characters`).
+- `Team.workflowStates` does **not** exist (verified 2026-08-21, GRO
+  workspace; HTTP 400 "Cannot query field workflowStates on type Team").
+  Enumerate states via top-level `workflowStates(first:100)` and filter
+  nodes by `team { key }`; check `pageInfo.hasNextPage=false` before
+  binding a canonical state. GRO canonical completed state: `Done`
+  `bbf71b3e-9a05-48ce-9418-df8b9c0b8fec` — distinct from `Done - Doc
+  Pending` `d4e1207b-6fd4-4583-b9bf-b26fa67955aa`; bind by exact name+type.
+- `__type(name:)` introspection is partially restricted in this workspace
+  (some input types return empty `inputFields`; `__schema.mutationType`
+  may be missing from the response). Do not rely on introspection to derive
+  mutation input shapes; confirm with a minimal canary mutation instead.
+- `issue.history` IS queryable and is the authoritative state-transition
+  audit trail (nodes: `createdAt`, `autoClosed`, `fromState`/`toState`
+  {id,name}, `actor { name }`, label/priority deltas). Use it for drift
+  forensics after authorized mutations. `Comment` has no `author` field —
+  use `user { name }`; `Issue.pullRequests` does not exist (2026-08-21).
+
 ## Relation/reuse manifest before writes
 
 When a bounded read-only export is used to prepare issue reuse, supersession, dedupe, or dependency edges, produce a proposed relation/reuse manifest before any write. See `references/relation-reuse-manifest.md`.

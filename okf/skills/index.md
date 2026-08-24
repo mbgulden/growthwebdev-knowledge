@@ -1,6 +1,6 @@
 # OKF Skill Hub — Catalog
 
-_Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills / 2467 files across 12 Hermes profiles, AGY CLI, and the Prismatic engine._
+_Generated 2026-08-23T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills / 2471 files across 12 Hermes profiles, AGY CLI, and the Prismatic engine._
 
 ## Status counts
 
@@ -232,7 +232,7 @@ _Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 | prismatic-engine-operations | shared-2-identical | flat | prismatic/prismatic-skill-pkg/prismatic-engine-operations<br>prismatic/agents-skills/prismatic-engine-operations | 737845e0eed11d80 |
 | prismatic-event-driven-control | unique | devops | hermes/george/devops/prismatic-event-driven-control | bd76872183db8441 |
 | prismatic-evidence-and-review | shared-2-identical | flat | prismatic/prismatic-skill-pkg/prismatic-evidence-and-review<br>prismatic/agents-skills/prismatic-evidence-and-review | dc3f9157f7f79316 |
-| prismatic-evidence-handling | shared-2-identical | micro | hermes/fred/micro/prismatic-evidence-handling<br>hermes/orchestrator/micro/prismatic-evidence-handling | 8845e70c58022dd7 |
+| prismatic-evidence-handling | shared-2-identical | micro | hermes/fred/micro/prismatic-evidence-handling<br>hermes/orchestrator/micro/prismatic-evidence-handling | 157fa0eebd203c68 |
 | prismatic-exact-head-review | unique | devops | hermes/george/devops/prismatic-exact-head-review | 03ea9ec283efc572 |
 | prismatic-failed-producer-recovery | unique | devops | hermes/george/devops/prismatic-failed-producer-recovery | c4467834b8fc083e |
 | prismatic-plugin-architecture | unique | devops | hermes/george/devops/prismatic-plugin-architecture | fdab9668ad98f044 |
@@ -255,7 +255,7 @@ _Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 | qwen-llamacpp-reasoning-effort | divergent-2-variants | devops | hermes/ned/devops/qwen-llamacpp-reasoning-effort<br>hermes/kai/devops/qwen-llamacpp-reasoning-effort | cfc9e2180e939cce |
 | redacted-profile-config-export | shared-2-identical | operations | hermes/fred/operations/redacted-profile-config-export<br>hermes/orchestrator/operations/redacted-profile-config-export | 872cb58a4be8073c |
 | response-contract-and-result-reporting | unique | agent-operations | hermes/ned/agent-operations/response-contract-and-result-reporting | 551dd9a0be52c022 |
-| scheduled-journal-recaps | shared-2-identical | operations | hermes/fred/operations/scheduled-journal-recaps<br>hermes/orchestrator/operations/scheduled-journal-recaps | a0e8c48b3a0aa2a8 |
+| scheduled-journal-recaps | shared-2-identical | operations | hermes/fred/operations/scheduled-journal-recaps<br>hermes/orchestrator/operations/scheduled-journal-recaps | 6559350b8318783e |
 | scheduled-reminder-management | unique | ops | hermes/kai/ops/scheduled-reminder-management | d8e2305932a85bc6 |
 | seo-competitive-audit | shared-2-identical | seo | hermes/george/seo/seo-competitive-audit<br>hermes/kai/seo/seo-competitive-audit | 5918730280a5d764 |
 | session-state-handoff | shared-2-identical | agent-operations | hermes/fred/agent-operations/session-state-handoff<br>hermes/orchestrator/agent-operations/session-state-handoff | fde71458c3b46b00 |
@@ -270,7 +270,7 @@ _Generated 2026-08-20T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 | tailscale-lan-access | divergent-4-variants | devops | hermes/ned/devops/tailscale-lan-access<br>hermes/fred/devops/tailscale-lan-access<br>hermes/george/devops/tailscale-lan-access<br>hermes/orchestrator/devops/tailscale-lan-access<br>hermes/kai/devops/tailscale-lan-access | 8453beea3f4caac8 |
 | telegram-bot-onboarding-operations | unique | devops | hermes/ned/devops/telegram-bot-onboarding-operations | e20e54603bda96a4 |
 | telegram-cron-output-check | shared-2-identical | verifiers | hermes/fred/verifiers/telegram-cron-output-check<br>hermes/orchestrator/verifiers/telegram-cron-output-check | bec115ddcefa22cc |
-| telegram-cron-output-contract | shared-2-identical | micro | hermes/fred/micro/telegram-cron-output-contract<br>hermes/orchestrator/micro/telegram-cron-output-contract | acdfa5eda40dfd07 |
+| telegram-cron-output-contract | shared-2-identical | micro | hermes/fred/micro/telegram-cron-output-contract<br>hermes/orchestrator/micro/telegram-cron-output-contract | 07af3824e4e0ca0c |
 | tool-parameter-required-fields-checklist | unique | micro | hermes/kai/micro/tool-parameter-required-fields-checklist | 384d3ca76b71cb80 |
 | verification-recipe-vs-assertion | shared-2-identical | verification-recipe-vs-assertion | hermes/fred/verification-recipe-vs-assertion<br>hermes/orchestrator/verification-recipe-vs-assertion | 805e92161796dec3 |
 | verifier-as-deliverable-discipline | shared-2-identical | agent-operations | hermes/fred/agent-operations/verifier-as-deliverable-discipline<br>hermes/orchestrator/agent-operations/verifier-as-deliverable-discipline | c75ef56ba62a9b65 |

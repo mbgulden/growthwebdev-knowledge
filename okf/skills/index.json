@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T00:00:00Z",
+  "generated_at": "2026-08-23T00:00:00Z",
   "generator": "scripts/skill-hub-snapshot.py",
   "sources": {
     "hermes_profiles": [
@@ -24,7 +24,7 @@
       "prismatic-skill-pkg"
     ]
   },
-  "files": 2467,
+  "files": 2471,
   "skills": 182,
   "status_counts": {
     "shared-2": 66,
@@ -2623,16 +2623,16 @@
           "profile_or_store": "fred",
           "category": "micro",
           "path": "hermes/fred/micro/prismatic-evidence-handling",
-          "hash": "8845e70c58022dd7",
-          "hash_full": "8845e70c58022dd7eb3868c8e59d68fdd0d50b6436c835888218739b95fd79fe"
+          "hash": "157fa0eebd203c68",
+          "hash_full": "157fa0eebd203c68e53e7ba433b2f741600f86001df301064ffa032354053f80"
         },
         {
           "source": "hermes/orchestrator",
           "profile_or_store": "orchestrator",
           "category": "micro",
           "path": "hermes/orchestrator/micro/prismatic-evidence-handling",
-          "hash": "8845e70c58022dd7",
-          "hash_full": "8845e70c58022dd7eb3868c8e59d68fdd0d50b6436c835888218739b95fd79fe"
+          "hash": "157fa0eebd203c68",
+          "hash_full": "157fa0eebd203c68e53e7ba433b2f741600f86001df301064ffa032354053f80"
         }
       ]
     },
@@ -3113,16 +3113,16 @@
           "profile_or_store": "fred",
           "category": "operations",
           "path": "hermes/fred/operations/scheduled-journal-recaps",
-          "hash": "a0e8c48b3a0aa2a8",
-          "hash_full": "a0e8c48b3a0aa2a831185940bb3fb6222d8abc62601d692f349424e028f587e5"
+          "hash": "6559350b8318783e",
+          "hash_full": "6559350b8318783ecb0558e4bf93cc80a02879bb3afff121918aacd086b82969"
         },
         {
           "source": "hermes/orchestrator",
           "profile_or_store": "orchestrator",
           "category": "operations",
           "path": "hermes/orchestrator/operations/scheduled-journal-recaps",
-          "hash": "a0e8c48b3a0aa2a8",
-          "hash_full": "a0e8c48b3a0aa2a831185940bb3fb6222d8abc62601d692f349424e028f587e5"
+          "hash": "6559350b8318783e",
+          "hash_full": "6559350b8318783ecb0558e4bf93cc80a02879bb3afff121918aacd086b82969"
         }
       ]
     },
@@ -3395,16 +3395,16 @@
           "profile_or_store": "fred",
           "category": "micro",
           "path": "hermes/fred/micro/telegram-cron-output-contract",
-          "hash": "acdfa5eda40dfd07",
-          "hash_full": "acdfa5eda40dfd07e77e81dd939269774530e48108f61468ec355bde2059774c"
+          "hash": "07af3824e4e0ca0c",
+          "hash_full": "07af3824e4e0ca0c3520993aa7073f21daf4f5b85eb89de843d28f8554aa8313"
         },
         {
           "source": "hermes/orchestrator",
           "profile_or_store": "orchestrator",
           "category": "micro",
           "path": "hermes/orchestrator/micro/telegram-cron-output-contract",
-          "hash": "acdfa5eda40dfd07",
-          "hash_full": "acdfa5eda40dfd07e77e81dd939269774530e48108f61468ec355bde2059774c"
+          "hash": "07af3824e4e0ca0c",
+          "hash_full": "07af3824e4e0ca0c3520993aa7073f21daf4f5b85eb89de843d28f8554aa8313"
         }
       ]
     },
@@ -3489,7 +3489,7 @@
     "hermes/active-oahu/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/next-step/.curator_state": "91db7fd7870e67b566877fb02342479d95b278c82e9f95f3a06d00ebfe41b072",
     "hermes/fred/push-protection-secret-fixtures.md": "f009dc9df3e98cbd2d98c2c9ca80fb1b7a4696ed7256b99dcf681430327d208f",
-    "hermes/fred/.curator_state": "2468f9b3faf984992f7a4e06bc7d229c0f292994606173b693e75fb30de7cb9d",
+    "hermes/fred/.curator_state": "ce18bec7b7229291684639e56b652d1a65c43af57fa9c497fc18eae863f3ce4b",
     "hermes/fred/second-opinion-on-design.md": "2d44e7e151dcda3368004d095a82602b3e8f6bb31cd3295b5b35580f1a5a7844",
     "hermes/fred/.usage.json.lock": "3150a1d29186759b19270767cd67898740546e2c1a16d9d40af1b316e9897d01",
     "hermes/fred/peer-review-before-merge.md": "cc0f3e91b7e87147b41f90b53feba490b4bc04f82a9e6a8570932c010d0fd793",
@@ -3498,7 +3498,7 @@
     "hermes/george/.curator_state": "181aa5b74ab1512794c2c0387b274698e24fd11712635a76127360dec080f6c2",
     "hermes/george/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/orchestrator/push-protection-secret-fixtures.md": "f009dc9df3e98cbd2d98c2c9ca80fb1b7a4696ed7256b99dcf681430327d208f",
-    "hermes/orchestrator/.curator_state": "2468f9b3faf984992f7a4e06bc7d229c0f292994606173b693e75fb30de7cb9d",
+    "hermes/orchestrator/.curator_state": "ce18bec7b7229291684639e56b652d1a65c43af57fa9c497fc18eae863f3ce4b",
     "hermes/orchestrator/second-opinion-on-design.md": "2d44e7e151dcda3368004d095a82602b3e8f6bb31cd3295b5b35580f1a5a7844",
     "hermes/orchestrator/.usage.json.lock": "3150a1d29186759b19270767cd67898740546e2c1a16d9d40af1b316e9897d01",
     "hermes/orchestrator/peer-review-before-merge.md": "cc0f3e91b7e87147b41f90b53feba490b4bc04f82a9e6a8570932c010d0fd793",
@@ -3971,9 +3971,9 @@
     "hermes/fred/micro/next-action-truth-source/SKILL.md": "e1454f639761a831f859e63f9c7f0b3bb90cff22664a5407e4f36fc6247169d5",
     "hermes/fred/micro/corrections-lead-with-recipe/SKILL.md": "6fa667b8c6a0986a28580a2f972adb2172bfaae295c076daccb8390b6fa2ffd0",
     "hermes/fred/micro/outbound-action-gate/SKILL.md": "7cae984d04e48bab91fbb480f4c60e143ae43827ac1bbbce6bb2dd556142b22c",
-    "hermes/fred/micro/telegram-cron-output-contract/SKILL.md": "acdfa5eda40dfd07e77e81dd939269774530e48108f61468ec355bde2059774c",
+    "hermes/fred/micro/telegram-cron-output-contract/SKILL.md": "07af3824e4e0ca0c3520993aa7073f21daf4f5b85eb89de843d28f8554aa8313",
     "hermes/fred/micro/post-session-review/SKILL.md": "aa900018e3a7d7d796c39d8a69eeb4fb45ca004196ddab5aa58f60b0bbcbdc3a",
-    "hermes/fred/micro/prismatic-evidence-handling/SKILL.md": "8845e70c58022dd7eb3868c8e59d68fdd0d50b6436c835888218739b95fd79fe",
+    "hermes/fred/micro/prismatic-evidence-handling/SKILL.md": "157fa0eebd203c68e53e7ba433b2f741600f86001df301064ffa032354053f80",
     "hermes/fred/micro/multirepo-file-find/SKILL.md": "18a648b0f4dcc21ca89461c3ace4c834b4d10ade7ebaaf21268dedc73ee9801e",
     "hermes/fred/micro/isolated-pr-from-entangled-branch/SKILL.md": "e71bdda88361c1ae6a762e1c19382dc5b65f5eaa2856c748f7e94acf2657e844",
     "hermes/fred/micro/branch-deletion-approval/SKILL.md": "c243b425a51433b2e991f784594e77ccf96ba22ec3705229e433d20ca23f7577",
@@ -4020,7 +4020,7 @@
     "hermes/fred/operations/cron-failure-remediation/SKILL.md": "39665f8e74009b32f1d3a77902f7e12c47a42e6a282cf02a24f5b4ce07b19003",
     "hermes/fred/operations/plan-reconciliation-after-peer-review/SKILL.md": "eb6f78967721a9ff8aa47728eea2ef806bf3889e794385d81dd1747f7f8d3285",
     "hermes/fred/operations/hermes-agent/SKILL.md": "30892e26cf5c57268c81092cd7629ae8e3eee215c99fe034a7098e12afb0f1c9",
-    "hermes/fred/operations/scheduled-journal-recaps/SKILL.md": "a0e8c48b3a0aa2a831185940bb3fb6222d8abc62601d692f349424e028f587e5",
+    "hermes/fred/operations/scheduled-journal-recaps/SKILL.md": "6559350b8318783ecb0558e4bf93cc80a02879bb3afff121918aacd086b82969",
     "hermes/fred/operations/hybrid-attention-llm-quantization/SKILL.md": "8b0ee1a63f9c98d7f6b0f821552c3806f95988b65c89fdb748f4097ecf5138a2",
     "hermes/fred/operations/okf-documentation-ops/SKILL.md": "85abaace2f1f1ab8d558214265a3f813dec56e21eba30eadf050411696b57e00",
     "hermes/fred/operations/local-mcp-token-reauth/SKILL.md": "f1e49fe66b779ccd0064c31fd5f2c6ff5e2b1fc20d8574b8a2f46ebcd3ae1645",
@@ -4150,6 +4150,7 @@
     "hermes/fred/operations/plan-reconciliation-after-peer-review/references/overclaim-partial-results-discipline-2026-07-27.md": "5b18e089e48b5c0b25450ac2a99f00ba88195450698d425e0a55a9781d5a6476",
     "hermes/fred/operations/hermes-agent/references/hermes-gateway-restart-tool-surface.md": "3a237fc14e273d658611e3a9ee32c0e1ffd127a63f2a0946e4f589bc8dc10a16",
     "hermes/fred/operations/hermes-agent/references/hermes-gateway-stale-bash-spawn.md": "97715733b87f6d3f8c3aa403849d6d1a7cc495c1eea260393c1e838259334980",
+    "hermes/fred/operations/scheduled-journal-recaps/references/becca-journal-recap-2026-08-24-drift.md": "eb2661c51daef67cda162d903a4c1321ed697d12845815df43803a7490528609",
     "hermes/fred/operations/scheduled-journal-recaps/references/becca-journal-recap.md": "4902cf3128f0f952b1d193e42667130012c5fa471945d4b07b87852a22fb7adf",
     "hermes/fred/operations/scheduled-journal-recaps/references/becca-journal-recap-2026-08-22-drift.md": "647259d19724409995bde7426e86e708c6292e5e5a84a8301b4e5f1b39d2285a",
     "hermes/fred/operations/scheduled-journal-recaps/references/runtime-collector-freshness-repair.md": "2bd95b0dc214665f66f08fe88e2aa6fa681920a79e914faec23fa47b1e975ffc",
@@ -4161,6 +4162,7 @@
     "hermes/fred/operations/scheduled-journal-recaps/references/becca-journal-recap-2026-08-23-drift.md": "1a062ef9fa11aabca99f4c8bd8f524402467cb8a965e7bd435a4beb0314c445a",
     "hermes/fred/operations/scheduled-journal-recaps/references/becca-journal-recap-2026-08-20-drift.md": "dcc7e638aec34ebfb3f688d8eb7ef719eb93a3b536421b9a9bd36b8163389f54",
     "hermes/fred/operations/scheduled-journal-recaps/references/weekly-rollup-cron-drift.md": "b7fc563e4c6da8ba26c530a8388f849fb60a7a9095d00a319f0ffc7c4f131969",
+    "hermes/fred/operations/scheduled-journal-recaps/references/weekly-rollup-cron-drift-2026-08-23.md": "7f69bac16eec2036c118669e446cf25f406a6ab334238f24a8a1452d0fe58993",
     "hermes/fred/operations/scheduled-journal-recaps/scripts/weekly_rollup_verify.py": "c7033ac3f383b503bc7bddc88b99e372277ab4d713fde6f5bdaf0294d6b3259f",
     "hermes/fred/operations/scheduled-journal-recaps/scripts/verify_becca_recap.py": "c5ac26888d46ad50e5a5dec628b604781ebcb4aeae390180d0ba6f627c81a793",
     "hermes/fred/operations/hybrid-attention-llm-quantization/references/qwen3.8-27b-model-availability.md": "e3a4f9f2a426d6c63aea485d1fdbb581d2702cdc88b4fdcf4924fdb1024117ba",
@@ -4890,9 +4892,9 @@
     "hermes/orchestrator/micro/next-action-truth-source/SKILL.md": "e1454f639761a831f859e63f9c7f0b3bb90cff22664a5407e4f36fc6247169d5",
     "hermes/orchestrator/micro/corrections-lead-with-recipe/SKILL.md": "6fa667b8c6a0986a28580a2f972adb2172bfaae295c076daccb8390b6fa2ffd0",
     "hermes/orchestrator/micro/outbound-action-gate/SKILL.md": "7cae984d04e48bab91fbb480f4c60e143ae43827ac1bbbce6bb2dd556142b22c",
-    "hermes/orchestrator/micro/telegram-cron-output-contract/SKILL.md": "acdfa5eda40dfd07e77e81dd939269774530e48108f61468ec355bde2059774c",
+    "hermes/orchestrator/micro/telegram-cron-output-contract/SKILL.md": "07af3824e4e0ca0c3520993aa7073f21daf4f5b85eb89de843d28f8554aa8313",
     "hermes/orchestrator/micro/post-session-review/SKILL.md": "aa900018e3a7d7d796c39d8a69eeb4fb45ca004196ddab5aa58f60b0bbcbdc3a",
-    "hermes/orchestrator/micro/prismatic-evidence-handling/SKILL.md": "8845e70c58022dd7eb3868c8e59d68fdd0d50b6436c835888218739b95fd79fe",
+    "hermes/orchestrator/micro/prismatic-evidence-handling/SKILL.md": "157fa0eebd203c68e53e7ba433b2f741600f86001df301064ffa032354053f80",
     "hermes/orchestrator/micro/multirepo-file-find/SKILL.md": "18a648b0f4dcc21ca89461c3ace4c834b4d10ade7ebaaf21268dedc73ee9801e",
     "hermes/orchestrator/micro/isolated-pr-from-entangled-branch/SKILL.md": "e71bdda88361c1ae6a762e1c19382dc5b65f5eaa2856c748f7e94acf2657e844",
     "hermes/orchestrator/micro/branch-deletion-approval/SKILL.md": "c243b425a51433b2e991f784594e77ccf96ba22ec3705229e433d20ca23f7577",
@@ -4939,7 +4941,7 @@
     "hermes/orchestrator/operations/cron-failure-remediation/SKILL.md": "39665f8e74009b32f1d3a77902f7e12c47a42e6a282cf02a24f5b4ce07b19003",
     "hermes/orchestrator/operations/plan-reconciliation-after-peer-review/SKILL.md": "eb6f78967721a9ff8aa47728eea2ef806bf3889e794385d81dd1747f7f8d3285",
     "hermes/orchestrator/operations/hermes-agent/SKILL.md": "30892e26cf5c57268c81092cd7629ae8e3eee215c99fe034a7098e12afb0f1c9",
-    "hermes/orchestrator/operations/scheduled-journal-recaps/SKILL.md": "a0e8c48b3a0aa2a831185940bb3fb6222d8abc62601d692f349424e028f587e5",
+    "hermes/orchestrator/operations/scheduled-journal-recaps/SKILL.md": "6559350b8318783ecb0558e4bf93cc80a02879bb3afff121918aacd086b82969",
     "hermes/orchestrator/operations/hybrid-attention-llm-quantization/SKILL.md": "8b0ee1a63f9c98d7f6b0f821552c3806f95988b65c89fdb748f4097ecf5138a2",
     "hermes/orchestrator/operations/okf-documentation-ops/SKILL.md": "85abaace2f1f1ab8d558214265a3f813dec56e21eba30eadf050411696b57e00",
     "hermes/orchestrator/operations/local-mcp-token-reauth/SKILL.md": "f1e49fe66b779ccd0064c31fd5f2c6ff5e2b1fc20d8574b8a2f46ebcd3ae1645",
@@ -5069,6 +5071,7 @@
     "hermes/orchestrator/operations/plan-reconciliation-after-peer-review/references/overclaim-partial-results-discipline-2026-07-27.md": "5b18e089e48b5c0b25450ac2a99f00ba88195450698d425e0a55a9781d5a6476",
     "hermes/orchestrator/operations/hermes-agent/references/hermes-gateway-restart-tool-surface.md": "3a237fc14e273d658611e3a9ee32c0e1ffd127a63f2a0946e4f589bc8dc10a16",
     "hermes/orchestrator/operations/hermes-agent/references/hermes-gateway-stale-bash-spawn.md": "97715733b87f6d3f8c3aa403849d6d1a7cc495c1eea260393c1e838259334980",
+    "hermes/orchestrator/operations/scheduled-journal-recaps/references/becca-journal-recap-2026-08-24-drift.md": "eb2661c51daef67cda162d903a4c1321ed697d12845815df43803a7490528609",
     "hermes/orchestrator/operations/scheduled-journal-recaps/references/becca-journal-recap.md": "4902cf3128f0f952b1d193e42667130012c5fa471945d4b07b87852a22fb7adf",
     "hermes/orchestrator/operations/scheduled-journal-recaps/references/becca-journal-recap-2026-08-22-drift.md": "647259d19724409995bde7426e86e708c6292e5e5a84a8301b4e5f1b39d2285a",
     "hermes/orchestrator/operations/scheduled-journal-recaps/references/runtime-collector-freshness-repair.md": "2bd95b0dc214665f66f08fe88e2aa6fa681920a79e914faec23fa47b1e975ffc",
@@ -5080,6 +5083,7 @@
     "hermes/orchestrator/operations/scheduled-journal-recaps/references/becca-journal-recap-2026-08-23-drift.md": "1a062ef9fa11aabca99f4c8bd8f524402467cb8a965e7bd435a4beb0314c445a",
     "hermes/orchestrator/operations/scheduled-journal-recaps/references/becca-journal-recap-2026-08-20-drift.md": "dcc7e638aec34ebfb3f688d8eb7ef719eb93a3b536421b9a9bd36b8163389f54",
     "hermes/orchestrator/operations/scheduled-journal-recaps/references/weekly-rollup-cron-drift.md": "b7fc563e4c6da8ba26c530a8388f849fb60a7a9095d00a319f0ffc7c4f131969",
+    "hermes/orchestrator/operations/scheduled-journal-recaps/references/weekly-rollup-cron-drift-2026-08-23.md": "7f69bac16eec2036c118669e446cf25f406a6ab334238f24a8a1452d0fe58993",
     "hermes/orchestrator/operations/scheduled-journal-recaps/scripts/weekly_rollup_verify.py": "c7033ac3f383b503bc7bddc88b99e372277ab4d713fde6f5bdaf0294d6b3259f",
     "hermes/orchestrator/operations/scheduled-journal-recaps/scripts/verify_becca_recap.py": "c5ac26888d46ad50e5a5dec628b604781ebcb4aeae390180d0ba6f627c81a793",
     "hermes/orchestrator/operations/hybrid-attention-llm-quantization/references/qwen3.8-27b-model-availability.md": "e3a4f9f2a426d6c63aea485d1fdbb581d2702cdc88b4fdcf4924fdb1024117ba",

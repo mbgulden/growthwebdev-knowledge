@@ -83,6 +83,14 @@ print(f"  [warn] Telegram send failed for both Markdown and plain text", flush=T
 
 The cron delivers stdout to Telegram. AGY exit codes and send-failure warnings are not actionable for Michael in the alert body — they're diagnostics for whoever reads the cron log. Move them to `file=sys.stderr`. The verifier `telegram-cron-output-check` flags these.
 
+### Agent-mode cron: the platform's own [SILENT] convention
+
+The rules above govern **no-agent scripts**, where the runner delivers stdout raw and any literal marker leaks through as a Telegram message. **Agent-mode cron** (deliver=origin with agent analysis, where a pre-run script's output is collected and handed to the agent as context) is different: the job prompt itself instructs "if there is genuinely nothing new to report, respond with exactly `[SILENT]` (nothing else)" — and the platform strips that exact marker before delivery. So:
+
+- Emitting `[SILENT]` as the ENTIRE final response in an agent-mode job is correct — it is NOT a marker leak. Do not "fix" it into silence or all-clear prose.
+- Never combine `[SILENT]` with content — the job prompt forbids it and mixed output defeats suppression.
+- Analyzing a maintenance sweep that reports `found=0`/`deleted=0`: don't trust the zero blindly. Do ONE direct check of the target path (e.g. `find <dir> -name '*.bak*' -mtime +N | wc -l`) to confirm the zero reflects a clean target rather than a mis-scanned directory. Then `[SILENT]` if nothing is actionable. The no-op case of a healthy sweep is silent — a "sweep ran clean" recap is exactly the header-only output this contract forbids.
+
 ## How to test a cron script against this contract
 
 Three live tests, all quick:

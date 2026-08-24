@@ -2,13 +2,13 @@
 type: Integration
 title: Fred vLLM Qwen3.8-27B AWQ-4bit on .230 (TP2, MTP static K=1)
 description: Fred's vLLM server at 192.168.1.230:8000 serving Qwen3.8-27B AWQ-4bit (barrydeen) across GPUs 0+1 with TP2, MTP speculative decode (static K=1, tested-final), fp8 KV cache (383,479-token pool), prefix caching, 64-seq cap. Benchmark vs Kai llama.cpp and vs Ned llama.cpp, plus the 2026-08-24 K=2 A/B test that rejected spec-tokens 2.
-resource: okf/integrations/vllm-fred-awq-qwen38-27b.md
+resource: okf/standards/vllm-fred-awq-qwen38-27b.md
 tags: [vllm, local-llm, qwen, inference, hermes, fred, awq, mtp, speculative-decoding, benchmark, integration]
 auth_method: unauthenticated LAN endpoint (deliberate; no key migration)
 token_storage: n/a
 timestamp: 2026-08-24T23:30:00Z
 git_repo: mbgulden/growthwebdev-knowledge
-git_path: okf/integrations/vllm-fred-awq-qwen38-27b.md
+git_path: okf/standards/vllm-fred-awq-qwen38-27b.md
 last_verified: 2026-08-24
 verified_by: kai
 status: current

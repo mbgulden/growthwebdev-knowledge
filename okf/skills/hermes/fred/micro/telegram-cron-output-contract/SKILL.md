@@ -78,8 +78,7 @@ These are scaffolding lines, not user-facing alerts. They look like:
 
 ```python
 print(f"[CONSULTING-PIPELINE] AGY exit: {result.returncode}")
-print(f"  [warn] Telegram send failed for both Markdown and plain text", flush=True)
-```
+If nothing is active, the script exits silent. Per the OKF cron-alert-output-contract.\n\n## Pitfalls\n- **Silent-When-Clean Enforcement**: For `no_agent=True` cron jobs, the script itself MUST explicitly ensure no output is sent to `stdout` when no action is needed. If the script produces *any* output on success, Hermes will deliver that output. Design scripts to exit silently (produce empty `stdout`) when no problems are found. The `cf_access_health_check.py` script was updated to implement this by buffering all output and only printing it if issues were detected.
 
 The cron delivers stdout to Telegram. AGY exit codes and send-failure warnings are not actionable for Michael in the alert body — they're diagnostics for whoever reads the cron log. Move them to `file=sys.stderr`. The verifier `telegram-cron-output-check` flags these.
 

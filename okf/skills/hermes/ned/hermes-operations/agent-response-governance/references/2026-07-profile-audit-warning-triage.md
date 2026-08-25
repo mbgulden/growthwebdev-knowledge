@@ -29,6 +29,48 @@ A grep anchored to `^\s*\[(CRITICAL|WARN|INFO|OK)\]` misses these lines because 
 grep -E '\[(CRITICAL|WARN|INFO|OK)\]|^\s*current:|^\s*recommended:|^={3,}$|^  (Profiles audited|Clean|Warnings|Critical|Total (issues|patches)):'
 ```
 
+## Pitfall: "Patches: 1" that never applies — blind `content.replace(old, new, 1)`
+
+`apply_patches()` `replace_field` handler for non-provider blocks used to do a
+full-file first-occurrence replace of the bare value string. For
+`compression.protect_last_n: 30` the first "30" in the file was
+`download_timeout: 30` in an unrelated aux block. Every 6h run "applied" a
+patch that rewrote `download_timeout` back to 30 (a no-op), so the summary
+permanently showed `Patches: 1` and `protect_last_n` never changed. The audit
+also lacked the profile's actual model (`local-qwen-27b-q8-fred`, 262144 ctx)
+in `MODEL_CONTEXTS`, so tier resolution fell back to the `auto` provider's
+1M context → "large" tier → recommended protect_last_n 30 while the check
+compared against the wrong tier's value.
+
+Fixes (2026-08-24):
+- `replace_field` must be block-scoped: find the target top-level block
+  (e.g. `compression:`) by key + indentation, replace only within its lines.
+- Compression checks are now PATHOLOGICAL-ONLY (hygiene < 500,
+  protect_last_n outside 5..50, threshold outside 0.3..0.95). Exact-value
+  enforcement per tier caused permanent warn loops on intentionally
+  per-model-tuned values (next-step: protect 30 / hygiene 1500 / threshold
+  0.65 with a 262144-ctx model).
+- Add real model names to `MODEL_CONTEXTS` (e.g. `local-qwen-27b-q8-fred`:
+  262144); tier resolution falls back to `model.context_length` then the
+  default provider's `context_length`.
+
+Triage rule: if a cron audit reports the same `Patches: N` > 0 for multiple
+runs and the flagged value never changes, inspect the `.bak`/file for
+collateral damage from blind replaces before trusting the audit's own
+"patched" claim. `Patches: N` in the summary counts queued patches, not
+verified-applied ones.
+
+## Pitfall: watchdog alert truncation (Telegram 4096 limit)
+
+16 near-identical `user_memory_contract` warnings blew past the Telegram
+limit; the delivered alert ended with divider lines only. The watchdog now
+collapses identical (profile, severity, category, field, current,
+recommended) tuples into one line each (with profile prefix), keeps
+[APPLY]/Patched/Verification lines, appends the Summary block, and caps the
+issue section at 3900 chars. Note: identical warnings across profiles are
+NOT collapsed (profile is part of the key) — 11 missing-USER.md profiles
+still produce 11 lines, ~270 chars each.
+
 ## Verification pattern
 
 - Direct audit summary should end with `Profiles audited: 22`, `Clean: 22`, `Warnings: 0`, `Critical: 0`, `Total patches: 0` (numbers may change as profile count changes; clean/warnings/critical semantics matter most).

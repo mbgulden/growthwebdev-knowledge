@@ -15,9 +15,9 @@ Class of work: deploying, operating, migrating, and benchmarking the local model
 | systemd service on .230 | port | GPU | served model | consumer |
 |---|---|---|---|---|
 | `vllm-george.service` (script `/opt/vllm_bin/start_george.sh`) | **8002** | 2 | Qwen3.8-27B Q4 (`-np 1 -c 131072 --mmproj --spec-type draft-mtp`) — **stopped 2026-08-22, unit still `enabled` (reboot-conflict risk, see Q5 cutover note)** | George profile |
-| `vllm-ned.service` (script `/opt/vllm_bin/start_ned_vm230.sh`; unit misnamed — runs llama.cpp) | **8003** | 2+3 (tensor split `1,1`) | **Qwen3.8-27B UD-Q5_K_M** (`--mmproj`; switched Q4→Q5 2026-08-22) | Ned profile |
+| `vllm-ned.service` (script `/opt/vllm_bin/start_ned.sh`) | **8003** | 2+3 (TP2) | **vLLM copy of Fred's config, 2026-08-24 cutover**: `/models/barrydeen-Qwen3.8-27B-AWQ-4bit`, MTP K=1, fp8 KV, 256K ctx; served names incl. legacy GGUF path → zero consumer changes. llama.cpp artifacts kept as rollback | Ned profile |
 | `llama-fred.service` (llama.cpp :8000, GPU 0) | — | — | — | **REMOVED 2026-08-18** (unit+start script moved to `*.removed-20260818-161552`; Fred uses vLLM via `vllm-fred.service`) |
-| VLLM::Worker_TP0/TP1 (pids ~56608/56609) | :8000 via python3 | 0+1 (TP2, ~23.5GB each) | ? | unknown/legacy |
+| `vllm-fred.service` (script `/opt/vllm_bin/start_fred.sh`; logs `/var/log/vllm-fred.log`) | **8000** | 0+1 (TP2) | `/models/lued-Qwen3.8-27B-INT8-W8A16-MTP` (served as `local-qwen-27b-q8-fred`) — see "vLLM Fred ops notes" | Fred profile |
 
 - Profile configs hit `http://192.168.1.230:8002/v1` and `:8003/v1` directly — the old k3s NodePort 31001/2/3 table is STALE; nothing listens on those.
 - 2026-08-18 change: both .230 llama servers were `-np 2 -c 65536` → 32768 ctx PER SLOT (the "hard 32k" that broke long sessions). Now `-np 1 -c 131072` (single 3090 holds 17GB Q4 weights + 131k q4 KV fine — verified: loads in ~90s, 2.5GB headroom). Backups: `/opt/vllm_bin/*.sh.bak-ctx-*`.
@@ -27,7 +27,7 @@ Class of work: deploying, operating, migrating, and benchmarking the local model
 
 **pve1 GPU/NUMA map (verified 2026-08-22, host side):** pve1 = 2× Xeon Gold 6230 (80 cores, NUMA0=0-19,40-59; NUMA1=20-39,60-79). All four 3090s are PCIe-passthrough (q35, `pcie=1`) into VM 230. Host PCI BDF → NUMA: `06:00.0`→0, `2f:00.0`→0, `86:00.0`→1, `af:00.0`→1. So guest GPU0/1 sit on host NUMA 0, guest GPU2/3 on host NUMA 1. **Fred's vLLM (guest GPUs 0+1, TP2) is same-NUMA — no cross-CPU barrier; placement is correct.** Caveat: guest sees `numa_node=-1` on every GPU (passthrough doesn't expose affinity), so inside the VM you cannot tell GPUs apart by NUMA — only by this host-side BDF map. Ned(GPU3)+George(GPU2) share host NUMA 1 — a 2-GPU Ned on 2+3 would also be single-NUMA.
 
-**Consumer topology drift (verified 2026-08-22):** `vllm-george`/`vllm-ned` services on .230 are now ORPHANED — the george profile points at `192.168.1.232:8080` (model `qwen3.8-27b`), kai also `192.168.1.232:8080`, and only ned's auxiliary config still references `192.168.1.230:8003/v1`. Zero established connections to :8002/:8003 and 0 log hits on `vllm-george` in 48h. .232:8080 runs `llama-server-new --alias qwen3.8-27b --parallel 2 --ctx 131072` (the "2 slots/65k" mirror box). The `vllm-*` names on .230 are a misnomer: george/ned units actually run llama.cpp.
+**Consumer topology drift (verified 2026-08-22; updated 2026-08-24):** `vllm-george` on .230 is ORPHANED (unit stopped 2026-08-22, `enabled` + `inactive` = reboot-conflict risk on GPUs 2+3 — recommend `systemctl disable`, pending Michael). The george profile points at `192.168.1.232:8080` (model `qwen3.8-27b`), kai also `.232:8080`. **As of the 2026-08-24 cutover the `vllm-*` misnomer is half-fixed:** `vllm-ned` is now actually vLLM (see cutover section below); only the george unit still runs llama.cpp-style bits if restarted at all. .232:8080 runs `llama-server-new --alias qwen3.8-27b --parallel 2 --ctx 131072`.
 
 ## 2026-08-22 Ned Q5 cutover (verified live)
 
@@ -40,6 +40,25 @@ Ned's `.230` endpoint (`:8003`) moved **Q4_K_M on single GPU3 → UD-Q5_K_M on g
 - Q5 thinking-model caveat: with thinking enabled, `content` can come back empty (tokens land in the `reasoning` field). Disable thinking for clean verification; bench tok/s counts all generated tokens regardless of field.
 - Fred unscathed: `vllm-fred` on `:8000`, guest GPUs 0+1 (host NUMA 0, TP2, 262k ctx) — healthy through the cutover.
 - Harness fix worth reusing: the bench report's `model` line is derived dynamically from the stack string (`model_desc`) so the header renders the actual quant (e.g. `UD-Q5_K_M`) instead of a hardcoded label — a mislabeled model line in bench artifacts is a silent-trust failure, same class as the branch-divergence-count pitfall.
+
+## 2026-08-24 Ned vLLM cutover (llama.cpp → copy of Fred's vLLM)
+
+Ned's `:8003` llama.cpp (Q5_K_M, GPU 2+3 split) was replaced in-place with a **byte-for-byte copy of Fred's vLLM config** on the same GPUs, same port (Michael directive: "a copy of Fred's vLLM setup"). Verified live:
+
+- **Zero-config cutover trick (reusable):** the first `--served-model-name` in `start_ned.sh` is the **legacy GGUF path** (`/models/qwen3.8-27b-q5/Qwen3.8-27B-UD-Q5_K_M.gguf`) — Ned's profile provider block sends that exact string as the `model:` field. Keeping it as a vLLM alias means NO profile/cron/aux config edits anywhere. Friendly names follow (`local-qwen-27b-q5-ned`, `qwen3.8-27b-ned`). This is the key step for any llama→vLLM cutover where consumers use path-style model ids.
+- **Vision is NOT lost on this cutover:** the barrydeen AWQ checkpoint is a full VL checkpoint — verified 333 `model.visual.*` tensors in `model.safetensors.index.json` BEFORE loading. Arch is `Qwen3_5ForConditionalGeneration`. So the old "vLLM doesn't do GGUF+mmproj, vision dies" concern did not apply — the checkpoint itself carries the vision tower. Always check the safetensors index for `visual`/`vision` keys before promising vision survives a vLLM switch.
+- Live numbers (vs replaced llama.cpp 6.7 single / 22.7 batch-4): **30.0 tok/s single, 120.9 tok/s batch-4** (4.5× / 5.3×). Engine ready ~155s after start. GPUs 2/3 at 23,418 MiB each; Fred on 0/1 untouched.
+- Tool calls verified: `qwen3_xml` parser returned `get_weather {"location": "Honolulu"}`. Vision verified: real 64×64 PNG round-trip — answer came in the **`reasoning` field with `content: null`** (Qwen thinking + `reasoning-parser qwen3`); that is a PASS, not an empty response. Don't "fix" it by disabling the parser — consumers read `reasoning_content` via Hermes' normal merge.
+- Unit surgery: same unit file name (`vllm-ned.service`), backup `*.bak-llama-20260824`, in-place Python edit of ExecStart/Description/log path (no sed -i). Old start script `start_ned_vm230.sh` and GGUFs left on disk = rollback path. Service is `enabled` — survives reboot.
+- Cutover record + reusable procedure: `okf/standards/vllm-ned-awq-qwen38-27b.md` (PR #45).
+
+## vLLM Fred ops notes (verified 2026-08-24)
+
+- **Live launch flags** (`/opt/vllm_bin/start_fred.sh`, vLLM 0.27.1): `--tensor-parallel-size 2 --disable-custom-all-reduce --spec-method mtp --spec-tokens 1 --kv-cache-dtype fp8 --max-model-len 262144 --max-num-seqs 64 --gpu-memory-utilization 0.96 --enable-prefix-caching --enable-auto-tool-choice --tool-call-parser qwen3_xml --reasoning-parser qwen3 --host 0.0.0.0 --port 8000`.
+- **Logs:** `StandardOutput=append:/var/log/vllm-fred.log` — `journalctl -u vllm-fred` shows **nothing** ("No entries"); always read the file. Grep trap: `grep -i "kv cache"` matches EVERY 10s `loggers.py` throughput line ("GPU KV cache usage") — filter those out (`grep -v loggers.py`) or you get no signal.
+- **Engine health cross-check:** every 10s the log emits `Avg generation throughput: N tokens/s, Running: K reqs` + `SpecDecoding metrics` (drafted/accepted tok/s, acceptance rate). Use these to cross-verify what a client benchmark actually saw — e.g. a 0-token client row with `Running: 1` + ~38 tok/s in the same window means the stream was generated but never reached the client (harness bug), not a server failure.
+- **MTP cap:** the INT8-MTP checkpoint carries exactly 1 MTP layer (separate module file) — `--spec-tokens 1` is the model maximum; do not try to raise it.
+- **Optimization candidates confirmed valid for 0.27.1:** `--max-num-batched-tokens 8192` (engine warned `max_num_scheduled_tokens=2048 … consider increasing max_num_batched_tokens`) and `--gpu-memory-utilization 0.98`; removing `--disable-custom-all-reduce` was under evaluation. Keep `--max-model-len 262144` — Fred's gateway assumes 262K context; shrinking it to free KV is a config-semantics change, not a perf tweak.
 
 ## Topology (2026-08-15, superseded above)
 
@@ -60,12 +79,12 @@ Kai's server is a **direct `llama-server` process on 192.168.1.232:8080**, not a
 **Vision is LIVE and verified**: sent a 2×2 red/blue PNG through `/v1/chat/completions` (base64 data URL) — model answered "red blue" with correct spatial reasoning. Recipe for any future mmproj doubt: the `--mmproj` flag in `/proc/<pid>/cmdline` is necessary but NOT sufficient proof; a live image round-trip is. The server's self-reported "multimodal" capability flag in API metadata is also not proof.
 
 ## Backend switch procedure (llama.cpp → vLLM)
-1. **Vision check first.** llama.cpp `--mmproj mmproj-F16.gguf` is what gives the model vision; **vLLM does not consume GGUF+mmproj.** Preserving vision requires native safetensors VL weights + a vLLM build supporting that VL arch. Losing it is a capability regression (Kai falls back to tesseract OCR) — get the owner's explicit decision (keep-vision vs text-only) before pulling weights.
+1. **Vision check first.** llama.cpp `--mmproj mmproj-F16.gguf` is what gives the model vision; **vLLM does not consume GGUF+mmproj.** Preserving vision requires a safetensors checkpoint that *itself* carries the vision tower — check `model.safetensors.index.json` for `model.visual.*` / `vision` keys BEFORE loading (the barrydeen AWQ 4-bit Qwen3.8-27B does: 333 `model.visual.*` tensors, arch `Qwen3_5ForConditionalGeneration` — vision survived the 2026-08-24 Ned cutover intact). If the checkpoint is text-only, losing vision is a capability regression (Kai falls back to tesseract OCR) — get the owner's explicit decision before pulling weights.
 2. **Sizing.** BF16 27B (~54GB) does NOT fit the 31GB free. Use AWQ or GPTQ-Int4 safetensors (~15–18GB) so one 24GB 3090 holds weights + KV cache.
-3. **Endpoint preservation.** Replace the k3s workload, keep the same Service name + NodePort (31001/2/3) → Hermes profile configs need zero changes. vLLM serves OpenAI-compatible `/v1` by default.
-4. **GPU placement.** One 3090 per instance via the k8s nvidia device plugin; tensor-parallel 2 only if KV headroom is tight.
+3. **Endpoint + model-id preservation (zero-config cutover).** Keep the same service name + port so base URLs don't change. Then make the **legacy model id (often a full GGUF path string in profile configs) the FIRST `--served-model-name`** in the vLLM launch, with friendly aliases after it. Consumers need zero config edits. vLLM serves OpenAI-compatible `/v1` by default.
+4. **GPU placement.** One 3090 per instance via the k8s nvidia device plugin; tensor-parallel 2 only if KV headroom is tight. On .230 use explicit `CUDA_VISIBLE_DEVICES` in the start script — Fred=0,1; Ned=2,3.
 5. **Never run both backends concurrently** — VRAM contention (GPUs already ~23/24GB).
-6. **Verify with real traffic:** `curl http://192.168.1.230:<NodePort>/v1/models` + one actual chat-completion round-trip. "Pod is green" is not done.
+6. **Verify with real traffic:** `curl http://192.168.1.230:<port>/v1/models` (confirm the legacy name appears) + a single-stream + batch-N chat-completion round-trip + a vision round-trip (expect the answer in `reasoning` with `content: null` on thinking models with `--reasoning-parser qwen3`) + one OpenAI `tools` call. "Service is green" is not done.
 
 ## Before/after benchmark (never claim "faster" on faith)
 - Reusable live probe: `scripts/bench_tok_s.py <base_url> <model> <max_tokens>` — prints wall time, token counts, think-chars, tok/s, and warns on reasoning-only (answer-less) runs.

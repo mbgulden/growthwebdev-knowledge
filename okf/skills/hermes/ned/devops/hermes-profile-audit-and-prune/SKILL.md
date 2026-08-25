@@ -44,6 +44,24 @@ Plus per-profile data value: `ls -ld` (symlink detection), `du -sh`, presence of
 | DORMANT-DATA | has state DBs or memories → present to Michael for per-profile call, never auto-delete |
 | DORMANT-SECRETS | still carries a rotated/shared token → scrub the token from its `.env` even if the profile is kept — starting any of those gateways re-ignites the polling conflict |
 
+## Fleet health audit — "is anything broke in the profiles/configs?"
+
+Distinct recurring ask from deletion. Config layer is cheap: loop `hermes --profile <p> config check` over every profile; unset optional env vars (e.g. `DINGTALK_*`) are informational, not errors — grep for `error|invalid|fail|✗`, not every `○` line. The real findings live in process/systemd mismatches:
+
+```bash
+# 1. Every running gateway PID and its unit ownership
+for pid in $(pgrep -f "hermes_cli|gateway run"); do
+  cmd=$(tr '\0' ' ' < /proc/$pid/cmdline); echo "$cmd" | grep -q "gateway" || continue
+  ppid=$(awk '{print $4}' /proc/$pid/stat 2>/dev/null)
+  unit=$(grep -oE "system.slice/[^ ]+" /proc/$pid/cgroup 2>/dev/null | head -1)
+  prof=$(echo "$cmd" | grep -oE "\-\-profile [a-z0-9-]+"); echo "$pid $prof ppid=$ppid unit=${unit:-NONE}"
+done
+```
+
+- **Orphaned gateway:** `hermes profile list` "running" is process-level truth — it shows running even when the owning unit died. A gateway PID with `ppid=1` and no `system.slice/<unit>` cgroup has NO auto-restart and NO journald logs: it was started by hand after its unit died and will silently die on the next crash. Fix: start the correct unit, verify its gateway is up, then signal the orphan PID (never `systemctl restart` from inside a running gateway — see restart-safety rules in the `hermes-agent` skill).
+- **Stale failed unit stubs:** `systemctl list-units --state=failed` can list units with `Loaded: not-found` — deleted/renamed unit files with stale state. Harmless; clean with `sudo systemctl reset-failed <unit>`.
+- **Failed timers adjacent to profiles** (curator digests, telemetry pollers) surface in the same `--state=failed` sweep — report them separately; they're not profile defects but Michael asks "anything broke?" and expects the whole board.
+
 ## Safe deletion procedure
 1. **Back up first, always** — even the "empty" ones:
    `tar czf /var/tmp/profiles-cleanup-$(date +%Y%m%d).tgz -C $PROFILES <list of names>`
@@ -56,6 +74,8 @@ Plus per-profile data value: `ls -ld` (symlink detection), `du -sh`, presence of
 5. **Report** the backup path and a suggested expiry (e.g. "I'll flag it for deletion in 2 weeks").
 
 ## Pitfalls
+- **Cgroup unit ≠ `--profile` flag is a red flag, not proof either way.** A gateway process can carry a cgroup naming a different profile's unit (e.g. `--profile orchestrator` living under `hermes-gateway-kai.service`) — usually forked from another gateway's context before daemonizing. Don't report "orphaned" or "owned by X" off either signal alone; cross-check `ppid`, the unit's `MainPID` (`systemctl show -p MainPID`), and `ps -o ppid,pgid` before stating ownership.
+- **Unit names don't follow a pattern.** `next-step` profile runs under `jeff.service`; `orchestrator` under `hermes-orchestrator-gateway.service`. Never guess `<unit> = hermes-<profile>.service` — enumerate with `systemctl list-units --type=service | grep -iE 'hermes|gateway|bot'` and match on the unit file's `--profile` arg or description.
 - **Sandbox HOME (Ned):** `~/.hermes/profiles/` resolves into the nested sandbox (`/home/ubuntu/.hermes/profiles/ned/home/.hermes/profiles/`) and shows a truncated, misleading tree (e.g. "only orchestrator exists"). Always use absolute `/home/ubuntu/.hermes/profiles/...`.
 - **grep timeouts:** `grep -rl <token> $PROFILES/` over multi-GB profiles (with node_modules) can hang past any timeout. Scope to each profile's `.env` + `config.yaml` explicitly in a loop.
 - **Terminal guard blocks gateway stops from inside a gateway process:** `systemctl stop hermes-gateway-*` issued from a running gateway's shell gets SIGTERM'd/blocked. If the unit is already dead, just `sudo rm` the file and `daemon-reload` — no stop needed.

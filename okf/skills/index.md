@@ -1,6 +1,6 @@
 # OKF Skill Hub — Catalog
 
-_Generated 2026-08-23T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills / 2471 files across 12 Hermes profiles, AGY CLI, and the Prismatic engine._
+_Generated 2026-08-24T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills / 2476 files across 23 Hermes profiles, AGY CLI, and the Prismatic engine._
 
 ## Status counts
 
@@ -34,9 +34,9 @@ _Generated 2026-08-23T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 
 - `hermes/ned/human-design/daily-transit-briefing` (sha256 83c5ae8370c1a909)
 - `hermes/next-step/human-design/daily-transit-briefing` (sha256 83c5ae8370c1a909)
-- `hermes/fred/human-design/daily-transit-briefing` (sha256 ebcd44b8436e5c82)
+- `hermes/fred/human-design/daily-transit-briefing` (sha256 27f93f0f6e9196af)
 - `hermes/george/human-design/daily-transit-briefing` (sha256 83c5ae8370c1a909)
-- `hermes/orchestrator/human-design/daily-transit-briefing` (sha256 ebcd44b8436e5c82)
+- `hermes/orchestrator/human-design/daily-transit-briefing` (sha256 27f93f0f6e9196af)
 - `hermes/kai/human-design/daily-transit-briefing` (sha256 83c5ae8370c1a909)
 - `hermes/hdengine/human-design/daily-transit-briefing` (sha256 83c5ae8370c1a909)
 - `hermes/autobot/human-design/daily-transit-briefing` (sha256 83c5ae8370c1a909)
@@ -49,7 +49,7 @@ _Generated 2026-08-23T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 
 ### hermes-agent
 
-- `hermes/ned/hermes-operations/hermes-agent` (sha256 bcb2969c138e3208)
+- `hermes/ned/hermes-operations/hermes-agent` (sha256 935e5626f071f38d)
 - `hermes/fred/operations/hermes-agent` (sha256 30892e26cf5c5726)
 - `hermes/george/devops/hermes-agent` (sha256 7e6be342487bb3e2)
 - `hermes/orchestrator/operations/hermes-agent` (sha256 30892e26cf5c5726)
@@ -73,7 +73,7 @@ _Generated 2026-08-23T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 - `hermes/fred/devops/okf-mcp-hub` (sha256 65f0f7c0eaecade3)
 - `hermes/george/devops/okf-mcp-hub` (sha256 65f0f7c0eaecade3)
 - `hermes/orchestrator/devops/okf-mcp-hub` (sha256 65f0f7c0eaecade3)
-- `hermes/kai/devops/okf-mcp-hub` (sha256 5a17f7a0304e9c22)
+- `hermes/kai/devops/okf-mcp-hub` (sha256 bc9df787679348c3)
 - `hermes/autobot/devops/okf-mcp-hub` (sha256 65f0f7c0eaecade3)
 
 ### qwen-llamacpp-reasoning-effort
@@ -168,12 +168,12 @@ _Generated 2026-08-23T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 | hde-guest-fleet-ops | shared-2-identical | operations | hermes/fred/operations/hde-guest-fleet-ops<br>hermes/orchestrator/operations/hde-guest-fleet-ops | e99c49906827544b |
 | hde-guest-ops-scripts | unique | devops | hermes/ned/devops/hde-guest-ops-scripts | 267186611a3c9a5e |
 | headless-cli-oauth-login | unique | devops | hermes/ned/devops/headless-cli-oauth-login | d47af9909f868644 |
-| hermes-agent | divergent-4-variants | devops, hermes-operations, operations | hermes/ned/hermes-operations/hermes-agent<br>hermes/fred/operations/hermes-agent<br>hermes/george/devops/hermes-agent<br>hermes/orchestrator/operations/hermes-agent<br>hermes/kai/devops/hermes-agent | bcb2969c138e3208 |
+| hermes-agent | divergent-4-variants | devops, hermes-operations, operations | hermes/ned/hermes-operations/hermes-agent<br>hermes/fred/operations/hermes-agent<br>hermes/george/devops/hermes-agent<br>hermes/orchestrator/operations/hermes-agent<br>hermes/kai/devops/hermes-agent | 935e5626f071f38d |
 | hermes-gateway-lifecycle-ops | shared-2-identical | operations | hermes/fred/operations/hermes-gateway-lifecycle-ops<br>hermes/orchestrator/operations/hermes-gateway-lifecycle-ops | 95d9ce21a9cac96f |
 | hermes-mcp-stdio-server-wiring | unique | devops | hermes/george/devops/hermes-mcp-stdio-server-wiring | e9805c21457c4ea0 |
 | hermes-model-provider-ops | shared-2-identical | operations | hermes/fred/operations/hermes-model-provider-ops<br>hermes/orchestrator/operations/hermes-model-provider-ops | 4bdd9d0699babb09 |
 | hermes-profile-audit | unique | devops | hermes/kai/devops/hermes-profile-audit | be8fb712633a7fe7 |
-| hermes-profile-audit-and-prune | unique | devops | hermes/ned/devops/hermes-profile-audit-and-prune | ce9474f6d2fcbcf3 |
+| hermes-profile-audit-and-prune | unique | devops | hermes/ned/devops/hermes-profile-audit-and-prune | e1bf335c0ca5ac48 |
 | hermes-profile-ops | unique | devops | hermes/kai/devops/hermes-profile-ops | 04d90bf026e20fbc |
 | hermes-provider-diagnostics | unique | devops | hermes/george/devops/hermes-provider-diagnostics | 999b6e480c733b2c |
 | himalaya | unique | flat | prismatic/portable-skills/himalaya | 4410c2e6fce5c241 |
@@ -194,10 +194,10 @@ _Generated 2026-08-23T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 | linear-handoff-build-out | shared-2-identical | operations | hermes/fred/operations/linear-handoff-build-out<br>hermes/orchestrator/operations/linear-handoff-build-out | ce708eed48dc448c |
 | linear-read-verify | unique | devops | hermes/george/devops/linear-read-verify | 1d3d11b7bde9982d |
 | linear-routing-classify | shared-2-identical | verifiers | hermes/fred/verifiers/linear-routing-classify<br>hermes/orchestrator/verifiers/linear-routing-classify | 19a0b36b1637187b |
-| llm-serving-benchmark | unique | devops | hermes/kai/devops/llm-serving-benchmark | c658196b8abfdf99 |
+| llm-serving-benchmark | unique | devops | hermes/kai/devops/llm-serving-benchmark | 9c772b057e2e82f3 |
 | llmcompressor-ignore-regex-prefix | shared-2-identical | ml-ops | hermes/fred/ml-ops/llmcompressor-ignore-regex-prefix<br>hermes/orchestrator/ml-ops/llmcompressor-ignore-regex-prefix | f50da288b311ef61 |
-| local-llm-inference-ops | unique | devops | hermes/kai/devops/local-llm-inference-ops | a6c9d295635a6ca7 |
-| local-llm-provider-tuning | unique | devops | hermes/kai/devops/local-llm-provider-tuning | ba954bf7b8f77403 |
+| local-llm-inference-ops | unique | devops | hermes/kai/devops/local-llm-inference-ops | b2e1200b014f3664 |
+| local-llm-provider-tuning | unique | devops | hermes/kai/devops/local-llm-provider-tuning | 9e9d45031f6ee92b |
 | local-mcp-token-reauth | shared-2-identical | operations | hermes/fred/operations/local-mcp-token-reauth<br>hermes/orchestrator/operations/local-mcp-token-reauth | f1e49fe66b779ccd |
 | memory-selective-pruning | shared-2-identical | operations | hermes/fred/operations/memory-selective-pruning<br>hermes/orchestrator/operations/memory-selective-pruning | 3435cd68bcb6f1c2 |
 | memory-skills-boundary-discipline | shared-2-identical | agent-operations | hermes/fred/agent-operations/memory-skills-boundary-discipline<br>hermes/orchestrator/agent-operations/memory-skills-boundary-discipline | bc026026668d7c4b |
@@ -246,7 +246,7 @@ _Generated 2026-08-23T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 | product-bot-voice-governance | unique | agent-operations | hermes/ned/agent-operations/product-bot-voice-governance | fb974d651f17635b |
 | production-sqlite-migration-fencing | unique | devops | hermes/george/devops/production-sqlite-migration-fencing | 6cc9a450b5a94448 |
 | projector-aware-communication-discipline | shared-2-identical | agent-operations | hermes/fred/agent-operations/projector-aware-communication-discipline<br>hermes/orchestrator/agent-operations/projector-aware-communication-discipline | 603eb39429a52df0 |
-| proxmox-k3s-gpu-cluster-ops | shared-2-identical | operations | hermes/fred/operations/proxmox-k3s-gpu-cluster-ops<br>hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops | c85690146df3557c |
+| proxmox-k3s-gpu-cluster-ops | shared-2-identical | operations | hermes/fred/operations/proxmox-k3s-gpu-cluster-ops<br>hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops | b32102e2f287b0d9 |
 | proxmox-orchestrator-remote-ops | shared-2-identical | proxmox-orchestrator-remote-ops | hermes/fred/proxmox-orchestrator-remote-ops<br>hermes/orchestrator/proxmox-orchestrator-remote-ops | f47948ff926f6242 |
 | proxmox-raid-storage-audit | unique | devops | hermes/ned/devops/proxmox-raid-storage-audit | 43df0676f8d370db |
 | pwp-visual-qa-proof | shared-12-identical | audits | hermes/ned/audits/pwp-visual-qa-proof<br>hermes/active-oahu/audits/pwp-visual-qa-proof<br>hermes/jules/audits/pwp-visual-qa-proof<br>hermes/next-step/audits/pwp-visual-qa-proof<br>hermes/fred/audits/pwp-visual-qa-proof<br>hermes/george/audits/pwp-visual-qa-proof<br>hermes/orchestrator/audits/pwp-visual-qa-proof<br>hermes/kai/audits/pwp-visual-qa-proof<br>hermes/hdengine/audits/pwp-visual-qa-proof<br>hermes/autobot/audits/pwp-visual-qa-proof<br>hermes/ai-consulting/audits/pwp-visual-qa-proof<br>hermes/google-ai-toolkit/audits/pwp-visual-qa-proof | c0f4760d7c256eda |
@@ -270,7 +270,7 @@ _Generated 2026-08-23T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 | tailscale-lan-access | divergent-4-variants | devops | hermes/ned/devops/tailscale-lan-access<br>hermes/fred/devops/tailscale-lan-access<br>hermes/george/devops/tailscale-lan-access<br>hermes/orchestrator/devops/tailscale-lan-access<br>hermes/kai/devops/tailscale-lan-access | 8453beea3f4caac8 |
 | telegram-bot-onboarding-operations | unique | devops | hermes/ned/devops/telegram-bot-onboarding-operations | e20e54603bda96a4 |
 | telegram-cron-output-check | shared-2-identical | verifiers | hermes/fred/verifiers/telegram-cron-output-check<br>hermes/orchestrator/verifiers/telegram-cron-output-check | bec115ddcefa22cc |
-| telegram-cron-output-contract | shared-2-identical | micro | hermes/fred/micro/telegram-cron-output-contract<br>hermes/orchestrator/micro/telegram-cron-output-contract | 07af3824e4e0ca0c |
+| telegram-cron-output-contract | shared-2-identical | micro | hermes/fred/micro/telegram-cron-output-contract<br>hermes/orchestrator/micro/telegram-cron-output-contract | 3c66b3be4aa68044 |
 | tool-parameter-required-fields-checklist | unique | micro | hermes/kai/micro/tool-parameter-required-fields-checklist | 384d3ca76b71cb80 |
 | verification-recipe-vs-assertion | shared-2-identical | verification-recipe-vs-assertion | hermes/fred/verification-recipe-vs-assertion<br>hermes/orchestrator/verification-recipe-vs-assertion | 805e92161796dec3 |
 | verifier-as-deliverable-discipline | shared-2-identical | agent-operations | hermes/fred/agent-operations/verifier-as-deliverable-discipline<br>hermes/orchestrator/agent-operations/verifier-as-deliverable-discipline | c75ef56ba62a9b65 |

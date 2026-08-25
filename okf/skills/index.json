@@ -1,20 +1,31 @@
 {
-  "generated_at": "2026-08-23T00:00:00Z",
+  "generated_at": "2026-08-24T00:00:00Z",
   "generator": "scripts/skill-hub-snapshot.py",
   "sources": {
     "hermes_profiles": [
       "active-oahu",
+      "agy",
       "ai-consulting",
       "autobot",
+      "beyondsaas-leads",
+      "codex-5-4",
+      "codex-5-5",
+      "deepseekv4",
       "fred",
       "george",
       "google-ai-toolkit",
       "hdengine",
+      "hermeslocal",
+      "home",
       "jules",
       "kai",
+      "kai-content",
+      "kai-css",
+      "kai-js",
       "ned",
       "next-step",
-      "orchestrator"
+      "orchestrator",
+      "qwenlocal"
     ],
     "agy_root": "/home/ubuntu/.antigravity/skills",
     "engine_stores": [
@@ -24,7 +35,7 @@
       "prismatic-skill-pkg"
     ]
   },
-  "files": 2471,
+  "files": 2476,
   "skills": 182,
   "status_counts": {
     "shared-2": 66,
@@ -975,8 +986,8 @@
           "profile_or_store": "fred",
           "category": "human-design",
           "path": "hermes/fred/human-design/daily-transit-briefing",
-          "hash": "ebcd44b8436e5c82",
-          "hash_full": "ebcd44b8436e5c82db516916e6e22ee1b7d076a34e9a904875d9e42c4b1a146f"
+          "hash": "27f93f0f6e9196af",
+          "hash_full": "27f93f0f6e9196af9ae61e14651f65c599e8a904a4d3680bbf792a6d575ec07b"
         },
         {
           "source": "hermes/george",
@@ -991,8 +1002,8 @@
           "profile_or_store": "orchestrator",
           "category": "human-design",
           "path": "hermes/orchestrator/human-design/daily-transit-briefing",
-          "hash": "ebcd44b8436e5c82",
-          "hash_full": "ebcd44b8436e5c82db516916e6e22ee1b7d076a34e9a904875d9e42c4b1a146f"
+          "hash": "27f93f0f6e9196af",
+          "hash_full": "27f93f0f6e9196af9ae61e14651f65c599e8a904a4d3680bbf792a6d575ec07b"
         },
         {
           "source": "hermes/kai",
@@ -1383,8 +1394,8 @@
           "profile_or_store": "ned",
           "category": "hermes-operations",
           "path": "hermes/ned/hermes-operations/hermes-agent",
-          "hash": "bcb2969c138e3208",
-          "hash_full": "bcb2969c138e320827c6f8658750813f4145becb5d1fa876b77926e7265268de"
+          "hash": "935e5626f071f38d",
+          "hash_full": "935e5626f071f38dfae2b04d0514ae6037d0097c22e41c614841da02cbde2a2b"
         },
         {
           "source": "hermes/fred",
@@ -1501,8 +1512,8 @@
           "profile_or_store": "ned",
           "category": "devops",
           "path": "hermes/ned/devops/hermes-profile-audit-and-prune",
-          "hash": "ce9474f6d2fcbcf3",
-          "hash_full": "ce9474f6d2fcbcf3e692512db5390e35716e5cd7dd47e0d4e20f1a221daac231"
+          "hash": "e1bf335c0ca5ac48",
+          "hash_full": "e1bf335c0ca5ac485818c5db1b46df46cc4fbb478f0f15383f85b5b4aa1222d5"
         }
       ]
     },
@@ -1891,8 +1902,8 @@
           "profile_or_store": "kai",
           "category": "devops",
           "path": "hermes/kai/devops/llm-serving-benchmark",
-          "hash": "c658196b8abfdf99",
-          "hash_full": "c658196b8abfdf992ea5cf2709e77bae36db37959c4defc37ccaf9c629ee492d"
+          "hash": "9c772b057e2e82f3",
+          "hash_full": "9c772b057e2e82f3de11afed817446572306d7375354719434b87020d62963c7"
         }
       ]
     },
@@ -1927,8 +1938,8 @@
           "profile_or_store": "kai",
           "category": "devops",
           "path": "hermes/kai/devops/local-llm-inference-ops",
-          "hash": "a6c9d295635a6ca7",
-          "hash_full": "a6c9d295635a6ca772cfe1e018b5e4025c29fd07c59b232c82c1399b01edcc3b"
+          "hash": "b2e1200b014f3664",
+          "hash_full": "b2e1200b014f366412ec9fc55b2ed19ebf5a778465bbcbc39f01e0655e0a995c"
         }
       ]
     },
@@ -1941,8 +1952,8 @@
           "profile_or_store": "kai",
           "category": "devops",
           "path": "hermes/kai/devops/local-llm-provider-tuning",
-          "hash": "ba954bf7b8f77403",
-          "hash_full": "ba954bf7b8f774036ef48894ea13f2f1e779b167c06d24c59214291b7455ce1c"
+          "hash": "9e9d45031f6ee92b",
+          "hash_full": "9e9d45031f6ee92b2705b9ac0806f8119f42c9c560c3c108d57570a11aa415ee"
         }
       ]
     },
@@ -2219,8 +2230,8 @@
           "profile_or_store": "kai",
           "category": "devops",
           "path": "hermes/kai/devops/okf-mcp-hub",
-          "hash": "5a17f7a0304e9c22",
-          "hash_full": "5a17f7a0304e9c22035956960e8161490dced2384e24404e95a2ee90e2761911"
+          "hash": "bc9df787679348c3",
+          "hash_full": "bc9df787679348c39d25f612cbb4ff81906e0036e55941e2eafa73461bebf557"
         },
         {
           "source": "hermes/autobot",
@@ -2859,16 +2870,16 @@
           "profile_or_store": "fred",
           "category": "operations",
           "path": "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops",
-          "hash": "c85690146df3557c",
-          "hash_full": "c85690146df3557ccca228da751fcfece3f64be5dc190ebad7054586b42ee693"
+          "hash": "b32102e2f287b0d9",
+          "hash_full": "b32102e2f287b0d958ebe697944a7e9ac6a867b340370b77feb404d248ba1690"
         },
         {
           "source": "hermes/orchestrator",
           "profile_or_store": "orchestrator",
           "category": "operations",
           "path": "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops",
-          "hash": "c85690146df3557c",
-          "hash_full": "c85690146df3557ccca228da751fcfece3f64be5dc190ebad7054586b42ee693"
+          "hash": "b32102e2f287b0d9",
+          "hash_full": "b32102e2f287b0d958ebe697944a7e9ac6a867b340370b77feb404d248ba1690"
         }
       ]
     },
@@ -3395,16 +3406,16 @@
           "profile_or_store": "fred",
           "category": "micro",
           "path": "hermes/fred/micro/telegram-cron-output-contract",
-          "hash": "07af3824e4e0ca0c",
-          "hash_full": "07af3824e4e0ca0c3520993aa7073f21daf4f5b85eb89de843d28f8554aa8313"
+          "hash": "3c66b3be4aa68044",
+          "hash_full": "3c66b3be4aa6804497bc340cf3f8ea4a8b631e5e3150849bdaa6e9e50a5019aa"
         },
         {
           "source": "hermes/orchestrator",
           "profile_or_store": "orchestrator",
           "category": "micro",
           "path": "hermes/orchestrator/micro/telegram-cron-output-contract",
-          "hash": "07af3824e4e0ca0c",
-          "hash_full": "07af3824e4e0ca0c3520993aa7073f21daf4f5b85eb89de843d28f8554aa8313"
+          "hash": "3c66b3be4aa68044",
+          "hash_full": "3c66b3be4aa6804497bc340cf3f8ea4a8b631e5e3150849bdaa6e9e50a5019aa"
         }
       ]
     },
@@ -3482,14 +3493,14 @@
     }
   ],
   "file_manifest": {
-    "hermes/ned/.curator_state": "652f59de2026812938adb7e9585703b676d451d6766dde4d42dcde67d6d145e6",
+    "hermes/ned/.curator_state": "9694ef22c6d43c467e24dde0593767073ca56f380e5a0740dd1d9acc438eee12",
     "hermes/ned/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/ned/.bundled_manifest": "875163bb9db12a84fae7725f99208ed0902def168a03ff4eca9a507a1444ba8f",
     "hermes/active-oahu/.curator_state": "8f58ea99a56d902c82220904f1e72ad110ab7630dde6ee6937c84d35ff512193",
     "hermes/active-oahu/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/next-step/.curator_state": "91db7fd7870e67b566877fb02342479d95b278c82e9f95f3a06d00ebfe41b072",
     "hermes/fred/push-protection-secret-fixtures.md": "f009dc9df3e98cbd2d98c2c9ca80fb1b7a4696ed7256b99dcf681430327d208f",
-    "hermes/fred/.curator_state": "ce18bec7b7229291684639e56b652d1a65c43af57fa9c497fc18eae863f3ce4b",
+    "hermes/fred/.curator_state": "69c8d5179dd6176431bbf29a2ecc3bae05b9b8c56277bca22d3416fd33df235a",
     "hermes/fred/second-opinion-on-design.md": "2d44e7e151dcda3368004d095a82602b3e8f6bb31cd3295b5b35580f1a5a7844",
     "hermes/fred/.usage.json.lock": "3150a1d29186759b19270767cd67898740546e2c1a16d9d40af1b316e9897d01",
     "hermes/fred/peer-review-before-merge.md": "cc0f3e91b7e87147b41f90b53feba490b4bc04f82a9e6a8570932c010d0fd793",
@@ -3498,7 +3509,7 @@
     "hermes/george/.curator_state": "181aa5b74ab1512794c2c0387b274698e24fd11712635a76127360dec080f6c2",
     "hermes/george/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/orchestrator/push-protection-secret-fixtures.md": "f009dc9df3e98cbd2d98c2c9ca80fb1b7a4696ed7256b99dcf681430327d208f",
-    "hermes/orchestrator/.curator_state": "ce18bec7b7229291684639e56b652d1a65c43af57fa9c497fc18eae863f3ce4b",
+    "hermes/orchestrator/.curator_state": "69c8d5179dd6176431bbf29a2ecc3bae05b9b8c56277bca22d3416fd33df235a",
     "hermes/orchestrator/second-opinion-on-design.md": "2d44e7e151dcda3368004d095a82602b3e8f6bb31cd3295b5b35580f1a5a7844",
     "hermes/orchestrator/.usage.json.lock": "3150a1d29186759b19270767cd67898740546e2c1a16d9d40af1b316e9897d01",
     "hermes/orchestrator/peer-review-before-merge.md": "cc0f3e91b7e87147b41f90b53feba490b4bc04f82a9e6a8570932c010d0fd793",
@@ -3508,7 +3519,7 @@
     "hermes/kai/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/hdengine/.curator_state": "8f58ea99a56d902c82220904f1e72ad110ab7630dde6ee6937c84d35ff512193",
     "hermes/hdengine/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "hermes/autobot/.curator_state": "3f858d205f81d79f26df514cb522b02f6020c0c9f5a0082757f7d003220f3841",
+    "hermes/autobot/.curator_state": "3e34427fb4646b2cbb834153014b552cced8cdfddd7aa83dc9bc7a401e3a0615",
     "hermes/autobot/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/autobot/.bundled_manifest": "875163bb9db12a84fae7725f99208ed0902def168a03ff4eca9a507a1444ba8f",
     "hermes/ai-consulting/.curator_state": "8f58ea99a56d902c82220904f1e72ad110ab7630dde6ee6937c84d35ff512193",
@@ -3648,7 +3659,7 @@
     "hermes/ned/autonomous-task-ownership-validation/scripts/check_ned_queue.sh": "6a752f746b3804bb29cddb0fc1b97d876c90fe2ee7f1c7f866cb0f0794f36c1d",
     "hermes/ned/autonomous-task-ownership-validation/scripts/verify_gpu_node.sh": "61686c3dba058d1f340489a91df0e3d406e68b57923894455a1aeb096d126ea1",
     "hermes/ned/autonomous-task-ownership-validation/scripts/probe_recurrence.sh": "54e8a5710dc70c539f5346811091c5c326b1350852ce52c0354d8ffacffeadd6",
-    "hermes/ned/devops/hermes-profile-audit-and-prune/SKILL.md": "ce9474f6d2fcbcf3e692512db5390e35716e5cd7dd47e0d4e20f1a221daac231",
+    "hermes/ned/devops/hermes-profile-audit-and-prune/SKILL.md": "e1bf335c0ca5ac485818c5db1b46df46cc4fbb478f0f15383f85b5b4aa1222d5",
     "hermes/ned/devops/api-key-handling-for-ned/SKILL.md": "7b8bb518e3e570f0f04c9765c9b47813104e67c2204f4595d5e9d8922051fe92",
     "hermes/ned/devops/proxmox-raid-storage-audit/SKILL.md": "43df0676f8d370db0cc55d3570f82bc91f4b5f0e243ffc355462d90796a9c07a",
     "hermes/ned/devops/linear-api-operations/SKILL.md": "407660f9fa35c07754e1fa7136cc6b53552269c455a2af973e9e862f518c5992",
@@ -3823,11 +3834,11 @@
     "hermes/ned/project-management/multi-source-reconciliation-packet/references/2026-07-hde-reconciliation-packet-example.md": "599d85582b2ac7f5d780271a65e2fb249ae9c5956f5d4699ce85c1a1288c15bd",
     "hermes/ned/project-management/multi-source-reconciliation-packet/references/2026-07-collapse-sign-off-items.md": "449e00ce1f2247b94b7c3119c59546d22ed4866eff2f9ad20fb6b954fed44605",
     "hermes/ned/project-management/multi-source-reconciliation-packet/references/2026-07-linear-comment-and-github-pr-verifier.md": "3c88eb28abd848f9c0e0a0bbd814c244c5a7da9dcfa2853271f4af692bb4ca88",
-    "hermes/ned/hermes-operations/hermes-agent/SKILL.md": "bcb2969c138e320827c6f8658750813f4145becb5d1fa876b77926e7265268de",
+    "hermes/ned/hermes-operations/hermes-agent/SKILL.md": "935e5626f071f38dfae2b04d0514ae6037d0097c22e41c614841da02cbde2a2b",
     "hermes/ned/hermes-operations/agent-response-governance/SKILL.md": "8a2fcdde63d2c7e968547071b35bb3a0445dcdad61c1fffad83d1f96c7292ba4",
     "hermes/ned/hermes-operations/agent-response-governance/references/2026-07-ned-profile-response-delivery-audit.md": "9448f8c1fe4cc388f559db9faa7c92590c0612f3b2407c1fc57f6222ccbceb54",
     "hermes/ned/hermes-operations/agent-response-governance/references/2026-07-response-speed-result-links-next-step.md": "43792fe43e64ed3f18c2731fce435ff1f701d9cb736041d93ef49a23018387da",
-    "hermes/ned/hermes-operations/agent-response-governance/references/2026-07-profile-audit-warning-triage.md": "7a7ed1e1c5a8ca519b15c97ed2cd16effe1ac1424667d1481e9458bb1975c617",
+    "hermes/ned/hermes-operations/agent-response-governance/references/2026-07-profile-audit-warning-triage.md": "fd623df7665c8c126dfd804de8b110e54ec5a7059121fd46fb067c6029e6118a",
     "hermes/ned/hermes-operations/agent-response-governance/references/2026-07-cross-profile-refresh-and-watchdog.md": "38eecd04248a5fc05b913bf38007b33ed4183c2e482a69666d679c4ae7d51a2e",
     "hermes/ned/hermes-operations/agent-response-governance/references/2026-07-openai-codex-oauth-model-switch.md": "4594eeeb0889b25cc5fada11818a423174da7d6b5fcd07c9d3b05944b1ea3431",
     "hermes/ned/infrastructure-health-sweep/references/cron-silent-success-detection.md": "2bcbb8a452630c935a281d20324e7d3c2b3fd0df1f428a31e2d65e2e13c52b4c",
@@ -3971,7 +3982,7 @@
     "hermes/fred/micro/next-action-truth-source/SKILL.md": "e1454f639761a831f859e63f9c7f0b3bb90cff22664a5407e4f36fc6247169d5",
     "hermes/fred/micro/corrections-lead-with-recipe/SKILL.md": "6fa667b8c6a0986a28580a2f972adb2172bfaae295c076daccb8390b6fa2ffd0",
     "hermes/fred/micro/outbound-action-gate/SKILL.md": "7cae984d04e48bab91fbb480f4c60e143ae43827ac1bbbce6bb2dd556142b22c",
-    "hermes/fred/micro/telegram-cron-output-contract/SKILL.md": "07af3824e4e0ca0c3520993aa7073f21daf4f5b85eb89de843d28f8554aa8313",
+    "hermes/fred/micro/telegram-cron-output-contract/SKILL.md": "3c66b3be4aa6804497bc340cf3f8ea4a8b631e5e3150849bdaa6e9e50a5019aa",
     "hermes/fred/micro/post-session-review/SKILL.md": "aa900018e3a7d7d796c39d8a69eeb4fb45ca004196ddab5aa58f60b0bbcbdc3a",
     "hermes/fred/micro/prismatic-evidence-handling/SKILL.md": "157fa0eebd203c68e53e7ba433b2f741600f86001df301064ffa032354053f80",
     "hermes/fred/micro/multirepo-file-find/SKILL.md": "18a648b0f4dcc21ca89461c3ace4c834b4d10ade7ebaaf21268dedc73ee9801e",
@@ -3997,9 +4008,10 @@
     "hermes/fred/devops/okf-mcp-hub/references/aot-hub-centralization-phase1-2026-08-19.md": "b70551c99380ae01b60707788dfe86f412b8f5f70a7589babef42a998227806e",
     "hermes/fred/devops/okf-mcp-hub/references/skill-hub-regen-cron-and-sandbox-verification.md": "7dc565ed14a8631f33b90078303fdaf597159bc28a7b010eab1fa4ddd06c1757",
     "hermes/fred/proxmox-orchestrator-remote-ops/references/proxmox-9-auth-mechanics.md": "087bc37d6693f610e1d4c3e8a19b681ed97f7aecc6af97d9e96dcc2715e486bf",
+    "hermes/fred/proxmox-orchestrator-remote-ops/references/remote-large-file-deduplication-strategy.md": "99756dbb6f081390a47787925b9e74f36529bede39a682b9b7f92fddffdb1325",
     "hermes/fred/proxmox-orchestrator-remote-ops/references/gpu-passthrough-and-nvidia-k3s.md": "ba4e000b0e245850ab9618f2313df82e2e58691409068a45a7a04e632f6992c8",
     "hermes/fred/proxmox-orchestrator-remote-ops/scripts/proxmox_probe.sh": "645e6ac8ac43e025340eab55ae1c64fe235a0da50881b02a6176cd9c4d7179c4",
-    "hermes/fred/human-design/daily-transit-briefing/SKILL.md": "ebcd44b8436e5c82db516916e6e22ee1b7d076a34e9a904875d9e42c4b1a146f",
+    "hermes/fred/human-design/daily-transit-briefing/SKILL.md": "27f93f0f6e9196af9ae61e14651f65c599e8a904a4d3680bbf792a6d575ec07b",
     "hermes/fred/human-design/human-design-transit-briefings/SKILL.md": "372b7107c2ce0f3bcd64cb9ce0b642578914136e4cbe556b9f136e81282247dc",
     "hermes/fred/human-design/daily-transit-briefing/references/transit-analysis-recipe.md": "9a5305a122eb73131dd07a817b7a5f41a2cfea307badc6d52d92524422a43bca",
     "hermes/fred/human-design/human-design-transit-briefings/references/sage-becca-briefing-workflow.md": "6bcae291c7dae4b7c1f4fb2c9752d676cb4b6f219727d5c70a6bc6e1413e73fd",
@@ -4031,7 +4043,7 @@
     "hermes/fred/operations/hd-guest-fleet-ops/SKILL.md": "66f59296d39d41b45ff3abc18d9f4c565ec19c4b61f6af69ddef92545bd7207e",
     "hermes/fred/operations/linear-backlog-routing-governance/SKILL.md": "d1cb2f497c048a6631cbe50a2dcfe9650146625d927baf4954163dcfd19e638b",
     "hermes/fred/operations/checkout-onboarding-routing-ops/SKILL.md": "23d60e143c9896ed148b3c0651dc6e200dd1af4f3428cd89250ae65eb25560b9",
-    "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops/SKILL.md": "c85690146df3557ccca228da751fcfece3f64be5dc190ebad7054586b42ee693",
+    "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops/SKILL.md": "b32102e2f287b0d958ebe697944a7e9ac6a867b340370b77feb404d248ba1690",
     "hermes/fred/operations/client-discovery-intelligence-repos/references/north-care-memory-care-discovery.md": "78ff39cf8f655983aa38def5b302074c10b19261e2d452cd6dee11f74700bb0b",
     "hermes/fred/operations/memory-selective-pruning/references/agent-memory-okf-lifecycle-2026-07.md": "e97ea3116129f14b48749c05c0488793e3d4580796e24be07262c64b176aed75",
     "hermes/fred/operations/memory-selective-pruning/scripts/audit_memory_gate.py": "6e8aba3e7a15c6aa2325d28f9604eaf4f949a3c9675c9c0d0509ca11197fff24",
@@ -4298,6 +4310,7 @@
     "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops/references/llama-server-vision-and-multi-pod.md": "7c8fea4797ff1a92f34168f07eef1ecf7b6b2cdc1f8550513ebb4723af59dbad",
     "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops/references/host-side-quantization-pitfalls.md": "63607fb6270a2200a4695903b308e3e704939aeb90aa2aa003b71a5b5e851c64",
     "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops/references/online-vm-disk-resize.md": "e57cc5d42902ae1206f48338a3e719c64f66fd5f9a66231868dc675d5431e7f2",
+    "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops/references/synology-nas-audit-notes.md": "4875f9d23003ee0341ffbce27dec30be540bec84c08463d2c0d3bd0b2fcf6d6b",
     "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops/references/llama-server-gpu-vs-cpu-verification.md": "e7bcbd9b878dcd1cae7310093786418fae244c7834e2aa09c73c88de814da4c3",
     "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops/references/gpu-passthrough-uefi-fix.md": "c63c689c87ac0020792dcd256420eb3f9a67cdae282b46ef476d3d1c040e5e66",
     "hermes/fred/operations/proxmox-k3s-gpu-cluster-ops/references/llama-cuda-build-and-deploy.md": "e4cae268a552cb5dcc7763f7ae286ff6da318f010319142eb0d7e0dfbbeae40c",
@@ -4892,7 +4905,7 @@
     "hermes/orchestrator/micro/next-action-truth-source/SKILL.md": "e1454f639761a831f859e63f9c7f0b3bb90cff22664a5407e4f36fc6247169d5",
     "hermes/orchestrator/micro/corrections-lead-with-recipe/SKILL.md": "6fa667b8c6a0986a28580a2f972adb2172bfaae295c076daccb8390b6fa2ffd0",
     "hermes/orchestrator/micro/outbound-action-gate/SKILL.md": "7cae984d04e48bab91fbb480f4c60e143ae43827ac1bbbce6bb2dd556142b22c",
-    "hermes/orchestrator/micro/telegram-cron-output-contract/SKILL.md": "07af3824e4e0ca0c3520993aa7073f21daf4f5b85eb89de843d28f8554aa8313",
+    "hermes/orchestrator/micro/telegram-cron-output-contract/SKILL.md": "3c66b3be4aa6804497bc340cf3f8ea4a8b631e5e3150849bdaa6e9e50a5019aa",
     "hermes/orchestrator/micro/post-session-review/SKILL.md": "aa900018e3a7d7d796c39d8a69eeb4fb45ca004196ddab5aa58f60b0bbcbdc3a",
     "hermes/orchestrator/micro/prismatic-evidence-handling/SKILL.md": "157fa0eebd203c68e53e7ba433b2f741600f86001df301064ffa032354053f80",
     "hermes/orchestrator/micro/multirepo-file-find/SKILL.md": "18a648b0f4dcc21ca89461c3ace4c834b4d10ade7ebaaf21268dedc73ee9801e",
@@ -4918,9 +4931,10 @@
     "hermes/orchestrator/devops/okf-mcp-hub/references/aot-hub-centralization-phase1-2026-08-19.md": "b70551c99380ae01b60707788dfe86f412b8f5f70a7589babef42a998227806e",
     "hermes/orchestrator/devops/okf-mcp-hub/references/skill-hub-regen-cron-and-sandbox-verification.md": "7dc565ed14a8631f33b90078303fdaf597159bc28a7b010eab1fa4ddd06c1757",
     "hermes/orchestrator/proxmox-orchestrator-remote-ops/references/proxmox-9-auth-mechanics.md": "087bc37d6693f610e1d4c3e8a19b681ed97f7aecc6af97d9e96dcc2715e486bf",
+    "hermes/orchestrator/proxmox-orchestrator-remote-ops/references/remote-large-file-deduplication-strategy.md": "99756dbb6f081390a47787925b9e74f36529bede39a682b9b7f92fddffdb1325",
     "hermes/orchestrator/proxmox-orchestrator-remote-ops/references/gpu-passthrough-and-nvidia-k3s.md": "ba4e000b0e245850ab9618f2313df82e2e58691409068a45a7a04e632f6992c8",
     "hermes/orchestrator/proxmox-orchestrator-remote-ops/scripts/proxmox_probe.sh": "645e6ac8ac43e025340eab55ae1c64fe235a0da50881b02a6176cd9c4d7179c4",
-    "hermes/orchestrator/human-design/daily-transit-briefing/SKILL.md": "ebcd44b8436e5c82db516916e6e22ee1b7d076a34e9a904875d9e42c4b1a146f",
+    "hermes/orchestrator/human-design/daily-transit-briefing/SKILL.md": "27f93f0f6e9196af9ae61e14651f65c599e8a904a4d3680bbf792a6d575ec07b",
     "hermes/orchestrator/human-design/human-design-transit-briefings/SKILL.md": "372b7107c2ce0f3bcd64cb9ce0b642578914136e4cbe556b9f136e81282247dc",
     "hermes/orchestrator/human-design/daily-transit-briefing/references/transit-analysis-recipe.md": "9a5305a122eb73131dd07a817b7a5f41a2cfea307badc6d52d92524422a43bca",
     "hermes/orchestrator/human-design/human-design-transit-briefings/references/sage-becca-briefing-workflow.md": "6bcae291c7dae4b7c1f4fb2c9752d676cb4b6f219727d5c70a6bc6e1413e73fd",
@@ -4952,7 +4966,7 @@
     "hermes/orchestrator/operations/hd-guest-fleet-ops/SKILL.md": "66f59296d39d41b45ff3abc18d9f4c565ec19c4b61f6af69ddef92545bd7207e",
     "hermes/orchestrator/operations/linear-backlog-routing-governance/SKILL.md": "d1cb2f497c048a6631cbe50a2dcfe9650146625d927baf4954163dcfd19e638b",
     "hermes/orchestrator/operations/checkout-onboarding-routing-ops/SKILL.md": "23d60e143c9896ed148b3c0651dc6e200dd1af4f3428cd89250ae65eb25560b9",
-    "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops/SKILL.md": "c85690146df3557ccca228da751fcfece3f64be5dc190ebad7054586b42ee693",
+    "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops/SKILL.md": "b32102e2f287b0d958ebe697944a7e9ac6a867b340370b77feb404d248ba1690",
     "hermes/orchestrator/operations/client-discovery-intelligence-repos/references/north-care-memory-care-discovery.md": "78ff39cf8f655983aa38def5b302074c10b19261e2d452cd6dee11f74700bb0b",
     "hermes/orchestrator/operations/memory-selective-pruning/references/agent-memory-okf-lifecycle-2026-07.md": "e97ea3116129f14b48749c05c0488793e3d4580796e24be07262c64b176aed75",
     "hermes/orchestrator/operations/memory-selective-pruning/scripts/audit_memory_gate.py": "6e8aba3e7a15c6aa2325d28f9604eaf4f949a3c9675c9c0d0509ca11197fff24",
@@ -5219,6 +5233,7 @@
     "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops/references/llama-server-vision-and-multi-pod.md": "7c8fea4797ff1a92f34168f07eef1ecf7b6b2cdc1f8550513ebb4723af59dbad",
     "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops/references/host-side-quantization-pitfalls.md": "63607fb6270a2200a4695903b308e3e704939aeb90aa2aa003b71a5b5e851c64",
     "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops/references/online-vm-disk-resize.md": "e57cc5d42902ae1206f48338a3e719c64f66fd5f9a66231868dc675d5431e7f2",
+    "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops/references/synology-nas-audit-notes.md": "4875f9d23003ee0341ffbce27dec30be540bec84c08463d2c0d3bd0b2fcf6d6b",
     "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops/references/llama-server-gpu-vs-cpu-verification.md": "e7bcbd9b878dcd1cae7310093786418fae244c7834e2aa09c73c88de814da4c3",
     "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops/references/gpu-passthrough-uefi-fix.md": "c63c689c87ac0020792dcd256420eb3f9a67cdae282b46ef476d3d1c040e5e66",
     "hermes/orchestrator/operations/proxmox-k3s-gpu-cluster-ops/references/llama-cuda-build-and-deploy.md": "e4cae268a552cb5dcc7763f7ae286ff6da318f010319142eb0d7e0dfbbeae40c",
@@ -5303,14 +5318,14 @@
     "hermes/kai/qa/compact-verification-output/references/post-edit-guard-prompt7-rerun-2026-07-18.md": "f196f90470f41088df2f9277ba55b59be1f5404f16cd8fb466e0051633a59a2c",
     "hermes/kai/qa/compact-verification-output/references/markdown-doc-verifier-bug-patterns-2026-08-19.md": "355cc9afefa02cdce0f62f25463b6e19ac88026057f3820380825810852ce13a",
     "hermes/kai/qa/compact-verification-output/references/post-edit-guard-prompt6-rerun-2026-07-18.md": "22f96c518645d2c2b898ff8f02785cc95d86e31d29d55a20004b13627c7b277a",
-    "hermes/kai/devops/local-llm-provider-tuning/SKILL.md": "ba954bf7b8f774036ef48894ea13f2f1e779b167c06d24c59214291b7455ce1c",
-    "hermes/kai/devops/local-llm-inference-ops/SKILL.md": "a6c9d295635a6ca772cfe1e018b5e4025c29fd07c59b232c82c1399b01edcc3b",
+    "hermes/kai/devops/local-llm-provider-tuning/SKILL.md": "9e9d45031f6ee92b2705b9ac0806f8119f42c9c560c3c108d57570a11aa415ee",
+    "hermes/kai/devops/local-llm-inference-ops/SKILL.md": "b2e1200b014f366412ec9fc55b2ed19ebf5a778465bbcbc39f01e0655e0a995c",
     "hermes/kai/devops/cloudflare-security-event-check/SKILL.md": "0d475a03ac7557c8cb6cc4e59e90227eb2ad5dd012c27538cce94547c8c1df3d",
     "hermes/kai/devops/hermes-profile-audit/SKILL.md": "be8fb712633a7fe745cc183c6c1e31ad85116a2231c4845ed9d320570ade57c5",
     "hermes/kai/devops/hermes-agent/SKILL.md": "df1b0187c51369a71c62dd61972052b0ebe305e72fae959175f1c3d6abb7cad8",
-    "hermes/kai/devops/okf-mcp-hub/SKILL.md": "5a17f7a0304e9c22035956960e8161490dced2384e24404e95a2ee90e2761911",
+    "hermes/kai/devops/okf-mcp-hub/SKILL.md": "bc9df787679348c39d25f612cbb4ff81906e0036e55941e2eafa73461bebf557",
     "hermes/kai/devops/hermes-profile-ops/SKILL.md": "04d90bf026e20fbc2230d71da2615a2972dfca0134a49524dbb4eebd2db7eec1",
-    "hermes/kai/devops/llm-serving-benchmark/SKILL.md": "c658196b8abfdf992ea5cf2709e77bae36db37959c4defc37ccaf9c629ee492d",
+    "hermes/kai/devops/llm-serving-benchmark/SKILL.md": "9c772b057e2e82f3de11afed817446572306d7375354719434b87020d62963c7",
     "hermes/kai/devops/agent-onboarding-workflow/SKILL.md": "71cc7f2bbc2dee40a02e2b3397b039ebd7581e7e7bde607829b38235e976ea3f",
     "hermes/kai/devops/swarm-journal-ops/SKILL.md": "0d858de08a09a2a2de3d2da92e69dadc09a636b83a0e17fa3e355088c242999c",
     "hermes/kai/devops/tailscale-lan-access/SKILL.md": "732b8399ee9456d47808fbc3430343d05f32464a1b5046db617eeee7577ef35d",
@@ -5336,6 +5351,7 @@
     "hermes/kai/devops/hermes-profile-ops/references/george-second-slot-parity-2026-08-22.md": "a6d2f052314256212ae2b6dd8dfca38b8816590762b72097ebceb57897a6bcc2",
     "hermes/kai/devops/hermes-profile-ops/references/orchestrator-silent-gateway-2026-08-19.md": "18b6007015d188c31667606ae37c58a066b5314d06a75531695d76e884a780a4",
     "hermes/kai/devops/hermes-profile-ops/scripts/scan_skill_symlink_loops.py": "ab3ed88440c63a8ebf09686c2583a9939bc9d5aeab566401897c43e9cccd61a6",
+    "hermes/kai/devops/llm-serving-benchmark/references/vllm-flag-ab-k2-rejected-2026-08-24.md": "5c7b67d719a4e9ac6bc5c47ca6f33adccd287f2fa2c77a1771c9669b62d7589e",
     "hermes/kai/devops/llm-serving-benchmark/references/baseline-llama-cpp-2026-08-16.md": "d143fbe99486c6ffcbe8a436c3394dae02de160114494bf927f99a4148486366",
     "hermes/kai/devops/llm-serving-benchmark/scripts/compare.py": "235d063b926aad3bf2321efa864babf150e7110d5d53a93e2f79983fa7dd1154",
     "hermes/kai/devops/llm-serving-benchmark/scripts/bench_qwen.py": "3fef5f15ae0f68169d5b86e1af4fa62b9a7a0f1d36ee2d5bf28725f13ee2365b",

@@ -51,6 +51,23 @@ TICKET=$(echo "$RESP" | python3 -c "import sys,json; print(json.load(sys.stdin)[
 
 ### 2. SSH into each PVE node directly
 
+**SSH Authentication Pitfalls & Workarounds:**
+
+When using `sshpass` with `ssh`, avoid passing `-o` options directly after `sshpass -p <PASSWORD>`. `sshpass` can misinterpret these as its own options. Instead, ensure `-o` flags are passed directly to `ssh`.
+
+A reliable method to provide password to `ssh` in automated scripts, especially from `execute_code` or complex shell environments, is to pipe the password to `ssh`'s stdin:
+```bash
+echo "$PVE_ROOT_PASSWORD" | ssh -o StrictHostKeyChecking=no root@<pve-lan-ip> '<remote-command>'
+```
+This method bypasses `sshpass`'s parsing ambiguities and works consistently.
+
+**Environment Variable Handling (PVE_ROOT_PASSWORD):**
+- When executing directly with `terminal(command=...)`: The shell environment variables (e.g., `$PVE_ROOT_PASSWORD`) are typically available.
+- When executing with `execute_code(code=...)`: The Python script runs in an isolated sandbox. Environment variables like `os.environ.get("PVE_ROOT_PASSWORD")` will return `None` unless explicitly passed into the script as a literal or read from a file accessible within the sandbox. The most robust approach for `execute_code` is to `read_file` to obtain the password *before* the `execute_code` block, and then inject it as a string literal.
+
+**`terminal` Tool Output Structure from `execute_code`:**
+When `terminal` is called from within `execute_code`, its direct return value is the raw dictionary (e.g., `{'output': '...', 'exit_code': 0, 'error': None}`). Do not expect it to be nested under a `['terminal_response']` key. Access `['output']`, `['exit_code']`, and `['error']` directly from the returned dictionary.
+
 ```bash
 sshpass -p "$PVE_PASS" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=5 \
     -o HostKeyAlgorithms=+ssh-rsa root@<pve-lan-ip> 'qm list'

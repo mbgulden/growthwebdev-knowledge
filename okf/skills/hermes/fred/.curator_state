@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/home/ubuntu/.hermes/profiles/orchestrator/logs/curator/20260824-050544",
-  "last_run_at": "2026-08-24T05:05:44.482195+00:00",
-  "last_run_duration_seconds": 0.274284,
+  "last_report_path": "/home/ubuntu/.hermes/profiles/orchestrator/logs/curator/20260825-055008",
+  "last_run_at": "2026-08-25T05:50:08.805729+00:00",
+  "last_run_duration_seconds": 0.302413,
   "last_run_summary": "auto: no changes; llm: skipped (consolidation off)",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 79
+  "run_count": 80
 }

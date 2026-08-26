@@ -181,13 +181,17 @@ the title.
 * **No-op project description retries.** `projectCreate` enforces `description <= 255 chars` strictly. The error path is an `Argument Validation Error` with `property: "description"` and the exact length constraint. If your description is long, truncate before sending — don't try to set `description: null` first and update later, because the create still rejects. Plan the description to fit in 255 chars from the start, or split long content into a Linear *doc* linked from a shorter project description.
 
 * **`Project` GraphQL type does NOT have a `key` field.** Querying `{ project { id name key url } }` returns `400 GRAPHQL_VALIDATION_FAILED: Cannot query field "key" on type "Project"`. Project has only `id`, `name`, `url`, `description`, `state`, `targetDate`, `startDate`, etc. If you need a human-readable short tag, use `state` (which is an enum like `planned`/`started`/`backlog`/`completed`) — there's no `GRO-XXXX`-style project key in Linear's data model.
-* **`workflowStates` is global (no team filter):** Query it directly with `query { workflowStates { nodes { id name type } } }`. The team filter that Linear docs sometimes suggest is not required to enumerate states for the agent's workspace. Pick the one matching `{name: "Todo", type: "unstarted"}` (state ID looks like `3d29ebe3-00cf-428b-b52a-bfecb5ae4410`).
+* **`workflowStates` is global (no team filter):** Query it directly with `query { workflowStates { nodes { id name type } } }`. The team filter that Linear docs sometimes suggest is not required to enumerate states for the agent's workspace. Pick the one matching `{name: "Todo", type: "unstarted"}` (state ID looks like `3d29ebe3-00cf-428b-b52a-bfecb5ae4410`). If you DO scope it by team, the sub-filter is a `StringComparator`, not a bare value: `workflowStates(filter: { team: { key: { eq: "GRO" } } })`. Bare `team: { key: "GRO" }` returns `400 Expected value of type "StringComparator", found "GRO"`. (Hit 2026-08-21.)
+* **`Issue.estimate` exists; `estimatePoints` does NOT.** Querying `estimatePoints` on `issue` fails GraphQL validation with `Did you mean "estimate"?`. Use `estimate` for the points field.
 * **`issueLabels(filter:{name:{eq:$name}})` returns 0 or 1 node per exact match.** When applying labels by name in code, store the returned `id` and pass it via `input.labelIds` on `issueUpdate` — do not invent UUIDs.
 * **Naming projects:** Use the project name exactly as it appears (e.g., `HD Engine Core`, not `HDE Core`). A `filter:{name:{eq:$name}}` that misses returns an empty list and your `nodes[0]` will throw `IndexError`. Query the project list first if unsure.
 * **`comments(last: N)` silently drops comments older than the Nth most recent:**
     if you create a comment via `commentCreate` and then query `comments(last: 3)` on
     an issue that already has 5 older comments, your newly created comment may NOT
-    be in the result. This is the depth-of-listing trap. For any verifier that needs
+    be in the result. This is the depth-of-listing trap — re-hit 2026-08-20 when both
+    `comments(last: 3)` AND `comments(last: 5)` dropped a just-created verdict comment
+    and only `comments(last: 20)` returned it. Default to `last: 20` the first time,
+    not after a miss. For any verifier that needs
     to confirm "did this comment land?" either:
     1. Use `comments(last: 20)` (or higher) to be safe; or
     2. Filter by `createdAt` substring (e.g. `'2026-07-28' in c['createdAt']`); or
@@ -196,7 +200,7 @@ the title.
     This is the single most common false-negative in Linear-state verifiers and was
     hit repeatedly during the HDE reconciliation packet work.
 - **Finding an issue by GRO-XXXX — the `IssueFilter` does NOT accept `identifier` as a top-level filter field.** `filter: { identifier: { eq: "GRO-4463" } }` returns `400 GRAPHQL_VALIDATION_FAILED: Field "identifier" is not defined by type "IssueFilter"`. **Re-verified 2026-08-15: the batch form `filter: { identifier: { in: [...] } }` is ALSO rejected with the same 400** — the earlier note claiming the `in:` form works is wrong for the live workspace. Two working alternatives:
-  1. **Use the `issue(id: "...")` query directly** with the identifier string. `issue(id: "GRO-4463") { id title state { name } }` works — `issue(id:)` accepts both UUIDs and identifier strings (unlike the `IssueFilter` type, which only accepts UUIDs). This is the fastest lookup when you already know the identifier.
+  1. **Use the `issue(id: "...")` query directly** with the identifier string. `issue(id: "GRO-4463") { id title state { name } }` works — `issue(id:)` accepts both UUIDs and identifier strings (unlike the `IssueFilter` type, which only accepts UUIDs). This is the fastest lookup when you already know the identifier. **But if you need the issue's UUID afterwards** (for `commentCreate` `input.issueId`, `issueUpdate` `input.parentId`, or any `issueRelationCreate`), your query MUST explicitly select `id` — GraphQL returns only the fields you ask for, so `issue(id: "GRO-XXXX") { identifier title state { name } }` gives you a dict with no `id` key and the follow-up mutation call dies with `KeyError: 'id'` (hit 2026-08-21: both issue flips succeeded, then the closure-comment step crashed because the pre-query omitted `id`; had to re-resolve the UUID). Habit: always include `id` in the selection set when the identifier is going to be consumed by a later mutation.
   2. **Filter by `team` + `number`** with the right variable types: `query($teamId: ID!, $number: Float!) { issues(filter: { team: { id: { eq: $teamId } }, number: { eq: $number } }) { nodes { id identifier } } }`. Two gotchas in this shape: the `teamId` variable MUST be declared `ID!` (not `String!` — Linear distinguishes UUID-shaped IDs from arbitrary strings at the type level), and the `number` variable MUST be `Float!` (not `Int!`). Verified via live API 2026-08-04.
 
 - **`IssueFilter` filter set is wider than this skill's older text claims.**
@@ -226,7 +230,7 @@ the title.
 * **`WorkflowState` does NOT have a `title` field.** It has `type`, `name`, `position`.
     A `state { name title }` query returns `400 Bad Request: Cannot query field "title"
     on type "WorkflowState". Did you mean "type"?`. Use `name` to identify states
-    and `type` to bucket them (unstarted/backlog/started/completed/canceled).
+    and `type` to bucket them (unstarted/backlog/started/completed/canceled). Also, `workflowStates` is **not a field on the `issue` type** — requesting `issue(id:) { workflowStates { } }` fails GraphQL validation and the response has **no `data` key at all** (only `errors`), so `r.json()["data"]` raises `KeyError: 'data'`. Query `workflowStates` at the top level when you need the state list; on `issue` just take `state { name type }`. (Hit 2026-08-21 while posting a merge comment on GRO-4824.)
 * **Verification strings against Linear titles/descriptions are fragile when the text contains Markdown formatting.** Linear titles and descriptions often contain backticks (`` `zapier-sdk` ``), asterisks (`*bold*`), or other Markdown. A naive substring search like `"zapier-sdk shell alias"` (literal, no formatting) will fail against a title like `` Add `zapier-sdk` shell alias + per-host README `` even though the underlying words are present. When writing ad-hoc verifiers that confirm a task was created with the right content, search for **individual keywords** (each in `title.lower()`) rather than multi-word literal substrings. Example pattern for verifying a task title:
 
     ```python
@@ -277,9 +281,11 @@ the title.
     is `input.labelIds: [agent:ned_id]`, NOT `input.assigneeId: <ned_uuid>`. There
     is no Linear user named `ned`; setting `assigneeId` to a fake UUID returns 400
     and setting it to a real-but-wrong user silently routes the task to that
-    person. Concretely: `agent:ned` id `6e0400c9-fc04-4868-86e3-f3156821f413`,
+    `agent:ned` id `6e0400c9-fc04-4868-86e3-f3156821f413`,
     `agent::fred` id `ee18e998-7155-4910-a5a1-c6a692038ffa`, `agent:kai` id
-    `c4d929be-8d15-4482-b6d7-a5ed85aa2e73`. The full label list is enumerable via
+    `c4d929be-8d15-4482-b6d7-a5ed85aa2e73`, `agent:ned-infra` id
+    `bc5b531d-cce8-43e7-beed-d99ddf6348a1` (use for infra/GPU/monitoring work on the
+    GRO team — the HDE guest-fleet + routing tickets GRO-4822/4823/4824 use it).
     `{ issueLabels(first: 200) { nodes { id name } } }`. The same convention shows
     up in `next-action-truth-source` — the registry mirrors these labels, not
     `assigneeId`.

@@ -251,6 +251,13 @@ MARKER=<marker>
 - **Fred/Ned/George config corruption pattern** — these profiles accumulate a malformed `fallback_providers` JSON string inside the `model:` section. Always check `grep -n "fallback_providers" config.yaml` to ensure there's only ONE at root level and it's proper YAML list, not a JSON string. Remove any inside `model:`. The same applies to duplicate `model_catalog:` sections.
 - **Michael prefers concise proof reports** — when task is done, report evidence + next step. Not "I did X", but "Done. Evidence: [link/path]. Next: [specific action]."
 
+### `hermes send` (programmatic messaging)
+
+- Target discovery: `hermes send --list telegram` (also works for discord/slack/signal) shows wired targets + chat IDs. Known: Michael `8190664947`, Ella `8424997958`, **Prismatic group "Prismatic Kai" `-5338154051`** (agent-to-agent coordination channel).
+- **Guard false-positive (hit live 2026-08-21):** the terminal backgrounding guard rejects any command whose text contains `&` — including HEREDOC MESSAGE BODIES (e.g. "Logs→Journals" is fine, but "Cron & Collectors" or any ampersand triggers "Foreground command uses '&' backgrounding"). Fix: `write_file` the message to `/tmp/<name>.txt` first, then `hermes send --to telegram:<chat_id> -f /tmp/<name>.txt -s "subject line"`. Clean up the temp file after (it will be flagged by the verification detector next turn — expected, it's a deleted scratch vehicle).
+- Success output is the single word `sent` + exit 0. That IS the delivery evidence (bot-token platforms need no running gateway).
+- Message discipline for group pings: no secrets/credential-shaped strings (they get redacted in transit and corrupt the message), byte-count the body so a later verifier can check fidelity, and keep agent-task handoffs self-contained (task IDs + what/why/definition-of-done, not "see the other thread").
+
 ## OpenAI Codex OAuth: Profile Credential Sharing
 
 All Hermes profiles on the same host **share the same OAuth credential pool** for `openai-codex`. They share the same `dashboard device_code` credential ID (e.g., `64332f`). When one profile uses the refresh token, all other profiles get `refresh_token_reused` errors and fall back.

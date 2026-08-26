@@ -102,7 +102,7 @@ See `references/frontier-model-prismatic-integration.md` for the post-hit patter
 
 ## Recovery verification (post-rate-limit / post-auth-reset)
 
-Use this workflow when Michael reports a provider was rate-limited (429) or OAuth-dropped, and asks you to verify recovery after the reset window. The pattern: **confirm tokens → test chat → check logs**.
+Use this workflow when Michael reports a provider was rate-limited (429) or OAuth-dropped, and asks you to verify recovery after the reset window. The pattern: **confirm tokens → test chat → verify no silent fallback → check logs**.
 
 1. Check if credentials have actual tokens, not just device_code stubs:
 
@@ -129,8 +129,16 @@ for p in [pathlib.Path.home() / '.hermes' / 'profiles' / 'orchestrator' / 'auth.
             label = c.get('label','?')
             tok = 'YES' if c.get('access_token') else 'NO'
             err = c.get('last_error_code') or c.get('error') or 'none'
-            print(f'{label:30s} access_token={tok} last_error={err}')
-"
+            # Real failure signals live on the PROVIDER entry, not the credential:
+            # providers.openai-codex.last_auth_error.{code,relogin_required,message}
+            prov = d.get('providers', {}).get('openai-codex', {})
+            lae = prov.get('last_auth_error') or {}
+            relogin = lae.get('relogin_required', prov.get('relogin_required', '?'))
+            auth_err = lae.get('code') or 'none'
+            print(f'{label:30s} access_token={tok} cred_err={err} relogin_required={relogin} auth_err={auth_err}')
+```
+
+**Read the provider-level `last_auth_error` block, not just credential `last_error_code`.** Real case 2026-08-22: credential `last_error_code` was `None` (looked clean) while `providers.openai-codex.last_auth_error.code = 'refresh_token_reused'` and `relogin_required = True` — the token was actually dead. A populated `access_token` + `relogin_required=True` means the token is present but the backend rejects it.
 ```
 
 2. Run a minimal smoke test — the simplest possible query, not a conversation:
@@ -140,6 +148,8 @@ hermes chat -q "respond with the word PONG" --provider openai-codex --model gpt-
 ```
 
 Expect: returns "PONG" within seconds. If it hangs/errors, provider is still degraded.
+
+**CRITICAL: a "PONG" response does NOT prove the target provider served it.** When a fallback chain is configured, a failed codex call silently falls back to the backup provider and the user still sees "PONG". Real case 2026-08-22: `--provider openai-codex --model gpt-5.5` returned PONG in 14s, but `agent.log` showed `HTTP 401: Could not parse your authentication token` followed by `Fallback activated: gpt-5.5 → gemini-2.5-flash (google)`. **Always pair the smoke test with a log check that the session actually used the intended provider** — grep `agent.log` for the session id and for `Fallback activated` / `error_type=AuthenticationError`. Answer + fallback line = provider still down, and cron jobs calling that model are silently running on the fallback. See `references/codex-oauth-401-silent-fallback-2026-08.md`.
 
 **Important: a stale availability watch file does NOT prove the token is dead.** The OAuth availability watch (`state/gpt56_codex_oauth_availability_watch.json`) and the actual token credential store are independent subsystems. The watch may still report `"last_result": "absent"` even after the token refreshes correctly, because the watch runs on its own clock. A successful live inference test overrides a stale "absent" watch result.
 
@@ -160,6 +170,10 @@ The characteristic recovery pattern in errors.log:
 AuthenticationError ... HTTP 401: Provided authentication token is expired.  ← first attempt
 (no further errors)                                                          ← retry got fresh token
 ```
+
+**401 messages are NOT all equal — distinguish "expired" from "unparseable":**
+- `HTTP 401: Provided authentication token is expired.` → normal expiry; Hermes refreshes and retries successfully. RECOVERED.
+- `HTTP 401: Could not parse your authentication token. Please try signing in again.` → backend rejects the token itself; the refresh loop fails with `refresh_token_reused` and `relogin_required=True`. NOT recovered — requires manual browser re-auth (`hermes auth reset openai-codex`). A populated `access_token` in the pool does not clear this; the token is present but invalid at the backend, and every request silently falls back.
 
 4. Check cron/watchdog logs for residual fallback signals. Focus on the most recent log files, not stale ones:
 
@@ -295,6 +309,24 @@ print('vision:', cfg['auxiliary']['vision']['provider'], cfg['auxiliary']['visio
 
 See `references/local-custom-provider-wiring-2026-08.md` for the full Kai/Ned-on-VM-230 worked example including the YAML diff and the chat-completion verification.
 
+## Reverse lookup: which profile uses a model / VM / endpoint
+
+When Michael asks "what profile is using the model from VM 232" (or generally "who points at this endpoint"), resolve server-side first, then sweep configs client-side.
+
+1. **Verify what is actually serving, from the server side — do not trust the alias.** The Hermes-side model name (session banner, `model.default`) does not guarantee the quant or even the host actually loaded. Real case 2026-08-21: banner read `local-qwen-27b-q8-fred` while VM 232 was actually serving `Qwen3.8-27B-Q4_K_M` under a lookalike alias — the Q8 lived on a different VM (230). Truth is the process's `-m /models/...` argument or `/v1/models`:
+   ```bash
+   qm guest exec <vmid> -- bash -c 'ps aux | grep -Ei "vllm|llama|sglang|tgi|ollama" | grep -v grep'
+   # or from the orchestrator:
+   curl -s http://<vm-ip>:<port>/v1/models | jq '.data[].id'
+   ```
+2. **Sweep every profile config by the endpoint IP, not by model name.** Aliases collide across machines (same family, different quant, different box). Grep the raw IP:
+   ```bash
+   grep -rln "192.168.1.232" /home/ubuntu/.hermes/config.yaml /home/ubuntu/.hermes/profiles/*/config.yaml
+   ```
+   **Use absolute paths.** From the orchestrator profile, `~/.hermes/profiles/` resolves to a shadow tree (`/home/ubuntu/.hermes/profiles/orchestrator/home/.hermes/`) that holds only a partial profile set — a `~`-relative sweep silently misses the real fleet and returns nothing.
+3. **Read the `model:` block AND the `providers:` block of every hit** (`model.provider: custom:NAME` is the live route; `providers.NAME.api` is the endpoint). **Also check `auxiliary.*` blocks** — vision, compression, curator, mcp, kanban_decomposer etc. can each independently route to the local provider, so a profile can hit in many places and the "who uses it" answer includes the fallback chain.
+4. Report as a table: profile → provider name → endpoint → model on disk. Explicitly flag any alias-vs-actual-quant mismatch found in step 1.
+
 ## Pitfalls
 
 - Do not claim availability from a release article alone.
@@ -318,4 +350,5 @@ See `references/local-custom-provider-wiring-2026-08.md` for the full Kai/Ned-on
 - `references/codex-gpt56-explicit-slugs-and-gateway-load.md` — live-profile pattern for GPT-5.6 Codex slugs (`gpt-5.6-sol`/`terra`/`luna`), picker/catalog mismatch, gateway restart proof, and post-switch slowness diagnosis.
 - `references/frontier-model-prismatic-integration.md` — pattern for turning a fired availability watch into a governed Prismatic capability lane: pause discovery escalation, record OKF evidence, smoke OpenRouter/free-tier behavior, and feature-flag rollout without changing global defaults.
 - `references/codex-auth-json-structure.md` — Codex OAuth token storage layout in `auth.json` (not `credentials.json`) and quick-introspection command for checking token presence and error codes.
+- `references/codex-oauth-401-silent-fallback-2026-08.md` — worked example: OAuth reset populated an access_token but the backend still 401'd ("Could not parse your authentication token"); the smoke test returned PONG via silent fallback to gemini. Full evidence chain for "logged in + token present + PONG ≠ recovered", including the provider-level `last_auth_error` / `relogin_required` signal and the 401 message taxonomy.
 - `references/direct-minimax-guest-bot-2026-07.md` — direct MiniMax API wiring for containerized Hermes guest bots: `provider: minimax`, `MiniMax-M3`, `MINIMAX_API_KEY`, Anthropic SDK dependency, and explicit/routed smoke tests.

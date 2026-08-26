@@ -302,3 +302,31 @@ for page in range(5):  # 5 pages × 30 = 150 issues, enough for most triage scan
 **Verifier check:** (a) link promised ⇒ public-domain fetch returned 200 + matching sha256 of content, logged; (b) tarball sha256 == the SHA in the LATEST Linear comment; (c) extract == disk (`diff -r` byte-identical); (d) §7 count string in the packet == check count in the verifier script; (e) the deep-link chain itself (307 target + resolve ok + byte-match) is a verifier check, on local AND public.
 
 **Worked example:** HFG guest-fleet packet, GRO-4797 — final link `prismatic.growthwebdev.com/workspaces?file=hd-platform-staging/review-packets/hfg-guest-fleet-2026-08-20/REVIEW_PACKET.md` verified end-to-end (6 deep-link checks, local+public); final tarball SHA `432fcb76…` posted as the single authoritative value with earlier values (6c751b7f…, b92950d5…, 6a17af85…) explicitly marked stale; 23/23 ad-hoc verifier passed.
+
+## 17. Terminal curl calls to Linear GraphQL: no `Bearer` prefix, never inline the query JSON in shell quotes
+
+**Symptom (observed 2026-08-20, GRO-4797 review session):**
+
+1. `curl -H "Authorization: Bearer $LINEAR_API_KEY" https://api.linear.app/graphql` → `400 It looks like you're trying to use an API key as a Bearer token. Remove the Bearer prefix from the Authorization header.`
+2. Inlining a GraphQL JSON body in shell quotes — `curl -d '{"query":"{ issue(id: \"GRO-4797\") { ... } }"}'` — fails with a bash syntax error (`syntax error near unexpected token `('`), and the `bash -c '...'` wrapper variant fails with `unexpected EOF while looking for matching '"'`. Nested quotes + parens + escaped JSON are unreliable through the executor's shell layer.
+
+**Fix:**
+
+1. **No `Bearer` prefix.** The Linear API key goes in the `Authorization` header raw: `curl -H "Authorization: ***"`. (The 400 message tells you exactly this.)
+2. **Write the query body to a file and `curl -d @file`.**
+
+   ```bash
+   # /tmp/lin-q.json (via write_file — NOT a shell heredoc)
+   # {"query": "{ issue(id: \"GRO-4797\") { identifier title state { name } } }"}
+   curl -s https://api.linear.app/graphql \
+     -H "Authorization: ***" \
+     -H "Content-Type: application/json" \
+     -d @/tmp/lin-q.json
+   ```
+
+   The `@file` form survived every call in the session; the inline form failed two different ways. For tree walks, generate the JSON in Python and dump it to the file.
+3. **`execute_code` sandboxes may lack the key** (`KeyError: 'LINEAR_API_KEY'` even when `terminal` has it in env). Either run the call from `terminal` (env persists there), or re-load the dotenv inside the sandbox per gotcha #5.
+
+**Verifier check:** first call in any batch is `{ viewer { name } }` (auth confirmed, no Bearer, `@file` body) before touching real queries.
+
+**Clarification to #14 (2026-08-20):** `issue(id: "GRO-4797")` — a human identifier passed to the `id:` argument — succeeded against api.linear.app in this session. #14's UUID-only observation was about the non-existent `identifier:` argument. The build still drifts (see #14's introspect-first rule); trust the most recent working call shape, and when a query 400s, check the *argument name* before blaming the value.

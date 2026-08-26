@@ -34,7 +34,9 @@ From that file:
 Use the transit engine to get today's planetary positions:
 
 ```python
-import sys; sys.path.insert(0, os.environ.get("PRISMATIC_HOME", "/home/ubuntu") + "/work/OpenHumanDesignMCP/hd-mcp-server/src")
+import sys, os
+_src = next(p for p in ("/home/ubuntu/work/OpenHumanDesignMCP/hd-mcp-server/src", os.path.expanduser("~/work/OpenHumanDesignMCP/hd-mcp-server/src")) if os.path.isdir(p))
+sys.path.insert(0, _src)  # terminal env sets PRISMATIC_HOME=/home/ubuntu/work — concatenating '/work/' onto it doubles the path; execute_code sandbox doesn't inherit it at all
 from transit_engine import calculate_transit_positions
 from ephemeris_engine import julday, init_ephemeris
 from datetime import datetime
@@ -191,13 +193,15 @@ V2 rules:
 - If the transit engine fails, say so honestly — don't fake it
 - Family snippets should feel like a parent noticing their kid, not an astrologer
 - The quote must feel like it could ONLY be about that specific person today
-- Keep output under 18 lines — shorter than a Co-Star screenshot
+- **Keep output screenshot-length**: V1 ≤18 lines; V2 (shipped) 18–24 lines including signature — the vibe sections legitimately need more room. The hard rule is phone-readable in one scroll on Telegram, not a line count.
 - **The NEXT STEP is the most important section.** The user's directive: "Becca and I need to know 'so what!?' Like, the next step. What do I do about that?" If the briefing only describes what's happening without giving a concrete action, it failed. Actions must be specific and executable: "Text Michael the one word: 'spleen'" or "Say 'I'll think about it' to the first request" — not "practice presence" or "trust yourself."
-- **Load family birth data from `~/work/next-step-bot/family.json` FIRST**, before computing anything else. Don't grep the filesystem looking for it. On the orchestrator/Fred profile the resolved path is `~/.hermes/profiles/fred/home/work/next-step-bot/family.json` — use `os.path.expanduser()` and verify with `os.path.exists()` before `open()`. If the file doesn't exist, fail loudly rather than inventing birth data.
+- **Load family birth data from `~/work/next-step-bot/family.json` FIRST**, before computing anything else. Don't grep the filesystem looking for it. On every profile tested in this deployment, plain `~` already resolves into the profile home, so the file lives at `os.path.expanduser("~/work/next-step-bot/family.json")` — do NOT build `~/.hermes/profiles/<profile>/home/work/...` paths: they nest the profile home inside itself and 404 (verified failure 2026-08-20). Use `os.path.expanduser()` and verify with `os.path.exists()` before `open()`. If the file doesn't exist, fail loudly rather than inventing birth data.
 - **Run the channel-completion + natal-hit analysis BEFORE drafting the quote.** This is the single highest-leverage move for quality. Without it the quote falls back on horoscope language.
-- **Use `cosmic_calculator.calculate_natal_chart(name, birth_dt_utc, lat, lon, tz)` from `~/work/OpenHumanDesignMCP/hd-mcp-server/src`, not a made-up `compute_natal_gates()` function.** The chart dict exposes `chart["all_active_gates"]` (list of ints) and `chart["defined_channels"]` (list of `{"name": str, "gates": tuple}`). The standard `chart["personality_planets"]`/`chart["design_planets"]` dicts also work. See `references/transit-analysis-recipe.md` for the worked example.
+- **Use `cosmic_calculator.calculate_natal_chart(name, birth_dt_utc, lat, lon, tz)` from `~/work/OpenHumanDesignMCP/hd-mcp-server/src`, not a made-up `compute_natal_gates()` function.** The chart dict exposes `chart["all_active_gates"]` (list of ints) and `chart["defined_channels"]` (list of `{"name": str, "gates": tuple}`). The standard `chart["personality_planets"]`/`chart["design_planets"]` dicts also work. `chart["type"]` can be None even on a correct run — rely on `profile`, `authority`, `defined_centers`, `undefined_centers`, `all_active_gates` (verified 2026-08-20). See `references/transit-analysis-recipe.md` for the worked example.
 - **Don't trust the gate→center map in the reference file blindly.** It has known mis-classifications (gate 21 listed in both Head and Heart, gate 38 placed under Root when it's Spleen/Root, gate 30 mis-mapped). When the map matters for "open center conditioning" notes, cross-check against the actual transit_planet center field returned by `calculate_transit_positions` (`d['center']`) before writing.
 
 ## Reference Files
 
 - `references/transit-analysis-recipe.md` — canonical `CHANNEL_NAMES` dict, gate→center map, and the three-step analysis recipe with a worked example. Read this if the transit computation section above isn't specific enough.
+
+Read reference files with `skill_view(name='daily-transit-briefing', file_path='references/transit-analysis-recipe.md')` — never `find /` or a filesystem search for them (a bare `find /` hung 180s+ once; the skill files live under the active profile's skills dir, not a shared path).

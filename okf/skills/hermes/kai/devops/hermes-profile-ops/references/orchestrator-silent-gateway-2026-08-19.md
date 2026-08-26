@@ -26,3 +26,14 @@ Fred's (profile `orchestrator`) Telegram bot went unresponsive. Full trace:
 
 ## Reusable verification pattern
 `/tmp/hermes-verify-orchestrator-gw.sh` (ad-hoc, not a suite): manual unit parser (9 semantic checks) → `systemd-analyze verify` → `pgrep -fc` count == 1 → uptime → latest startup banner with zero post-banner polling conflicts.
+
+## Recurrence 2026-08-22 (same trap, third occurrence class)
+Gateway was down again; unit still `inactive (dead)` — the 08-19 unit alignment had NEVER been sudo-installed (the pending `sudo cp` was never run), so `Restart=on-failure` + clean exit left it dead for 3 days. Same emergency path: detached launcher, verified healthy (1 process PPID=1, 04:06:33 UTC banner, webhook + telegram connected, zero post-banner polling conflicts, cron firing).
+
+New lessons from this recurrence:
+1. **Live log is profile-scoped, not unit-level**: `~/.hermes/profiles/orchestrator/logs/gateway.log` (unit-level `~/.hermes/logs/orchestrator-gateway.log` mtime frozen at the 08-19 crash). Locator: `ls -l /proc/<pid>/fd/` — fd 3/4/8 = agent/errors/gateway logs. The 08-19 "log location gotcha" was about journalctl; the manual-launch case adds the profile-logs dir.
+2. **`pgrep -fc 'orchestrator gateway run'` returned 2** with only ONE real gateway — the wrapping check shell's command line matched the pattern. Use `ps -eo pid,ppid,args` to enumerate; a single PPID=1 `gateway run` = healthy, the 2nd "match" is the probe itself.
+3. **Fleet-wide stale-unit warning fired at startup**: `hermes-gateway-kai.service has TimeoutStopSec=90s but drain_timeout=180s (expected >=210s)` — a running gateway audits SIBLING units and warns. Every gateway startup log is a free fleet health audit; fix flagged units via `hermes gateway service install --replace`.
+4. **Status check that matters**: `systemctl show hermes-gateway-{kai,george,ned} -p Restart --value` → all `always` (fleet standard confirmed 08-22); the orchestrator unit on disk was the outlier and is STILL the open follow-up: `/tmp/hermes-orchestrator-gateway.service` staged 08-19, `sudo cp /etc/systemd/system/ && daemon-reload && systemctl restart hermes-orchestrator-gateway` never executed as of 08-22.
+
+Until the unit is installed, expect this recurrence: every clean exit (reboot, OOM-then-clean-kill, mid-call interruption) leaves the orchestrator bot dark with no alert until Michael notices.

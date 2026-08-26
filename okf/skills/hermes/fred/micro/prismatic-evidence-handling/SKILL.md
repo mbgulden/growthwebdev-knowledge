@@ -63,11 +63,21 @@ The "treat as durable until run is closed" rule above and the "delete after veri
 5. **Delete.** Only after the verification gate is closed: `terminal(command="rm /tmp/hermes-verify-...py")`. The script has served its purpose. Leaving it longer than necessary is the new anti-pattern (see below).
 6. **Reuse case.** If a future session needs to re-verify the same changed paths (e.g., post-merge sanity check), re-create the script from the recorded recipe in the OKF doc. Don't `git checkout` it — it's not in version control.
 
-**Updated anti-pattern (2026-08-13 refinement):** **deleting `/tmp/hermes-verify-*` too early** — before the verification gate is fully closed. If you see the "no fresh passing verification evidence" prompt arrive twice in a row on the same edit, that is almost always the cause: the audit hook re-grepped and found nothing. Re-materialize the script and let it sit through one more turn.
+**Updated anti-pattern (2026-08-13 refinement):** **deleting `/tmp/hermes-verify-*` too early** — before the verification gate is fully closed. If you see the "no fresh passing verification evidence" prompt arrive twice in a row on the same edit, that is almost always the cause: the audit hook re-grepped and found nothing. Re-materialize the script and let it sit through one more turn. **Third live reproduction 2026-08-23 (Becca recap) was an INFORMED violation:** the agent's own final report contained the phrase "safe to remove later once the evidence chain closes" in the same turn as the `rm` — prose acknowledgment of this rule does not prevent the violation. The fix is a negative template: the turn's final report must never contain "delete / cleanup / safe to remove later" phrasing about the verifier; post-gate cleanup is a later turn's job. When the re-nudge arrives after an informed delete, re-materialize and leave on disk — do not re-litigate the rule in prose again.
+
+**Fourth same-turn rm occurrence 2026-08-24 (ambiguous closure, not a counterexample):** a Becca recap session chained `python3 /tmp/hermes-verify-becca-recap-2026-08-24.py; … rm /tmp/hermes-verify-becca-recap-2026-08-24.py` in ONE terminal call and reported "cleaned up"; the verification-evidence block returned `status: passed` in-band and no re-fire was observed within the session (the next turn was an unrelated scheduled task). Whether the gate now tolerates same-turn rm is **unresolved** — one ambiguous closure is not a counterexample to the keep-through-gate rule; the rule stands until clean counterexamples accumulate. Same session, new variant: an inline `execute_code` verifier (13 checks, no file materialized) was **explicitly justified in prose** ("no temp script to clean up — the evidence is the actual run output"). The hook matches the `hermes-verify-` prefix on the changed-paths list; an inline script's effect is invisible to it no matter how well the justification is articulated.
 
 **Anti-pattern:** keeping `/tmp/hermes-verify-*` files around indefinitely across sessions. They accumulate, they get confused with other sessions' verifiers, and the durable record is in the handoff anyway. The right window is "until the verification gate closes," not "forever."
 
 **Anti-pattern:** relying on the script for the proof instead of the handoff/OKF/Linear record. The system reminder's "summarize it explicitly as ad-hoc verification" language is the cue: the proof class is the human-readable summary in the durable artifacts, not the script's stdout.
+
+## Verifier check scoping: never global-glob /tmp/hermes-verify-* (2026-08-20)
+
+On this host /tmp accumulates 100+ `hermes-verify-*` artifacts from concurrent agent sessions (Fred, Kai, George, AGY, ...). A "no stray verify files" assertion that globs `/tmp/hermes-verify-*` FAILS every time and burns a re-verify round-trip (observed 2026-08-20: a 2-file edit's verifier listed 174 pre-existing files and exited FAIL; rescoping to the topic namespace passed 3/3 on the next run).
+
+1. **Scope the stray-file check to this turn's namespace**: glob `/tmp/hermes-verify-<topic>*` (the topic token from the filename you created) and exclude the running script itself via `os.path.abspath` comparison.
+2. **Other sessions' verify files are other sessions' evidence.** Never delete them and never fail the run on them. If the accumulation is notable, report the count as an out-of-scope note and leave cleanup as a separate operator decision.
+3. **Ghost flagged paths**: when the detector's changed-paths list includes scratch paths you already deleted, put an explicit `os.path.exists` check per flagged path INSIDE the verify script (so the proof is machine-checked, not just prose), and say in the close-out "flagged path does not exist (deleted scratch probe); evidence covers the behavior."
 
 ## Stale/ghost flagged paths + hash-stability closer (2026-08-18)
 
@@ -145,6 +155,8 @@ check("date heading present", "# Daily Journal — 2026-08-13" in day_text)
 ```
 
 This pairs naturally with the "ad-hoc verifier" recipe above — most testless workspaces have a `template.md` next to the generated file, and structural conformance is the cheapest check available.
+
+**Second variant (2026-08-21):** the SAME `(.+)` shape bites inside a *body-capturing* finditer when `re.DOTALL` is on. `r"^##\s+(.+)$\n(.*?)(?=^##\s|\Z)"` with MULTILINE|DOTALL: the heading group `(.+)` is greedy and `.` matches `\n`, so group 1 swallows the rest of the file (heading + every later section), group 2 ends up 0 chars, and the finditer yields exactly ONE "section" instead of N. Observed 2026-08-21: a 5-section journal verifier reported `section non-empty: Work completed [0 chars]` with the entire tail of the file inside the heading group, and the run exited 1 on a perfectly-formed file. **Fix:** make the heading group newline-anchored — `r"^##\s+([^\n]+)\n(.*?)(?=^##\s|\Z)"` (or drop DOTALL and use `re.match` line-by-line). Any `(.+)` under DOTALL that is *supposed* to stay on one line needs `[^\n]+` explicitly.
 
 ## Procedure (for George and any agent reviewing Prismatic work)
 

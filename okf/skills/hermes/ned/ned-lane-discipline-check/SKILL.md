@@ -87,6 +87,37 @@ canonical locations for Prismatic Engine work are:
 - `scripts/`                          (cron + verifier scripts)
 - `docs/` should NOT be edited from Ned's branch — other agents own it.
 
+### Handoff packets can cite STALE lane tables — the repo's yaml is authoritative
+
+A handoff doc / Linear ticket / OKF audit can assert lane ownership that no longer
+matches the target repo's `PRISMATIC_ENGINE.yaml`. Hit 2026-08-21 (GRO-4831,
+prismatic-engine G2+G6 journal bundle): the ticket and Kai's handoff packet both
+said "`tests/` is Ned's lane", but the live yaml gave ned only `scripts/`,
+`prismatic/`, `plugins/` — `tests/` resolved to fred (`*`), and the pre-push guard
+correctly rejected the push. The packet's lane table was simply stale.
+
+Rules:
+
+1. **Before landing anyone's handoff, cross-check the packet's lane claims against
+   `PRISMATIC_ENGINE.yaml` IN THE CHECKOUT YOU WILL PUSH FROM** (the guard reads it
+   there, not from any canonical copy). `git show HEAD:PRISMATIC_ENGINE.yaml | grep -A5 "ned:"`
+   is the 30-second gate. Never trust the doc.
+2. **If the acceptance criteria REQUIRE a file outside your lane** (e.g. "PR must
+   contain exactly these 3 files" and one is `tests/...`), relocating the file is
+   not an option — the deliverable is defined. Do NOT self-expand your lane, and do
+   NOT push under another agent's prefix (misattribution, explicitly rejected per the
+   2026-08-19 authorization decision). Instead: do the work, verify it (tests + lint),
+   commit locally on your own `ned/` branch, then STOP at the guard and present the
+   three unblock options to Michael with a recommendation:
+   (a) add the dir to ned's owner lanes in the repo yaml (permanent config change —
+   the `*`-owner or Michael applies it; recommended when tests co-own with the code
+   they test), (b) reassign the landing to the lane-owning agent (e.g. Fred on
+   `feature/`), (c) Michael pushes the verified local branch manually. Post the
+   blocker + options on the Linear ticket and mark it `In Progress`, not `In Review`.
+3. The local commit is safe until pushed — say so explicitly ("commit `X` is safe
+   locally, not on origin; nothing is lost") so the human isn't chasing a lost-artifact
+   scare.
+
 ### Promotion-merge exception: scoped lane extension (needs human permission)
 
 When the task is a **promotion merge** (e.g. merging a staging branch like

@@ -61,6 +61,14 @@ no-op for production that looks like a successful deploy ("Deployment complete!"
   picked it up. See `references/2026-08-hde-prod-deploy-token-env-pitfall.md` (deploy
   record) and the Stripe skill's `references/2026-08-hde-stuck-redirecting-checkout.md`.
 
+## `mergeStateStatus: UNSTABLE` on a fresh PR is NOT a failure (verified 2026-08-21)
+
+`gh pr view <PR> --json mergeable,mergeStateStatus` returning `mergeable: MERGEABLE` + `mergeStateStatus: UNSTABLE` on a brand-new PR is **expected**, not red. `UNSTABLE` = "checks are still running / haven't reported yet" (it's the GitHub status for *pending*), distinct from `BEHIND` (branch out of date with base) and `DIRTY` (conflicts). Do not "repair" anything when you see it on a fresh head — the Cloudflare Pages + Workers Builds checks simply haven't finished.
+
+**Read the checks, don't read the status word:** `gh pr checks <PR>` tells you which are `pending`. On hd-platform (a Pages repo with a duplicate Workers Builds trigger and **no** GitHub Actions), the only checks are `Cloudflare Pages` and `Workers Builds: hd-platform` — both `pending` right after push. Let them run; they flip green on their own. Only when a check is explicitly `fail`/red do you dig in.
+
+**Pair it with a local green build so the reviewer has proof before the checks finish:** the PR is mergeable + UNSTABLE, but a fresh local `npm run build` (exit 0, "Complete!") is the evidence the remote checks will eventually confirm. Report: "MERGEABLE; Cloudflare checks pending (normal on fresh head); local build green (10 pages, N redirects)." See the 2026-08-21 hd-platform tenant-router PR (#56) case in `references/2026-08-hd-platform-tenant-router-landing.md`.
+
 ## Verification sequence
 
 1. Verify the actual repo proof first:
@@ -148,6 +156,7 @@ existing good deployment live, **you cannot promote it**:
 
 ## Supporting references
 
+- `references/2026-08-hd-platform-tenant-router-landing.md` — 2026-08-21 hd-platform PR #56: landing a staging-only runtime file (router + 3 deps + runtime JSON) as a clean pure-addition PR via isolated `github/main` worktree; the import-vs-py_compile runtime-data-file catch; and the `UNSTABLE`-is-pending read.
 - `scripts/cf-pages-deploy-diff.py` — reusable live-deploy verifier: byte-compares a custom domain against a reference deployment across all sitemap routes, normalizes CF beacon/email-obfuscation/injection-whitespace, smoke-tests API routes, exits non-zero on any real diff. Pick `--api` routes that are actually live on prod (`/api/health` is reliable; `/api/demo/start` 404s on prod while `hde-api.service` runs an old checkout — checking it false-flags the deploy as broken).
 - `references/2026-08-hde-prod-deploy-token-env-pitfall.md` — CF API token env redaction pitfall (`CLOUDFLARE_API_TOKEN=*** in a command line → code 6111), in-process subprocess fix, and the 2026-08-19 HDE prod deploy record.
 - `references/hde-pages-workers-build-conflict.md` — session-specific reproduction from GRO-3996: `assets.directory` passed Workers dry-run but broke Cloudflare Pages validation, so the branch restored Pages-compatible config and handed off the external Workers trigger decision.

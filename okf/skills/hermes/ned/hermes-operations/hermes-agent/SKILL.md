@@ -167,3 +167,60 @@ MARKER=<marker>
 - Old process logs must not be attributed to a replacement PID.
 - Doctor warnings about missing environment keys may be false positives when credentials are loaded from a pool/profile file; prove actual capability.
 - Never expose secrets while troubleshooting.
+
+### Named custom provider: `key_env` vs `api_key_env` (aux/vision 401 trap)
+
+Symptom: main chat works but `vision_analyze`, context compression, and title generation all 401 with `Invalid API Key` against a **local** OpenAI-compatible endpoint. Log line: `resolve_provider_client: named custom provider 'X' has no resolvable api_key — request will be sent with placeholder no-key-required and will 401`. The user's guess is often "OpenAI key is masked/wrong" — **it is not**; the local provider's key is being silently dropped.
+
+Root cause: two different resolvers read the provider entry differently.
+- Main-chat path goes through `_normalize_custom_provider_entry` (hermes_cli/config.py), which lifts the `api_key_env` alias → `key_env`. Works.
+- The **auxiliary** path (vision/compression/title/curator) goes through `_get_named_custom_provider` (hermes_cli/runtime_provider.py), whose new-style `providers:` dict branch reads **only `key_env`** (plus inline `api_key`). It does NOT apply the `api_key_env → key_env` alias lift. So a config entry that only declares `api_key_env: SOME_VAR` resolves to an EMPTY key → `no-key-required` placeholder → 401.
+
+Diagnose (prove, don't guess — run the exact aux resolver in the profile's env):
+
+```bash
+cat > /tmp/repro.py <<'PYEOF'
+import os, sys
+os.chdir('/home/ubuntu/.hermes/profiles/<profile>')
+for line in open('.env'):
+    line=line.strip()
+    if line and not line.startswith('#') and '=' in line:
+        k,v=line.split('=',1); os.environ.setdefault(k,v)
+sys.path.insert(0,'/home/ubuntu/.local/share/pipx/venvs/hermes-agent/lib/python3.12/site-packages')
+os.environ['HERMES_HOME']=os.getcwd()
+from hermes_cli.runtime_provider import _get_named_custom_provider
+e=_get_named_custom_provider('<provider-name>')
+ak=(e or {}).get('api_key') or ''
+print('api_key', ('<set len %d>'%len(ak)) if ak else 'EMPTY  <-- this is the bug')
+PYEOF
+/home/ubuntu/.local/share/pipx/venvs/hermes-agent/bin/python /tmp/repro.py
+```
+
+If it prints EMPTY while the env var is set, that's the bug.
+
+Fix: in that profile's `config.yaml`, add the canonical field alongside the alias on the affected `providers:` entries (keeping both is harmless — both code paths then win):
+
+```yaml
+providers:
+  my-local-llm:
+    api: http://192.168.1.232:8080/v1
+    key_env: MY_LLM_API_KEY      # canonical — aux/vision path reads THIS
+    api_key_env: MY_LLM_API_KEY  # alias — main-chat path already read this
+```
+
+Restart the profile gateway (detached transient unit — direct restart is blocked from inside the running gateway), then prove end-to-end with a real `vision_analyze` on a generated image through that profile (not just the main-chat `-z` probe, which would pass even before the fix):
+
+```bash
+hermes --profile <profile> -m <model> --provider <provider> -z 'Use vision_analyze on /tmp/t.png and describe the circle color.'
+```
+
+A passing main-chat `-z` probe does NOT prove the aux path — the whole point is the two paths diverge. Verify zero `no resolvable api_key` / 401 lines on the new PID after restart.
+
+**Verification trap (hit this):** to prove the fix, run `_get_named_custom_provider` with the **`custom:<name>`** form (e.g. `custom:minimax`), NOT the bare name. For canonical built-in names (`minimax`, `deepseek`, `google`, …) the bare-name request intentionally returns `None` (defers to the built-in registry) — so a bare-name probe prints `api_key EMPTY` and looks like the fix failed when it didn't. The named-custom branch (where `key_env` is read) is only exercised by `custom:<name>` or a genuinely non-canonical name. Probe both paths: `custom:<name>` for the config-entry key, and `load_hermes_dotenv()` → `os.environ` for the built-in env-var path.
+
+**Two red herrings that waste an hour:**
+1. `/proc/<MainPID>/environ` showing the API key **ABSENT** does NOT mean the process lacks it. That file captures only the **exec-time** environment; Hermes `load_hermes_dotenv()` (called at `hermes_cli.main` import, `override=True`) mutates `os.environ` *after* exec. Read the key from a fresh `load_hermes_dotenv()` + `os.environ` check, not `/proc`.
+2. `EnvironmentFile=` in the gateway unit is **defensive, not required** for env-based providers — the dotenv loader pulls the profile `.env` itself. The decisive fix for the aux 401 is the `key_env` config field. (Adding `EnvironmentFile=` is still fine as belt-and-suspenders, but don't chase it as the root cause.)
+3. `load_config()` is `(mtime_ns, size)`-cached, so a `key_env` config edit is picked up **live on the next aux call — no gateway restart needed.** Restart is only required for changes to `os.environ` at exec time.
+
+Second, independent cause that produces the identical 401: the profile's systemd unit missing `EnvironmentFile=/home/ubuntu/.hermes/profiles/<profile>/.env`, so the key never enters the process environment at all. Check `/proc/<MainPID>/environ` for the key var; if absent, that's the cause and the unit needs the `EnvironmentFile=` line. Both can be true simultaneously — fix both, then verify.

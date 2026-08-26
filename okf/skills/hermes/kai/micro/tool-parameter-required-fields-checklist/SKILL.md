@@ -48,6 +48,17 @@ Batch `operations=[{action, old_text, content}]` calls are prone to **generation
 - If an ops-array attempt fails with "content is required", **do not retry it** — the payload did not survive generation. Switch shape immediately.
 - Batch shape is still worth it for multi-change updates (atomic, char-limit checked once) — but keep each entry's strings short.
 
+### 5. `read_file` has a per-call size cap — check file size BEFORE reading
+
+In some profiles `read_file` refuses any single read that would produce more than ~2,000 characters: `Read produced 5,320 characters which exceeds the safety limit (2,000 chars). Use offset and limit to read a smaller range.` (The stock tool description cites ~100K — trust the actual error message for the cap in YOUR profile.) Observed failure pattern: repeated whole-file reads of 5–8KB files (a JSON schema, an OKF doc, a Python harness) → 3–4 identical failures → loop detector fires → the session's tool-iteration cap is consumed before the real task progresses.
+
+**Fix, in order of preference:**
+1. Size-check first (`wc -c`, `stat`, or the `total_lines`/`file_size` fields in the error itself) and pick the access strategy before reading.
+2. Chunk with `offset`/`limit` for medium files.
+3. For local files, `terminal` (python3, grep -n) has no such cap and is usually faster when you only need specific lines.
+4. For OKF hub docs, prefer `mcp_okf_read` (live disk read, truncates at 60KB) over `read_file` on the checkout path.
+5. `execute_code`'s `read_file` wrapper inherits the same cap, and on failure returns an **error dict with no `content` key** — `result["content"]` raises `KeyError: 'content'`. Check `result.get("error")` before indexing, and do NOT retry the same read (that's what trips the loop detector).
+
 ## Checklist (run before calling `patch` or `write_file`)
 
 Before EVERY invocation:

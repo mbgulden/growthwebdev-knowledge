@@ -64,9 +64,13 @@ If 0 channels fully light, the headline is the **single strongest natal hit** (S
 ### Step 2: Which transit gates touch this person's natal gates?
 
 ```python
-# CRITICAL: use cosmic_calculator.calculate_natal_chart from the MCP server
-import sys
-sys.path.insert(0, os.environ.get("PRISMATIC_HOME", "/home/ubuntu") + "/work/OpenHumanDesignMCP/hd-mcp-server/src")
+import sys, os
+# NOTE: terminal envs may export PRISMATIC_HOME=/home/ubuntu/work — concatenating '/work/...' onto
+# that doubles the path and fails. Test candidates instead of trusting the env var.
+_src = next(p for p in ("/home/ubuntu/work/OpenHumanDesignMCP/hd-mcp-server/src",
+                        os.path.expanduser("~/work/OpenHumanDesignMCP/hd-mcp-server/src"))
+            if os.path.isdir(p))
+sys.path.insert(0, _src)
 from cosmic_calculator import calculate_natal_chart
 import pytz
 
@@ -107,6 +111,15 @@ This is the **golden match**. The quote anchors on the strongest match:
 - **Center conditioning (use `transits[planet]['center']` to verify, not the gate→center map below)**: Gate 30 = Solar Plexus per the engine output → Michael's Solar Plexus is **undefined**, so 30-41 conditions his emotional wave. Gate 58 = Heart center per the engine output → his Heart is **defined**, so 18-58 amplifies existing voice rather than conditioning a wave.
 
 If no golden match exists, drop to the next strongest transit signature and let the prose breathe around it rather than force the "channel completion" framing.
+
+### Worked example — 2026-08-20
+
+- Transit channels lit that day: 20-34 Charisma (Uranus on 20, Moon on 34), 30-41 Recognition (True Node + Earth on 30, Pluto on 41).
+- Michael's natal gates (verified via `chart["all_active_gates"]`): include 29, 30, 48, 52 (among others).
+- **Match (Golden)**: Michael has natal Gate 30 (Solar Plexus, **open**). Transit lights 30-41 → "Recognition being asked to form inside him; the wave reads as *do my people see what I'm building?*" — a Solar Plexus question, not a verdict.
+- **No-golden lit channel → family snippets**: 20-34 Charisma is lit by the Moon and is NOT natal for Michael, but Benjamin's defined channels include Charisma (20-34). Leftover lit channels that don't match the SUBJECT are perfect fuel for family snippets — scan the family's charts for a natal channel or gate inside a lit channel that was unused for the headline. This day it produced the Benjamin line ("hand him the stage") and the Becca line (double Lilith over her natal Saturn–Uranus pair in Gate 11, open Ajna).
+- Vibe anchors that day: Sun G29 L4 + Moon G34 L3 (both Sacral, conditioning Michael's open Sacral), Venus G48 L5 (Spleen, defined — authority fed), Mars G52 L3 over Michael's natal Jupiter pair in Root (open → post-sunset adrenaline/dread spike).
+- `chart["type"]` was None on a fully correct run; profile/authority/centers/gates were all populated. Rely on those keys, not `type`.
 
 ## Gate → Center map (for "open center conditioning" notes)
 
@@ -155,19 +168,15 @@ Cite the conditioning in the "Watch for" section, not the headline.
 - Michael, Becca, Benjamin, William, Victoria birth data (year, month, day, hour, lat, lon).
 - Type, profile, authority per person.
 
-**Profile-aware resolution** (the SKILL.md text says "don't grep the filesystem" but the path is profile-dependent):
+**Path resolution — plain `~` is enough.** In every profile tested on this deployment, `~` (the profile home) already points at the right place, so the file is simply `os.path.expanduser("~/work/next-step-bot/family.json")`. Do NOT build `~/.hermes/profiles/<profile>/home/work/...` paths: `~` is ALREADY profile-scoped, so that form nests the profile home inside itself and 404s (verified failure, 2026-08-20). One candidate, verified with `os.path.exists()`:
 
 ```python
 import os, json
-candidates = [
-    os.path.expanduser("~/work/next-step-bot/family.json"),
-    os.path.expanduser(f"~/.hermes/profiles/{os.environ.get('HERMES_PROFILE','fred')}/home/work/next-step-bot/family.json"),
-]
-path = next((p for p in candidates if os.path.exists(p)), None)
-if path is None:
-    raise FileNotFoundError(f"family.json not found at any of: {candidates}")
+path = os.path.expanduser("~/work/next-step-bot/family.json")
+if not os.path.exists(path):
+    raise FileNotFoundError(f"family.json not found at {path} — fail loudly, don't invent birth data")
 with open(path) as f:
     family = json.load(f)["family"]
 ```
 
-Do not grep the filesystem; the candidates list above is exhaustive for this deployment.
+Do not grep the filesystem for it.

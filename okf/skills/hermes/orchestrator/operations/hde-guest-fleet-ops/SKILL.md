@@ -20,6 +20,7 @@ related_skills: [linear-handoff-build-out, okf-documentation-ops]
 - **Telegram routing is host-side**: `hde_router.service` → `hd-platform-staging/scripts/hde_tenant_router.py`. It re-resolves each container IP per request and auto-starts stopped containers, so guest restarts never orphan routing. (1,000 concurrent-chat / 5,000-queue caps.)
 - **Guests 40 and 42 are DECOMMISSIONED — leave as-is** (owner decision 2026-08-19). No containers; host files frozen.
 - **Capacity ceiling is LLM inference on `192.168.1.230`** (vLLM + llama.cpp, Qwen3.8-27B), not the 24c/125GB host or the router.
+- **The directory family is bigger than the manifest.** `/home/ubuntu/users/` also contains `guest_hermes` and `guest_hermes_1` (observed 2026-08-20) — NOT part of the 12-guest fleet; `guest_hermes` carries its own non-canonical `guest_agent_server.py` (hash `0514c416` at the time). `fleet_audit.py` only covers the 12 manifest IDs. Before making any fleet-wide claim, glob the whole family; never modify/delete the extra directories without owner sign-off.
 
 ## Commands
 ```bash
@@ -57,6 +58,7 @@ docker logs guest-hermes-N 2>&1 | grep BUILD-IDENTITY | tail -1      # detector 
 - The fleet scripts live in `hd-platform-staging/scripts/`, NOT the live prod repo.
 - **pytest is NOT in the platform venv** (`/home/ubuntu/work/hd-platform/.venv`) — use `/usr/bin/python3 -m pytest` (has pytest 9.0.3 + fastapi).
 - The naming-guard blocklist is data, not code: extend via `GUEST_BLOCKLIST_NAMES` env (comma/space-separated). LSP/pyright flags it if you nest a `.split()` list inside the tuple literal — flatten as `[literals] + os.getenv(...).split()`.
+- **Fingerprint the family, not the manifest.** A loop over the 12 manifest IDs misses extra directories. One-liner that catches off-manifest builds: `md5sum /home/ubuntu/users/guest_*/guest_agent_server.py | awk '{print $1}' | sort | uniq -c` — more than one hash (beyond the expected live+decommissioned pair) means there's an off-manifest copy somewhere.
 
 ## Rollback
 Every `fleet_sync` writes an additive `guest_agent_server.py.bak-<UTC stamp>` beside each file it changes (nothing is ever deleted). Restore one: `cp guest_agent_server.py.bak-<stamp> guest_agent_server.py && docker restart guest-hermes-<id>`.

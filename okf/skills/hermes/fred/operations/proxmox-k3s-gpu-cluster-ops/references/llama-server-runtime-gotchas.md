@@ -1023,6 +1023,98 @@ and compare to the local build's hash.
 3. **Confirm the user's intent.** Is the goal "more context than 262k" or "any specific capability that requires more"? If it's "more because it's there," point them at Gotcha 7 and explain that 262k is the model's trained limit. If it's a specific workload, estimate the actual prompt size needed.
 4. **Verify the patched binary is actually deployed.** If the source was patched but the running pod still shows the cap behavior, check the image SHA in `ctr -n k8s.io images ls` against the local build's `docker images` SHA — they must differ across versions to confirm a new image was built. If they're the same, the build was cached.
 
+## Gotcha 17 — `-c/--ctx-size` is TOTAL context across all slots, not per-slot (VRAM math breaks if you assume per-slot)
+
+**Symptom:** you plan "2 agents × 64k context" and launch with
+`-c 65536 -np 2`, but the startup log says
+`initializing, n_slots = 2, n_ctx_slot = 32768, kv_unified = 'false'`.
+Each agent silently gets **half** what you intended.
+
+**Root cause:** `-c` sets the total context pool; without `--kv-unified`,
+the server divides by `--parallel` (`n_ctx_slot = n_ctx / n_seq_max`,
+padded to 256 — see the `llama-context.cpp:293` companion in Gotcha 16).
+So:
+
+- 2 slots × 65,536 per agent → **`-c 131072 -np 2`** (NOT `-c 65536`)
+- 1 slot × 131,072 → `-c 131072 -np 1`
+
+**VRAM math consequence (measured 2026-08-21, VM 232, 1× RTX 3090,
+Qwen3.8-27B UD-Q4_K_M + mmproj-BF16, MTP spec decode, flash-attn on):**
+
+| Config | KV cache type | Idle VRAM | Result |
+|---|---|---|---|
+| `-c 65536 -np 2` (32k/slot) | q8_0 | 21,042 MiB | boots, ~3.5 GB headroom |
+| `-c 131072 -np 2` (64k/slot) | q8_0 | **23,764 MiB** | boots, **~780 MiB headroom** |
+| `-c 65536 -np 4` (any) | q8_0 | — | **OOM** — runbook-grade mistake |
+| `-c 131072 -np 2` | q4_0 | ~17.8 GB (est. from old config) | boots, ~6 GB headroom |
+
+Rules of thumb:
+
+1. **Always read `n_ctx_slot` from the startup log before declaring
+   context size.** It is the only number that matters; your `-c` value is
+   a plan, not a fact.
+2. **KV cache type is the big VRAM knob.** q8_0 ≈ 2× the bytes of q4_0 at
+   the same context. On a single 24 GB card running a 15–16 GB Q4 model
+   with MTP + mmproj, q8_0 at 128k total is the **ceiling** — it fits, but
+   with <1 GiB headroom. Heavy concurrent requests or bigger image
+   payloads eat into that; q4_0 is the "comfortable" operating point.
+3. **`--cache-reuse` silently auto-disables with `--mmproj`** (log line:
+   "cache_reuse is not supported by multimodal, it will be disabled").
+   Don't rely on it for prompt-prefix caching on a vision server.
+4. **Newer builds log `consider enabling --reasoning-preserve`** when the
+   chat template preserves reasoning; with `--jinja` + `--reasoning-effort`,
+   add `--reasoning-preserve` so reasoning tokens survive into
+   `reasoning_content` cleanly. (Observed 2026-08-21.)
+5. **`--alias` + a single loaded model = model-id is cosmetic.** With one
+   model loaded, requests succeed for ANY `model` string (alias, old path,
+   garbage) and the response echoes the alias back. Verify with the
+   specific id the client actually sends, but don't be surprised if the
+   "wrong" id works too — it's the same weights.
+
+**The test-boot pattern that makes this safe:** never swap the production
+launcher blind. Boot the new config as a detached one-shot
+(`nohup setsid llama-server ... > /var/log/kai-test-boot.log 2>&1 &`),
+wait for `listening on http`, read `n_ctx_slot` + `nvidia-smi`, run the
+health curls, kill it, THEN install the launcher and restart the systemd
+unit. On VM 232 the first test boot caught the 32k/slot surprise before
+Kai lost service. Slow-disk VMs: first cold model load is I/O-bound
+(~17 min for 16.5 GB on VM 232's NAS-backed disk); second load is
+page-cached (~16 s). Budget for the cold one.
+
+## Gotcha 18 — HuggingFace download: no `huggingface-cli` on the VM, verify with sha256 from the API
+
+`huggingface-cli` is usually NOT installed on these GPU VMs (no pip
+toolchain). The reliable download path:
+
+1. **Get exact sizes + sha256 from the HF API first:**
+   ```bash
+   curl -s "https://huggingface.co/api/models/<org>/<repo>?blobs=true" \
+     | python3 -c "
+   import sys,json
+   d=json.load(sys.stdin)
+   for f in d.get('siblings',[]):
+       lfs=f.get('lfs',{})
+       if lfs: print(f['rfilename'], lfs['size'], lfs['sha256'])"
+   ```
+2. **`wget -q -c` the resolve URL** (resume-capable, survives the slow
+   link): `wget -c "https://huggingface.co/<org>/<repo>/resolve/main/<file>" -O /models/<file>`
+3. **sha256-verify against the API value before touching the running
+   server.** On VM 232 the 16.5 GB checksum took ~25 min on the
+   NAS-backed disk — it's real work, not a hang. Measure progress via
+   `grep rchar /proc/$(pgrep -x sha256sum)/io` instead of guessing.
+4. **Delete the old weights only AFTER the new service is confirmed
+   serving** (systemd unit active + `/v1/models` responds). Keep the old
+   subdir's other files (mmproj, MTP heads) for rollback unless disk is
+   critical.
+
+Also: **third-party (e.g. Gemini) runbooks for these boxes routinely get
+the basics wrong** — wrong PVE host, wrong service name, wrong model
+path, wrong binary name, VRAM-infeasible parallelism. Always run a
+recon pass (`systemctl list-unit-files | grep llama`, `cat` the real
+launcher, `ls` the real model dir, `df -h`, `qm list` on each PVE node)
+before executing a pasted plan. Treat the runbook as a hint set, the
+live box as truth.
+
 ## Verification predicate sanity — don't write buggy verifiers
 
 This is about the verifier itself, not the deployment. Two failures from

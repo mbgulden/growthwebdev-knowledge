@@ -17,6 +17,7 @@ All Hermes profiles on this host share one key: `/home/ubuntu/.ssh/id_ed25519` (
 | webtop-hermes (this box) | 100.83.32.92 | — | local |
 | pve1 | 100.114.18.91 | 192.168.1.2 | ✅ root via tailscale IP |
 | k3s-node-230 (VM 230; runs Qwen llama.cpp :31002 Kai, :31003 Ned) | 100.78.237.7 | 192.168.1.230 | ✅ root via BOTH tailscale + LAN |
+| k3s-node-232 (VM 232; `llama-kai.service` = Qwen3.8-27B-UD-Q4_K_M llama-server-new :8080, RTX 3090 24GB) | — | 192.168.1.232 | ✅ root via LAN (verified 2026-08-21) |
 | pve2/pve3/pve5/pve6 | 100.119.225.27 / 100.115.231.48 / 100.65.32.83 / 100.90.63.4 | — | ⚠️ tailscale offline as of 2026-08-15; no key test |
 | bigboy (windows) | 100.98.80.41 | — | offline |
 | lightbringer-windows (Windows) | 100.93.104.46 | 192.168.1.58 | 🔴 No SSH: port 22 filtered by Windows FW, `tailscale ssh` times out, all other ports closed (verified 2026-08-18). Host is UP (Tailscale ping + LAN direct). Reachable only via RDP on that box. Runs OpenClaw (a Telegram poller). |

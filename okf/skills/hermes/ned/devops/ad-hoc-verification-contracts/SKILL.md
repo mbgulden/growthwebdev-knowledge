@@ -16,7 +16,18 @@ Use this skill when:
 
 ## Core rule
 
-Do not argue from previous pytest/GitHub-check output. Create a fresh focused verifier, run it, print exact evidence, clean it up, and describe it as **ad-hoc verification** rather than suite green.
+Do not argue from previous pytest/GitHub-check output. Create a fresh focused verifier, run it, print exact evidence, and describe it as **ad-hoc verification** rather than suite green. Cleanup is NOT part of this step — see "Verifier lifecycle" below: the default is to **leave the artifact on disk**, because the platform's stale detector re-fires on the next turn if the file is gone. The system reminder's own wording ("clean up when possible") is not a detector requirement; the detector prefers the file to exist. (Observed 2026-08-22: verifier deleted per the reminder's wording → next turn re-flagged "unverified" → fresh rebuild required.)
+
+## Config-only changes (no canonical command exists)
+
+When the changed paths are config files (YAML profile configs, systemd units, `.env`-adjacent artifacts) rather than code, there is **no canonical test/lint/build command to run** — the `hermes-verify-*` script is the primary (only) evidence, so it must carry all four layers itself:
+
+1. **On-disk state** — parse the artifact (`yaml.safe_load` / `systemctl cat`) and assert the exact fields that changed, with concrete expected values (never "some key field exists").
+2. **Behavioral probe** — execute the *actual runtime code path* that consumes the config (invoke the real resolver/lookup function in a fresh interpreter with the profile's env loaded). A static field check proves the file is right, not that the runtime sees it.
+3. **Live service state** — for config consumed by a long-running process, assert the unit is still `active`; state explicitly whether the loader is mtime-cached (no restart needed — config re-read on next call) or exec-time (restart required for the change to take effect).
+4. **Journal scan** — grep the service journal *since the change timestamp* for the specific error signature being fixed (e.g. `401`, `no resolvable api_key`). Zero hits since the change is the negative evidence; include the time window in the report.
+
+Report it explicitly as ad-hoc verification; there is no suite to be green. Note: the nudge's changed-path list may include **temp probe files you deleted in an earlier turn** (e.g. a `loader_test.py` diagnostic) — don't chase ghost paths; resupply evidence for the real changed artifacts and note the stale path was a one-off probe, already removed.
 
 ## Required shape
 
@@ -419,6 +430,44 @@ re-running the test suite. The verifier should also include a
 literal scan that asserts no test fixture or stub path contains
 `/home/ubuntu/` — so the verifier catches the same class of bug
 the gate catches.
+
+## Verifier false-GREEN: your own parser can silently match nothing
+
+New failure class (2026-08-21, HDE router timeout fix): the verifier **passed
+12/12** while the underlying tool actually reported 4 findings — because the
+verifier's *output-format matcher* was wrong, not the tool. Concrete bug: the
+verifier parsed `ruff check --output-format=concise` output with
+`if ":(" in line` (the **full** format's `path(line):` shape) but concise output
+is `path:line:col: CODE msg` — so `findings` was always `[]`, and both
+"ruff ran" and "zero findings on my lines" trivially passed.
+
+Two-part fix, encode both:
+1. **Parse the format you actually requested.** concise:
+   `re.match(r"\S+:\d+:\d+: \S+", line)`; full: `re.match(r"\S+\(\d+\):", line)`.
+   When unsure, print the raw tool output inside the verifier first.
+2. **Add a meta-assertion that the tool actually ran** before any
+   "no findings" conclusion:
+   `check("tool actually ran", len(findings) > 0 or tool_rc == 0, f"rc={rc} n={len(findings)}")`.
+   A "zero findings" check with an empty parse set and a non-zero tool exit code
+   is a false green — fail it explicitly.
+
+General rule: every verifier check that concludes *absence* ("no findings",
+"no errors", "no leaks") must be paired with a check that the source of that
+absence actually produced output. Same class as tautological checks, but
+inverted: the check isn't always-true, it's always-*empty*.
+
+Also from that session: when splitting ruff findings into "mine vs pre-existing"
+on a dirty working tree, derive "mine" from **`git diff -U0` added line numbers**
+and match on the finding's parsed line number — never substring-match line
+numbers (a finding on line 104 matches any "10" check) and never assume the
+working tree is clean (pre-existing lint on untouched lines is NOT your
+regression; report it separately, don't fix it in the same change).
+
+## Verifier false-RED: the probe may exercise the wrong code path (inverse trap)
+
+Mirror of false-GREEN: the verifier reports **STILL-BROKEN** while the fix is actually correct, because the probe exercises a *different* resolution branch than the one the fix touched. Real case (2026-08-22, Hermes profile `key_env` fix): after adding `key_env` to provider config entries, a probe calling the provider resolver with the **bare canonical provider name** returned `None`/empty and looked like a failed fix — but bare canonical names intentionally bypass the named-custom branch (they defer to the built-in registry + dotenv env). The fix lived in the named-custom branch, reachable only via the `custom:<name>` form; re-probing `custom:<name>` returned the real key.
+
+Rule: before concluding "fix failed," re-derive **which branch/path the fix touched** and confirm the probe targets that branch. When a system has multiple resolution paths for the same name (named config entry vs built-in registry vs env-var fallback), probe *each* path the config can flow through and label in the output which path each probe exercises. A probe that can pass or fail for reasons unrelated to the changed branch is as worthless as a tautology — it just lies in the other direction.
 
 ## Tautological checks always pass — assert concrete expected values
 

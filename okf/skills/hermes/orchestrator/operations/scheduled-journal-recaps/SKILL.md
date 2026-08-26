@@ -9,6 +9,16 @@ tags: [journal, cron, recap, weekly-rollup, pe-migration, hermes, verifier]
 ## When to use
 Use this skill when a cron/scheduled agent is asked to turn an inbox, snapshot log, notes file, commitment digest, morning briefing source, or daily activity stream into a durable journal/recap file or user-facing briefing. This includes Becca/next-step style journals, local-only cron jobs, and recap jobs where the final delivery may be `[SILENT]` if there is nothing useful to report.
 
+## Archive-gap self-check (2026-08-26, Becca)
+
+Before synthesizing, check that the **previous day's recap file exists** (for a 08-26 run: `journals/2026/08/25.md`). A missing prior recap is a signal about the **recap pipeline**, not the wire — keep the two strictly separate in the memo. When found:
+
+1. **Isolate the break**: confirm the prior day's INBOX file has full hourly cadence (24 snapshots = collector was healthy; the gap is in the recap run, not the collector).
+2. **Record with a pattern trigger**: note the gap in the current day's Work completed + Follow-ups as **one miss = blip (note it, no alarm); two consecutive misses = investigate the recap cron itself** (check its run history). Name the gap plainly in the memo.
+3. **Do not backfill** the missing day retroactively — the journal is a daily record; the gap note is the record.
+
+Observed 2026-08-26: no `08-25.md` existed even though the 08-25 inbox was a full, healthy 24-snapshot day. The 08-26 recap caught it, isolated the break to the recap run, and logged the two-miss trigger in Follow-ups.
+
 ## Note on PE ownership migration (2026-07-26, GRO-4214..4260)
 
 The journal-pe-integration epic is moving journal cron ownership from Hermes to Prismatic Engine. Once [GRO-4255](https://prismatic.growthwebdev.com/tab/tasks?issue=GRO-4255) (PE cron stub) and [GRO-4256..4260](https://prismatic.growthwebdev.com/tab/tasks?issue=GRO-4256) (cron migrations) land:

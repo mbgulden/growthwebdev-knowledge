@@ -1,6 +1,6 @@
 # OKF Skill Hub — Catalog
 
-_Generated 2026-08-24T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills / 2476 files across 23 Hermes profiles, AGY CLI, and the Prismatic engine._
+_Generated 2026-08-25T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills / 2477 files across 23 Hermes profiles, AGY CLI, and the Prismatic engine._
 
 ## Status counts
 
@@ -174,7 +174,7 @@ _Generated 2026-08-24T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 | hermes-model-provider-ops | shared-2-identical | operations | hermes/fred/operations/hermes-model-provider-ops<br>hermes/orchestrator/operations/hermes-model-provider-ops | 4bdd9d0699babb09 |
 | hermes-profile-audit | unique | devops | hermes/kai/devops/hermes-profile-audit | be8fb712633a7fe7 |
 | hermes-profile-audit-and-prune | unique | devops | hermes/ned/devops/hermes-profile-audit-and-prune | e1bf335c0ca5ac48 |
-| hermes-profile-ops | unique | devops | hermes/kai/devops/hermes-profile-ops | 04d90bf026e20fbc |
+| hermes-profile-ops | unique | devops | hermes/kai/devops/hermes-profile-ops | ee86e21626b5b822 |
 | hermes-provider-diagnostics | unique | devops | hermes/george/devops/hermes-provider-diagnostics | 999b6e480c733b2c |
 | himalaya | unique | flat | prismatic/portable-skills/himalaya | 4410c2e6fce5c241 |
 | human-design-computation | unique | flat | prismatic/portable-skills/human-design-computation | fd57002d1f8d6e85 |
@@ -255,10 +255,10 @@ _Generated 2026-08-24T00:00:00Z by `scripts/skill-hub-snapshot.py`. 182 skills /
 | qwen-llamacpp-reasoning-effort | divergent-2-variants | devops | hermes/ned/devops/qwen-llamacpp-reasoning-effort<br>hermes/kai/devops/qwen-llamacpp-reasoning-effort | cfc9e2180e939cce |
 | redacted-profile-config-export | shared-2-identical | operations | hermes/fred/operations/redacted-profile-config-export<br>hermes/orchestrator/operations/redacted-profile-config-export | 872cb58a4be8073c |
 | response-contract-and-result-reporting | unique | agent-operations | hermes/ned/agent-operations/response-contract-and-result-reporting | 551dd9a0be52c022 |
-| scheduled-journal-recaps | shared-2-identical | operations | hermes/fred/operations/scheduled-journal-recaps<br>hermes/orchestrator/operations/scheduled-journal-recaps | 6559350b8318783e |
+| scheduled-journal-recaps | shared-2-identical | operations | hermes/fred/operations/scheduled-journal-recaps<br>hermes/orchestrator/operations/scheduled-journal-recaps | c92ce172f1e34d84 |
 | scheduled-reminder-management | unique | ops | hermes/kai/ops/scheduled-reminder-management | d8e2305932a85bc6 |
 | seo-competitive-audit | shared-2-identical | seo | hermes/george/seo/seo-competitive-audit<br>hermes/kai/seo/seo-competitive-audit | 5918730280a5d764 |
-| session-state-handoff | shared-2-identical | agent-operations | hermes/fred/agent-operations/session-state-handoff<br>hermes/orchestrator/agent-operations/session-state-handoff | fde71458c3b46b00 |
+| session-state-handoff | shared-2-identical | agent-operations | hermes/fred/agent-operations/session-state-handoff<br>hermes/orchestrator/agent-operations/session-state-handoff | b531191055de16fd |
 | skill-library-maintenance | unique | knowledge-management | hermes/ned/knowledge-management/skill-library-maintenance | 01a8190f77c8bd85 |
 | squash-merge-branch-audit | unique | micro | hermes/george/micro/squash-merge-branch-audit | 8bb249e4ad80b768 |
 | static-site-seo-fix | unique | flat | prismatic/portable-skills/static-site-seo-fix | 78219a0f4d1a84a4 |

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T00:00:00Z",
+  "generated_at": "2026-08-25T00:00:00Z",
   "generator": "scripts/skill-hub-snapshot.py",
   "sources": {
     "hermes_profiles": [
@@ -35,7 +35,7 @@
       "prismatic-skill-pkg"
     ]
   },
-  "files": 2476,
+  "files": 2477,
   "skills": 182,
   "status_counts": {
     "shared-2": 66,
@@ -1526,8 +1526,8 @@
           "profile_or_store": "kai",
           "category": "devops",
           "path": "hermes/kai/devops/hermes-profile-ops",
-          "hash": "04d90bf026e20fbc",
-          "hash_full": "04d90bf026e20fbc2230d71da2615a2972dfca0134a49524dbb4eebd2db7eec1"
+          "hash": "ee86e21626b5b822",
+          "hash_full": "ee86e21626b5b822239a5a8d8675e114e4850e952c160886ab76bc27d3e59ac0"
         }
       ]
     },
@@ -3124,16 +3124,16 @@
           "profile_or_store": "fred",
           "category": "operations",
           "path": "hermes/fred/operations/scheduled-journal-recaps",
-          "hash": "6559350b8318783e",
-          "hash_full": "6559350b8318783ecb0558e4bf93cc80a02879bb3afff121918aacd086b82969"
+          "hash": "c92ce172f1e34d84",
+          "hash_full": "c92ce172f1e34d8437e9baf8a88da180880fa424cd86abe21fa1eb116ae78d29"
         },
         {
           "source": "hermes/orchestrator",
           "profile_or_store": "orchestrator",
           "category": "operations",
           "path": "hermes/orchestrator/operations/scheduled-journal-recaps",
-          "hash": "6559350b8318783e",
-          "hash_full": "6559350b8318783ecb0558e4bf93cc80a02879bb3afff121918aacd086b82969"
+          "hash": "c92ce172f1e34d84",
+          "hash_full": "c92ce172f1e34d8437e9baf8a88da180880fa424cd86abe21fa1eb116ae78d29"
         }
       ]
     },
@@ -3182,16 +3182,16 @@
           "profile_or_store": "fred",
           "category": "agent-operations",
           "path": "hermes/fred/agent-operations/session-state-handoff",
-          "hash": "fde71458c3b46b00",
-          "hash_full": "fde71458c3b46b001a8b2bd07206682c264e4a3943f56f300e285b723112fd04"
+          "hash": "b531191055de16fd",
+          "hash_full": "b531191055de16fd4db7d1a03a83a7cdbbf8fd5fc8f40fe807fe4b0888b7ead1"
         },
         {
           "source": "hermes/orchestrator",
           "profile_or_store": "orchestrator",
           "category": "agent-operations",
           "path": "hermes/orchestrator/agent-operations/session-state-handoff",
-          "hash": "fde71458c3b46b00",
-          "hash_full": "fde71458c3b46b001a8b2bd07206682c264e4a3943f56f300e285b723112fd04"
+          "hash": "b531191055de16fd",
+          "hash_full": "b531191055de16fd4db7d1a03a83a7cdbbf8fd5fc8f40fe807fe4b0888b7ead1"
         }
       ]
     },
@@ -3500,22 +3500,22 @@
     "hermes/active-oahu/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/next-step/.curator_state": "91db7fd7870e67b566877fb02342479d95b278c82e9f95f3a06d00ebfe41b072",
     "hermes/fred/push-protection-secret-fixtures.md": "f009dc9df3e98cbd2d98c2c9ca80fb1b7a4696ed7256b99dcf681430327d208f",
-    "hermes/fred/.curator_state": "69c8d5179dd6176431bbf29a2ecc3bae05b9b8c56277bca22d3416fd33df235a",
+    "hermes/fred/.curator_state": "479afba4ebaf40684fc58763cd168eed0ab8c9baf4cb4a0ea160485f9245a574",
     "hermes/fred/second-opinion-on-design.md": "2d44e7e151dcda3368004d095a82602b3e8f6bb31cd3295b5b35580f1a5a7844",
     "hermes/fred/.usage.json.lock": "3150a1d29186759b19270767cd67898740546e2c1a16d9d40af1b316e9897d01",
     "hermes/fred/peer-review-before-merge.md": "cc0f3e91b7e87147b41f90b53feba490b4bc04f82a9e6a8570932c010d0fd793",
     "hermes/fred/factory-code-audit.md": "61e985909459cfbd1fdd2debc24d7902d1de5443deeb52810ffb177f25e2e63e",
     "hermes/fred/.bundled_manifest": "875163bb9db12a84fae7725f99208ed0902def168a03ff4eca9a507a1444ba8f",
-    "hermes/george/.curator_state": "181aa5b74ab1512794c2c0387b274698e24fd11712635a76127360dec080f6c2",
+    "hermes/george/.curator_state": "930f48f5b7d0ba67eafa8b4932461caae2dd0323f96afa3c6142f119d9a20faf",
     "hermes/george/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/orchestrator/push-protection-secret-fixtures.md": "f009dc9df3e98cbd2d98c2c9ca80fb1b7a4696ed7256b99dcf681430327d208f",
-    "hermes/orchestrator/.curator_state": "69c8d5179dd6176431bbf29a2ecc3bae05b9b8c56277bca22d3416fd33df235a",
+    "hermes/orchestrator/.curator_state": "479afba4ebaf40684fc58763cd168eed0ab8c9baf4cb4a0ea160485f9245a574",
     "hermes/orchestrator/second-opinion-on-design.md": "2d44e7e151dcda3368004d095a82602b3e8f6bb31cd3295b5b35580f1a5a7844",
     "hermes/orchestrator/.usage.json.lock": "3150a1d29186759b19270767cd67898740546e2c1a16d9d40af1b316e9897d01",
     "hermes/orchestrator/peer-review-before-merge.md": "cc0f3e91b7e87147b41f90b53feba490b4bc04f82a9e6a8570932c010d0fd793",
     "hermes/orchestrator/factory-code-audit.md": "61e985909459cfbd1fdd2debc24d7902d1de5443deeb52810ffb177f25e2e63e",
     "hermes/orchestrator/.bundled_manifest": "875163bb9db12a84fae7725f99208ed0902def168a03ff4eca9a507a1444ba8f",
-    "hermes/kai/.curator_state": "990fbcf1b47cd52bb919dc7a81ef1c72ca27f961d3bc24a4f6a8ef9d044b4407",
+    "hermes/kai/.curator_state": "eefb7c389df3ab82e3cc8d4f8edf331ac04ff97dd0e5e81ef15beb9584e0dd80",
     "hermes/kai/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "hermes/hdengine/.curator_state": "8f58ea99a56d902c82220904f1e72ad110ab7630dde6ee6937c84d35ff512193",
     "hermes/hdengine/.usage.json.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -4032,7 +4032,7 @@
     "hermes/fred/operations/cron-failure-remediation/SKILL.md": "39665f8e74009b32f1d3a77902f7e12c47a42e6a282cf02a24f5b4ce07b19003",
     "hermes/fred/operations/plan-reconciliation-after-peer-review/SKILL.md": "eb6f78967721a9ff8aa47728eea2ef806bf3889e794385d81dd1747f7f8d3285",
     "hermes/fred/operations/hermes-agent/SKILL.md": "30892e26cf5c57268c81092cd7629ae8e3eee215c99fe034a7098e12afb0f1c9",
-    "hermes/fred/operations/scheduled-journal-recaps/SKILL.md": "6559350b8318783ecb0558e4bf93cc80a02879bb3afff121918aacd086b82969",
+    "hermes/fred/operations/scheduled-journal-recaps/SKILL.md": "c92ce172f1e34d8437e9baf8a88da180880fa424cd86abe21fa1eb116ae78d29",
     "hermes/fred/operations/hybrid-attention-llm-quantization/SKILL.md": "8b0ee1a63f9c98d7f6b0f821552c3806f95988b65c89fdb748f4097ecf5138a2",
     "hermes/fred/operations/okf-documentation-ops/SKILL.md": "85abaace2f1f1ab8d558214265a3f813dec56e21eba30eadf050411696b57e00",
     "hermes/fred/operations/local-mcp-token-reauth/SKILL.md": "f1e49fe66b779ccd0064c31fd5f2c6ff5e2b1fc20d8574b8a2f46ebcd3ae1645",
@@ -4349,7 +4349,7 @@
     "hermes/fred/audits/pwp-website-audits/references/hde-stripe-test-mode-checkout-matrix-2026-07.md": "65aa685fcb62b50f9fee662e794d6d9b2a81f5bbea3aa9befecb138b642107da",
     "hermes/fred/agent-operations/gap-closure-discipline/SKILL.md": "a2eab64d6e178958f2b28313e510a338e5312ae7b7a2eb2ffdfec2757cc1c1c6",
     "hermes/fred/agent-operations/memory-skills-boundary-discipline/SKILL.md": "bc026026668d7c4bd3c87baa80a4095171d8ac4bfd0dccd7630818384b021972",
-    "hermes/fred/agent-operations/session-state-handoff/SKILL.md": "fde71458c3b46b001a8b2bd07206682c264e4a3943f56f300e285b723112fd04",
+    "hermes/fred/agent-operations/session-state-handoff/SKILL.md": "b531191055de16fd4db7d1a03a83a7cdbbf8fd5fc8f40fe807fe4b0888b7ead1",
     "hermes/fred/agent-operations/verifier-as-deliverable-discipline/SKILL.md": "c75ef56ba62a9b6537af8cd0afcfb51dd1f67324692533500f1394f52e1e7aaf",
     "hermes/fred/agent-operations/proactive-execution-discipline/SKILL.md": "5bddcfe4d3fe73fd42e2d2158916bf55b8e81cdbfc7db82b8f8f2a335e7a39f9",
     "hermes/fred/agent-operations/authorized-destructive-action-verification/SKILL.md": "bbacc19f04a0417752309541dde4acbcc8df724a7ed569629ba65c969a036b15",
@@ -4955,7 +4955,7 @@
     "hermes/orchestrator/operations/cron-failure-remediation/SKILL.md": "39665f8e74009b32f1d3a77902f7e12c47a42e6a282cf02a24f5b4ce07b19003",
     "hermes/orchestrator/operations/plan-reconciliation-after-peer-review/SKILL.md": "eb6f78967721a9ff8aa47728eea2ef806bf3889e794385d81dd1747f7f8d3285",
     "hermes/orchestrator/operations/hermes-agent/SKILL.md": "30892e26cf5c57268c81092cd7629ae8e3eee215c99fe034a7098e12afb0f1c9",
-    "hermes/orchestrator/operations/scheduled-journal-recaps/SKILL.md": "6559350b8318783ecb0558e4bf93cc80a02879bb3afff121918aacd086b82969",
+    "hermes/orchestrator/operations/scheduled-journal-recaps/SKILL.md": "c92ce172f1e34d8437e9baf8a88da180880fa424cd86abe21fa1eb116ae78d29",
     "hermes/orchestrator/operations/hybrid-attention-llm-quantization/SKILL.md": "8b0ee1a63f9c98d7f6b0f821552c3806f95988b65c89fdb748f4097ecf5138a2",
     "hermes/orchestrator/operations/okf-documentation-ops/SKILL.md": "85abaace2f1f1ab8d558214265a3f813dec56e21eba30eadf050411696b57e00",
     "hermes/orchestrator/operations/local-mcp-token-reauth/SKILL.md": "f1e49fe66b779ccd0064c31fd5f2c6ff5e2b1fc20d8574b8a2f46ebcd3ae1645",
@@ -5272,7 +5272,7 @@
     "hermes/orchestrator/audits/pwp-website-audits/references/hde-stripe-test-mode-checkout-matrix-2026-07.md": "65aa685fcb62b50f9fee662e794d6d9b2a81f5bbea3aa9befecb138b642107da",
     "hermes/orchestrator/agent-operations/gap-closure-discipline/SKILL.md": "a2eab64d6e178958f2b28313e510a338e5312ae7b7a2eb2ffdfec2757cc1c1c6",
     "hermes/orchestrator/agent-operations/memory-skills-boundary-discipline/SKILL.md": "bc026026668d7c4bd3c87baa80a4095171d8ac4bfd0dccd7630818384b021972",
-    "hermes/orchestrator/agent-operations/session-state-handoff/SKILL.md": "fde71458c3b46b001a8b2bd07206682c264e4a3943f56f300e285b723112fd04",
+    "hermes/orchestrator/agent-operations/session-state-handoff/SKILL.md": "b531191055de16fd4db7d1a03a83a7cdbbf8fd5fc8f40fe807fe4b0888b7ead1",
     "hermes/orchestrator/agent-operations/verifier-as-deliverable-discipline/SKILL.md": "c75ef56ba62a9b6537af8cd0afcfb51dd1f67324692533500f1394f52e1e7aaf",
     "hermes/orchestrator/agent-operations/proactive-execution-discipline/SKILL.md": "5bddcfe4d3fe73fd42e2d2158916bf55b8e81cdbfc7db82b8f8f2a335e7a39f9",
     "hermes/orchestrator/agent-operations/authorized-destructive-action-verification/SKILL.md": "bbacc19f04a0417752309541dde4acbcc8df724a7ed569629ba65c969a036b15",
@@ -5324,7 +5324,7 @@
     "hermes/kai/devops/hermes-profile-audit/SKILL.md": "be8fb712633a7fe745cc183c6c1e31ad85116a2231c4845ed9d320570ade57c5",
     "hermes/kai/devops/hermes-agent/SKILL.md": "df1b0187c51369a71c62dd61972052b0ebe305e72fae959175f1c3d6abb7cad8",
     "hermes/kai/devops/okf-mcp-hub/SKILL.md": "bc9df787679348c39d25f612cbb4ff81906e0036e55941e2eafa73461bebf557",
-    "hermes/kai/devops/hermes-profile-ops/SKILL.md": "04d90bf026e20fbc2230d71da2615a2972dfca0134a49524dbb4eebd2db7eec1",
+    "hermes/kai/devops/hermes-profile-ops/SKILL.md": "ee86e21626b5b822239a5a8d8675e114e4850e952c160886ab76bc27d3e59ac0",
     "hermes/kai/devops/llm-serving-benchmark/SKILL.md": "9c772b057e2e82f3de11afed817446572306d7375354719434b87020d62963c7",
     "hermes/kai/devops/agent-onboarding-workflow/SKILL.md": "71cc7f2bbc2dee40a02e2b3397b039ebd7581e7e7bde607829b38235e976ea3f",
     "hermes/kai/devops/swarm-journal-ops/SKILL.md": "0d858de08a09a2a2de3d2da92e69dadc09a636b83a0e17fa3e355088c242999c",
@@ -5347,6 +5347,7 @@
     "hermes/kai/devops/okf-mcp-hub/references/skill-drift-reconciliation-2026-08-20.md": "63d5dc90482bce84b1a2c919d6ccd1544ef289cf88ab5fbdf1fcc0c3de28fae9",
     "hermes/kai/devops/okf-mcp-hub/references/skill-hub-regen-cron-and-sandbox-verification.md": "7dc565ed14a8631f33b90078303fdaf597159bc28a7b010eab1fa4ddd06c1757",
     "hermes/kai/devops/hermes-profile-ops/references/sweep-2026-08-18.md": "ef98cd21032473fdf15ccd7218cbb34bad91941d40a49b263ea45687a1d69b97",
+    "hermes/kai/devops/hermes-profile-ops/references/vllm-prefill-system-message-400.md": "112dd28a26f419b582a9c63cae68ea253f342a931d4dffe4041f26c77cf421c0",
     "hermes/kai/devops/hermes-profile-ops/references/skill-symlink-loop-2026-08-20.md": "2ad2194591dd112dafbad81c60e2dbb6b8e4998b2504b94b3871c67160d6257a",
     "hermes/kai/devops/hermes-profile-ops/references/george-second-slot-parity-2026-08-22.md": "a6d2f052314256212ae2b6dd8dfca38b8816590762b72097ebceb57897a6bcc2",
     "hermes/kai/devops/hermes-profile-ops/references/orchestrator-silent-gateway-2026-08-19.md": "18b6007015d188c31667606ae37c58a066b5314d06a75531695d76e884a780a4",

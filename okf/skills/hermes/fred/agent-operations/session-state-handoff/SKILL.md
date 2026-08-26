@@ -74,7 +74,7 @@ Skippable: pure Q&A, lookups that returned no state-changing answer, single-grep
 | `written_by` | `agent_turn` / `cron_no_agent` / `manual_recovery` / `imported` |
 | `previous_handoff` | Absolute path to the file this replaced |
 | `current_state.one_line` | The single greeting sentence for the next session |
-| `current_state.energy_phase` | Producer's read on the human's working state |
+| `current_state.energy_phase` | Producer's read on the human's working state. **CLI-enforced enum (hit live 2026-08-26):** `blocked_on_human`, `fresh`, `idle`, `in_sprint`, `post_sprint_crash`, `recovery`. Any other value (e.g. "quiet") rejects the whole write with "handoff contract errors" |
 | `current_state.last_meaningful_turn_summary` | What actually moved state |
 | `current_state.mood_signal` | One-line energy/tone read |
 | `executed_since_last_handoff[]` | Concrete external-state changes with refs and evidence |

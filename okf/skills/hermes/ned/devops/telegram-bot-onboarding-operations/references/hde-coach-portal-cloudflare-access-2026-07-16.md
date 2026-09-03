@@ -93,3 +93,13 @@ Portal is now LIVE on the prod tunnel host, not staging-only:
 - `staging.humandesignengine.com/coach/dashboard` remains (nginx routes, no origin 403 gate there —
   staging parity fix can backport the `if` rules).
 - No new CF Access app was needed; the existing `api.humandesignengine.com` app covers the new paths.
+++ b/okf/skills/hermes/ned/devops/telegram-bot-onboarding-operations/references/hde-coach-portal-cloudflare-access-2026-07-16.md
+
+## 2026-08-25 Update — mobile-first rebuild + population/platform visibility (option A follow-on)
+- Dashboard (`landing/coach_dashboard.html`, served by orchestrator :8011) rebuilt **mobile-first, multi-view**:
+  - <900px: bottom tab bar (Clients / Population / Platform), stacked master-detail (list page → detail page, back button), safe-area insets, 44px+ tap targets.
+  - >=900px: left nav rail, 3-pane clients (list + 2-col dossier grid), tabular roster with column header.
+  - Auth unchanged: CF Access session + legacy-token fallback; `esc()` on all interpolated data (XSS-safe).
+- New backend endpoint **`GET /api/coach/population`** (orchestrator, same CF-Access/token gate as `/api/coach/clients`): returns `{stats, coaching, roster, generated_at}` — whole-customer-base KPIs (totals, by_subscription, by_access, premium, containers_by_status), coaching-platform KPIs (active_clients, never_expire, expiring_14d, suspended_clients, consented_pipeline), and a lightweight roster (identity + status only; **no journal/step content, no API keys**). Separate from `/api/coach/clients` so population/platform views can grow independently.
+- Verified with Playwright at 390x844 and 1280x800: zero horizontal overflow on every view; roster header desktop-only (`display:none` base, `grid` at min-width:900px); save button reachable (detail scroll, non-fixed tab bar).
+- Commit: `36319fd` on staging branch `ned/hde-phase4-paid-bot-onboarding-quality-2026-07-15` (also pushed 7 prior unpushed [Ned] commits). Note: staging `vm_orchestrator.py` had uncommitted Sanctuary-prompt/qwen hunks (not mine) — left in the worktree, only my hunks committed via `git apply --cached` selective staging.

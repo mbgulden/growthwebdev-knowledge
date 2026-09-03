@@ -74,3 +74,22 @@ Use a fresh `/tmp/hermes-verify-*.py` verifier or equivalent commands that prove
 - Do not treat portal auth as client consent. The coach APIs must still require active premium status, coach review consent, no revoked consent, and a non-expired coaching window before reading or mutating workspaces.
 - If the public URL returns plain `403`, the origin is protected but the Cloudflare Access app/policy probably does not match the path. Add/verify Access rules for `staging.humandesignengine.com/coach/*` and `staging.humandesignengine.com/api/coach/*`.
 - Keep the dashboard's legacy token prompt as fallback for local/internal troubleshooting; Cloudflare Access should be the first path for browser use.
+
+## Production promotion (2026-08-25, Michael approved "A")
+
+Portal is now LIVE on the prod tunnel host, not staging-only:
+
+- **URL:** `https://api.humandesignengine.com/coach/dashboard` (+ `/api/coach/*`), via nginx `:8091`
+  (cloudflared-hde tunnel target) -> orchestrator `:8011`.
+- **Gate 1 (edge):** the `api.humandesignengine.com` Cloudflare Access app already covers
+  all paths — unauthenticated requests 302 to `growthwebdev.cloudflareaccess.com/cdn-cgi/access/login`.
+- **Gate 2 (origin):** nginx locations carry the OKF 403 rule on missing
+  `cf_access_jwt_assertion` before proxying to `:8011` (policy-mismatch backstop).
+- **Auth:** orchestrator accepts CF Access emails `mbgulden@gmail.com` / `becca.gulden@gmail.com`
+  (case-normalized) or the legacy local token.
+- **De-publicized:** the dead apex `coach_dashboard.html` copies (CF Pages `public/` + `landing/`)
+  were replaced with redirect stubs pointing at the gated portal (PR #59, main @ fbcebb4).
+  `docs/becca-coaching.html` is marketing content — untouched.
+- `staging.humandesignengine.com/coach/dashboard` remains (nginx routes, no origin 403 gate there —
+  staging parity fix can backport the `if` rules).
+- No new CF Access app was needed; the existing `api.humandesignengine.com` app covers the new paths.

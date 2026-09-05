@@ -2,7 +2,8 @@
 
 - **Date:** 2026-08-26
 - **Author:** Kai (orchestrator, tourism + AOT lane)
-- **Status:** DIAGNOSIS COMPLETE + FIX VERIFIED (read-only + throwaway local branch) · EXECUTION BLOCKED BY PE LANE GUARD · awaiting in-lane landing by Fred (owner `*`) or Michael's direct approval
+- **Status:** ✅ RESOLVED (2026-09-05, Fred). Branch-drift unified + guard false-positive fixed. See "Resolution (2026-09-05)" at bottom.
+- **Original status (2026-08-26):** DIAGNOSIS COMPLETE + FIX VERIFIED (read-only + throwaway local branch) · EXECUTION BLOCKED BY PE LANE GUARD · awaiting in-lane landing by Fred (owner `*`) or Michael's direct approval
 - **Repo:** `mbgulden/active-oahu-tours-mirror`
 - **Watchdog:** `aot_governance_watchdog` (Kai cron `ce2574aadd6c`) — `workspace: pass`, `branch-drift: fail`
 
@@ -117,3 +118,48 @@ Fred (or Michael directly) runs the 4-line command block above on any up-to-date
 `active-oahu-tours-mirror` worktree, verifies the tree hash, fast-forwards `staging`,
 and the watchdog goes green on its next tick. Close GRO-521/GRO-586 as superseded
 (reference `a889bd510`).
+
+---
+
+## Resolution (2026-09-05, Fred)
+
+Kai's 4-line block had **already been executed** when this landed in Fred's queue:
+`origin/staging` already carried the unifying merge `277b642de` (exact message from
+this audit) plus `32ee9e3f2` (nav-fix.css v10→v16 marker, GRO-4909). The stale Lanikai
+301s were already gone from staging. So the original "run the block" step was a no-op;
+the remaining work was different from the 2026-08-26 audit assumed.
+
+### What actually remained, and what Fred did
+
+1. **`live-production` was failing** — production's homepage already served
+   `nav-fix.css?v=16`, but `origin/main`'s `.prismatic-web-governance.json` still said
+   `v=10`. Merged **PR #133** (`staging → main`, the 1-line v10→v16 config bump) →
+   `live-production: pass`. (Direct push to `main` was blocked by the pre-push guard's
+   manual-only rule; merging the open PR is the sanctioned path.)
+2. **`branch-drift` was a guard false-positive.** The check failed on raw ahead/behind
+   commit counts even when the trees were identical — contradicting its own guidance
+   ("history-only ahead/behind is acceptable"). The 1-commit squash-merge history gap
+   from #133 tripped it. Fixed the guard
+   (`scripts/prismatic_web_governance.py`): the `staging_behind > max` fail is now gated
+   on `not same_tree`; real tree-level divergence is still caught. Landed as
+   **PR #134** (merged).
+3. **Re-unified staging** after #134 changed the guard file on main: merged `origin/main`
+   into `staging` (zero conflicts, resulting staging tree == production tree exactly).
+
+### Final watchdog state (verified live, 2026-09-05)
+
+```
+✅ workspace:       pass
+✅ branch-drift:    pass
+✅ live-production: pass
+🟡 open-prs:        warn  (pre-existing stale PR #131, astro-homepage, 33.9d — Kai lane)
+🟡 stale-branches:  warn  (12 old audit/agy-GRO-* branches — pre-existing, out of scope)
+```
+
+`branch-drift` and `live-production` are both green. The two remaining `warn`s are
+pre-existing and unrelated to this audit (stale content PR + old audit branches) and are
+left for the relevant lane owners.
+
+**GRO-521 / GRO-586:** superseded by `a889bd510` (Lanikai kept live on production); the
+staging 301s they introduced are gone. Close as superseded (owner: Michael/Fred —
+Linear close is a manual step, not auto-executed here).

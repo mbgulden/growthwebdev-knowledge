@@ -49,6 +49,7 @@ when first encountering the integration.
 | **Local llama.cpp server (George)** | [`./llama-cpp-george-local-server.md`](./llama-cpp-george-local-server.md) | george | ⚠️ Stopped 2026-08-22; unit disabled 2026-08-23 (superseded by .232:8080) |
 | **Ned Qwen3.8-27B UD-Q5_K_M on .230 (2-GPU split)** | [`./vllm-ned-q5-gpu23.md`](./vllm-ned-q5-gpu23.md) | kai (lane waiver, PR #38 precedent) | ✅ Active (verified 2026-08-22) |
 | Fred vLLM Qwen3.8-27B AWQ-4bit (TP2, MTP K=1, fp8 KV, benchmarks) | [`./vllm-fred-awq-qwen38-27b.md`](./vllm-fred-awq-qwen38-27b.md) | kai | ✅ Current (2026-08-24) |
+| **KPI dashboard (PE-KPI-FUNNEL)** | [`./kpi-dashboard-pec-kpi-funnel.md`](./kpi-dashboard-pec-kpi-funnel.md) | ned | 🟡 Spec landed, renderer pending (GRO-4919, doc 2026-09-05) |
 
 ## Format
 

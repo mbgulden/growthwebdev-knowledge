@@ -87,8 +87,22 @@ All three lanes on 192.168.1.0/24 are now authenticated (as of 2026-09-06).
 - **No multi-key on vLLM `--api-key`** (single value, last-wins). Consequence:
   the HDE guest-bot template
   (`hd-platform-staging/scripts/vm_orchestrator.py`, `api_key: "llama-local"`
-  → `:8000`) is now **stale** — any future guest deploy would 401 until that
-  template is updated to use the real key (HDE repo, separate lane).
+  → `:8000`) was **stale** — any future guest deploy would 401 until that
+  template was updated to use the real key (HDE repo, separate lane).
+
+  ✅ **RESOLVED (GRO-4929, 2026-09-06, Fred).** The template is now env-driven
+  (never a literal), per this standard:
+  - `scripts/vm_orchestrator.py` dynamic config + `.env` templates →
+    `api_key_env: GUEST_VLLM_API_KEY`; the guest `.env` line resolves
+    `GUEST_VLLM_API_KEY` from `VLLM_FRED_API_KEY` (override allowed).
+  - `scripts/guest_hermes_template/docker-compose.guest.yml` → passes
+    `VLLM_API_KEY` + `GUEST_VLLM_API_KEY` into the guest container.
+  - `scripts/guest_hermes_template/config.yaml` (static fallback template) →
+    `api_key_env: GUEST_VLLM_API_KEY`.
+  Landed as `hd-platform` PR #60 (squash-merged to the HDE phase4 line).
+  Verified: no `llama-local` literal remains; the key resolved from
+  `VLLM_FRED_API_KEY` returns **200** on `:8000/v1/models` (lists
+  `local-qwen-27b-q8-fred`) while the old `llama-local` 401s.
 - **Client keying does NOT require a gateway restart**: the gateway installs a
   fresh per-turn secret scope (`gateway/run.py:2241` →
   `build_profile_secret_scope` → `load_env_file(<home>/.env)`), so the key is

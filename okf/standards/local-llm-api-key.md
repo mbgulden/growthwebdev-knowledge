@@ -3,12 +3,12 @@ type: Standard
 title: Local LLM Server API Key Pattern (llama.cpp / vLLM)
 description: Reusable pattern for authenticating local OpenAI-compatible model servers (VM232 Kai, VM230 vLLM) with per-profile API keys, so Hermes profiles never call model servers unauthenticated.
 resource: /home/ubuntu/work/growthwebdev-knowledge/okf/standards/local-llm-api-key.md
-tags: [standards, local-llm, api-key, llama.cpp, vLLM, vm232, kai, infrastructure]
-timestamp: 2026-08-21T22:30:00Z
-linear_issue: null
+tags: [standards, local-llm, api-key, llama.cpp, vLLM, vm232, vm230, kai, infrastructure]
+timestamp: 2026-09-06T00:28:00Z
+linear_issue: GRO-4920
 git_repo: growthwebdev-knowledge
 git_path: okf/standards/local-llm-api-key.md
-last_verified: 2026-08-21
+last_verified: 2026-09-06
 verified_by: Ned
 status: current
 ---
@@ -30,7 +30,16 @@ key pattern so we don't re-invent it per model/VM/profile.
   `--api-key-file FNAME`.)
   - `/v1/models` is NOT gated in this build — **completions are**. Do not treat
     a 200 on `/v1/models` without a key as "auth is off".
-- **vLLM**: `API_KEY=*** env var on the process.
+- **vLLM**: `--api-key "<key>"` CLI flag on the serve command (vLLM 0.27.1).
+  Key is stored in a `0600` file on the model host (e.g.
+  `/opt/vllm_bin/.api_keys_<name>`) and the start script reads it at launch
+  via `"$(cat /opt/vllm_bin/.api_keys_<name>)"`.
+  **`--api-key` is single-value, last-wins — NO multi-key / no comma-split**
+  (unlike llama.cpp's key file). `api_key` is typed `list[str]` in
+  `cli_args.py:283` but the argparse action is `_StoreAction` (a bare string),
+  so only ONE key is ever active. `/v1/*` **is** auth-gated (see
+  `GUARDED_PREFIX = (/v1, /v2, /inference, /cohere)`); `/health` and
+  `/metrics` are NOT gated.
 
 ### 2. Client side (Hermes profile)
 
@@ -68,9 +77,36 @@ key pattern so we don't re-invent it per model/VM/profile.
 | Host | Service | Port | Model | Server key | Client profile / env var |
 |---|---|---|---|---|---|
 | 192.168.1.232 (VM232) | `llama-kai.service` | 8080 | qwen3.8-27b (Q4_K_M + MTP) | `/opt/llama_bin/.api_keys` | kai / `KAI_LLM_API_KEY` |
-| 192.168.1.230 (VM230) | vLLM | 8000 | local-qwen-27b-q8-fred + q4 | ⚠️ not yet keyed | (multiple profiles) |
+| 192.168.1.230 (VM230) | `vllm-fred.service` | 8000 | local-qwen-27b-q8-fred + 5 more | `/opt/vllm_bin/.api_keys_fred` (0600) | all 11 profiles / `VLLM_FRED_API_KEY` |
+| 192.168.1.230 (VM230) | `vllm-ned.service` | 8003 | Qwen3.8-27B-UD-Q5_K_M (ned main) | `/opt/vllm_bin/.api_keys_ned` (0600) | all 11 profiles / `VLLM_NED_API_KEY` |
 
-VM230 vLLM is still unauthenticated — next target for this pattern.
+All three lanes on 192.168.1.0/24 are now authenticated (as of 2026-09-06).
+
+## vLLM-specific operational notes (2026-09-06 rollout)
+
+- **No multi-key on vLLM `--api-key`** (single value, last-wins). Consequence:
+  the HDE guest-bot template
+  (`hd-platform-staging/scripts/vm_orchestrator.py`, `api_key: "llama-local"`
+  → `:8000`) is now **stale** — any future guest deploy would 401 until that
+  template is updated to use the real key (HDE repo, separate lane).
+- **Client keying does NOT require a gateway restart**: the gateway installs a
+  fresh per-turn secret scope (`gateway/run.py:2241` →
+  `build_profile_secret_scope` → `load_env_file(<home>/.env)`), so the key is
+  re-read from disk **every turn**. Verified live: a 9-day-old gateway whose
+  process env has zero `VLLM_*` vars resolved the real key and authenticated
+  against the freshly-keyed `:8003` with no gateway restart (only the vLLM
+  process restarted). This supersedes the older "restart the profile gateway
+  after changing the provider block" guidance for vLLM clients — keep that
+  guidance for llama.cpp clients (kai), whose path is not scope-verified.
+- **`:8003` is the ned main model** (that session runs on it). Keying it is
+  self-referential but safe because of the per-turn scope: restart only the
+  **remote vLLM** (`vllm-ned.service` on 192.168.1.230), never the local
+  `hermes-gateway-ned`. Sequence: an unkeyed server ignores Bearer, so update
+  all clients first, then key the server — zero 401 window.
+- **`systemd-run` detached jobs run as root** and root has no ssh key to
+  192.168.1.230 (only ubuntu does). For one-shot remote work, run inline from
+  the in-gateway terminal (ubuntu) instead of a `systemd-run` unit, or copy the
+  ubuntu key to root.
 
 ## Key rotation
 

@@ -57,6 +57,16 @@ failure time). A later identical flow works — it's intermittent.
        session = stripe.checkout.Session.create(timeout=20, **session_kwargs)
    ```
 
+   ⚠️ **CORRECTION (2026-08-27): the `timeout=20` kwarg was a regression.**
+   stripe-python **15.3.1** rejects a top-level `timeout` on `.create()` with
+   Stripe 400 "Received unknown parameter: timeout", which the handler surfaced
+   as HTTP 502 — **every** checkout attempt died (this masked the CF proxy
+   restore as still-broken). The 20s cap belongs in the CF proxy (layer 2's
+   AbortController) and the frontend (layer 1), NOT in the SDK call:
+   `session = stripe.checkout.Session.create(**session_kwargs)`. If a checkout
+   502s with "unknown parameter" in the detail body, check the installed stripe
+   version first (`importlib.metadata.version('stripe')`).
+
 ## Deploy + topology (where the time went)
 
 - `humandesignengine.com` = CF Pages project **`hd-platform`** (custom domain,

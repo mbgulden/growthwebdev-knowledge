@@ -16,6 +16,11 @@ related_skills:
 
 The `okf` MCP server exposes the **growthwebdev-knowledge** OKF hub (`mbgulden/growthwebdev-knowledge`) as 7 read-mostly tools. It is the canonical way to find and cite standards, decisions, and operations docs instead of grepping the checkout by hand.
 
+## Branches & lanes (Prismatic Engine enforces on push)
+- Branch prefix map: `feature/`→fred, `content/`→**kai**, `research/`→agy, `jules/`→jules, `ned/`→ned, `george/`→george. Kai's branches are `content/...` — NOT `kai/...`.
+- Kai's owned dirs: `okf/standards/`, `okf/hubs/`, `okf/audits/`, `okf/projects/*/index.md`. `okf/integrations/` is **Jules's lane** — a push touching it is rejected ("outside kai's lane").
+- If a push is rejected, read the engine's full error message: it names the exact prefix/lane violation. Fix pattern: `git branch -m <current> content/<topic>`, move any out-of-lane files into an owned dir (and update frontmatter `resource:` + `git_path:` to the new path), `git restore --staged` + checkout any index file owned by another agent that you touched, re-commit, push.
+
 ## Environment map (verified 2026-08-19)
 
 | Thing | Value |

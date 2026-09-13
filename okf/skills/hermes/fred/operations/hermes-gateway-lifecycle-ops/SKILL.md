@@ -64,6 +64,44 @@ p=$$; while [ "$p" != "1" ] && [ -n "$p" ]; do ps -o pid,ppid,args -p "$p" 2>/de
 - **Cross-profile discipline:** never edit another profile's units/skills without explicit direction (2026-08-22: kai's unit flagged for 90s drain → surfaced to Kai, not fixed by Fred).
 - **Launch the emergency stopgap bare:** a launcher script with a trailing `sleep` + verification in the same command hits the 180s terminal timeout. Launch, then verify in a separate call.
 
+## Decommissioning NON-gateway user services (bots, daemons) — in-session is allowed
+The in-gateway guard only covers *Hermes gateway* lifecycle (the regex targets `hermes` units). Plain user-level services (Telegram bots, daemons, the `next-step-*` family) can be stopped/removed from inside any session without tripping the guard: `sudo systemctl stop <u> && sudo systemctl disable <u>` → archive the unit files (copy to a dated `decommissioned/` dir) → `sudo rm /etc/systemd/system/<u>.service` → `sudo systemctl daemon-reload` → verify `systemctl is-active/is-enabled` both inactive/disabled, no unit files, 0 processes. **Scope audit before you call it done (2026-09-13 Becca case):** a bot repo's directory can host MULTIPLE running identities — check `ps aux | grep <dir>` and `systemctl list-units | grep <name>` for every unit referencing that WorkingDirectory. The Becca dir ran TWO units (`becca-sage`, `next-step-becca`) AND a third process lived in a *different* repo (`next-step` Hermes profile gateway, separate bot) — decommissioning "the Becca bot" meant exactly the two units, and the sibling gateway was correctly left running. Named-scope ("remove X's journal") ≠ whole-identity teardown: do exactly the named scope, surface the remaining running artifacts explicitly, and ask before touching anything beyond the named scope.
+
+## Respawn storm: two systemd scopes both own the same gateway
+
+Symptom: `errors.log` fills with `Another gateway instance is already running (PID …)` at a regular interval (every 5–30s), + `Gateway (re)started N times in 120s — backing off to break a respawn storm`. The legit gateway (PID 1 parent, system unit) is healthy; a SECOND gateway process keeps spawning and colliding.
+
+**Root cause (2026-09-13, 553 collisions):** a **user-level systemd unit** (`~/.config/systemd/user/hermes-orchestrator-gateway.service`, `Restart=on-failure`) AND a **system-level unit** (`/etc/systemd/system/hermes-orchestrator-gateway.service`) both existed for the same profile. The user unit was the spawner — its spawned process (PPID = `systemd --user` PID, NOT 1) collided with the system unit's gateway. `is-enabled` on the user unit reported `disabled` (stale state) while the unit was still **active** and respawning.
+
+**Diagnosis recipe (read-only):**
+```bash
+# 1. Count collisions + rate
+grep -c "Another gateway instance is already running" ~/.hermes/profiles/<p>/logs/errors.log
+grep "Another gateway instance" ~/.hermes/profiles/<p>/logs/errors.log | tail -5
+
+# 2. Find the duplicate process (PPID != 1)
+ps -eo pid,ppid,etime,cmd | grep "profile <p> gateway run" | grep -v grep | grep -v "<legit-pid>"
+# PPID = 1 → systemd system unit (legit). PPID = other → user unit or manual spawn.
+
+# 3. Check BOTH scopes for the unit
+systemctl is-enabled <unit> 2>&1          # system scope
+systemctl --user is-enabled <unit> 2>&1       # user scope
+systemctl --user is-active <unit> 2>&1        # user scope
+# 4. Find the user unit file
+find ~/.config/systemd/user -name "*<p>*gateway*" 2>/dev/null
+# 5. Check enablement symlinks (real 'enabled' truth, not is-enabled cache)
+ls ~/.config/systemd/user/*.wants/ | grep -i <unit>
+```
+
+**Fix:** stop + disable the **redundant** unit (the one whose spawned process has PPID ≠ 1). Keep the system unit (PPID=1, `--replace` in ExecStart).
+```bash
+systemctl --user stop <unit> && systemctl --user disable <unit>
+# Verify: no new 'already running' errors for 60s, no duplicate process.
+```
+If `mask` fails (unit file exists), the `disable` is sufficient if the enablement symlink is gone. If the unit respawns later, delete the unit file or replace with empty + mask.
+
+**Do NOT confuse this with the compression "no progress" cascade** (different skill, different symptom). The respawn storm is a **process management** bug; compression failures are a **model/aux** bug. They can coexist on the same box and both degrade it, but they have different causes and fixes.
+
 ## Verification (what "done" looks like)
 1. `systemctl is-enabled <unit>` → `enabled`; `systemctl is-active <unit>` → `active`.
 2. Exactly one `ps -eo pid,ppid,args` line for `gateway run` with PPID=1, and its PID == `systemctl show -p MainPID --value <unit>`.

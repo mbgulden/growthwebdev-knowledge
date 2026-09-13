@@ -45,6 +45,10 @@ Config values, token/credential files (mtime + expiry fields), daemon state, env
 
 Delete the scratch file from the write/patch round-trip. Note: the audit itself creates changed paths, so the verification detector may fire — follow `prismatic-evidence-handling` (materialized `hermes-verify-*` round-trip script if asked).
 
+## Support Files
+
+- `references/credential-store-audit-pattern.md` — class-level recipe for auditing `credentials.json` + `.env` after a credential rotation or when Michael says "recheck all credentials." Covers the dual-store pattern (credentials.json vs .env), live-test endpoints per service, 400/403 interpretation rules, vLLM dual-endpoint test, and the report shape.
+
 ## Pitfalls
 
 - **Never report from the tool list.** "I have 40 tools" is not a status. Any row without live output is "not probed," not ✅.

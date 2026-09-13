@@ -2,6 +2,8 @@
 
 The verified-good starting point for running Qwen3.8-27B under vLLM on **2× RTX 3090 (24 GiB each, PCIe, no NVLink)** is the community INT8 quant `lued/Qwen3.8-27B-INT8-W8A16-MTP`. This file captures what was learned in the August 2026 vLLM-research turn — the exact quant, the verified vLLM command line, and the vLLM-vs-llama.cpp trade-off analysis that decided **not** to migrate Kai/Ned.
 
+> **STATUS 2026-08-26 (supersedes the "Kai/Ned stay on llama.cpp" conclusion):** the AWQ gap this file identified was FILLED by a public checkpoint — `barrydeen/Qwen3.8-27B-AWQ-4bit` (vision tower bundled). Ned cutover 2026-08-24: `:8003` on .230 now runs vLLM with that AWQ-4bit model (GPU 2+3, TP2, 256K ctx, fp8 KV), zero consumer config changes via the legacy-GGUF-path-as-first-`--served-model-name` trick. Kai remains on llama.cpp at .232:8080 (single 3090, Q4 GGUF, `--parallel 2`). So the live split is **Fred=vLLM(INT8-MTP), Ned=vLLM(AWQ-4bit), Kai=llama.cpp(Q4)**. The lued INT8 recipe below stays the reference for the Fred instance and any new dual-GPU vLLM pod. See also `references/vllm-multi-profile-capacity-planning.md` for "how many profiles per engine" sizing.
+
 ## What "Lued" means
 
 `lued` is a HuggingFace user who published Qwen3.8-27B family quants. The naming convention is `<MODEL>-<FORMAT>-<SCOPE>`. The quoting of `W8A16` means **weights INT8, activations FP16/BF16** — the right shape for Ampere GPUs (RTX 3090, sm_86) where native FP8 tensor-core execution is unavailable. The `MTP` suffix means the multi-token-prediction head is preserved, which is what enables speculative decoding in vLLM.
@@ -171,15 +173,15 @@ The honest benchmark for our specific deployment (1 agent per GPU, single-stream
 
 **For our specific use case (1 agent per GPU, single-stream Telegram traffic from Hermes), the vLLM speedup is modest** (~2-3× single-stream) but **the real wins are speculative decoding (MTP) and PagedAttention KV management**. The 5×+ aggregate throughput gain only matters if multiple users hit the same pod — which is not our current architecture.
 
-## The single-GPU vLLM problem (why Kai/Ned should stay on llama.cpp)
+## The single-GPU vLLM problem (historical — why Kai/Ned STARTED on llama.cpp)
 
-Our 3-pod, 1-GPU-per-pod architecture doesn't fit any vLLM INT8 or FP8 quant for 27B on a single 24 GB GPU:
+Our 3-pod, 1-GPU-per-pod architecture didn't fit any vLLM INT8 or FP8 quant for 27B on a single 24 GB GPU:
 
 - **BF16** (Qwen/Qwen3.8-27B): 55.6 GB → needs TP=2 (kills 2-pod parallelism) or TP=4 (kills all parallelism)
 - **FP8** (Qwen/Qwen3.8-27B-FP8): 27 GB → needs driver ≥580 (we have 535); + Blackwell-tier GPU
 - **NVFP4** (Inferact/Qwen3.8-27B-NVFP4): 26.4 GB → needs **Blackwell** (sm_120), we have **Ampere** (sm_86)
 - **INT8** (lued): 31.6 GB → doesn't fit on 24 GB GPU
-- **AWQ-int4**: no public Qwen3.8-27B AWQ safetensors exists yet (community hasn't caught up)
+- **AWQ-int4** (RESOLVED 2026-08-24): a public AWQ-4bit safetensors checkpoint **now exists** — `barrydeen/Qwen3.8-27B-AWQ-4bit` (~15–18 GB, full VL checkpoint: 333 `model.visual.*` tensors verified before load, arch `Qwen3_5ForConditionalGeneration`). It's what runs Ned's vLLM on .230:8003. The DIY quant below is only needed if that checkpoint is ever deleted or a different recipe is wanted.
 
 **The only single-GPU vLLM path is to AWQ-quantize ourselves, which takes ~30 min via `llm-compressor`.**
 
@@ -221,7 +223,9 @@ vllm serve ./Qwen3.8-27B-W4A16-AWQ \
 
 Trade-off: AWQ-int4 = ~30 min build, no MTP, ~40-60 t/s single-stream.
 
-## The recommended split (best of both engines)
+## The recommended split (superseded 2026-08-24 — current live split below)
+
+Original (2026-08-16 research):
 
 | Pod | Engine | Quant | Why |
 |---|---|---|---|
@@ -229,7 +233,13 @@ Trade-off: AWQ-int4 = ~30 min build, no MTP, ~40-60 t/s single-stream.
 | **Kai** | llama.cpp | Q4_K_M GGUF | No vLLM quant fits single 24 GB GPU |
 | **Ned** | llama.cpp | Q4_K_M GGUF | No vLLM quant fits single 24 GB GPU |
 
-This gets Fred ≈ 2-3× speedup while leaving Kai/Ned on a proven stack. Don't migrate Kai/Ned until a single-GPU vLLM quant (AWQ or otherwise) becomes available.
+**Current (verified 2026-08-26):**
+
+| Pod | Engine | Quant | Why |
+|---|---|---|---|
+| **Fred** | vLLM :8000 | lued INT8 + MTP | 2 GPUs (0+1), 262k ctx |
+| **Ned** | vLLM :8003 | barrydeen AWQ-4bit (VL) | 2 GPUs (2+3, TP2), 256k ctx, vision bundled |
+| **Kai** | llama.cpp .232:8080 | Q4_K_M GGUF | single 3090, `--parallel 2` — now ALSO migratable to vLLM (barrydeen AWQ fits one 24 GB card at ~128K ctx) if Michael wants it |
 
 ## Things that will trip you up
 
@@ -277,13 +287,12 @@ nvidia-smi --query-gpu=index,memory.used --format=csv,noheader
 
 If predicted_per_second is < 20 t/s OR nvidia-smi shows ~256 MiB used, the deployment is on CPU, not GPU. Same diagnostic as llama.cpp Gotcha 17.
 
-## The honest answer for "is vLLM worth it?"
+## The honest answer for "is vLLM worth it?" (updated 2026-08-26)
 
-For our specific hardware (4× RTX 3090, 535 driver, no Blackwell), the vLLM migration is **only worth it for Fred** (the only pod large enough to fit the 31.6 GB INT8 model). Kai/Ned have no vLLM-compatible quant for single-GPU deployment yet.
+The 2026-08-16 answer ("only worth it for Fred; wait for a single-GPU AWQ quant") is **superseded**: the AWQ gap was filled by `barrydeen/Qwen3.8-27B-AWQ-4bit`, and Ned has been on vLLM since 2026-08-24. The trade-off logic still holds per-instance: vLLM's real wins are concurrency + PagedAttention KV + MTP speculative decoding; single-stream gains are modest. So:
 
-If the user wants faster overall:
-1. **First** — try MTP speculative decoding on the existing llama.cpp stack (smaller change, similar benefit)
-2. **Then** — migrate just Fred to vLLM with the lued INT8 recipe
-3. **Later** — wait for a single-GPU AWQ quant of Qwen3.8-27B, then migrate Kai/Ned too
+- **Already migrated:** Fred (:8000, INT8-MTP) and Ned (:8003, AWQ-4bit) — both vLLM.
+- **Still on llama.cpp:** Kai (.232:8080, Q4 GGUF, `--parallel 2`). Migrating Kai to vLLM is now technically viable (barrydeen AWQ fits one 24 GB card at ~128K ctx) — it's a Michael decision, not a blocker.
+- **New profiles wanting local Qwen:** point them at an existing endpoint first (see `references/vllm-multi-profile-capacity-planning.md`); stand up a new engine only when the active-profile count outgrows the pool.
 
-Don't try to migrate all 3 pods at once on day one.
+Don't try to migrate all pods at once — one cutover at a time with the zero-config served-model-name trick, vision round-trip, and real-traffic verification each time.

@@ -63,6 +63,13 @@ _Sell stuff, Active Oahu Business Options, Active Oahu Interview Scripts, Active
 
 New files/folders created inside shared folders are covered automatically; new top-level folders are NOT — re-run the enumeration query if the SA suddenly can't find something.
 
+## Activation executed 2026-08-26 (Fred) — but the share is STILL the blocker
+
+- Flip done: `node_wrapper.sh` gained `export GDRIVE_SA_KEY="${GDRIVE_SA_KEY-/home/ubuntu/.config/mcp-gdrive/gdrive-sa-key.json}"` (no-colon form — an explicit EMPTY env value still selects the OAuth fallback; a plain `VAR=path` hard-export broke the regression test, caught by the dual-direction e2e run).
+- No gateway restart needed: killed the orchestrator's MCP child (SIGTERM 1424756); Hermes auto-respawned it on the next `mcp_gdrive_*` call (new child 2841092, `GDRIVE_SA_KEY` confirmed in `/proc/<pid>/environ`).
+- Live proof: `drive_about` → SA identity; `mcp-stdio-e2e.mjs` ALL PASS in both directions (SA via wrapper; OAuth with `EXTRA_ENV_GDRIVE_SA_KEY=`).
+- **BUT: direct SA probe shows 0 top-level folders visible** (`files.list` folder-in-root query → 0; `drive_search` → 0). The 32-folder share listed under "Michael's remaining step" was NEVER executed. Until it is, the SA identity is useless for real work — the OAuth token (fresh 2026-08-26, ~Sep 2 expiry, watchdog armed) is still the only path with real Drive visibility. Revert recipe: set wrapper default back to unset (one line) + SIGTERM the MCP child.
+
 ## Safety net retained
 
 The 7-day watchdog cron (gdrive_token_watchdog.py) stays armed for the OAuth fallback path in case the SA key is ever rotated/revoked.

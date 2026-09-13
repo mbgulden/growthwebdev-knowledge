@@ -5,6 +5,15 @@ description: Generate personalized Human Design transit briefings from real HD e
 
 # Human Design Transit Briefings
 
+## Visual theme (MANDATORY for all HTML/PNG templates)
+**All screenshot-ready cards, one-pagers, and HTML templates use the humandesignengine.com theme: LIGHT cream + sage. Never the dark navy theme (retired 2026-08-28 at Michael's request).** Canonical palette (verified from `:root` in `hd-platform/dist/landing-index.html`; note the CSS var *names* are legacy/misleading — use the VALUES):
+- Page background: cream `#FDFBF7` / `#FAF7F0` / `#F6F1E7` (warm ivory gradient)
+- Cards: white `rgba(255,255,255,0.8)`, border `rgba(95,114,97,0.18)`, radius 16–20px, soft sage shadow `0 6px 22px rgba(95,114,97,.08)`
+- Primary accent ("sage", their `--gold` var): `#5F7261`; soft fill `rgba(95,114,97,0.14)`
+- Highlight accent (real gold, peak/emphasis banners only): `#d4af37` / `#e0c468`
+- Text: primary `#2F3631`, secondary `#4B514E`, muted `#8E9892`
+Render recipe: build standalone HTML at `/home/ubuntu/work/<name>.html`, then `chromium --headless=new --no-sandbox --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=880,<h> --screenshot=<name>.png file://<path>` (plain `--headless` fails with "Multiple targets"; dbus errors in output are harmless). Verify the PNG with vision_analyze before sending. Reference implementation: `/home/ubuntu/work/gwake-month-card.html` (G-Wake Month family card, Aug 2026).
+
 ## When to use
 Use this skill when asked to generate a daily/current Human Design transit briefing, especially for Becca or family-facing guidance. The brief must be grounded in computed transit data, not generic horoscope language.
 

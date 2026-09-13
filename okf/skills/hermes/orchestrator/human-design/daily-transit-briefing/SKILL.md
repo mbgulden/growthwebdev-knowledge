@@ -31,6 +31,8 @@ From that file:
 
 ## Transit Computation
 
+**Note**: All transit analysis is handled internally by this skill and does not rely on a separate 'human-design-guidance-systems' skill.
+
 Use the transit engine to get today's planetary positions:
 
 ```python
@@ -193,6 +195,7 @@ V2 rules:
 - If the transit engine fails, say so honestly — don't fake it
 - Family snippets should feel like a parent noticing their kid, not an astrologer
 - The quote must feel like it could ONLY be about that specific person today
+- **Delegation Trap**: When delivering the final briefing as text (e.g., for Telegram cron jobs), ensure the Python code for generating the final formatted output is executed directly via `execute_code`. Delegating the entire briefing generation task can result in a subagent returning its *plan* instead of the actual formatted *text*, which breaks the delivery contract. The Python code blocks provided within this skill are intended for direct execution, not for re-planning by a subagent.
 - **Keep output screenshot-length**: V1 ≤18 lines; V2 (shipped) 18–24 lines including signature — the vibe sections legitimately need more room. The hard rule is phone-readable in one scroll on Telegram, not a line count.
 - **The NEXT STEP is the most important section.** The user's directive: "Becca and I need to know 'so what!?' Like, the next step. What do I do about that?" If the briefing only describes what's happening without giving a concrete action, it failed. Actions must be specific and executable: "Text Michael the one word: 'spleen'" or "Say 'I'll think about it' to the first request" — not "practice presence" or "trust yourself."
 - **Load family birth data from `~/work/next-step-bot/family.json` FIRST**, before computing anything else. Don't grep the filesystem looking for it. On every profile tested in this deployment, plain `~` already resolves into the profile home, so the file lives at `os.path.expanduser("~/work/next-step-bot/family.json")` — do NOT build `~/.hermes/profiles/<profile>/home/work/...` paths: they nest the profile home inside itself and 404 (verified failure 2026-08-20). Use `os.path.expanduser()` and verify with `os.path.exists()` before `open()`. If the file doesn't exist, fail loudly rather than inventing birth data.

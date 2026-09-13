@@ -86,6 +86,7 @@ points: chart-intent with explicit name, and compare-mode `person_name` capture.
 - Ownership: files copied as `ubuntu` (mode 664) are readable by the container, but normalize to `1000:1000` to match workspace ownership. EACCES bites the moment the container rewrites anything in its workspace.
 - Don't rebuild images to ship code — the mount makes it moot.
 - Checking `/docs` immediately after restart reads stale state; the healthcheck has a 15s start period.
+- **New-guest provision + vLLM-key E2E proof lives in the sibling `hde-guest-fleet-ops`** (`scripts/gro4929_provision_e2e_test.py`): HMAC-sign `POST /api/orchestrate/provision` on the orchestrator (staging `:8011`), throwaway `user_id` 999, verify guest `.env` `GUEST_VLLM_API_KEY == VLLM_FRED_API_KEY`, real vLLM call 200 (no-key 401), then deprovision. Use it whenever a guest "401s" on local vLLM — it isolates whether the daemon env, the provisioned guest `.env`, or the engine key is the culprit.
 
 ## Verification (what "done" means)
 - `fleet_audit.py` exit 0: 12 records, 10 live / 2 decommissioned (40, 42), **0 live-drifted**

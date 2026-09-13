@@ -30,6 +30,7 @@ The 2026-07-31 case study: 2,060 `ned/*` refs across 32 repos under `/home/ubunt
 - Single repo, manageable branch count (under 50). Just look at `git branch --merged main` and `git branch --no-merged main`.
 - The user wants to delete branches. Capture the manifest first per `branch-deletion-approval`; this skill is for the inventory phase.
 - The user wants to triage stacked PRs. That's `github-pr-backlog-hygiene` or `prismatic-pr-batch-cleanup`. This skill is for branches without a corresponding PR (typical of agent-local branches that never opened a PR or whose PR was already merged).
+- A single "open the PR for branch X" request that turns out to be a **stale duplicate of already-merged work**. Run the subsumption check in section 7 BEFORE opening any PR — the 2026-09-07 case: "rebase + open the PR" on a 21-commit Phase 4 branch revealed the branch was a strict subset of main (its work had been merged as another agent's PR #410 plus follow-on refactors), and merging it would have *regressed* main. The correct deliverable was "no PR — here's the proof," not a PR.
 
 ## Required output
 
@@ -206,8 +207,33 @@ The inventory this skill produces is non-destructive by design. When the user wa
 
 The 2026-08-04 Ned branch triage workstream was the first end-to-end use of this combined pattern. See `linear-bulk-project-setup/references/2026-08-ned-branch-triage-linear-setup.md` for the full transcript (auth gotchas, the `blocks` direction mistake, the verification recipe).
 
+### 7. PRE-PR SUBSUMPTION CHECK (single branch: "rebase it / open the PR")
+
+Before rebasing or opening a PR for a single agent branch, prove whether the branch's work is **already in main**. A long-lived branch on an old base can be a stale duplicate: the work landed via a *different* branch/PR (often another agent's), and main has since refactored past it. The 2026-09-07 case: a "625 commits behind" PWP Phase 4 branch looked like a big pending merge; in fact `tip-files − main-files = 0` and the apparent 219-line CSS delta was a refactor artifact (main moved modal styles from a static file into a `render_modal_css()` function that appends at publish time). Steps that settled it:
+
+```bash
+TIP=<branch-sha>; KPI=<path-prefix>
+# 1. File-set relationship (the decisive test)
+git ls-tree -r --name-only $TIP -- $KPI | sort > /tmp/tip_files.txt
+git ls-tree -r --name-only origin/main -- $KPI | sort > /tmp/main_files.txt
+comm -23 /tmp/tip_files.txt /tmp/main_files.txt   # tip-only files (must be ~0 for subsumption)
+comm -13 /tmp/tip_files.txt /tmp/main_files.txt   # main-only files (main's refactors)
+# 2. Per-file content deltas: which files DIFFER, and which direction
+git diff --stat origin/main..$TIP -- $KPI          # main→tip: insertions=tip's additions
+# 3. Per-file last-modified date (main newer-or-equal everywhere ⇒ stale base)
+git log -1 --format=%ad --date=short origin/main -- <file>  # vs same on $TIP
+# 4. If a delta looks real, check whether MAIN refactored it elsewhere:
+#    search main for the same class names/keywords in OTHER files
+#    (the CSS "219 missing lines" were main's render_modal_css() output)
+# 5. Health of main's live code: detached worktree @ origin/main, run the suite
+git worktree add --detach /tmp/wt origin/main && pytest <dir>/tests -q
+```
+
+**Verdict rules:** tip-only files ≈ 0 + every shared file main-newer + every tip-only *content* delta explained by a main-side refactor ⇒ branch is subsumed. Do NOT open the PR; report the proof and propose the true next slice on a fresh branch off current main. If the delta is a real unmerged feature, narrow the PR to exactly those files (a superset check — `comm` on sorted line-sets per file — proves the replacement is safe before you build the branch).
+
 ## Pitfalls
 
+- **"625 commits behind, rebase and open a PR" is not a safe plan to execute blindly.** A branch that far behind main is exactly the shape that hides "the work already landed another way." Run section 7's subsumption check first. 2026-09-07: the check converted a would-be regressing PR into a 10-minute proof that main was healthy (219 tests) and the real next step was a fresh Phase 5 branch, not a 21-commit merge.
 - **Do not conflate "branch is merged" with "tip is reachable from main"** — these are different. The 2026-07-31 first cut overstated merged count by 3x because of this.
 - **Do not filter `.git` out of `dirnames` before checking.** Check first, then filter. Every Python `os.walk` needs this order to find `.git` directories.
 - **Do not execute deletions.** The `branch-deletion-approval` skill requires Michael's explicit sign-off plus a manifest. This skill is for the inventory phase only.

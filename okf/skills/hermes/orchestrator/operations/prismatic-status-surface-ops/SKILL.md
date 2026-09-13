@@ -12,6 +12,7 @@ Use this skill when Michael asks why the Prismatic Engine status page/dashboard 
 
 - `references/dashboard-durable-tab-integration-and-mobile-workspace-viewer.md` — durable dashboard tab/mobile viewer repair patterns and stale-guard proof shape.
 - `references/pr-stack-retarget-and-runtime-deploy.md` — stacked PR retargeting after a foundation merge, CLI direct-run regression pattern, and runtime deploy proof for Prismatic gateway changes.
+- `references/node-agent-registry-staleness-audit.md` — node/agent registry staleness audit pattern: fetch `/api/agents` from port 9000, classify Profile vs Dynamic Registration staleness, cross-check `tailscale status`, and report in three tiers (healthy / stale-dynamic / active work) without alarming on historical stale registrations.
 
 ## Principles
 

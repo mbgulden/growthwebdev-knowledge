@@ -2,6 +2,8 @@
 
 This document outlines key considerations and lessons learned when interacting with the Cloudflare API, particularly regarding authentication, API token management, and specific API endpoint behaviors.
 
+> **Related:** [cloudflare-access-email-policies.md](cloudflare-access-email-policies.md) — 2026-08-28 workflow for granting/revoking email-based Cloudflare Access on prismatic.growthwebdev.com (growthweb-account app discovery, legacy X-Auth-Key probing, dedicated-policy creation + verification, email case-safety).
+
 ## 1. Global API Key vs. API Token
 
 *   **Global API Key (`X-Auth-Key`):** This is a high-privilege key associated with your Cloudflare account email (`X-Auth-Email`). It grants broad access and is generally **not recommended for programmatic access** to specific APIs (like GraphQL) due to its wide scope.

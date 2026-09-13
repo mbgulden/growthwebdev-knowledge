@@ -26,6 +26,7 @@ import datetime as _dt
 import json
 import os
 import shutil
+import subprocess
 import sys
 import tempfile
 from pathlib import Path
@@ -77,7 +78,14 @@ def _build_prefill_messages(one_line: str, profile: str) -> list[dict[str, str]]
         return []
     return [
         {
-            "role": "system",
+            # vLLM accepts exactly one system message, at position 0. Hermes injects
+            # prefill right after the real system prompt (conversation_loop.py ~842),
+            # so a "system" role here produces a dual-system payload → HTTP 400
+            # "System message must be at the beginning" → silent fallback to the
+            # configured cloud model. Prefill is few-shot priming; "user" role is
+            # accepted by all backends. See Kai's reference:
+            # profiles/kai/skills/devops/hermes-profile-ops/references/vllm-prefill-system-message-400.md
+            "role": "user",
             "content": (
                 f"[session-handoff for profile '{profile}'] "
                 f"The previous session left this greeting for the user: \"{one_line}\". "

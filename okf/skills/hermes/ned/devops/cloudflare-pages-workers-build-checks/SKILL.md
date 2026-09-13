@@ -42,6 +42,8 @@ subprocess.run(['npx', 'wrangler', 'pages', 'deploy', 'dist',
 
 Diagnose the redaction shape with `node -e "console.log(process.env.CLOUDFLARE_API_TOKEN.length)"` after an inline assignment — if it prints `3`, the shell layer ate it. Also redact `cfut_…` / token-shaped strings out of any logged wrangler output before reporting. See `references/2026-08-hde-prod-deploy-token-env-pitfall.md`.
 
+**2026-09 correction — the in-process env fix no longer works on this box.** Wrangler `6111 Invalid format for Authorization header` persists even with a clean `env -i` + explicit `CLOUDFLARE_API_TOKEN` (the valid Bearer token) across **both** wrangler 4.x and 3.114, while the *same* token verifies fine via curl Bearer (`/client/v4/user/tokens/verify` → 200 "valid and active"). This is a tool-side auth quirk, not a bad credential — **stop re-tuning wrangler auth.** The two reliable prod-ship paths are: (a) **direct Pages upload API** (curl/urllib, Bearer) — assets only, `functions/` do NOT run (see the asset-only section above); or (b) **merge into `main` via the git build pipeline** — bundles `functions/`. For any prod change that needs `functions/`, use (b) and stop fighting wrangler.
+
 ## Preview vs production: `--branch` decides the environment
 
 `wrangler pages deploy` picks the **environment** from the current git branch when you
@@ -60,6 +62,36 @@ no-op for production that looks like a successful deploy ("Deployment complete!"
   `?cache-bust=` query params or "the deploy succeeded" as proof the custom domain
   picked it up. See `references/2026-08-hde-prod-deploy-token-env-pitfall.md` (deploy
   record) and the Stripe skill's `references/2026-08-hde-stuck-redirecting-checkout.md`.
+
+## Asset-only `dist/` uploads do NOT run `functions/` (verified 2026-08-27)
+
+An ad-hoc Cloudflare Pages deploy that uploads only the static `dist/` bundle —
+via the Pages upload API or `wrangler pages deploy dist` — produces a deployment
+where **`functions/` are not bundled and do not run**. Symptom: every `/api/*`
+route returns `405` (or homepage HTML via the Astro unknown-route fallback), and a
+same-origin `fetch('/api/...')` in the page silently hits the wrong backend. The
+deploy "succeeds" and the pages render, so it looks fine until an API call 405s.
+
+To actually ship Pages `functions/` to production, the deployment must come from a
+**full git build pipeline** (the production branch, `main`, build) — not an ad-hoc
+asset upload.
+
+- **Reliable path (verified 2026-08-27, HDE sanctuary-demo + checkout functions
+  restore):** put the `functions/` files + the page on a clean `ned/` branch, open
+  a PR, and **merge into `main`** so the CF Pages production pipeline rebuilds with
+  `functions/` bundled. Then verify via the CF API that the newest `production`
+  deployment is the merge, and that `POST /api/...` on the custom domain now
+  returns real JSON/200 — not 405/homepage-HTML.
+- **Do not** treat an asset-only upload (even with `--branch=main`) as proof the
+  functions are live. A `POST /api/*` that 405s on the custom domain is the tell
+  that functions were never bundled.
+- **When a self-contained static page needs a backend but the prod build has no
+  `functions/`,** point its `fetch()` at the **absolute API subdomain** (HDE:
+  `https://api.humandesignengine.com/api/...`) instead of relying on same-origin
+  proxying. The backend must have CORS `allow_origins=["*"]` (or the specific
+  origin) for the cross-origin preflight to pass.
+
+See `references/2026-08-hde-sanctuary-demo-functions-restore.md`.
 
 ## `mergeStateStatus: UNSTABLE` on a fresh PR is NOT a failure (verified 2026-08-21)
 

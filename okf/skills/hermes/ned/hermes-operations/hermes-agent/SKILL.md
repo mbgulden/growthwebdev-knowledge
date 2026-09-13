@@ -11,6 +11,14 @@ Load this skill before changing or diagnosing Hermes Agent itself. Current docum
 
 ## Core rules
 
+- **Cron Job Script Execution (`no_agent=True`):** When using `cronjob` with `no_agent=True`, ensure scripts are located in `~/.hermes/scripts/` and referenced by filename only. Thoroughly test the script for syntax errors and correct execution before scheduling, as the cron system will execute it directly without LLM interpretation. For debugging, temporarily remove output redirection and add `set -xe` to the script to trace execution.
+- **Gateway Restart Safety:** An agent cannot `sudo systemctl restart` or `stop` its own gateway process from within its own session due to a safety guard. Such actions must be performed from an external context (e.g., another session or a detached cron job).
+## Core rules
+
+- **Cron Job Script Execution (`no_agent=True`):** When using `cronjob` with `no_agent=True`, ensure scripts are located in `~/.hermes/scripts/` and referenced by filename only. Thoroughly test the script for syntax errors and correct execution before scheduling, as the cron system will execute it directly without LLM interpretation. For debugging, temporarily remove output redirection and add `set -xe` to the script to trace execution.
+- **Gateway Restart Safety:** An agent cannot `sudo systemctl restart` or `stop` its own gateway process from within its own session due to a safety guard. Such actions must be performed from an external context (e.g., another session or a detached cron job).
+- **Python `ModuleNotFoundError` in Systemd Services:** When a systemd service running a Python script fails with `ModuleNotFoundError`, especially when the script runs fine manually, suspect differences in the Python environment or `sys.path`. If `pip install` fails for the module, it might be a local project. Identify the local path of the module (e.g., using `find`) and install it into the service's virtual environment using `pip install <path_to_module>`.
+
 1. Identify the exact active profile and profile root before reading or writing.
 2. Use `hermes --help` and subcommand help instead of inventing commands.
 3. Treat config, active session state, process state, provider auth, and platform connectivity as separate layers.
@@ -88,7 +96,7 @@ Healthy durable units should use a profile-specific service, `Restart=always`, `
 
 ### Restart safety
 
-Hermes may block `systemctl stop/restart` from inside a gateway because termination can propagate to the command. Respect that guard.
+Hermes may block `systemctl stop/restart` from inside a gateway because termination can propagate to the command. Respect that guard. This means you cannot directly use `sudo systemctl stop/restart <gateway_service>` for the *current* running gateway from within an agent session. For such operations, schedule a detached cron job or execute from a separate shell outside the running gateway process.
 
 For a different target profile, use its exact systemd `MainPID`, signal only that PID, wait for the old PID to exit, and let systemd replace it. For service migrations, execute the migration from a detached transient systemd unit so it is outside the current gateway cgroup.
 
@@ -134,6 +142,10 @@ CLI values such as `'[]'` or `'null'` may become literal strings. After structur
 Use script-only/no-agent cron for deterministic watchdogs. Healthy stdout must be empty; non-empty stdout should be an actionable alert. Direct inference checks should be rate-limited inside the script rather than executed every short tick.
 
 Verify newly created jobs with an immediate scheduler run and inspect `last_status`/delivery errors.
+
+### Pitfall: Script path and execution with `no_agent=True`
+When using `cronjob(no_agent=True)`, the `script` parameter expects a simple filename (e.g., `my_script.sh`) that resides directly under `~/.hermes/scripts/`. Do not embed the shebang (e.g., `#!/bin/bash`) as part of the filename or provide an absolute path with the interpreter (e.g., `/bin/bash /tmp/my_script.sh`). This will lead to execution errors where the system attempts to resolve the shebang or absolute path as part of the script's *name* rather than its content or execution method. Ensure scripts are properly located and referenced by filename.
+
 
 ## Skills and plugins
 

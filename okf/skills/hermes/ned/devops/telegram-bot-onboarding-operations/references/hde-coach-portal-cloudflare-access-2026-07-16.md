@@ -93,7 +93,6 @@ Portal is now LIVE on the prod tunnel host, not staging-only:
 - `staging.humandesignengine.com/coach/dashboard` remains (nginx routes, no origin 403 gate there —
   staging parity fix can backport the `if` rules).
 - No new CF Access app was needed; the existing `api.humandesignengine.com` app covers the new paths.
-++ b/okf/skills/hermes/ned/devops/telegram-bot-onboarding-operations/references/hde-coach-portal-cloudflare-access-2026-07-16.md
 
 ## 2026-08-25 Update — mobile-first rebuild + population/platform visibility (option A follow-on)
 - Dashboard (`landing/coach_dashboard.html`, served by orchestrator :8011) rebuilt **mobile-first, multi-view**:

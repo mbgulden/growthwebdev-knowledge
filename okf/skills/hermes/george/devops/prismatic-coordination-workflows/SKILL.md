@@ -6,6 +6,7 @@ description: Prismatic gates/proofs without overclaiming.
 # Prismatic Coordination Workflows
 
 ## Refs
+- `references/live-reaudit-of-handoff-claims.md` — live re-audit of handoff claims vs current git state: merged claims, dead-ref escalation, dirty-count drift, payload-split handoff updates.
 - `references/discovery-precontract-ownership-corrections.md` — discovery/precontract corrections.
 - `references/receipt-transport-discovery-precontracts.md` — prove deployed routes/outboxes; no shortcuts.
 - `references/registry-new-project-sync.md` — new-project registry sync: receipt IDs, atomic write, no lane-state clobber.
@@ -18,10 +19,11 @@ description: Prismatic gates/proofs without overclaiming.
 - `references/durable-idempotency-preimage-precontracts.md` — preimage bytes/schema.
 - `references/exact-pr-head-vs-tree-equivalent-review.md` — session-derived pattern for when a repair/integration branch has the same tree as an open PR: use tree equality as supporting evidence, but require an independent `CLEAN` on the exact PR head before merge.
 - `references/provider-neutral-receipt-validator-review.md` — session-derived pattern for exact-head receipt-validator review, stale producer-proof exclusion, digest/optional-command adversarial checks, and same-gate repair discipline.
-- `references/better-than-north-star-autonomy-and-review-races.md` — session-derived pattern for Michael’s “keep going/YOLO” autonomy signal, durable executor cadence, duplicate read-only review reconciliation, and read-only next-slice preload without successor admission.
+- `references/better-than-north-star-autonomy-and-review-races.md` — Michael’s “keep going/YOLO” autonomy signal, duplicate read-only review reconciliation, read-only next-slice preload.
 - `references/adversarial-timeout-review-and-same-task-repair.md` — session-derived pattern for adversarial timeout/streaming bypass reviews, same-task repair dispatch, and marking older reviews as superseded-head-only.
 - `references/descriptor-leak-review-and-repair-gates.md` — session-derived pattern for descriptor ownership/cleanup reviews, deterministic `/proc/self/fd` leak probes, and same-task repair dispatch when authority descriptors leak on failure paths.
-- `references/live-controller-reconciliation-and-contract-completeness.md` — session-derived pattern for reconciling queue/control/handoff digest churn under a live ordered executor, preserving dual read-only exact-head reviews, and checking frozen repair contracts for explicit negative regressions before review.
+- `references/live-controller-reconciliation-and-contract-completeness.md` — queue/control/handoff digest churn under a live ordered executor; dual read-only exact-head reviews; frozen-contract negative-regression checks.
+- `references/lane-replacement-supersession-verification.md` — is a stale spec/handoff item already superseded? origin/main tree diff, registry enabled-flags, caller count, dynamic-import check, dead-config vs crash-risk, live smoke, classification.
 
 ## Operating contract
 
@@ -394,13 +396,14 @@ MARKER=<marker>
 
 ## References
 
-- `references/prompt4-packet-gate-pr-workflow.md` — session-derived pattern for repairing stale Prompt4 packet gates, branch-prefix lane rejection, and focused PR verification.
-- `references/focused-pr-durable-deployment.md` — merge-to-operations pattern for clean release checkouts, wrapper repoints, runtime preservation, and rollback proof.
-See `references/durable-agent-bus-dispatch-and-watchers.md` — session-derived pattern for escalating a non-started Telegram lane task into one bounded filesystem-bus dispatch with change-only monitoring and control-plane integration.
-- `references/background-watcher-auth-and-log-hygiene.md` — bounded read-only watcher startup proof, foreground/background `gh` auth propagation, temporary mode-`0600` token-file pattern, stale writer containment, zombie distinction, and log hygiene.
-- `references/durable-evidence-promotion-gate-review.md` — checklist for reviewing completed-work evidence retention, promotion ledgers, and operator approvals without missing bypass paths or fixture preconditions.
-- `references/pr339-pr341-integration-closeout.md` — session-derived pattern for subagent review verification, legacy-ledger revalidation, installed-wheel schema proof, minimal production module overlays, stale watcher pause/retarget, and old-PR path-port sequencing.
-- `references/current-main-old-pr-porting-and-dashboard-proof.md` — checklist for porting stale old-PR material onto current `main`, schema agreement probes, rendered canonical-dashboard proof, mobile non-regression language, and raw-output capture adapter gaps.
+- `references/prompt4-packet-gate-pr-workflow.md` — stale Prompt4 packet-gate repair, branch-prefix lane rejection, focused PR verification.
+- `references/focused-pr-durable-deployment.md` — clean release checkouts, wrapper repoints, runtime preservation, rollback proof.
+- `references/durable-agent-bus-dispatch-and-watchers.md` — non-started Telegram lane task to one bounded filesystem-bus dispatch, change-only monitoring.
+- `references/background-watcher-auth-and-log-hygiene.md` — read-only watcher startup proof, `gh` auth propagation, mode-`0600` token files, stale writer containment, zombie distinction, log hygiene.
+- `references/durable-evidence-promotion-gate-review.md` — completed-work evidence retention, promotion ledgers, operator approvals, bypass paths, fixture preconditions.
+- `references/pr339-pr341-integration-closeout.md` — subagent review verification, legacy-ledger revalidation, installed-wheel schema proof, production module overlays, old-PR path-port sequencing.
+- `references/current-main-old-pr-porting-and-dashboard-proof.md` — porting stale old-PR material onto current `main`: schema agreement probes, rendered dashboard proof, mobile non-regression, raw-output capture gaps.
+- `references/wip-checkout-local-change-triage.md` — WIP-checkout conflict-risk triage: staged vs unstaged, blob identity, cross-worktree match, cron impact, disposition menu.
 - `references/agy-x3-jules-resources-dashboard-runway.md` — checklist for AGY×3 durable control-plane reviews, supervisor/AGY HOME split, live-repair vs durable PR overlay, Resources/Jules capacity audit boundaries, and lossless dashboard modularization sequencing.
 - `references/agent-governance-modular-reconciliation.md` — checklist for preserving production-only dashboard/API assets during modular source reconciliation and proving full-payload secret-safe API serialization.
 - `references/jules-capacity-production-bridge.md` — checklist for promoting Jules capacity from merged release into production without overclaiming: runtime overlays, dispatcher/watchdog adapter proof, deterministic launch identities, unavailable poll reconciliation, rollback preservation, and no-unauthorized-side-effect boundaries.

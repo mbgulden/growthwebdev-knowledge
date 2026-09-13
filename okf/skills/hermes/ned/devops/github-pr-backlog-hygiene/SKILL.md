@@ -9,6 +9,7 @@ triggers:
   - PRs include broad stale diffs, generated artifacts, DB/state files, private keys, or conflicting agent branches
   - linear child issues are Done but the linked PR never landed and the live product shows no change (live-surface drift)
   - session has no `GH_TOKEN` / `gh` auth and must still produce a scope-clean extraction branch on disk
+  - user asks to open a review PR from a long-lived local branch that is also far behind origin/main (branch may already be superseded by main)
 ---
 
 # GitHub PR Backlog Hygiene
@@ -184,6 +185,29 @@ scope-clean branch from the open PR (no need to close the original) and post a
 drift-finding comment to the parent Linear issue. Do not close the open PR
 silently — its diff is the source of truth for the extraction.
 
+## Pre-PR supersession determination: "N ahead" ≠ unique work
+
+When asked to open a review PR from a long-lived local branch that is also **far behind** `origin/main` (e.g. 21 ahead / 625 behind), do NOT open the PR on the strength of the ahead-count. Main may have **independently landed the same work via a different commit path** (a different agent or a re-implementation that got merged), making the branch fully superseded. A naive PR then overwrites main's newer implementation with the older branch one — a **regression PR**, not a review.
+
+Deterministic procedure (all git-only, no LLM judgment needed):
+
+1. **Fresh fetch, then 3-dot diff for the PR preview**: `git fetch origin && git diff --stat origin/main...HEAD`. The 3-dot diff (branch tip vs merge-base) shows what the PR would *add*. `git diff --stat origin/main HEAD` (2-dot, tip-to-tip) is **misleading** here: it shows main's other commits as deletions (e.g. "87k lines deleted") — do NOT use it to decide merge safety.
+2. **Blob-hash path→blob comparison** of the capability directory (or changed subtree) between `HEAD` and `origin/main` via `git ls-tree -r <ref> <path>`:
+   - files in branch with the **same blob hash** on main → identical, no delta;
+   - files **only on the branch** → potentially unique work (investigate each);
+   - files **only on main** → main-side progress;
+   - files on **both with different hashes** → differing implementations;
+   - **zero branch-only files + zero main-side loss = strong supersession signal.**
+3. **Def-superset check** for each differing file: extract `def`/`class` names from both versions (`git show <ref>:<file>`) and diff the sets. Branch-unique *functions* = genuinely unique work worth recovering. Branch-unique *lines* that are only CSS selectors, config keys, or imports are usually a **relocated/restructured** implementation (e.g. a separate CSS template inlined into a self-contained form module), not lost work.
+4. **Verify the newest feature marker** (the branch tip's claimed feature) is present on main by path/grep on `origin/main`.
+5. If superseded: **do not open the PR**. Report: work already on main (cite the main-side commits/PRs), what the PR would regress, and offer retire (delete) vs. leave. Branch deletion still requires explicit Michael approval per branch-deletion rules.
+
+Pitfalls:
+- **2-dot tip-to-tip diff ≠ PR diff.** PRs diff against the merge base; a huge deletion count from `git diff origin/main HEAD` does not mean the PR deletes anything — but it does mean the branch is stale relative to main and supersession must be checked.
+- **`git merge-tree` conflicts ≠ branch is needed.** Conflicts on files main also modified are the *symptom* of the same territory being developed twice, not proof the branch holds unique work.
+- **Do not present an "open the review PR" plan that creates a destructive or regressing diff.** If pre-PR checks reveal overlap, stop and report the determination with evidence (blob counts, def-superset results, main-side commits).
+- Write multi-line analysis to a file and read it back (`write_file` + `read_file`) — long inline heredocs/terminal output get truncated or blocked in exec contexts, and flying blind on load-bearing numbers produces wrong conclusions.
+
 ## Pushing and merging the extraction when `gh` / `GH_TOKEN` are unavailable
 
 A session may have `gh` failing with `gh auth status: not logged in` and no
@@ -319,6 +343,7 @@ Golden path: <merge train / AGY extraction / owner review>
 ```
 
 ## References
+- `references/2026-09-pwp-kpi-branch-supersession.md` — session-specific instance of the "N ahead ≠ unique work" supersession determination: blob-hash path comparison, def-superset check, and the no-PR outcome for a 21-ahead/625-behind PWP branch.
 - `references/2026-07-prismatic-jules-pr-cleanup.md` — session-specific example: closed stale/no-op Jules-like PRs, routed remaining extract/merge-train work to AGY, and handled active file-lock boundary.
 - `references/pwp-merge-train-lane-and-proof-20260723.md` — concrete handoff, verification, and closure pattern.
 - `references/2026-07-prismatic-pr-merge-train-after-agy.md` — session-specific example: consumed AGY outputs, extracted a useful stale PR into a clean branch, handled failed-check blockers, re-queried mergeability after each merge, and recovered a stale AGY supervisor lock.

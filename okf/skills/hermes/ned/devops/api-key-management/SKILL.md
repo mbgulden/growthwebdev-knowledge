@@ -60,6 +60,24 @@ This skill provides a robust approach to handling API keys and making API calls,
 *   **Canonical field name vs alias in provider config.** In Hermes profile `config.yaml` `providers:` entries, the auxiliary/named-custom resolution path (vision / compression / title-gen / curator) reads **`key_env` only** and silently ignores the documented `api_key_env` alias, while the main-chat path lifts the alias. A provider entry declaring only `api_key_env` therefore resolves to an **empty key** on the aux path and 401s on the endpoint (log: `named custom provider ... has no resolvable api_key`), while normal chat works fine — which is what makes it look like an OpenAI/masked-key problem. Fix: declare canonical `key_env` (keeping the alias is harmless). Full diagnosis recipe + probe code: `hermes-agent` skill, "key_env vs api_key_env" pitfall.
 *   **Don't reinvent credential lookup per-client.** When multiple API clients (Stripe, GitHub, Google, Linear, Vercel, Cloudflare, etc.) need to share the same credential-resolution rules, build ONE canonical `auth_loader` module that all clients call. Re-implementing credential discovery inside each client is a recurring source of stale env-var bugs. See `references/auth-loader-pattern.md` for the canonical Ned/PWP shape: resolve via explicit arg → env vars → profile `.env` → gcloud ADC → project `.env` → registered secrets, returning `AuthResult(value, source, hint, redaction)` so callers never log raw secrets and can show the user *where* a missing credential was searched.
 
+*   **Keying a local model server (vLLM/llama.cpp) with zero 401 outage.**
+    Two non-obvious facts dominate this whole class: (1) the gateway installs a
+    **fresh per-turn secret scope** that re-reads each profile's `.env` from
+    disk every turn, so rotating a key in `.env` needs **NO gateway restart**
+    (a stale gateway with empty `/proc/<pid>/environ` still authenticates);
+    (2) an **unkeyed server ignores Bearer**, so the safe flip order is
+    clients-first (real keys into all `.env` + `key_env`/`api_key_env` in
+    config, verify by hash not "key" stub), restart consumer gateways, THEN key
+    the server. If the server is **your own main model**, restart only the
+    remote model server — never your own `hermes-gateway-*` (self-kill +
+    guard-block). vLLM 0.27.1 `--api-key` is single-value last-wins (NO
+    multi-key). Full playbook + self-flip pattern + verify checklist:
+    `references/local-llm-server-keying-flip.md`.
+*   **`systemd-run --unit=X -- /bin/bash script.sh` runs as root** — root has
+    no ssh key to remote model hosts (ubuntu does), so detached remote flips
+    die on `Permission denied (publickey,password)`. Harmless if the script
+    never reached the remote, but run one-shot remote work **inline as ubuntu**
+    instead.
 *   **Overlap note for curator:** `api-key-handling-for-ned` covers the
     same territory (terminal-vs-execute_code persistence, env retrieval).
     Consider consolidation once auth-loader-pattern.md matures; both
@@ -67,6 +85,13 @@ This skill provides a robust approach to handling API keys and making API calls,
 
 ## Related References
 
+*   [local-llm-server-keying-flip.md](references/local-llm-server-keying-flip.md) —
+    full playbook for keying a LAN vLLM/llama.cpp model server with zero 401
+    outage: per-turn secret-scope (no gateway restart needed), zero-401 flip
+    order, the self-flip case (server = your own main model), vLLM 0.27.1
+    single-key specifics, the pre-flip scope probe, `systemd-run`-as-root /
+    in-gateway-guard / display-redaction / placeholder-stub gotchas, and the
+    per-endpoint verify checklist.
 *   [Linear API Authentication Quirks](references/linear_api_auth.md)
 *   [auth-loader-pattern.md](references/auth-loader-pattern.md) — canonical
     credential-lookup pattern shared across Stripe / GitHub / Google /

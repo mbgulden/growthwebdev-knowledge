@@ -1,5 +1,15 @@
 # HDE Local-Model Rollout, Egress Exception & PDF 401 Fix (2026-08-19)
 
+> **SUPERSEDED IN PART (GRO-4929, 2026-09-07):** this rollout put a literal `api_key: llama-local`
+> and `context_length: 262144` in the guest provider block. Both are now wrong:
+> - The `:8000` vLLM 0.27.1 server is **single-key** (`VLLM_FRED_API_KEY`); `llama-local` does NOT
+>   authenticate → guests 401. Use env-driven `api_key_env: GUEST_VLLM_API_KEY` + the orchestrator's
+>   `.env` injection + compose passthrough (see SKILL.md "vLLM key" note).
+> - `context_length` should be **65536** (tenant-capacity guardrail: 65536 → ~6 concurrent tenants on
+>   the ~383K KV-token pool; 262144 → ~1.4 → preemption). The merged `main` generator still carries
+>   262144 pending the alignment PR; **prod runs 65536** — that is the value of record.
+> The egress-exception and PDF-401 (stale-systemd-key) findings below remain valid.
+
 Session detail backing the "Guest Container Model, Egress & PDF Ops (HDE)" section.
 
 ## Situation

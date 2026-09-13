@@ -54,6 +54,15 @@ Use this for Stripe live/test cutovers, checkout-mode verification, webhook-secr
 - `/deconditioning/` pricing model + end-to-end verification recipe (price IDs, smoke payloads, trial proof via `amount_total`): see `references/hde-deconditioning-pricing-model.md`.
 - See `references/hde-stripe-live-cutover-2026-07-18.md` for the session-specific HDE findings and commands.
 
+## Pitfall: stripe-python 15.x rejects a top-level `timeout=` kwarg on `.create()` (2026-09)
+
+If a HDE checkout `.create()` suddenly **502s** (backend 400s at the Stripe call) — especially right after touching the checkout route — check for an unsupported top-level `timeout=` kwarg on `stripe.checkout.Session.create(...)`.
+
+- **stripe-python 15.3.1** (what the running prod checkout route uses) treats a bare `timeout=20` as an **unknown API parameter** → Stripe 400 → surfaces as 502 to the caller. The older 3-layer "stuck Redirecting…" fix that added `timeout=20` to the backend `create()` call is **not safe on 15.x** — it is the very thing that breaks the paid checkout.
+- **Working fix:** drop the top-level `timeout=` kwarg from `.create()`. Enforce the wait at the layer that owns it (CF proxy timeout + frontend `AbortController`), not as a Stripe SDK create parameter.
+- If you genuinely need a client-side read timeout on 15.x, use the SDK's own mechanism (`StripeClient(timeout=ClientTimeout(...))` / `client_options`) — never a create() positional/kwarg `timeout`.
+- One-call diagnosis: POST a realistic payload to the **local** checkout route and read the traceback — a `stripe` 400 "Unknown parameter: timeout" (or the 502 it becomes) is the tell. See `references/2026-08-hde-stuck-redirecting-checkout.md` for the older 3-layer context and `references/2026-09-coach-premium-promotion.md` (in `hde-prod-operations`) for the 15.x correction in situ.
+
 ## Blocker language
 
 If no valid live key is present, say directly:

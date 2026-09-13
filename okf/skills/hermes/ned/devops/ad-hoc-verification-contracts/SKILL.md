@@ -174,6 +174,13 @@ rm -rf "$venv"
 
 This avoids a stale global interpreter and provides detector-visible canonical evidence for both the changed test and its neighboring suite. Report the exact pass/skip counts and call it the repository suite only when the full `pytest -q` suite actually ran. A temporary verifier may still validate docs/result packets, but it does not replace this direct suite run when the nudge repeats.
 
+## Authenticated tools run from `terminal`, not `execute_code` (2026-08-26)
+
+`execute_code` child processes lose the terminal session's credential context: `git ls-remote origin <ref>` fails `could not read Username for 'https://github.com': No such device or address`, and `gh api repos/...` fails `To get started with GitHub CLI, please run: gh auth login` — while both work fine from `terminal` in the same session. Two consequences:
+
+1. **Split the work, don't debug the auth.** Write the verifier with `write_file` (or execute_code), but run anything credential-dependent (`git push/ls-remote`, `gh api`, `gh pr`) from `terminal`. If an execute_code script must check remote refs, shell out via its own `terminal()` (which inherits the real session) rather than `subprocess.run(["git", "ls-remote", ...])`.
+2. **CI log retrieval:** the REST endpoint `gh api repos/<o>/<r>/runs/<id>/logs` 404s without a special Accept header, and `curl` to the logs URL hits a 302 that needs follow+auth. The reliable path is `gh run view <run-id> --log` (follows the redirect) or `gh run view --job <job-id> --log`; pair with `--jq` / `gh api .../checks-runs/<id>/annotations` for structured triage. The annotation `Process completed with exit code 1` only names the failing STEP — grep the full `--log` output for the actual `ERROR:` line to find the real cause.
+
 ## False-red discipline
 
 If the first ad-hoc verifier fails while the focused canonical tests pass, inspect the verifier before changing code. The verifier may not reproduce the same harness, monkeypatch, race, fixture, environment variable, or import path as the real test.
@@ -359,6 +366,50 @@ fresh evidence scoped to the changed behavior, plus a clean
 This is the "release-time" layer of the contract: the pre-push gate proves
 governance; the post-push verifier proves the new code still does what
 the PR description claims.
+
+## A recorded "suite green" can be date/time-brittle — re-run it, don't trust the handoff
+
+A prior "46/46 passed" recorded in a handoff, Linear comment, or PR body is
+**stale evidence the moment the wall clock moves**. The class-level trap
+(2026-08-26, Prismatic journal G2+G6 bundle, GRO-4831): a handoff carried
+"46/46 + ruff clean" from the day the tests were *written* (08-21). Re-running
+the suite five days later on a **non-21st day** produced **2 failures** — the
+two new tests hardcoded a dated artifact path (`events-2026-08-21.json`), but
+the production function buckets the day-file by **wall-clock UTC today**
+(`dt.datetime.now(UTC)`; the `now` argument only sets a timestamp, not the
+bucket date). So the suite only ever passed **on the day it was written** and
+would have failed CI at merge.
+
+Rules:
+
+1. **Never carry a suite count across days as current evidence.** When you
+   re-verify work from a prior session, re-run the suite **now**. If the
+   original run was days/weeks ago, treat its count as unverified until
+   re-run — especially for any test that writes a dated file, asserts on
+   "today", or depends on wall-clock/UTC time.
+2. **Date-brittle test smells to scan for:** a test hardcoding
+   `events-YYYY-MM-DD.json` / `report-<date>` / a filename that embeds a date;
+   a test comparing against `datetime.now()`; a fixture that assumes the run
+   happens on a specific date. The intent-preserving fix is to **read whatever
+   dated artifact the code actually wrote** (`sorted(dir.glob("events-*.json"))[0]`)
+   rather than asserting a hardcoded date — and to keep the fix in the **test
+   only** (no production change) so the verified production semantics are
+   untouched.
+3. **When a re-run fails, diagnose root cause before "fixing" code.** Distinguish
+   (a) the *test* is date-brittle (fix the test to not hardcode a date) from
+   (b) the *production* behavior actually regressed. Check
+   `git diff <base>..<head>` on the production file to see whether the failing
+   code path was touched at all — if the diff only *added* a helper and left the
+   bucketing untouched, the behavior is pre-existing and the test is the bug.
+4. **Report the discrepancy honestly.** "The 08-21 46/46 was date-lucky; it
+   fails on any other day. Fixed the two brittle tests (no prod change);
+   re-verified 46/46 on a non-21st day." Do not let a recorded green silently
+   ride into a merge.
+
+This is the mirror of the false-GREEN (your parser matches nothing) and
+false-RED (probe exercises the wrong branch) classes: here the signal is green
+but **stale in time**. A green from a different date is as misleading as a green
+from a wrong code path.
 
 ## Heredoc and shell-escape pitfalls when writing the verifier
 

@@ -124,13 +124,22 @@ the title.
 * **`Bearer` prefix in `Authorization` header:** The Linear API explicitly rejects this. Remove it.
 * **GraphQL Query Syntax:** Pay close attention to curly braces, quotation marks, and field names. Start with simpler queries and add complexity incrementally if you encounter `400 Bad Request` errors.
 * **`finalize_task.sh` state transition behavior:** Be aware that the `finalize_task.sh` script, when used without explicit state arguments, might default to a 'In Review' state transition. If a specific state (e.g., "Todo" for a blocked issue) is required, verify the script's behavior or explicitly use the Linear API to set the desired state after the script runs, as observed in this session. To set a specific state via the Linear API, first, fetch the `workflowStates` to get the correct `stateId` for your target state (e.g., "Todo").
-* **Mutation input shape (`issueCreate`, `issueUpdate`, `commentCreate`):** All three mutations take an `input:` argument of an `*Input!` type — they do NOT accept top-level arguments like `id`, `issueId`, `body`. The correct shape is:
+* **Mutation input shape (`issueCreate`, `issueUpdate`, `commentCreate`):** Each mutation takes an `input:` argument of an `*Input!` type. `issueCreate` and `commentCreate` accept **only** `input:` (no top-level `issueId`/`body` — that generalization is where agents waste attempts). **`issueUpdate` is the exception — it takes a top-level `id: String!` in ADDITION to `input:`.** The correct shape is:
     ```graphql
     mutation($input: IssueCreateInput!) { issueCreate(input: $input) { success issue { identifier url } } }
     mutation($id: String!, $input: IssueUpdateInput!) { issueUpdate(id: $id, input: $input) { success } }
     mutation($input: CommentCreateInput!) { commentCreate(input: $input) { success } }
     ```
     Passing `commentCreate(issueId: ..., body: ...)` produces `GRAPHQL_VALIDATION_FAILED: Unknown argument "issueId"` and `Unknown argument "body"` plus `Field commentCreate argument "input" of type CommentCreateInput! is required, but it was not provided.` The fix is to wrap both fields in `input: {issueId: ..., body: ...}`. Same pattern for `issueCreate` — never assume flat arguments.
+* **Moving an issue to a target state (e.g. Done) takes top-level `id` + `input.stateId` (a UUID), NOT a state name.** The exact shape that works:
+    ```graphql
+    mutation { issueUpdate(id: "<issue-uuid>", input: {stateId: "<done-state-uuid>"}) { success issue { state { name } } } }
+    ```
+    The failures that eat a full discovery loop (hit 2026-08-26, 5 consecutive 400s):
+    1. `input: {id, state: "DONE"}` → `Field "id" is not defined by type "IssueUpdateInput"` + `issueUpdate argument "id" of type "String!" is required` — `id` is NOT inside input, and `state` (a name/enum) is not a writable field.
+    2. `input: {stateId: ...}` without top-level `id` → the same "argument id required" 400.
+    3. Resolving the target state: state IDs are team-scoped, so don't enumerate `teams { workflowStates }` (that field isn't even on `Team`). Cheapest reliable probe: query any issue already in the target state in the same team and read `state { id }` (2026-08-26: GRO-4830 was already Done → its `state.id` was the Done stateId to reuse for GRO-4831). GrowthWebDev Done = `bbf71b3e-9a05-48ce-9418-df8b9c0b8fec` (re-probe if it changes).
+    Also: when the issue UUID is unknown, `query { issue(id: "GRO-XXXX") { id state { id name } } }` (the identifier string works in `issue(id:)` — see the identifier-vs-UUID pitfall above).
 * **`commentUpdate` is the asymmetric one — it takes BOTH `id` AND `input` as separate top-level args, NOT just `input`:** the mutation signature is `commentUpdate(id: String!, input: CommentUpdateInput!)`. This is different from `commentCreate` (which only takes `input`). Calling `commentUpdate(input: {id: ..., body: ...})` returns `Field commentUpdate argument "id" of type String! is required, but it was not provided.` Correct shape:
     ```graphql
     mutation($id: String!, $input: CommentUpdateInput!) {
@@ -248,7 +257,13 @@ the title.
     before reporting "comment posted". The API occasionally accepts a `commentCreate`
     and returns `success: true` while the comment is not yet queryable from the same
     connection; re-fetch with a short delay or use the `comments(last: 20)` plus
-    body-prefix filter for the resilient pattern.
+    body-prefix filter for the resilient pattern. **`CommentPayload` exposes ONLY
+    `success` — selecting `id` (or any comment field) on it returns `400 Cannot query
+    field "id" on type "CommentPayload"`.** To verify a comment landed, re-fetch
+    `issue(id: <uuid>) { comments(last: 20) { nodes { body createdAt } } }` and match
+    by body prefix — never via a create-response comment id (hit 2026-09-07 when a
+    closure comment's `{ success id }` selection 400'd; the comment itself had NOT
+    been posted, the whole mutation failed on the bad selection).
 
 - **`parentId` on `issueCreate` requires the parent's UUID, not its identifier.** The mutation
     input field is `parentId: ID` (UUID-shaped). Passing `parentId: "GRO-4367"` returns
@@ -303,6 +318,8 @@ the title.
     introspect first — the Linear API silently renames comparator fields and breaks
     existing client code without a version bump.
 
+* **`issueSearch(query:)` is DEPRECATED in the live workspace fork (2026-09-06): it returns `400 "This endpoint deprecated."` with `data: null`.** Do NOT use it to find an issue by GRO-XXXX. Working paths (this fork, verified live 2026-09-06): `issues(filter:{ number:{ eq:4920 } }, first:3)` (bare number, no team scoping needed — the fork's `number` comparator is a plain `FloatComparator` with `eq`), or the already-documented `issue(id: "GRO-XXXX")` form. **The `searchIssues(term:)` fallback is NOT a free fallback (re-verified 2026-09-07):** `searchIssues` REQUIRES a top-level `term: String!` argument (`400 ... argument "term" of type "String!" is required`), and its `filter` sub-object has no `identifier` field either. If you want the one-liner, write `searchIssues(term: "GRO-4929")` — but `issue(id: "GRO-4929")` is still the fastest and most stable lookup. Note this fork's `IssueFilter` also exposes `searchableContent` as a filter field (upstream Linear doesn't), but `number` is simpler and stable.
+* **`workflowStates(filter:{ team:{ id:{ eq:"<team-uuid>" } } })` works in this fork** — top-level `workflowStates` accepts a `team` sub-filter by `id` (StringComparator `eq`). `Team.workflowStates` does NOT exist (400). Use this to enumerate a team's states and grab the target `stateId` for `issueUpdate` (2026-09-06: this is how the Done state `bbf71b3e-9a05-48ce-9418-df8b9c0b8fec` was re-confirmed for GRO-4920).
 * **Newly-created issues land in `state: "Backlog"`, not `Todo`.** When a fresh issue is created
     via `issueCreate`, the default Linear team workflow may have two unstarted states
     (`backlog` and `unstarted` / `Todo`). The new issue lands in `Backlog` (state_type
@@ -316,6 +333,8 @@ the title.
     this in the wild: GRO-4367 was rendered with `state_type=backlog` and the
     `pwp-kpi-linear-status-backlog` CSS class. The `state` field is for human
     display only; the `state_type` field is for programmatic bucketing.
+
+* **A silent `issueCreate` run is NOT evidence the ticket was not created — terminal output gets truncated/dropped, so a create script that prints nothing may have filed it fine.** Before re-running a create script (duplication risk!), probe by title first — the find-before-create idempotency check from `references/idempotent-epic-and-child-task-creation.md`: `issues(filter: { team: { id: { eq: $tid } }, title: { contains: "<distinctive phrase>" } })` (teamId as `ID!`). If it exists, read its state/labels and move on; if not, create. (Hit 2026-09-05: the vLLM-keying ticket's create run appeared silent; the read-back probe found GRO-4920 already existed — a second create on the assumption of failure would have duped it.)
 
 ## References
 

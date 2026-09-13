@@ -252,6 +252,7 @@ fallback_providers:
 
 - The provider `api` URL must end in `/v1` (Hermes appends `/chat/completions` itself).
 - `api_key` is required by the schema; pass any non-empty string when the upstream is unauthenticated. `local` is a conventional choice.
+- **Two ways to supply the key — pick by whether the upstream actually enforces one.** An inline `api_key: <literal>` works when the server is unauthenticated (any non-empty string satisfies the schema). But a local OpenAI-compatible server (llama.cpp `llama-server`, vLLM, Ollama) **can be started with `--api-key`** and will then return `401 {"error":{"message":"Invalid API Key","type":"authentication_error"}}` for every request that omits the header — the model still lists fine via `/v1/models`, so "server is up" does NOT mean "auth is wired". When a required key already lives in an env var (e.g. the profile's `.env` has `KAI_LLM_API_KEY`), wire it with `key_env: KAI_LLM_API_KEY` on the provider entry (hermes resolves `key_env`/`api_key_env` on custom providers, `providers.py` `resolve_custom_provider`). The var must be in the **gateway process env** — a systemd `EnvironmentFile=` loads the profile `.env` into it. Don't copy the key as an inline literal into config.yaml when an env var already holds it. See `references/local-custom-provider-key-wiring-2026-08-27.md`.
 - The `default_model` field must match a key under `models:`. The `models:` block is what Hermes uses to populate the picker.
 - `context_length` should match the upstream's actual context window (don't exceed the server's `--ctx-size`).
 - **Hermes Agent hard floor: `context_length` must be ≥ 64,000 tokens.** A session start on a provider with `context_length: 32768` raises `ValueError: Model has a context window of N, which is below the minimum 64,000 required by Hermes Agent` before any request is made. If the local llama-server can do 65k, set `context_length: 65536` on both the provider and the model entry; if the upstream caps below 64k, the local endpoint cannot be used for a real Hermes Agent session until the upstream ctx is bumped. This is independent of the runtime `--ctx-size` flag on the server — both must be ≥ 64,000. See `proxmox-k3s-gpu-cluster-ops/references/llama-server-runtime-gotchas.md` for the full diagnostic and the `--ctx-size` × `--parallel` per-slot interaction that bites when you try to push context past 32k.
@@ -261,6 +262,36 @@ fallback_providers:
 ### Per-profile isolation
 
 Each profile is independent — to route Kai and Ned to different GPUs/endpoints, edit each profile's `config.yaml` separately. The Telegram bot / gateway inside each profile uses the local `model.default` for that profile, so the chat experience changes per profile without code changes.
+
+### Auxiliary compression is NOT routed by `model.default` (and its `context_length` silently caps the whole session)
+
+`auxiliary.compression` is an independent block with its OWN `provider`/`model`/`base_url`/`api_key`/`context_length`/`fallback_chain` — wiring `model.default` to a local model does NOT route context compression to it. Same independence as `auxiliary.vision` above. Two compression-specific traps are worth encoding because they produced a fleet-wide "compression broken on every profile" report (2026-09-13):
+
+**Trap 1 — `auxiliary.compression.context_length` auto-LOWERS the session compression threshold.** At session start, `conversation_compression.check_compression_model_feasibility()` compares the aux model's context against the main model's compression threshold. If `aux_context < main_threshold`, it **auto-lowers the live session threshold to `aux_context`** and logs: `Auxiliary compression model <name> has N token context, below the main model's compression threshold of M tokens — auto-lowered session threshold to N`. So a stale/small `context_length` on the aux (e.g. `131072` while the main expects `262144`) silently shrinks when compression fires — the session can't hold what Michael set. **Diagnosis recipe (read-only, one grep per profile):**
+```bash
+grep -h "auto-lowered session threshold\|below the main model's compression threshold" /home/ubuntu/.hermes/profiles/*/logs/*.log
+```
+Then read back both numbers and align them:
+```bash
+python3 -c "
+import yaml
+c=yaml.safe_load(open('/home/ubuntu/.hermes/profiles/<prof>/config.yaml'))
+print('main ctx :', c.get('model',{}).get('context_window') or c.get('providers',{}))
+print('aux comp :', c['auxiliary']['compression'])
+"
+```
+Set `auxiliary.compression.context_length` to the aux model's REAL served context (not a stale value), matching the main intent. **Hermes Agent hard floor: `context_length` must be ≥ 64,000** — a session start on a provider below 64k raises `ValueError: Model has a context window of N, which is below the minimum 64,000 required by Hermes Agent` before any request. So you can't just "lower it to fix the mismatch" past 64k.
+
+**Trap 2 — a DEAD aux model makes compression fail fleet-wide, and the symptom is generic.** When the aux can't summarize, `conversation_compression` waits up to 600s then gives up: `Context compression made no progress for Xs (total wait 600.0s, ceiling 600.0s); continuing without compression`, and if context then exceeds the window: `Context length exceeded: N tokens. Cannot compress further.` + `Auto-resetting session … after compression exhaustion.` The dead aux can be any of: **(a) 429 quota** (`Failed to generate context summary: Error code: 429 - You exceeded your current quota`) — a paid aux like `gpt-5.4-nano` whose credits ran out; **(b) 401 key** (`Failed to generate context summary: Error code: 401 - Invalid API Key`) — a rotated/stale key; **(c) context-too-small** (the auto-lower above). Because every profile can have its own aux, a single "compression broken on all profiles" report is usually **three separate aux failures across the fleet**, not one bug. **Fleet sweep (read-only):**
+```bash
+for p in $(ls /home/ubuntu/.hermes/profiles/); do
+  sig=$(grep -h "Failed to generate context summary\|compression made no progress\|Cannot compress further\|auto-lowered session threshold" /home/ubuntu/.hermes/profiles/$p/logs/*.log 2>/dev/null | tail -2)
+  [ -n "$sig" ] && echo "=== $p:" && echo "$sig" | cut -c1-180
+done
+```
+**Fix = route the dead aux to a local OpenAI-compatible endpoint** (free, no quota), exactly like the main-model local wiring above: set `auxiliary.compression.provider: custom:<NAME>`, `base_url: http://<gpu-host>:<port>/v1`, `model: <served-alias>`, `api_key`/`key_env` (the vLLM `--api-key` case — see `references/local-custom-provider-key-wiring-2026-08-27.md`), and `context_length` = the endpoint's real window. Keep the gemini/openrouter entry in `fallback_chain` as the escape hatch. **Then restart that profile's gateway** — the aux is resolved at session start, so a config edit alone does nothing until restart (in-gateway guard applies: hand the `hermes --profile <p> gateway restart` one-liner to the user, see `hermes-gateway-lifecycle-ops`). Verified working case 2026-09-13: Ned aux → `custom:qwen27b-fred-local` (`192.168.1.230:8000/v1`, `local-qwen-27b-q8-fred`, ctx 262144); George aux → `qwen27b-kai-local` (`192.168.1.232:8080`, `qwen3.8-27b`, ctx raised 65536→131072).
+
+**Related but separate: a gateway respawn storm is NOT a compression bug.** `errors.log` lines like `Gateway (re)started N times in 120s — backing off to break a respawn storm` + `Another gateway instance is already running (PID …)` mean a watchdog/supervisor is double-spawning the gateway (a running instance already owns the PID). It adds log noise and CPU on the same box but does not cause compression failures. Diagnose by finding the spawner (the cron/watchdog script that launches `hermes --profile <p> gateway`) and adding a `pgrep -f "hermes --profile <p> gateway"` single-instance guard before spawn. Don't conflate the two when a user reports "the box is unhealthy + compression failing."
 
 ### Auxiliary vision is NOT routed by `model.default`
 
@@ -298,8 +329,15 @@ print('vision:', cfg['auxiliary']['vision']['provider'], cfg['auxiliary']['visio
 ### Common pitfalls
 
 - **404 on `model.default`**: the value doesn't match any key under `providers.<NAME>.models`. Run `curl /v1/models` and use the exact `id` it returns.
+- **`401 Invalid API Key` from a local server that "looks up"** (worked case 2026-08-27, Kai→`qwen3.8-27b` on 1.232:8080): `/v1/models` returns HTTP 200 and lists the model, but `/v1/chat/completions` returns `401 {"error":{"message":"Invalid API Key","type":"authentication_error","code":401}}` because the server was started with `--api-key` and Kai's provider block had no key wired in → hermes sent none → **silent fallback to gemini-2.5-flash** (the `⚠️ Model fallback: … via custom unavailable (authentication failed); using gemini-2.5-flash` warning). Diagnosis + fix:
+  1. Confirm the server is healthy but auth-gated: `curl -s http://<host>:<port>/v1/models` (200 + model listed) vs `curl -s -X POST http://<host>:<port>/v1/chat/completions -d '{"model":"<m>","messages":[{"role":"user","content":"ping"}]}'` (401). 200 on the first + 401 on the second = auth gap in config, NOT a dead server.
+  2. Find the key: grep the profile's `.env` for a plausible var (e.g. `KAI_LLM_API_KEY`). Then **test it live before editing config** — `curl -s -o /dev/null -w "%{http_code}\n" -X POST .../v1/chat/completions -H "Authorization: Bearer $KEY" -d '{...}'` and expect `200`. (Try Bearer first; raw `key:` header usually 401s on llama.cpp.)
+  3. Wire it: add `key_env: KAI_LLM_API_KEY` to the provider entry (NOT an inline `api_key:` literal, when the var already exists).
+  4. Confirm the var is in the **gateway process** env: `tr '\0' '\n' < /proc/$(systemctl show -p MainPID --value hermes-gateway-kai)/environ | grep KAI_LLM_API_KEY`.
+  5. Restart the gateway (in-gateway guard applies — see below) and send a real Telegram message; the fallback warning must be gone and responses come from the local model.
 - **Mistaking gateway timeout for provider error**: the local server doesn't choke on OAuth, but `request_timeout_seconds` defaults too low; bump to 600+ for long-running chat.
 - **Container hostname vs LAN IP**: if the gateway runs in a container, "localhost" points at the container; use the LAN IP of the GPU host.
+- **In-gateway lifecycle guard false-positive on a PROBE script's text (observed 2026-08-27).** When verifying a provider fix WITHOUT restarting (e.g. a Python script that imports `hermes_cli.providers` and resolves the provider), the in-gateway terminal guard scans the **entire command string / file content** — not just the operative command. A harmless diagnostic that mentions `gateway` + a lifecycle-ish word, or that bridges across the regex, gets blocked with "cannot restart, stop, or uninstall the gateway from inside the gateway process" even though it never touches the gateway. The fix: keep lifecycle literals OUT of the probe (resolve the provider via the Python import without any restart wording), and remember that a provider config change only takes effect on a real gateway restart — which, from inside a gateway session, you hand to the user as a one-liner (see `hermes-gateway-lifecycle-ops`). Don't burn turns re-running a guarded probe; the on-disk config readback + the live `curl` key test are sufficient pre-restart evidence.
 - **CDI / device-plugin not loaded**: the endpoint processes requests but every response is gibberish or empty when the GPU isn't actually visible to the container. Verify with `nvidia-smi` from inside the serving pod.
 - **Build-host vs target-host CPU mismatch**: a llama.cpp binary built on a host with AVX-512 crashes with `Illegal instruction` on a KVM VM running default `kvm64` CPU. Fix the VM (`qm set <vmid> --cpu host`) before blaming the model. See `proxmox-k3s-gpu-cluster-ops` for the diagnostic.
 - **Auxiliary vision NOT routed by `model.default`**: see "Auxiliary vision" subsection above. Wiring the main model to local does not route Telegram image attachments to local; `auxiliary.vision.provider/base_url/model` must be patched separately, otherwise images keep flowing to GPT/OpenRouter and the agent reports "vision API failed" the moment cloud auth drifts.
@@ -327,6 +365,27 @@ When Michael asks "what profile is using the model from VM 232" (or generally "w
 3. **Read the `model:` block AND the `providers:` block of every hit** (`model.provider: custom:NAME` is the live route; `providers.NAME.api` is the endpoint). **Also check `auxiliary.*` blocks** — vision, compression, curator, mcp, kanban_decomposer etc. can each independently route to the local provider, so a profile can hit in many places and the "who uses it" answer includes the fallback chain.
 4. Report as a table: profile → provider name → endpoint → model on disk. Explicitly flag any alias-vs-actual-quant mismatch found in step 1.
 
+### Served context: the server's `/v1/models` is the source of truth, NOT the OKF doc or the profile config
+
+(2026-09-13 lesson — Michael corrected two bogus context claims in one session.) When Michael asks "what context does X server actually serve" or "can we set the profile to 256k", **do not answer from** (a) the OKF integration doc, (b) the Hermes profile's `context_length`/`context_window`, or (c) memory. Answer from the **server's own `/v1/models` response**:
+
+```bash
+# vLLM: max_model_len is the served window
+curl -s -H "Authorization: Bearer $KEY" http://<host>:<port>/v1/models \
+  | python3 -c "import json,sys; [print(m['id'], 'max_model_len=', m.get('max_model_len')) for m in json.load(sys.stdin)['data']]"
+
+# llama.cpp: n_ctx is the served window, n_ctx_train is the model's architectural max
+curl -s http://<host>:<port>/v1/models \
+  | python3 -c "import json,sys; [print(m['id'], 'n_ctx=', m.get('meta',{}).get('n_ctx'), 'n_ctx_train=', m.get('meta',{}).get('n_ctx_train')) for m in json.load(sys.stdin)['data']]"
+```
+
+**Three distinct numbers, do not conflate them:**
+- **`max_model_len` / `n_ctx`** = what the server actually serves (the cap a request will hit). This is what the profile's `context_length` must NOT exceed.
+- **`n_ctx_train`** = the model's architectural max (e.g. Qwen3.8-27B = 262144 = 256k). The server may serve less.
+- **Profile `context_length` / `compression.context_window`** = what Hermes thinks it can use. If set HIGHER than the server's served window, requests will fail with a context-overflow error; if set LOWER (and it's the aux compression block), it auto-lowers the session threshold (see "Auxiliary compression" traps above).
+
+**Real case 2026-09-13:** OKF docs said Ned's `:8003` "serves 131k" and Kai/George were "on a shared 131k pool." Both were wrong: Ned's vLLM serves `max_model_len=262144` (256k); George (`:8002`) and Kai (`:8080`) are on **different** llama.cpp servers (not one shared pool), serving `n_ctx=131072` and `n_ctx=65536` respectively, both with `n_ctx_train=262144`. The "252k" Michael remembered was the architectural max (262144 ≈ 256k), not a served value. **When in doubt, curl the server.** Then correct the OKF doc AND the profile config to match the served value.
+
 ## Pitfalls
 
 - Do not claim availability from a release article alone.
@@ -352,3 +411,4 @@ When Michael asks "what profile is using the model from VM 232" (or generally "w
 - `references/codex-auth-json-structure.md` — Codex OAuth token storage layout in `auth.json` (not `credentials.json`) and quick-introspection command for checking token presence and error codes.
 - `references/codex-oauth-401-silent-fallback-2026-08.md` — worked example: OAuth reset populated an access_token but the backend still 401'd ("Could not parse your authentication token"); the smoke test returned PONG via silent fallback to gemini. Full evidence chain for "logged in + token present + PONG ≠ recovered", including the provider-level `last_auth_error` / `relogin_required` signal and the 401 message taxonomy.
 - `references/direct-minimax-guest-bot-2026-07.md` — direct MiniMax API wiring for containerized Hermes guest bots: `provider: minimax`, `MiniMax-M3`, `MINIMAX_API_KEY`, Anthropic SDK dependency, and explicit/routed smoke tests.
+- `references/local-custom-provider-key-wiring-2026-08-27.md` — auth-gated local server variant: a local OpenAI-compatible server started with `--api-key` returns `401 Invalid API Key` on chat (while `/v1/models` still 200s) and Hermes silently falls back. Diagnosis, live key test via `key_env`, and the in-gateway-restart handoff (Kai→1.232:8080 `qwen3.8-27b`).

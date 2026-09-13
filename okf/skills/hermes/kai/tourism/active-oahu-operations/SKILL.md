@@ -35,6 +35,7 @@ For every AOT homepage / preview-URL task-completion message:
 This is a hard rule, not a suggestion — Michael asked for it explicitly and asked it be carried forward to every future session.
 - **Astro homepage development and CSS auditing.** See `references/astro-css-architecture.md` for the full Kadence CSS replacement pattern, glyphicon gotchas, and WCAG contrast safe-harbors for orange buttons.
 - **Homepage content audit method:** See `references/aot-staging-content-audit-2026-07-29.md` for the content comparison technique against the live WordPress production site (character count, section order, pixel color comparison, browser accessibility tree audit).
+- **Branch unify + watchdog triage:** See `references/aot-branch-unify-and-watchdog-triage.md` — the tree-identical gate recipe for unifying a stale staging onto main (no force-push), and the full 2026-09-03 root-cause record for a stale `nav-fix.css?v=17` guard constant producing a false-positive `live-production` fail.
 - **PrimaryNav keyboard/a11y pattern:** See `references/aot-primary-nav-a11y-pattern-2026-07-28.md`.
 - **Screenshot capture (wkhtmltoimage):** See `references/aot-screenshot-capture-wkhtmltoimage-2026-07-28.md`.
 - **Button contrast safe harbor:** See `references/aot-button-contrast-safe-harbor-2026-07-28.md`.
@@ -200,10 +201,29 @@ for it in items:
 - `git push --force-with-lease` is OK only on your own private feature branch
 - If work is lost to a bad push: use `git reflog` to find the lost commit, `git reset --hard <sha>` on local branch
 
+### Stale-branch unification (tree-identity gate, 2026-09-03)
+When a stale branch (`staging`) lags `main` by many commits and its unique commits are verified superseded (`git cherry` + per-commit inspection of the few real patches), unify WITHOUT merging stale content into main:
+
+1. `git checkout -b feature/<name>-unify origin/staging`
+2. `git merge --no-ff origin/main` (expect 0 conflicts)
+3. **HARD GATE:** push only if `git rev-parse HEAD^{tree}` == `git rev-parse origin/main^{tree}` — byte-identical tree means zero production content change, which is what makes the lane-guarded push safe.
+4. `git push origin feature/<name>-unify:staging` (clean ff, no force)
+5. Re-fetch; verify both trees equal and ahead/behind = 0/0.
+
+Residual *history-only* ahead/behind after the merge is expected and acceptable — do NOT then merge staging→main (that would pull superseded content in). Full session record (exact block, SHAs, watchdog follow-through, GRO-521/GRO-586 supersession rationale): see `references/aot-staging-unification-tree-gate-2026-09-03.md`.
+
 ### After pushing (PR + edge changes)
 1. Wait for CF Pages auto-preview deploy (~75 seconds is the typical minimum; can run 5+ minutes if the queue is backed up)
 2. Test on preview URL before claiming "done" — verify with a **content-aware probe**, not just `HTTP 200` (see Verification Commands above). The preview can serve a stale commit while still returning 200.
 3. Post PR link in Linear with standard comment pattern (see `okf/ops-runbook/linear-integration.md`)
+
+### Governance watchdog: classify `live-production` fails before touching anything
+The `aot_governance_watchdog.py` (Kai scripts dir, cron `ce2574aadd6c`) `live-production` check compares live homepage CSS cache-buster markers against a **hard-coded expected version, not against main**. A FAIL is NOT automatically stale production — it is often a **stale expected-version constant**:
+1. Diff live HTML markers (`curl -s https://activeoahutours.com/ | grep -o 'nav-fix.css?v=[0-9]*'`) against `git show origin/main:index.html` markers. If **live == main**, production is correct and the guard constant is stale.
+2. Prove the expected version was never shipped: `git log -S'nav-fix.css?v=NN' origin/main` — empty output means that version was never committed. (2026-09-03: watchdog wanted `v=17`, repo+live were both `v=16`; the in-repo marker policy in `.prismatic-web-governance.json` was even older at `v=10`.)
+3. Ignore the sha-diff component: the live homepage sha always differs from `origin/main` because Cloudflare injects challenge scripts — the marker version is the signal, the sha is noise.
+4. Fix = align the expected marker constant to the shipped version (guard config is a `protected_paths` file → Fred's lane or explicit Michael sign-off), NOT a code deploy. Re-run watchdog for all-pass before closing any Linear issue gated on it.
+Full case record: `references/aot-branch-unify-and-watchdog-triage.md`.
 
 ### Branch cleanup after merged PRs (2026-08-19)
 
@@ -222,6 +242,12 @@ When Michael says "do your cleanup on the branches you've been working on":
 - Kai's lane must explicitly include `astro/` to own Astro content
 - Use `git push --no-verify` only when Michael has authorized Kai's AOT permissions for that push
 - **The pre-push hook evaluates the diff range, not just your commit's files** — a prior session's out-of-lane commit in your push range can block your push even when your own commit is in-lane. Diagnose and override pattern in `references/aot-astro-template-jsx-pitfalls-2026-07-29.md` §"Prismatic Engine: lane-violation can hit without you editing the file".
+
+### Terminal output collapse — redirect to a file
+- On this box, multi-line terminal stdout sometimes collapses to a single token (`done`, `ok`, one line) even when the command ran fine. Do not trust the returned stdout for evidence-gathering probes: run the probe with output redirected (`… > /tmp/<name>.txt 2>&1`) and `read_file` the result. This pattern is what preserved the git/hook/governance evidence during the 2026-09-03 post-unify recovery.
+
+## Branch-prefix lane enforcement (verified 2026-09-03)
+- **The pre-push hook derives the enforcing identity from the BRANCH PREFIX in `PRISMATIC_ENGINE.yaml`, not from `.prismatic-web-governance.json` ownership lists.** `feature/*` → Fred (`lanes.owner: ["*"]`), so protected ROOT files (`.prismatic-web-governance.json`, `PRISMATIC_ENGINE.yaml`) can only be pushed from a `feature/` branch. Full rule set, the `*` vs specific-lane precedence, `require_issue_ref`, and the direct-main-push ban: `references/aot-branch-prefix-lane-enforcement-2026-09-03.md`.
 
 ## Worktree Locations
 

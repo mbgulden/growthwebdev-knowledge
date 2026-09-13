@@ -239,3 +239,26 @@ Equivalently, if a skill lives at `profiles/<source>/skills/<category>/<skill>/`
 **The recovery pattern when the bug has already fired.** Stop the script. Inspect the symlink graph with `find <profile>/skills -type l -exec ls -la {} \;` to identify the cycle. Do NOT delete the symlink blindly — that destroys the only copy of the source. Instead, restore the canonical source from the conversation transcript (the original `write_file` content), then re-run the adoption with the source profile excluded. The 2026-07-27 case study is at `references/cross-profile-skill-adoption-symlink-loop.md` for the full transcript and the corrected adoption helper.
 
 **Why this belongs here, not in `hermes-agent`.** `hermes-agent` covers operational diagnosis (gateway lockouts, profile discovery, model routes). Cross-profile skill adoption is a packaging concern that lives with the distribution layer. The umbrella is where future-self looks when shipping a skill to multiple profiles.
+
+### Cross-profile soft guard: where it lives, what it does, and how to narrow it for a swarm
+
+When a profile's agent tries to `write_file`/`patch`/`skill_manage` into **another** profile's `skills/`, `plugins/`, `cron/`, or `memories/`, the write is refused with:
+
+```
+Cross-profile write blocked by soft guard: <path> belongs to Hermes profile '<target>',
+but the agent is running under profile '<active>'. ... retry with ``cross_profile=True``.
+```
+
+The guard is defined in `agent/file_safety.py` (pipx site-packages, not the profile tree) — a single constant:
+
+```python
+PROFILE_SCOPED_AREAS = ("skills", "plugins", "cron", "memories")
+```
+
+It is **defense-in-depth, not a security boundary**: all agents run as the same OS user and the terminal tool can bypass it trivially. It exists to catch a *confused* single agent writing to the wrong profile's area (the May 2026 incident: a session edited another profile's skills without realizing the path belonged to a different profile).
+
+**Swarm failure mode (2026-09-05, Ned).** In a multi-agent setup where agents legitimately coordinate on shared skills, the guard creates a *different* failure mode: the agent knows exactly which profile the skill belongs to, knows the work is legitimate, but still gets bounced back to "confirm with the user." Ned spent ~15 min on `session-state-handoff/scripts/wire_cold_start.py` — a legitimate fix — hitting the guard twice on `patch`, then `skill_manage` failing with "not found in active profile 'ned'." The fix required Michael to weigh in on tooling minutiae.
+
+**When Michael asks "is the guard getting in the way?"** — the answer is almost always *yes, for skills in a swarm*. The right narrowing is to drop `skills` from `PROFILE_SCOPED_AREAS` (keep `memories`, `cron`, `plugins` guarded, where genuine confusion still matters). It's a one-line edit to `file_safety.py` + restart of affected profiles. Present this as the default recommendation, not three open options.
+
+**DONE (2026-09-07, Michael approved option 1).** Applied in the live fork (`/home/ubuntu/work/hermes-agent-fork`, which the pipx venv imports directly — NOT "pipx site-packages" as the line above says): `PROFILE_SCOPED_AREAS = ("plugins", "cron", "memories")` with a do-not-re-add comment in `agent/file_safety.py`; `tests/agent/test_file_safety_cross_profile.py` updated (17 passed) and a new `test_skills_cross_profile_intentionally_unguarded` regression test pins the exemption. Cross-profile `skills/` writes are now ungated; `memories`/`cron`/`plugins` still warn. It goes live per-gateway on next restart (the guard module loads once at startup).

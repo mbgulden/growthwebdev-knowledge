@@ -31,9 +31,9 @@ Generated: 2026-06-18T06:31:00.097301+00:00
 - `2d5d2f3b02e9` — Morning Briefing — enabled=True — schedule=0 8 * * * — last=ok — deliver=origin — script=None
 - `054c987cca7f` — Golden Thread Daily Digest — enabled=True — schedule=0 9 * * * — last=error — deliver=telegram:8190664947 — script=None
 - `b7996de54e7e` — Golden Thread Cross-Project Sync — enabled=True — schedule=0 10 * * * — last=ok — deliver=telegram:8190664947 — script=None
-- `593cfd88f6fe` — Becca Journal Recap — enabled=True — schedule=59 23 * * * — last=ok — deliver=local — script=None
-- `e3af8ef96088` — Becca Morning Briefing — enabled=True — schedule=0 8 * * * — last=ok — deliver=local — script=None
-- `df2767acde25` — Becca Journal Snapshot — enabled=True — schedule=0 * * * * — last=ok — deliver=local — script=becca-journal-snapshot.sh
+- `593cfd88f6fe` — Becca Journal Recap — **removed 2026-09-13 (journal never used)** — (was) 59 23 * * * — deliver=local
+- `e3af8ef96088` — Becca Morning Briefing — **removed 2026-09-13 (journal never used)** — (was) 0 8 * * * — deliver=local
+- `df2767acde25` — Becca Journal Snapshot — **removed 2026-09-13 (journal never used)** — (was) 0 * * * * — script=becca-journal-snapshot.sh
 - `63b5dd0ddf98` — Memory Grooming Report — enabled=True — schedule=15 0 * * * — last=ok — deliver=local — script=memory_grooming.py
 - `0ce73bbeee4e` — Nightly Autonomous Backlog Worker — enabled=True — schedule=0 4 * * * — last=error — deliver=origin — script=nightly_backlog_delta.py
 - `7f5fff8702bc` — Weekly Journal Rollup — enabled=True — schedule=0 10 * * 0 — last=ok — deliver=telegram:8190664947 — script=None

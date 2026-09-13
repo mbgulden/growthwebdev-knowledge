@@ -105,8 +105,8 @@ The prismatic cron subsystem has **three layers**, each at a different maturity:
 |-----|------|----------|-------------|-------|
 | Hermes daily journal snapshot | no_agent | every 60m | ❌ error | `ModuleNotFoundError: No module named 'swarmlock'` (fixed: shebang) |
 | Hermes daily journal recap | agent | 23:59 UTC | ❌ error | `cannot import name 'is_job_runnable' from 'cron.jobs'` (fixed: patch) |
-| Becca Journal Recap | agent | 23:59 UTC | ❌ error | same `is_job_runnable` import (fixed by same patch) |
-| Becca Journal Snapshot | no_agent | every 60m | ✅ ok | — |
+| Becca Journal Recap | agent | 23:59 UTC | ❌ error | same `is_job_runnable` import (fixed by same patch) — **job removed 2026-09-13 (journal never used)** |
+| Becca Journal Snapshot | no_agent | every 60m | ✅ ok | — **job removed 2026-09-13 (journal never used)** |
 | Weekly Journal Rollup | agent | Sun 10:00 | ❌ error | same `is_job_runnable` import (fixed by same patch) |
 | Monthly Journal Continuity Audit | no_agent | 1st 09:00 | ✅ ok | — |
 
@@ -182,6 +182,10 @@ The prismatic cron subsystem has no `prismatic cron` CLI command. The swarmcron 
 
 3. **Gateway restart** — Killed the stale gateway process (running since Sep 9) and restarted via systemd. The new gateway picks up the `is_job_runnable` fix.
 
+4. **SwarmCron installed** — `pip install -e ~/Github/swarmcron/` (v0.3.0, editable) into the hermes-agent venv. CLI binary at `~/.local/share/pipx/venvs/hermes-agent/bin/swarmcron`.
+
+5. **SwarmCron tick daemon** — Built `swarmcron_tick.py` (standalone tick-loop daemon) and `swarmcron-tick.service` (systemd user unit). Daemon is **live** (PID 393843, 46MB RSS, 30s tick interval). Journal snapshot registered as a swarmcron task and verified end-to-end.
+
 ## 5. Recommended path to "fully functional"
 
 ### Phase 1: Unblock (this session) ✅
@@ -190,17 +194,20 @@ The prismatic cron subsystem has no `prismatic cron` CLI command. The swarmcron 
 - [x] Restart gateway
 - [ ] Verify journal recap runs tonight (23:59 UTC) — first run with the fix
 
-### Phase 2: Install swarmcron (next session)
-- [ ] `pip install -e ~/Github/swarmcron/` in hermes-agent venv
-- [ ] Verify `swarmcron list` works
-- [ ] Register the journal snapshot task in swarmcron
-- [ ] Verify `swarmcron run journal-snapshot` works
+### Phase 2: Install swarmcron ✅
+- [x] `pip install -e ~/Github/swarmcron/` in hermes-agent venv (v0.3.0, editable)
+- [x] Verify `swarmcron list` works (CLI binary at `~/.local/share/pipx/venvs/hermes-agent/bin/swarmcron`)
+- [x] Register the journal snapshot task in swarmcron (`journal-snapshot`, hourly, group=journal)
+- [x] Verify `swarmcron run journal-snapshot` works (exit 0, receipt captured, 3.9s)
 
-### Phase 3: Build the tick loop (the big one)
-- [ ] Design the tick loop (daemon vs gateway-integrated)
-- [ ] Implement: load registry → evaluate due tasks → build envelope → `run_once()` → update receipt
-- [ ] Handle catch-up policies
-- [ ] Integration test: register a task, let it fire, verify receipt
+### Phase 3: Build the tick loop ✅
+- [x] Design: standalone systemd daemon (chosen over gateway-integrated for portability)
+- [x] Implement: `swarmcron_tick.py` — load registry → evaluate due tasks → fire via `registry.mutate()` → receipt
+- [x] Dedup: 65s window prevents double-fire when tick interval < 1min
+- [x] Signals: SIGTERM/SIGINT graceful shutdown, SIGUSR1 forced tick
+- [x] systemd unit: `swarmcron-tick.service` (user service, auto-start, on-failure restart)
+- [x] Integration test: registered a `* * * * *` task, daemon fired it, receipt verified, dedup confirmed
+- [ ] Catch-up policies (skip, run_once, bounded_replay) — not yet implemented in the tick loop
 
 ### Phase 4: Bridge swarmcron ↔ prismatic authority
 - [ ] Build `SwarmCronPrismaticAdapter` (implements `BoundedProcessAdapter`)
@@ -238,6 +245,10 @@ The prismatic cron subsystem has no `prismatic cron` CLI command. The swarmcron 
 | Journal corpus | `~/work/Hermes-Research/journals/` |
 | Journal MCP server | `/home/ubuntu/work/journal-mcp-server/server.py` |
 | Cron job templates | `/home/ubuntu/work/prismatic-engine/templates/cron/cron-job-templates.md` |
+| **SwarmCron tick daemon** | `/home/ubuntu/work/swarmcron-tick/swarmcron_tick.py` |
+| **SwarmCron systemd unit** | `~/.config/systemd/user/swarmcron-tick.service` |
+| **SwarmCron store** | `~/.hermes/profiles/orchestrator/home/.swarmcron/tasks.json` |
+| **SwarmCron log** | `~/.local/logs/swarmcron/tick.log` |
 
 ---
 *All timestamps UTC. Test counts from 2026-09-12 live run. Re-run this audit after Phase 2 (swarmcron install) — the "Wired" and "Running" columns will change.*

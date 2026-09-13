@@ -62,7 +62,7 @@ The structured JSON inventory is in `prismatic-independence-map.json` next to th
 | `agy_resource_monitor.py` | `orchestrator/scripts/` | **3** | Leave as harness | Local CPU/RAM monitor. Engine doesn't ship process monitoring. |
 | `agy_sandbox_supervisor*.sh/py` | `orchestrator/scripts/` | **3** | Leave as harness | Sandbox/VM-level work. |
 | `journal_snapshot.py` | `orchestrator/scripts/` | **4** | **Migrate the contract, leave the cron** | The cron is harness plumbing. The snapshot itself reads `$PRISMATIC_HOME` and writes to journals/. Engine should ship a `prismatic-journal-snapshot` CLI; harness cron invokes it. |
-| `becca-journal-snapshot.sh`, `commitments.py`, `commitments_digest.py`, `intervention_handler.py` | `orchestrator/scripts/` | **3** | Leave as harness | Personal-bot plumbing (Becca). |
+| `commitments.py`, `commitments_digest.py`, `intervention_handler.py` | `orchestrator/scripts/` | **2** | Leave as harness | Personal-bot plumbing (Becca). |
 | `milestone_watch.sh`, `comment_trigger_monitor.py`, `kai_callback_monitor.py` | `orchestrator/scripts/` | **3** | Leave as harness | LLM/agent-specific plumbing. |
 | `agy_golden_thread_delta.py`, `consulting_pipeline_delta.py`, `content_engine_delta.py`, `nightly_backlog_delta.py`, `pr_triage_report.py` | `orchestrator/scripts/` | **3** | Leave as harness | Per-venture delta monitors. |
 | `prismatic_event_trigger.py`, `prismatic_port_progress.py` | `orchestrator/scripts/` | **3** | Leave as harness | Port-progress digest. |
@@ -74,7 +74,7 @@ The structured JSON inventory is in `prismatic-independence-map.json` next to th
 | Linear labels `agent:*`, `pipeline:*`, `type:*` | Linear | **5** | Leave as is | These are harness-specific. Different harnesses have different agent identities. |
 | Cron `Monthly Journal Continuity Audit` (id `eb82b536113c`) | `cron/jobs.json` | **3** | Leave as harness, but engine should ship a `prismatic-journal --install-cron` command | The cron is harness plumbing. Engine should expose a one-line installer so any harness can wire the schedule. |
 | Cron `Hermes daily journal snapshot` (id `ce3dd849ede5`) | `cron/jobs.json` | **3** | Leave as harness | Schedule is harness's. |
-| Crons `Hermes daily journal recap`, `Becca Journal Recap`, `Becca Morning Briefing`, `Becca Journal Snapshot`, `Weekly Journal Rollup` | `cron/jobs.json` | **3** | Leave as harness | Same. |
+| Crons `Hermes daily journal recap`, `Weekly Journal Rollup` (Becca Journal Recap / Becca Morning Briefing / Becca Journal Snapshot **removed 2026-09-13** — never used) | `cron/jobs.json` | **2** | Leave as harness | Same. |
 | Cron `🔮 Second Witness — AGY Prismatic review terminal` | `cron/jobs.json` | **3** | Leave as harness | The cron is harness; the review protocol is engine surface (`prismatic-second-witness`). |
 | Cron `Prismatic Port Progress` | `cron/jobs.json` | **3** | Leave as harness | Same. |
 | `LINEAR_API_KEY` (env) | `orchestrator/.env` | **5** | Leave as is | This is the user's Linear API key. The engine doesn't own it; the user's deployment does. The engine just *uses* it. |

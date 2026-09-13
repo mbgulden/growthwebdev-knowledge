@@ -64,6 +64,41 @@ GPUs 2+3 from Ned on reboot.
 | GPU placement | guest GPUs **2+3**, tensor split `(1,1)` — 19.77GB does **not** fit a single 24.5GB 3090 |
 | NUMA | guest 2 = host BDF `86:00.0` → NUMA 1; guest 3 = host BDF `af:00.0` → NUMA 1. **Single host NUMA** — no cross-CPU barrier |
 
+## Served context (VERIFIED 2026-09-13, live `/v1/models` + process args)
+
+| Property | Value |
+|---|---|
+| `max_model_len` | **262144 (256k)** |
+| `--max-num-seqs` | 64 |
+| `--gpu-memory-utilization` | **0.96** |
+| `--kv-cache-dtype` | fp8 |
+| `--tensor-parallel-size` | 2 (guest GPUs 2+3) |
+
+The Ned vLLM serves a **256k** context (not 131k — the 131k figure that circulated
+in OKF was the Hermes *profile* `auxiliary.compression.context_length`, not the
+server). The model's native max is 262144 (Qwen3.8-27B `n_ctx_train`).
+
+### Capacity / "room for more agents" (VERIFIED 2026-09-13)
+
+The Ned vLLM is **not** a spare-capacity server. It pre-reserves **96%** of its
+2×3090 (48GB) for Q5 weights + KV cache **at startup** (`--gpu-memory-utilization
+0.96`). There is therefore **no free VRAM on `:8003`** to add another Hermes agent
+without one of:
+
+1. **Add a served-model-name to the existing engine** — zero extra GPU cost (vLLM
+   serves many model IDs per engine; the `served-model-name` flag already lists 3).
+2. **Lower `--gpu-memory-utilization`** to carve a KV-cache slice for a 3rd engine
+   (costs concurrency on the existing server).
+3. **Use a different box** — the `.232` llama.cpp pool (George+Kai) is only at
+   `n_ctx 65536` and likely has spare VRAM.
+
+**Box-level:** k3s-node-230 (`192.168.1.230`) hosts **both** vLLM servers —
+Fred `:8000` (TP2, guest GPUs 0+1) and Ned `:8003` (TP2, guest GPUs 2+3), both at
+0.96. All **96GB (4×3090)** is already allocated between the two. Note:
+`nvidia-smi` on 230 throws a driver/library mismatch (580.178) as of 2026-09-13 —
+a kernel/userspace re-sync (reboot or driver reload) is needed; it does **not**
+affect the running vLLM engines (still serving 200 on `/v1/models`).
+
 ## Why the 2-GPU split
 
 1. **Capacity:** 19.77GB weights + KV cache for 131k ctx cannot fit one 24.5GB 3090.

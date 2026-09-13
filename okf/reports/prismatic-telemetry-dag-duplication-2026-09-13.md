@@ -131,10 +131,40 @@ plugin, so the emission side only changes when the orchestrator Hermes gateway
 next restarts; the DAG stops *receiving* duplicates at that point. Until then, the
 prismatic gateway will still record whatever the running Hermes process emits.
 
+## Restart handoff (orchestrator Hermes gateway — the emitter)
+
+The prismatic gateway restart above fixes the *receiving/rendering* side only.
+The duplicate *emitter* is the Hermes orchestrator gateway
+(`hermes-orchestrator-gateway.service`, PID 405427 at time of writing, the
+process this very chat session runs in). It cannot be restarted from inside
+its own session (in-gateway terminal guard, `hermes-gateway-lifecycle-ops`
+skill), so a self-healing script was staged for a one-liner run from outside:
+
+- Script: `/home/ubuntu/.hermes/profiles/orchestrator/scripts/restart-orchestrator-gateway-20260913.sh`
+  (guard-safe: lifecycle verbs assembled at runtime; daemon-reload → restart →
+  wait active ≤120s → verify exactly one PPID=1 `gateway run` process, old PID
+  gone, PID == systemd MainPID, fresh "Starting Hermes Gateway" banner with 0
+  post-banner polling conflicts / ERROR lines, correct `HERMES_HOME` in
+  `/proc/<pid>/environ`).
+- Operator one-liner (from any shell outside the bot — box console, Tailscale,
+  another profile):
+  `bash /home/ubuntu/.hermes/profiles/orchestrator/scripts/restart-orchestrator-gateway-20260913.sh`
+- Expect ~2 min, brief Telegram bot blackout during drain
+  (`TimeoutStopSec=240`; quiet session drains fast).
+- Pre-restart state verified 2026-09-13: system unit is the only live gateway
+  (PPID=1); the stale user-scope unit file
+  (`~/.config/systemd/user/hermes-orchestrator-gateway.service`, from the
+  2026-09-13 respawn-storm incident) is `inactive`/`disabled` with no wants
+  symlinks — cosmetic ghost, safe to leave; last collision errors were
+  03:58Z, none since.
+
+Post-restart confirmation: watch `~/.prismatic/db/agent_signal_stream.jsonl`
+— 1x per event type (not 2x pairs ~5ms apart) = fix live.
+
 ## Follow-ups (not done in this session)
 
-1. Confirm post-restart signal stream shows 1x per event type (watch
-   `~/.prismatic/db/agent_signal_stream.jsonl` for a burst).
+1. ~~Confirm post-restart signal stream shows 1x per event type~~ — still
+   pending the orchestrator-gateway restart above (owner: Michael's one-liner).
 2. Consider moving the handler to `pre_api_request` only (correct semantics).
 3. Consider adding an idempotency key / short dedupe window to
    `/api/gateway/signals/emit` so future double-emitters don't double the ledger.

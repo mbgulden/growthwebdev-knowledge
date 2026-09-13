@@ -105,8 +105,8 @@ The prismatic cron subsystem has **three layers**, each at a different maturity:
 |-----|------|----------|-------------|-------|
 | Hermes daily journal snapshot | no_agent | every 60m | ❌ error | `ModuleNotFoundError: No module named 'swarmlock'` (fixed: shebang) |
 | Hermes daily journal recap | agent | 23:59 UTC | ❌ error | `cannot import name 'is_job_runnable' from 'cron.jobs'` (fixed: patch) |
-| Becca Journal Recap | agent | 23:59 UTC | ❌ error | same `is_job_runnable` import (fixed by same patch) |
-| Becca Journal Snapshot | no_agent | every 60m | ✅ ok | — |
+| Becca Journal Recap | agent | 23:59 UTC | ❌ error | same `is_job_runnable` import (fixed by same patch) — **job removed 2026-09-13 (journal never used)** |
+| Becca Journal Snapshot | no_agent | every 60m | ✅ ok | — **job removed 2026-09-13 (journal never used)** |
 | Weekly Journal Rollup | agent | Sun 10:00 | ❌ error | same `is_job_runnable` import (fixed by same patch) |
 | Monthly Journal Continuity Audit | no_agent | 1st 09:00 | ✅ ok | — |
 

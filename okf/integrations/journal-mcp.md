@@ -40,8 +40,9 @@ Root: `/home/ubuntu/work/Hermes-Research/journals`
 | `latest.md` / `latest-weekly.md` | Symlinks to newest | |
 
 Swarm-wide by design: one corpus covering all profiles (kai, fred, george, ned,
-autobot, orchestrator, …). **Becca's personal HD journal is separate and private** at
-`~/work/next-step-becca/journals/` and is intentionally NOT in this corpus.
+autobot, orchestrator, …). **Becca's personal HD journal was removed 2026-09-13**
+(Michael confirmed she never used it); its old path
+`~/work/next-step-becca/journals/` is now `journals-archived-2026-09-12/`.
 
 ## Tools
 

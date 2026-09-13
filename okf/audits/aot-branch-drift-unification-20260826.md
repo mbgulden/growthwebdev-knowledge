@@ -163,3 +163,36 @@ left for the relevant lane owners.
 **GRO-521 / GRO-586:** superseded by `a889bd510` (Lanikai kept live on production); the
 staging 301s they introduced are gone. Close as superseded (owner: Michael/Fred —
 Linear close is a manual step, not auto-executed here).
+
+---
+
+## Closeout (2026-09-13, Fred) — GRO-4909 Linear state reconciled to live reality
+
+The 2026-09-05 resolution above merged the v10→v16 marker to `main` (PR #133) and
+cleared `live-production`, but **GRO-4909 was left "In Progress" in Linear** (its
+`updatedAt` 2026-09-05T05:15Z predates the merge). A cron golden-thread run
+(2026-09-12T23:xxZ) selected GRO-4909 as the top revenue-related in-flight item and
+the Phase 0.5 live-verify confirmed the fix was already fully landed and the watchdog
+clean — so the correct action was an evidence-backed close, not new build work.
+
+Verified live (read-only):
+
+| Check | Result |
+|---|---|
+| Fix commit `526f57073` on `origin/main` | YES (`git merge-base --is-ancestor` = yes) |
+| `origin/main:.prismatic-web-governance.json` marker | `nav-fix.css?v=16` |
+| Live prod `https://activeoahutours.com` (HTTP 200) | serves `nav-fix.css?v=16` |
+| AOT governance watchdog `prismatic_web_governance.py` (2026-09-12T23:26Z) | `live-production: PASS`, exit 0 (remaining WARNs = pre-existing open-PR age + stale-branch age) |
+
+Action taken (Fred = staging governor / governance lane, owner `*`):
+
+- Posted an evidence comment on [GRO-4909](https://linear.app/growthwebdev/issue/GRO-4909)
+  (comment id `63feee0a`) with the full verification packet.
+- Moved GRO-4909 **In Progress → Done** via `issueUpdate` (stateId `bbf71b3e…`,
+  read back: `state.name = "Done"`, `type = completed`, updatedAt 2026-09-13T00:01:33Z).
+- Read-back: GRO-4909 no longer appears in the team's non-completed issue set (0 matches).
+
+Net effect: the AOT governance watchdog's `live-production` FAIL is cleared on production
+**and** the Linear ticket that tracked it is now Done — no agent will re-surface GRO-4909
+as blocked. The two remaining `warn`s (stale PR #131, stale `audit/agy-GRO-*` branches)
+stay with their lane owners (Kai).

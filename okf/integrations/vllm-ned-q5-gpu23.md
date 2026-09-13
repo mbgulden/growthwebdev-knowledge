@@ -16,9 +16,25 @@ status: current
 
 # Ned Qwen3.8-27B UD-Q5_K_M on .230 (2-GPU tensor split)
 
+> **⚠️ STALE ON RUNTIME — superseded by the 2026-08-24 vLLM cutover.**
+> This doc describes the **pre-cutover** state: a llama.cpp server serving
+> `UD-Q5_K_M` on a 2-GPU tensor split at `:8003`. On **2026-08-24** that
+> server was **replaced with a copy of Fred's vLLM setup** — same model
+> checkpoint class (now AWQ-4bit), same port, TP2 on GPUs 2+3 — with **zero
+> consumer config changes** (the legacy GGUF path is kept as the served name).
+> The **authoritative runtime record for Ned is now**
+> [`vllm-ned-awq-qwen38-27b.md`](../standards/vllm-ned-awq-qwen38-27b.md).
+> The cross-lane map (all 4 lanes, VRAM headroom, profile routing) is
+> [`local-llm-gpu-topology.md`](./local-llm-gpu-topology.md).
+>
+> **What this doc is still good for:** the 2-GPU tensor-split rationale, the
+> host-NUMA BDF map, the pre-cutover benchmarks, and the 2026-09-13 capacity
+> note (256k, 0.96 util, **no free VRAM**). Treat everything about the
+> *runtime* (llama.cpp, Q5 weights, `--mmproj` llama flags) as historical.
+
 > **Verified 2026-08-22 by Kai** — live chat + multimodal image round-trip,
 > tensor-split confirmation in service logs, and before/after benchmark all
-> passed against `192.168.1.230:8003` post-cutover.
+> passed against `192.168.1.230:8003` post-cutover (pre-vLLM-replacement).
 >
 > **LANE WAIVER (PR #38 precedent):** `okf/integrations/` is Jules's lane.
 > This doc lands on a `kai/...` branch under Michael's 2026-07-30 lane grant
@@ -50,8 +66,8 @@ GPUs 2+3 from Ned on reboot.
 | Auth | static API key `llama-local` (no OAuth) |
 | Config location | `/home/ubuntu/.hermes/profiles/ned/config.yaml` → `custom_providers.qwen27b-ned-local` |
 | Request timeout | `180s` |
-| systemd unit | `vllm-ned.service` — **name is a misnomer; it runs llama.cpp** |
-| Start script | `.230:/opt/vllm_bin/start_ned_vm230.sh` (Q5, GPU 2+3, `--mmproj`) |
+| systemd unit | `vllm-ned.service` — **post 2026-08-24 it runs vLLM, not llama.cpp** (the unit name predates the cutover; see the runtime banner above) |
+| Start script | `.230:/opt/vllm_bin/start_ned.sh` (vLLM, GPUs 2+3, port 8003) — pre-cutover `start_ned_vm230.sh` (Q5 llama.cpp) retained as the rollback path |
 | Pre-cutover backup | `.230:/opt/vllm_bin/start_ned_vm230.sh.bak-q4-20260822` |
 
 ### Served model
@@ -63,6 +79,48 @@ GPUs 2+3 from Ned on reboot.
 | Quant | `UD-Q5_K_M` (Unsloth dynamic Q5) — plain `Q5_K_M` no longer exists upstream; Unsloth keeps only `UD-Q5_K_M` / `UD-Q5_K_S` / `UD-Q5_K_XL` |
 | GPU placement | guest GPUs **2+3**, tensor split `(1,1)` — 19.77GB does **not** fit a single 24.5GB 3090 |
 | NUMA | guest 2 = host BDF `86:00.0` → NUMA 1; guest 3 = host BDF `af:00.0` → NUMA 1. **Single host NUMA** — no cross-CPU barrier |
+
+## Current served state (the vLLM server, post 2026-08-24 cutover)
+
+> The llama.cpp details above are **historical**. What actually runs on
+> `:8003` today is a **vLLM** engine (a copy of Fred's setup). Authoritative
+> record: [`vllm-ned-awq-qwen38-27b.md`](../standards/vllm-ned-awq-qwen38-27b.md).
+
+| Property | Value |
+|---|---|
+| Runtime | vLLM 0.27.1 (`/opt/vllm_bin/start_ned.sh`) |
+| Weights | `/models/barrydeen-Qwen3.8-27B-AWQ-4bit` (same checkpoint as Fred) |
+| GPUs | 2+3, TP2 (`--tensor-parallel-size 2 --disable-custom-all-reduce`) |
+| `max_model_len` | **262144 (256k)** — NOT 131k |
+| `--max-num-seqs` | 64 |
+| `--gpu-memory-utilization` | **0.96** (48 GB of the 2×3090 pre-reserved at startup) |
+| `--kv-cache-dtype` | fp8 |
+| Served names | legacy GGUF path + `local-qwen-27b-q5-ned` + `qwen3.8-27b-ned` |
+| Auth | static key in `/opt/vllm_bin/.api_keys_ned` (0600) — `llama-local` is no longer valid (rotated 2026-09-06, GRO-4929) |
+
+### Capacity / "room for more agents" (VERIFIED 2026-09-13, live)
+
+The Ned vLLM is **not** a spare-capacity server. It pre-reserves **96%** of
+its 2×3090 (48 GB) for AWQ weights + KV cache **at startup**. There is
+**no free VRAM on `:8003`** to add another Hermes agent without one of:
+
+1. **Add a `served-model-name`** to the existing engine — zero extra GPU cost
+   (vLLM serves many model IDs per engine; 3 already listed).
+2. **Lower `--gpu-memory-utilization`** to carve a KV slice for a 3rd
+   engine — costs concurrency on the existing server.
+3. **Use a different box** — the `.232` llama.cpp pool is the only other
+   lane, **but it is NOT spare capacity**: live `nvidia-smi` (2026-09-13)
+   shows `.232` GPU 0 at **23880 / 24576 MiB (378 MiB free, 97% used)**.
+   **Do not route new load to `.232:8080` expecting headroom** — it will
+   thrash or OOM. See [`local-llm-gpu-topology.md`](./local-llm-gpu-topology.md)
+   for the full fleet map.
+
+**Box-level:** k3s-node-230 hosts **both** vLLM servers — Fred `:8000`
+(GPUs 0+1, TP2) and Ned `:8003` (GPUs 2+3, TP2), both at 0.96. All
+**96 GB (4×3090)** is allocated between the two. Note: `nvidia-smi` on .230
+throws a driver/library mismatch (580.178) as of 2026-09-13 — a
+kernel/userspace re-sync is needed; it does **not** affect the running vLLM
+engines (still serving 200 on `/v1/models`).
 
 ## Why the 2-GPU split
 

@@ -11,6 +11,11 @@ git_path: okf/standards/vllm-ned-awq-qwen38-27b.md
 
 # Ned vLLM Instance
 
+> **Cross-lane map:** this doc is the authoritative **runtime record for the
+> Ned lane only**. For the full 4-lane GPU allocation (who owns which GPUs,
+> VRAM headroom, profile→lane routing, the dead `.230:8002`), see
+> [`local-llm-gpu-topology.md`](../integrations/local-llm-gpu-topology.md).
+
 Cutover 2026-08-24 (Kai, on Michael's directive): Ned's llama.cpp server on
 VM230 replaced with a **copy of Fred's vLLM setup** — same model checkpoint,
 same proven flags — on GPUs 2/3, same port (8003), so consumers needed **zero

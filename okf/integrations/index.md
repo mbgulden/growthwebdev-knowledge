@@ -47,8 +47,9 @@ when first encountering the integration.
 | **Agent profile inventory (2026-06-23)** | [`./agent-profile-inventory.md`](./agent-profile-inventory.md) | The 22 agent profiles + dormant decisions |
 | **Prismatic webhook chain recovery (2026-06-23)** | [`./prismatic-webhook-chain-recovery-2026-06-23.md`](./prismatic-webhook-chain-recovery-2026-06-23.md) | ned | ✅ Active |)
 | **Local llama.cpp server (George)** | [`./llama-cpp-george-local-server.md`](./llama-cpp-george-local-server.md) | george | ⚠️ Stopped 2026-08-22; unit disabled 2026-08-23 (superseded by .232:8080) |
-| **Ned Qwen3.8-27B UD-Q5_K_M on .230 (2-GPU split)** | [`./vllm-ned-q5-gpu23.md`](./vllm-ned-q5-gpu23.md) | kai (lane waiver, PR #38 precedent) | ✅ Active (verified 2026-08-22) |
-| Fred vLLM Qwen3.8-27B AWQ-4bit (TP2, MTP K=1, fp8 KV, benchmarks) | [`./vllm-fred-awq-qwen38-27b.md`](./vllm-fred-awq-qwen38-27b.md) | kai | ✅ Current (2026-08-24) |
+| **Ned Qwen3.8-27B UD-Q5_K_M on .230 (2-GPU split)** | [`./vllm-ned-q5-gpu23.md`](./vllm-ned-q5-gpu23.md) | kai (lane waiver, PR #38 precedent) | ⚠️ **Stale on runtime** — pre-cutover llama.cpp; superseded by vLLM (see topology doc) |
+| **Local LLM GPU allocation & model topology (4-lane, .230+.232)** | [`./local-llm-gpu-topology.md`](./local-llm-gpu-topology.md) | fred | ✅ Current (verified live 2026-09-13) — single table of record: who owns which GPUs, runtime/quant, VRAM headroom, profile routing |
+| Fred vLLM Qwen3.8-27B AWQ-4bit (TP2, MTP K=1, fp8 KV, benchmarks) | [`../standards/vllm-fred-awq-qwen38-27b.md`](../standards/vllm-fred-awq-qwen38-27b.md) | kai | ✅ Current (2026-08-24) |
 | **KPI dashboard (PE-KPI-FUNNEL)** | [`./kpi-dashboard-pec-kpi-funnel.md`](./kpi-dashboard-pec-kpi-funnel.md) | ned | 🟡 Spec landed, renderer pending (GRO-4919, doc 2026-09-05) |
 
 ## Format

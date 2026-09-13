@@ -1,23 +1,26 @@
 ---
 type: Integration
 title: KPI Dashboard (PE-KPI-FUNNEL) — spec landed, renderer pending
-description: State of the HDE KPI dashboard: kpi-collections.json spec (schema 1.0, 6 collections, BigQuery+GA4 sources, Google Sheet/email delivery) is committed on 2 feature branches only; PWP publish_kpi_tracker capability exists; renderer slice 2 unbuilt. Tracker ticket GRO-4919.
-resource: okf/integrations/kpi-dashboard-pec-kpi-funnel.md
+description: State of the HDE KPI dashboard: kpi-collections.json spec (schema 1.0, 6 collections, BigQuery+GA4 sources, Google Sheet/email delivery) is committed on 2 feature branches only; PWP publish_kpi_tracker capability is on prismatic-engine origin/main (the old ned/pwp-publish-kpi-tracker branch was deleted 2026-09-13 — see deletion manifest); renderer slice 2 unbuilt. Tracker ticket GRO-4919.
 tags: [kpi, pwp, dashboard, hde, linear, ga4, bigquery, integration]
-timestamp: 2026-09-05T17:30:00Z
+timestamp: 2026-09-13T02:47:00Z
 git_repo: mbgulden/growthwebdev-knowledge
 git_path: okf/integrations/kpi-dashboard-pec-kpi-funnel.md
-last_verified: 2026-09-05
+last_verified: 2026-09-13
 verified_by: ned
 status: current
 ---
 
 # KPI Dashboard (PE-KPI-FUNNEL) — state of record
 
-> **Recorded 2026-09-05 by Ned** during the infra-sweep loose-end cleanup, per
+> Recorded 2026-09-05 by Ned during the infra-sweep loose-end cleanup, per
 > Michael's direction: "needs to be documented and put into a linear task."
 > Tracker: [GRO-4919](https://prismatic.growthwebdev.com/tab/tasks?issue=GRO-4919)
 > (land spec on live branch + build renderer slice 2 + deploy).
+> **2026-09-13 update:** PWP branch retirement — the
+> `ned/pwp-publish-kpi-tracker` branch of prismatic-engine was verified 100%
+> superseded by origin/main and deleted (remote + local; manifest:
+> [2026-09-13 deletion manifest](2026-09-13-pwp-publish-kpi-tracker-branch-deletion-manifest.md)).
 
 ## What is DONE (spec / slice 1 — "first-slice complete" from the 07-31 handoff)
 
@@ -47,10 +50,15 @@ The canonical spec is `scripts/kpis/kpi-collections.json`:
 | 12,010B (08-19/08-20 evolved) | `hd-platform-prod-merge` + `hfg-gro4797-branch` | **tracked only on** `feature/gro-4797-hde-guest-fleet-drift-elimination` and `ned/gro-4823-claim-guard-2026-08-21`; the `hd-platform-prod-merge` copy is in a plain dir **with no .git** (untracked, at risk) |
 | 1,659B (site-scoped, active-oahu) | `active-oahu-tours-mirror-2529` | tracked; different scope (site KPIs, not HDE funnel) |
 
-**PWP capability** (the consumer side, exists and tested):
-`prismatic-pwp-ubersuggest-auth/prismatic/shipped_plugins/pwp/capabilities/publish_kpi_tracker/`
-— imported by `prismatic/shipped_plugins/pwp/plugin.py:24`; provision_site step tests
-cover github/stripe/zapier/funnel_config. Related PE-KPI-FUNNEL epic:
+**PWP capability** (the consumer side — **now on prismatic-engine origin/main**, 44 files
+under `prismatic/shipped_plugins/pwp/capabilities/publish_kpi_tracker/`, verified
+2026-09-13; merged via PR #410 `b8cefdb2` + PWP-P2 `ab168e04` + Phase-3 wireup `94318073`):
+funnel_form.py (4.2 modal CSS relocated in, CSRF + edit-prefill), linear_status.py (F8),
+operator_cli.py/.mjs, cron_orchestrator.py, pending_changes.py, plus
+`capabilities/provision_site/` (PWP-P2, Cloudflare-first). Main continued past the old
+branch's July state: 4.7 KPI dashboard, 4.8 Zapier prod endpoint, 4.9 funnel form,
+4.10 FareHarbor, Phase 5.0, credentials centralization (`6f6a3491`), path-portability
+fix (`4e7fd99b`). Related PE-KPI-FUNNEL epic:
 [GRO-4356](https://prismatic.growthwebdev.com/tab/tasks?issue=GRO-4356) (12 tasks);
 [GRO-4387](https://prismatic.growthwebdev.com/tab/tasks?issue=GRO-4387) (Backlog)
 adapts `build-report.mjs` → `dashboard_data.js`.
@@ -73,11 +81,16 @@ adapts `build-report.mjs` → `dashboard_data.js`.
   feature branch) and the two feature branches survive. Re-verify before relying on it.
 - Two different `kpi-collections.json` files share the name: the HDE funnel spec
   (12KB) and the active-oahu site spec (1.6KB). They are unrelated except in schema.
+- The old PWP worktree `~/work/prismatic-pwp-ubersuggest-auth` is now detached at
+  origin/main (its branch was deleted 2026-09-13). Do not resume work from it without
+  a fresh branch; the golden thread for this line is GRO-4919, not any branch name.
 
-## Verification (2026-09-05)
+## Verification (2026-09-05; PWP-branch items re-verified 2026-09-13)
 
 - `hd-platform-staging` branch `ned/hde-phase4-paid-bot-onboarding-quality-2026-07-15`:
   `git log --all -- scripts/kpis/kpi-collections.json` → tracked; appears on
   `feature/gro-4797-hde-guest-fleet-drift-elimination` + `ned/gro-4823-claim-guard-2026-08-21`.
-- PWP capability present: `grep publish_kpi_tracker prismatic/shipped_plugins/pwp/plugin.py` → line 24.
+- 2026-09-13: `git ls-tree -r origin/main -- prismatic/shipped_plugins/pwp/capabilities/publish_kpi_tracker | wc -l` → 44 files;
+  `git ls-remote origin | grep pwp-publish-kpi` → 0 (branch gone from GitHub);
+  `gh pr list --repo mbgulden/prismatic-engine --head mbgulden:ned/pwp-publish-kpi-tracker --state all` → `[]`.
 - PE-KPI-FUNNEL epic + 12 tasks confirmed in Linear (GRO-4356 family).

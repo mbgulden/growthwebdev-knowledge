@@ -18,6 +18,14 @@ status: current
 
 > **Verified 2026-08-18 by George** — health, model list, text completion, and a
 > direct multimodal image-count test all passed against the live server.
+>
+> **SUPERSEDED 2026-09-13 (verified live):** the standalone George llama.cpp
+> server at `.230:8002` **no longer exists** — Ned's vLLM subsumed both GPUs on
+> `.230`. George's Hermes profile now runs against the **shared llama.cpp pool at
+> `192.168.1.232:8080`** (provider `qwen27b-kai-local`), the same pool Kai uses.
+> The George+Kai pool serves `qwen3.8-27b` (Q4_K_M) at `n_ctx 65536` (served) with
+> `n_ctx_train 262144` (256k model max). See the connection table below for the
+> historical `:8002` record.
 
 ## TL;DR
 

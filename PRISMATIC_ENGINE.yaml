@@ -40,7 +40,10 @@ agents:
   ned:
     role: Code Execution & Infrastructure
     lanes:
-      owner: ["okf/integrations/", "okf/standards/"]
+      # 2026-09-15: add okf/skills/ — Ned maintains agent skill docs (e.g.
+      # human-design-computation spec fix for HDE East-West bug, PR #63).
+      # Was blocked by the lane guard; this is the permanent fix.
+      owner: ["okf/integrations/", "okf/standards/", "okf/skills/"]
       read_only: ["okf/secrets/"]
     branch_prefix: "ned/"
 

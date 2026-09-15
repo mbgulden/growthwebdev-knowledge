@@ -79,59 +79,83 @@ Expected output:
 - Centers: G, Heart/Ego, Spleen, Throat
 - Variables: PRR DLR
 - Definition: Split
+- **East-West (verified against myBodyGraph, 2026-09-15):**
+  - Digestion/Determination: Open Taste
+  - Environment: External Markets
+  - Motivation: Fear  /  Transference: Need
+  - Perspective/View: Power  /  Distraction: Personal
+  - Cognition (strongest sense): Outer Vision
+  - Sense: Meditation
+  - Trajectory: Separatist
 
 If any field differs, there is a bug. Never ship an unverified chart.
 
-### 3. Motivation Can Differ From Engine Output — Verify With User
+**CRITICAL — the reference must be INDEPENDENT of the engine.** Do NOT validate
+the engine against data the engine itself generated (e.g. `hd-bodygraph/*-data.json`
+or `hd-reports/*/chart-*.json` are engine output via `bridge.py` — they are
+circular and will always "pass"). The East-West block above was verified against
+the **myBodyGraph app** (screenshots / bundle tables), not against the engine.
+When a field disagrees, the engine is wrong until proven otherwise — do not
+assume the app or the user is "a different school."
 
-The Variable subsystem (Personality Sun Color/Tone → Motivation) is sensitive
-to planetary position precision. The engine computes Color/Tone from
-longitude → gate position → line → color → tone, and rounding at any step
-can shift the result. The Motivation map keys on `(p_sun_color, p_sun_tone)`:
+### 3. East-West Variable subsystem — verified spec (FIXED 2026-09-15)
 
-```
-Color 1: {1,3,5=Fear, 2,4,6=Hope}
-Color 2: {1,3,5=Innocence, 2,4,6=Desire}
-Color 3: {1,3,5=Need, 2,4,6=Guilt}
-Color 4: {1,3,5=Truth, 2,4,6=Falsehood}
-Color 5: {1,3,5=Leader, 2,4,6=Follower}
-Color 6: {1,3,5=Individual, 2,4,6=Collective}
-```
+The Four Transformations + substructure are computed in
+`compute_variables()` (`OpenHumanDesignMCP/hd-mcp-server/src/cosmic_calculator.py`)
+and match **myBodyGraph exactly** for all 5 family members (80/80 fields).
+The correct derivation, verified against myBodyGraph's own app bundle:
 
-A 0.02° precision difference in the P-Sun longitude can shift Tone by 1,
-flipping the Motivation (e.g., Hope ↔ Fear). The matrix_mapper uses
-`WHEEL_ANCHOR = Decimal("302.000")` and `TONE_SIZE = Decimal("0.0260416666666667")`.
-A boundary-rounding error between Tropical/Sidereal conversion or between
-swisseph precision levels can produce the wrong Motivation.
+| Field | Source planet | Keyed on |
+|---|---|---|
+| Determination (Digestion) | Design Sun | color → family, **tone-band** (1-3/4-6) → L/R variant |
+| Environment | Design True (North) Node | color → family, tone-band → L/R variant |
+| Motivation | Personality Sun | color → family |
+| Perspective (View) | Personality True (North) Node | color → family |
+| Transference (not-self motivation) | Personality Sun | motivation +3 on the 6-cycle |
+| Distraction (not-self perspective) | Personality True Node | perspective +3 on the 6-cycle |
+| Cognition (strongest sense) | **Design Sun** | tone 1-6 |
+| Sense | **Personality Sun** | tone 1-6 |
+| Trajectory | Personality Sun | color → family, tone-band → L/R variant |
 
-**Protocol:**
-1. When presenting Variable data (Motivation, Cognition, etc.) to the user,
-   note that the engine output is computed but may differ from the reference
-   app or from the person's lived experience.
-2. If the user corrects the Motivation, accept their correction immediately.
-   The user knows their own internal experience.
-3. Do NOT argue with the user about Variable values. The engine is an
-   approximation; the reference app may use a different calculation school.
-4. Common disagreements: Motivation (Fear/Hope boundary), Cognition (Tone
-   sensitivity), Perspective (Node position precision).
+Family tables (color 1-6): Determination = Appetite/Taste/Thirst/Touch/Sound/Light;
+Environment = Caves/Markets/Kitchens/Mountains/Valleys/Shores; Motivation =
+Fear/Hope/Desire/Need/Guilt/Innocence; Perspective = Survival/Possibility/Power/
+Wanting/Probability/Personal; Cognition = Smell/Taste/Outer Vision/Inner Vision/
+Feeling/Touch; Sense = Security/Uncertainty/Action/Meditation/Judgment/Acceptance.
 
-**Reproduction case (Michael Gulden, May 30 2026):** Engine output `Motivation:
-Hope` (P-Sun Color 1 Tone 4). User corrected to `Fear` — likely Color 1 with
-Tone 3 or 5 (odd Tone on same Color). Difference is one tone level, ~0.026°.
+**Bug history (FIXED 2026-09-15, PR OpenHumanDesignMCP#11):** The original
+implementation had **five** distinct faults, all in `compute_variables()` /
+`_compute_trajectory()`:
+1. The four Transformation maps were keyed on `(color, tone)` with tone
+   *parity* (odd/even) as the L/R split, instead of **color → family,
+   tone-band (1-3/4-6) → variant**.
+2. The family tables were **scrambled** (Digestion Taste/Appetite swapped;
+   Environment had Shores twice and no Valleys; Motivation mixed in
+   Innocence/Truth/Leader; Perspective contained Transpersonal/Leading/Acceptance,
+   which are not part of the 6).
+3. **Cognition and Sense were computed from swapped planets** (was
+   Cognition←Personality Sun, Sense←Design Sun; correct is the reverse).
+4. **Trajectory was fabricated** — the old `_compute_trajectory()` combined the
+   two Node *colors* via min/max and emitted invented labels ("Personal Destiny /
+   Transpersonal Karma / Active Observation"). Correct: Personality Sun
+   color+tone-band (Communalist/Separatist, Theist/Anti-Theist, etc.).
+5. **Validation was circular** — the "reference" data the tests compared against
+   was generated by the same engine, so it validated the bug against itself.
 
-### 4. Variables Arrows Use TONE, Not Color
+Do NOT reintroduce the old framing below. The engine is **deterministic**, not
+"an approximation"; when a Variable value disagrees with the reference app, the
+engine is wrong until the derivation is traced (see §2 — independent reference).
 
-The Variable string (e.g., `PRR DLR`) is computed from planet **Tone**, not Color:
+### 4. Variables Arrows Use TONE-BAND (not tone parity, not color)
 
-- Top-Left (Digestion): **Design Sun Tone**
-- Bottom-Left (Environment): **Design North Node Tone**
-- Top-Right (Motivation): **Personality Sun Tone**
-- Bottom-Right (Perspective): **Personality North Node Tone**
+The Variable string (e.g., `PRR DLR`) is computed from each planet's **tone
+band**: Top-Left = Design Sun, Bottom-Left = Design North Node, Top-Right =
+Personality Sun, Bottom-Right = Personality North Node.
 
-Tone 1-3 = "L" (Left), Tone 4-6 = "R" (Right). Using Color produces wrong
-Variables even when gate/line/color/tone values match the reference app exactly.
-This was verified against Neutrino Design app planet-level exports for all 5
-family members.
+Tone 1-3 = "L" (Left), Tone 4-6 = "R" (Right). This part of the original
+implementation was correct and is preserved. (Earlier drafts of this note and
+of the code keyed the Four Transformation *labels* on tone parity — that was a
+bug, see §3 bug history.)
 
 Also: `collect_gates()` MUST copy `color`, `tone`, and `base` from
 `longitude_to_gate_line()` into planet dicts. Without these, `compute_variables()`
